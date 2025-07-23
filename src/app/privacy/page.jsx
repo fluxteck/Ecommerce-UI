@@ -33,9 +33,50 @@ export default function Privacy(){
                     <div className="md:w-3/4">
                         <div className="p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md">
                             <h5 className="text-xl font-semibold mb-4">Overview :</h5>
-                            <p className="text-slate-400">It seems that only fragments of the original text remain in the Lorem Ipsum texts used today. One may speculate that over the course of time certain letters were added or deleted at various positions within the text.</p>
-                            <p className="text-slate-400">In the 1960s, the text suddenly became known beyond the professional circle of typesetters and layout designers when it was used for Letraset sheets (adhesive letters on transparent film, popular until the 1980s) Versions of the text were subsequently included in DTP programmes such as PageMaker etc.</p>
-                            <p className="text-slate-400">There is now an abundance of readable dummy texts. These are usually used when a text is required purely to fill a space. These alternatives to the classic Lorem Ipsum texts are often amusing and tell short, funny or nonsensical stories.</p>
+                            <p className="text-slate-400">PRIVACY POLICY
+
+1. INTRODUCTION
+
+Welcome to our Privacy Policy. We are [Your Company Name], a leading leather goods and fashion brand based in India. We are committed to protecting the privacy and security of our customers and site visitors. The purpose of this Privacy Policy is to explain how we collect, use, share, and protect your personal information when you interact with us. This policy is in compliance with the Indian Information Technology Act, 2000, and the Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011.
+
+2. INFORMATION WE COLLECT
+
+We collect personal information that you provide to us such as name, address, contact information, passwords and security data, payment information, and social media data. We collect this information for purposes such as facilitating orders, providing customer service, managing your account, conducting research and analysis, and communicating about our products, services, and promotions.
+
+3. USE, STORAGE, AND SHARING OF INFORMATION
+
+We use your personal information to operate, manage, and maintain our business, to provide our products and services, and to accomplish our business purposes and objectives. We store your personal information in a secure manner and implement appropriate technical and organizational measures to protect it. We may share your personal information with third-party service providers to perform services on our behalf.
+
+4. THIRD-PARTY SERVICE PROVIDERS
+
+Leathexa may engage third-party service providers to assist us in operating our website, conducting our business, and providing you with the services you request. These service providers may have access to your personal information and may use it on our behalf to provide services to us. We require these third-party service providers to adhere to strict confidentiality obligations and to comply with applicable data protection laws 
+Payment processors: To process your payments for purchases made on our website.
+Shipping carriers: To deliver your orders.
+Marketing and analytics providers: To help us analyze website traffic, improve our marketing efforts, and personalize your experience.
+Customer support providers: To assist you with any questions or issues you may have.
+Cloud service providers: To store and process your data.
+
+
+5. OPT-OUT OR DATA SUBJECT RIGHTS
+
+You have the right to access, correct, update, or request deletion of your personal information at any time. You also have the right to opt-out of marketing communications we send you at any time.
+
+6. DATA RETENTION AND SECURITY MEASURES
+
+We retain your personal information for as long as necessary to fulfill the purposes for which we collected it. We have implemented appropriate technical and organizational security measures designed to protect the security of any personal information we process.
+
+7. APPLICABLE LAWS AND REGULATIONS
+
+This Privacy Policy is in compliance with the Indian Information Technology Act, 2000, and the Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011.
+
+By using our website, you consent to the terms of this Privacy Policy. We may change our Privacy Policy from time to time. We will post any privacy policy changes on this page and, if the changes are significant, we will provide a more prominent notice.
+
+If you have any questions about this Privacy Policy, please contact us at [Your Company Email Address].
+
+.</p>
+
+
+<h1>Delafut template para start</h1>
                         
                             <h5 className="text-xl font-semibold mb-4 mt-8">We use your information to :</h5>
                             <ul className="list-none text-slate-400 mt-4">

@@ -29,7 +29,7 @@ export default function CtaOne(){
                 <div className="relative overflow-hidden py-24 px-4 md:px-10 bg-orange-600 bg-center bg-no-repeat bg-cover" style={{backgroundImage:"url('/images/hero/bg3.png')"}}>
                     <div className="absolute inset-0 bg-center bg-no-repeat bg-cover" style={{backgroundImage:`url('/images/hero/bg-shape.png')`}}></div>
                     <div className="grid grid-cols-1 justify-center text-center relative z-1">
-                        <h3 className="text-4xl leading-normal tracking-wide font-bold text-white">End of Season Clearance <br/> Sale upto 30%</h3>
+                        <h3 className="text-4xl leading-normal tracking-wide font-bold text-white">Big Winter Season Sale<br/> Sale upto 30%</h3>
                         <div id="countdown" className="mt-6">
                             <ul className="count-down list-none inline-block">
                                 <li id="days" className="mx-1 text-[28px] leading-[72px] h-[80px] w-[80px] font-medium rounded-md shadow shadow-gray-100 inline-block text-center text-white">{days}<p className='count-head'>Days</p></li>

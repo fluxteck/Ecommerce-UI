@@ -14,13 +14,13 @@ export default function ProductAboutTab(){
                 <div className="sticky top-20">
                     <ul className="flex-column p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
                         <li className="ms-0">
-                            <button className={`px-4 py-2 text-start text-base font-semibold rounded-md w-full hover:text-orange-500 duration-500 ${activeTab === 1 ? 'text-white bg-orange-500 hover:text-white' :''}`} onClick={()=>setActiveTab(1)}>Description</button>
+                            <button className={`px-4 py-2 text-start text-base font-semibold rounded-md w-full  duration-500 ${activeTab === 1 ? 'text-white bg-black hover:text-white' :'hover:text-black'}`} onClick={()=>setActiveTab(1)}>Description</button>
                         </li>
                         <li className="ms-0">
-                            <button className={`px-4 py-2 text-start text-base font-semibold rounded-md w-full hover:text-orange-500 duration-500 ${activeTab === 2 ? 'text-white bg-orange-500 hover:text-white' :''}`} onClick={()=>setActiveTab(2)}>Additional Information</button>
+                            <button className={`px-4 py-2 text-start text-base font-semibold rounded-md w-full  duration-500 ${activeTab === 2 ? 'text-white bg-black hover:text-white' :'hover:text-black'}`} onClick={()=>setActiveTab(2)}>Additional Information</button>
                         </li>
                         <li className="ms-0">
-                            <button className={`px-4 py-2 text-start text-base font-semibold rounded-md w-full hover:text-orange-500 duration-500 ${activeTab === 3 ? 'text-white bg-orange-500 hover:text-white' :''}`} onClick={()=>setActiveTab(3)}>Review</button>
+                            <button className={`px-4 py-2 text-start text-base font-semibold rounded-md w-full  duration-500 ${activeTab === 3 ? 'text-white bg-black hover:text-white' :'hover:text-black'}`} onClick={()=>setActiveTab(3)}>Review</button>
                         </li>
                     </ul>
                 </div>
@@ -65,12 +65,12 @@ export default function ProductAboutTab(){
                                                 <Image src={item.image} width={45} height={45} className="h-11 w-11 rounded-full shadow" alt=""/>
 
                                                 <div className="ms-3 flex-1">
-                                                    <Link href="" className="text-lg font-semibold hover:text-orange-500 duration-500">{item.name}</Link>
+                                                    <Link href="" className="text-lg font-semibold hover:text-black duration-500">{item.name}</Link>
                                                     <p className="text-sm text-slate-400">{item.time}</p>
                                                 </div>
                                             </div>
 
-                                            <Link href="" className="text-slate-400 hover:text-orange-500 duration-500 ms-5"><i className="mdi mdi-reply"></i> Reply</Link>
+                                            <Link href="" className="text-slate-400 hover:text-black duration-500 ms-5"><i className="mdi mdi-reply"></i> Reply</Link>
                                         </div>
                                         <div className="p-4 bg-gray-50 dark:bg-slate-800 rounded-md shadow dark:shadow-gray-800 mt-6">
                                             <ul className="list-none inline-block text-orange-400">
@@ -125,7 +125,7 @@ export default function ProductAboutTab(){
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" id="submit" name="send" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-orange-500 text-white rounded-md w-full">Send Message</button>
+                                    <button type="submit" id="submit" name="send" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-black text-white rounded-md w-full">Send Message</button>
                                 </form>
                             </div>
                         </div>

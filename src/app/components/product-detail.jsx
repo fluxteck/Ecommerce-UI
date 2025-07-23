@@ -34,9 +34,9 @@ export default function ProductDetail(){
                 <p className="text-slate-400 mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero exercitationem, unde molestiae sint quae inventore atque minima natus fugiat nihil quisquam voluptates ea omnis. Modi laborum soluta tempore unde accusantium.</p>
             
                 <ul className="list-none text-slate-400 mt-4">
-                    <li className="mb-1 flex ms-0"><i className="mdi mdi-check-circle-outline text-orange-500 text-xl me-2"></i> Digital Marketing Solutions for Tomorrow</li>
-                    <li className="mb-1 flex ms-0"><i className="mdi mdi-check-circle-outline text-orange-500 text-xl me-2"></i> Our Talented & Experienced Marketing Agency</li>
-                    <li className="mb-1 flex ms-0"><i className="mdi mdi-check-circle-outline text-orange-500 text-xl me-2"></i> Create your own skin to match your brand</li>
+                    <li className="mb-1 flex ms-0"><i className="mdi mdi-check-circle-outline text-black text-xl me-2"></i> Digital Marketing Solutions for Tomorrow</li>
+                    <li className="mb-1 flex ms-0"><i className="mdi mdi-check-circle-outline text-black text-xl me-2"></i> Our Talented & Experienced Marketing Agency</li>
+                    <li className="mb-1 flex ms-0"><i className="mdi mdi-check-circle-outline text-black text-xl me-2"></i> Create your own skin to match your brand</li>
                 </ul>
             </div>
 
@@ -44,19 +44,19 @@ export default function ProductDetail(){
                 <div className="flex items-center">
                     <h5 className="text-lg font-semibold me-2">Size:</h5>
                     <div className="space-x-1">
-                        <Link href="" className="size-9 inline-flex items-center justify-center tracking-wide align-middle text-base text-center rounded-md bg-orange-500/5 hover:bg-orange-500 text-orange-500 hover:text-white">S</Link>
-                        <Link href="" className="size-9 inline-flex items-center justify-center tracking-wide align-middle text-base text-center rounded-md bg-orange-500/5 hover:bg-orange-500 text-orange-500 hover:text-white">M</Link>
-                        <Link href="" className="size-9 inline-flex items-center justify-center tracking-wide align-middle text-base text-center rounded-md bg-orange-500/5 hover:bg-orange-500 text-orange-500 hover:text-white">L</Link>
-                        <Link href="" className="size-9 inline-flex items-center justify-center tracking-wide align-middle text-base text-center rounded-md bg-orange-500/5 hover:bg-orange-500 text-orange-500 hover:text-white">XL</Link>
+                        <Link href="" className="size-9 inline-flex items-center justify-center tracking-wide align-middle text-base text-center rounded-md bg-black/5 hover:bg-black text-black hover:text-white">S</Link>
+                        <Link href="" className="size-9 inline-flex items-center justify-center tracking-wide align-middle text-base text-center rounded-md bg-black/5 hover:bg-black text-black hover:text-white">M</Link>
+                        <Link href="" className="size-9 inline-flex items-center justify-center tracking-wide align-middle text-base text-center rounded-md bg-black/5 hover:bg-black text-black hover:text-white">L</Link>
+                        <Link href="" className="size-9 inline-flex items-center justify-center tracking-wide align-middle text-base text-center rounded-md bg-black/5 hover:bg-black text-black hover:text-white">XL</Link>
                     </div>
                 </div>
 
                 <div className="flex items-center">
                     <h5 className="text-lg font-semibold me-2">Quantity:</h5>
                     <div className="qty-icons ms-3 space-x-0.5">
-                        <button onClick={()=>decrements()} className="size-9 inline-flex items-center justify-center tracking-wide align-middle text-base text-center rounded-md bg-orange-500/5 hover:bg-orange-500 text-orange-500 hover:text-white minus">-</button>
-                        <input min="0" name="quantity" value={count} onChange={()=>{}} type="number" className="h-9 inline-flex items-center justify-center tracking-wide align-middle text-base text-center rounded-md bg-orange-500/5 hover:bg-orange-500 text-orange-500 hover:text-white pointer-events-none w-16 ps-4 quantity"/>
-                        <button onClick={()=>increments()} className="size-9 inline-flex items-center justify-center tracking-wide align-middle text-base text-center rounded-md bg-orange-500/5 hover:bg-orange-500 text-orange-500 hover:text-white plus">+</button>
+                        <button onClick={()=>decrements()} className="size-9 inline-flex items-center justify-center tracking-wide align-middle text-base text-center rounded-md bg-black/5 hover:bg-black text-black hover:text-white minus">-</button>
+                        <input min="0" name="quantity" value={count} onChange={()=>{}} type="number" className="h-9 inline-flex items-center justify-center tracking-wide align-middle text-base text-center rounded-md bg-black/5 hover:bg-black text-black hover:text-white pointer-events-none w-16 ps-4 quantity"/>
+                        <button onClick={()=>increments()} className="size-9 inline-flex items-center justify-center tracking-wide align-middle text-base text-center rounded-md bg-black/5 hover:bg-black text-black hover:text-white plus">+</button>
                     </div>
                 </div>
 
@@ -72,8 +72,8 @@ export default function ProductDetail(){
             </div>
 
             <div className="mt-4 space-x-1">
-                <Link href="" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center bg-orange-500 text-white rounded-md mt-2">Shop Now</Link>
-                <Link href="" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center rounded-md bg-orange-500/5 hover:bg-orange-500 text-orange-500 hover:text-white mt-2">Add to Cart</Link>
+                <Link href="" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center bg-black text-white rounded-md mt-2">Shop Now</Link>
+                <Link href="" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center rounded-md bg-black/5 hover:bg-black text-black hover:text-white mt-2">Add to Cart</Link>
             </div>
         </div>
     )

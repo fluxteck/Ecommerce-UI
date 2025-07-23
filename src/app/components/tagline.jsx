@@ -6,7 +6,7 @@ export default function Tagline(){
             <div className="container relative">                
                 <div className="grid grid-cols-1">
                     <div className="text-center">
-                        <h6 className="text-white font-medium">Refer a friend & get $50 in credits each 🎉</h6>
+                        <h6 className="text-white font-medium">Get upto 30% off 🎉</h6>
                     </div>
                 </div>
             </div>

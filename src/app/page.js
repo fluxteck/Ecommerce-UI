@@ -22,8 +22,8 @@ export default function Home() {
                     <div className="grid grid-cols-1 justify-center">
                         <div className="text-center">
                             <span className="uppercase font-semibold text-lg">New Collection</span>
-                            <h4 className="md:text-6xl text-4xl md:leading-normal leading-normal font-bold my-3">The Gift Suite</h4>
-                            <p className="text-lg">Our latest collection of essential basics.</p>
+                            <h4 className="md:text-6xl text-4xl md:leading-normal leading-normal font-bold my-3"> Leather Jackets</h4>
+                            <p className="text-lg">Explore the latest </p>
 
                             <div className="mt-6">
                                 <Link href="#" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-center bg-slate-900 dark:bg-orange-500 text-white rounded-md">Shop Now <i className="mdi mdi-arrow-right"></i></Link>
@@ -36,8 +36,8 @@ export default function Home() {
             <section className="relative md:py-24 py-16">
                 <div className="container relative">
                     <div className="grid grid-cols-1 justify-center text-center mb-6">
-                        <h5 className="font-semibold text-3xl leading-normal mb-4">Shop The Collections</h5>
-                        <p className="text-slate-400 max-w-xl mx-auto">Shop the latest products from the most popular collections</p>
+                        <h5 className="font-semibold text-3xl leading-normal mb-4">Shop by Collections</h5>
+                        {/* <p className="text-slate-400 max-w-xl mx-auto">Explore the genuine leather categories</p> */}
                     </div>
 
                     <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-2 pt-6 gap-6">
@@ -54,8 +54,8 @@ export default function Home() {
 
                 <div className="container relative md:mt-24 mt-16">
                     <div className="grid grid-cols-1 justify-center text-center mb-6">
-                        <h5 className="font-semibold text-3xl leading-normal mb-4">New Arrival Products</h5>
-                        <p className="text-slate-400 max-w-xl mx-auto">Shop the latest products from the most popular collections</p>
+                        <h5 className="font-semibold text-3xl leading-normal mb-4">New Arrival</h5>
+                        {/* <p className="text-slate-400 max-w-xl mx-auto">Shop the latest products from the most popular collections</p> */}
                     </div>
 
                     <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 pt-6 gap-6">
@@ -114,7 +114,7 @@ export default function Home() {
                     <div className="grid items-end md:grid-cols-2 mb-6">
                         <div className="md:text-start text-center">
                             <h5 className="font-semibold text-3xl leading-normal mb-4">Popular Items</h5>
-                            <p className="text-slate-400 max-w-xl">Popular items in this week</p>
+                            {/* <p className="text-slate-400 max-w-xl">Popular items in this week</p> */}
                         </div>
 
                         <div className="md:text-end hidden md:block">

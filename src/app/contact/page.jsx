@@ -24,6 +24,7 @@ export default function Contact(){
             </div>
         </div>
         <section className="relative lg:py-24 py-16">
+            
             <div className="container">
                 <div className="grid md:grid-cols-12 grid-cols-1 items-center gap-6">
                     <div className="lg:col-span-7 md:col-span-6">
@@ -57,7 +58,7 @@ export default function Contact(){
                                             <textarea name="comments" id="comments" className="mt-2 w-full py-2 px-3 h-28 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0" placeholder="Message :"></textarea>
                                         </div>
                                     </div>
-                                    <button type="submit" id="submit" name="send" className="py-2 px-5 inline-block tracking-wide align-middle duration-500 text-base text-center bg-orange-500 text-white rounded-md mt-2">Send Message</button>
+                                    <button type="submit" id="submit" name="send" className="py-2 px-5 inline-block tracking-wide align-middle duration-500 text-base text-center bg-black text-white rounded-md mt-2">Send Message</button>
                                 </form>
                             </div>
                         </div>
@@ -69,34 +70,34 @@ export default function Contact(){
                 <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6">
                     <div className="text-center px-6">
                         <div className="relative text-transparent">
-                            <div className="size-20 bg-orange-500/5 text-orange-500 rounded-xl text-2xl flex align-middle justify-center items-center mx-auto shadow-sm dark:shadow-gray-800">
+                            <div className="size-20 bg-black/5 text-black rounded-xl text-2xl flex align-middle justify-center items-center mx-auto shadow-sm dark:shadow-gray-800">
                                 <FiPhone/>
                             </div>
                         </div>
 
                         <div className="content mt-7">
                             <h5 className="title h5 text-lg font-semibold">Phone</h5>
-                            <p className="text-slate-400 mt-3">The phrasal sequence of the is now so that many campaign and benefit</p>
+                            {/* <p className="text-slate-400 mt-3">The phrasal sequence of the is now so that many campaign and benefit</p> */}
                             
                             <div className="mt-5">
-                                <Link href="tel:+152534-468-854" className="text-orange-500 font-medium">+152 534-468-854</Link>
+                                <Link href="tel:+152534-468-854" className="text-black font-medium">+91 82850 22383</Link>
                             </div>
                         </div>
                     </div>
 
                     <div className="text-center px-6">
                         <div className="relative text-transparent">
-                            <div className="size-20 bg-orange-500/5 text-orange-500 rounded-xl text-2xl flex align-middle justify-center items-center mx-auto shadow-sm dark:shadow-gray-800">
+                            <div className="size-20 bg-orange-500/5 text-black rounded-xl text-2xl flex align-middle justify-center items-center mx-auto shadow-sm dark:shadow-gray-800">
                                 <FiMail/>
                             </div>
                         </div>
-
+  
                         <div className="content mt-7">
                             <h5 className="title h5 text-lg font-semibold">Email</h5>
-                            <p className="text-slate-400 mt-3">The phrasal sequence of the is now so that many campaign and benefit</p>
+                            {/* <p className="text-slate-400 mt-3">The phrasal sequence of the is now so that many campaign and benefit</p> */}
                             
                             <div className="mt-5">
-                                <Link href="mailto:contact@example.com" className="text-orange-500 font-medium">contact@example.com</Link>
+                                <Link href="mailto:contact@example.com" className="text-black font-medium">contact@example.com</Link>
                             </div>
                         </div>
                     </div>
@@ -110,9 +111,9 @@ export default function Contact(){
 
                         <div className="content mt-7">
                             <h5 className="title h5 text-lg font-semibold">Location</h5>
-                            <p className="text-slate-400 mt-3">C/54 Northwest Freeway, Suite 558, <br/> Houston, USA 485</p>
+                            <p className="text-black mt-3 font-medium">Okhla, New Delhi, India</p>
                             
-                           <ContactModal/>
+                           {/* <ContactModal/> */}
                         </div>
                     </div>
                 </div>

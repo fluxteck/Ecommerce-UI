@@ -25,17 +25,17 @@ export default function About(){
                             <FiPhone className="w-6 h-6 me-4"></FiPhone>
                             <div className="">
                                 <h5 className="title font-bold mb-0">Phone</h5>
-                                <Link href="tel:+152534-468-854" className="tracking-wide text-orange-500">+152 534-468-854</Link>
+                                <Link href="tel:+152534-468-854" className="tracking-wide text-black">+91 82850 22383</Link>
                             </div>
                         </div>
                         
-                        <div className="flex items-center mt-6">
+                        {/* <div className="flex items-center mt-6">
                             <FiMapPin className="w-6 h-6 me-4"></FiMapPin>
                             <div className="">
                                 <h5 className="title font-bold mb-0">Location</h5>
                                 <Link href="#" scroll={false} onClick={()=>setModal(true)} className="text-orange-500" >View on Google map</Link>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
