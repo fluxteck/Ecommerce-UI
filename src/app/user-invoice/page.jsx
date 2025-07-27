@@ -21,14 +21,14 @@ export default function UserInvoice(){
                         <div className="p-6 rounded-md shadow dark:shadow-gray-800 bg-white dark:bg-slate-900">
                             <div className="border-b border-gray-100 dark:border-gray-700 pb-6">
                                 <div className="md:flex justify-between">
-                                    <div>
+                                    {/* <div>
                                         <Image src='/images/logo-dark.png' width={114} height={22} className="block dark:hidden" alt=""/>
                                         <Image src='/images/logo-light.png' width={114} height={22} className="hidden dark:block" alt=""/>
                                         <div className="flex mt-4">
                                             <FiLink className="h-4 w-4 me-3 mt-1"></FiLink>
                                             <Link href="https://1.envato.market/cartzio-next" target="_blank" className="text-orange-500 dark:text-white font-medium">https://1.envato.market/cartzio-next</Link>
                                         </div>
-                                    </div>
+                                    </div> */}
 
                                     <div className="mt-6 md:mt-0 md:w-56">
                                         <h5 className="text-lg font-semibold">Address:</h5>

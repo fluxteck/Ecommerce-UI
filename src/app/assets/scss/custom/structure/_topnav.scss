@@ -25,14 +25,14 @@
           li{
             &.active {
               > a {
-                @apply text-orange-500 dark:text-orange-500 #{!important};
+                @apply text-red-500 dark:text-red-500 #{!important};
               }
             }
           }
         }
         &.active {
           .menu-arrow {
-            @apply border-t-transparent border-e-orange-500 border-b-orange-500 border-s-transparent #{!important};
+            @apply border-t-transparent border-e-red-500 border-b-red-500 border-s-transparent #{!important};
           }
         }
       }
@@ -44,17 +44,17 @@
           &:hover,
           &.active {
             > .submenu-arrow {
-              @apply border-t-transparent border-e-orange-500 border-b-orange-500 border-s-transparent;
+              @apply border-t-transparent border-e-red-500 border-b-red-500 border-s-transparent;
             }
           }
           .submenu {
             .has-submenu{
               &:hover {
                 .submenu-arrow {
-                  @apply border-t-transparent border-e-orange-500 border-b-orange-500 border-s-transparent;
+                  @apply border-t-transparent border-e-red-500 border-b-red-500 border-s-transparent;
                 }
                 > .submenu-arrow {
-                  @apply border-t-transparent border-e-orange-500 border-b-orange-500 border-s-transparent;
+                  @apply border-t-transparent border-e-red-500 border-b-red-500 border-s-transparent;
                 }
               }
             }
@@ -87,7 +87,7 @@
             @apply w-full top-[6px] -rotate-45;
           }
           &:hover {
-            @apply bg-orange-500;
+            @apply bg-red-500;
           }
         }
       }
@@ -146,13 +146,13 @@
           @apply block text-black dark:text-white text-base bg-transparent font-medium tracking-[1px] leading-6 font-dm_sans px-[15px];
           &:hover, 
           &:active {
-            @apply text-orange-500;
+            @apply text-red-500;
           }
         }
         &:hover, 
         &.active{
           > a {
-            @apply text-orange-500 dark:text-orange-500 #{!important};
+            @apply text-red-500 dark:text-red-500 #{!important};
           }
         }
         .submenu.megamenu {
@@ -190,10 +190,10 @@
           &:hover, 
           &.active{
             > a {
-              @apply text-orange-500;
+              @apply text-red-500;
             }
             > .menu-arrow {
-              @apply border-t-transparent border-e-orange-500 border-b-orange-500 border-s-transparent #{!important};
+              @apply border-t-transparent border-e-red-500 border-b-red-500 border-s-transparent #{!important};
             }
           }
         }
@@ -221,20 +221,20 @@
             }
             &.active {
               > a {
-                @apply text-orange-500 dark:text-orange-500 #{!important};
+                @apply text-red-500 dark:text-red-500 #{!important};
               }
             }
             &:hover, 
             &.active{
               > .menu-arrow {
-                @apply border-t-transparent border-e-orange-500 dark:border-e-orange-500 border-b-orange-500 dark:border-b-orange-500 border-s-transparent #{!important};
+                @apply border-t-transparent border-e-red-500 dark:border-e-red-500 border-b-red-500 dark:border-b-red-500 border-s-transparent #{!important};
               }
             }
             
             &:hover, 
             &.active {
               > a {
-                @apply text-orange-500 dark:text-orange-500 #{!important};
+                @apply text-red-500 dark:text-red-500 #{!important};
               }
             }
           }
@@ -346,7 +346,7 @@
               transition: all 0.3s;
               @apply block py-[10px] px-5 clear-both whitespace-nowrap text-[14px] tracking-[0.04em] font-normal text-black dark:text-white leading-[17px];
               &:hover {
-                @apply text-orange-500 dark:text-orange-500 #{!important};
+                @apply text-red-500 dark:text-red-500 #{!important};
               }
             }
             ul {
@@ -373,13 +373,13 @@
         }
         &:hover {
           > .menu-arrow {
-            @apply border-t-transparent border-e-orange-500 border-b-orange-500 border-s-transparent #{!important};
+            @apply border-t-transparent border-e-red-500 border-b-red-500 border-s-transparent #{!important};
           }
         }
         &:hover, 
         &.active{
           > a {
-            @apply text-orange-500 dark:text-orange-500 #{!important};
+            @apply text-red-500 dark:text-red-500 #{!important};
           }
         }
         &.last-elements{
@@ -527,7 +527,7 @@
         > a:hover,
         .submenu li a:hover,
         &.has-submenu.open > a {
-          @apply text-orange-500;
+          @apply text-red-500;
         }
       }
     }
@@ -566,7 +566,7 @@
       }
       &.active {
         a {
-          @apply text-orange-500;
+          @apply text-red-500;
         }
       }
     }
@@ -668,26 +668,26 @@
               @apply text-lg me-[6px];
             }
             &.active{
-              @apply text-orange-500;
+              @apply text-red-500;
             }
           }
           &:hover,
           &.active {
             .navbar-link {
-              @apply text-orange-500;
+              @apply text-red-500;
             }
           }
     }
     li{
       &.active {
         a {
-          @apply text-orange-500;
+          @apply text-red-500;
         }
       }
       &.account-menu.active,
       &.account-menu:hover{
         .navbar-link {
-          @apply text-orange-500 dark:text-white #{!important};
+          @apply text-red-500 dark:text-white #{!important};
         }
       }
     }

@@ -198,18 +198,18 @@ export default function Navbar({navClass, navlight}){
                                     <li className='ms-0'>
                                         <p className="text-slate-400 pt-2 px-4">Welcome Jesus!</p>
                                     </li>
-                                    <li className='ms-0'>
+                                    {/* <li className='ms-0'>
                                         <p className="flex items-center font-medium py-2 px-4"><FiDollarSign className="h-4 w-4 me-2"></FiDollarSign> Balance: <span className="text-orange-500 ms-2">$ 245.10</span></p>
-                                    </li>
+                                    </li> */}
                                     <li className='ms-0'>
                                         <Link href="/user-account" className="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-orange-500 dark:hover:text-white"><FiUser className="h-4 w-4 me-2"></FiUser>Account</Link>
                                     </li>
-                                    <li className='ms-0'>
+                                    {/* <li className='ms-0'>
                                         <Link href="/helpcenter" className="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-orange-500 dark:hover:text-white"><FiHelpCircle className="h-4 w-4 me-2"></FiHelpCircle>Helpcenter</Link>
-                                    </li>
-                                    <li className='ms-0'>
+                                    </li> */}
+                                    {/* <li className='ms-0'>
                                         <Link href="/user-setting" className="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-orange-500 dark:hover:text-white"><FiSettings className="h-4 w-4 me-2"></FiSettings>Settings</Link>
-                                    </li>
+                                    </li> */}
                                     <li className="border-t border-gray-100 dark:border-gray-800 my-2"></li>
                                     <li className='ms-0'>
                                         <Link href="/login" className="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-orange-500 dark:hover:text-white"><FiLogOut className="h-4 w-4 me-2"></FiLogOut>Logout</Link>
@@ -222,16 +222,16 @@ export default function Navbar({navClass, navlight}){
 
                 <div id="navigation" style={{display: isToggle === true ? 'block' : 'none'}}>
                     <ul className={`navigation-menu ${navlight === true ? 'nav-light' : ''}`}>
-                        <li className={`has-submenu parent-menu-item ${['/', '/index-fashion-two', '/index-fashion-three','/index-fashion-four','/index-item'].includes(manu) ? 'active' : ''}`}>
+                        {/* <li className={`has-submenu parent-menu-item ${['/', '/index-fashion-two', '/index-fashion-three','/index-fashion-four','/index-item'].includes(manu) ? 'active' : ''}`}>
                             <Link href="#" onClick={()=>setSubManu(setManu === '/index-item' ? '' : '/index-item' )}>Mens</Link><span className="menu-arrow"></span>
                             <ul className={`submenu ${['/', '/index-fashion-two', '/index-fashion-three','/index-fashion-four','/index-item'].includes(subManu) ? 'open' : ''}`}>
                                 <li className={`ms-0 ${manu === '/' ? 'active' : ''}`}><Link href="/" className="sub-menu-item">Leather Jackets</Link></li>
                                 <li className={`ms-0 ${manu === '/index-fashion-two' ? 'active' : ''}`}><Link href="/index-fashion-two" className="sub-menu-item">Shoes</Link></li>
                                 <li className={`ms-0 ${manu === '/index-fashion-three' ? 'active' : ''}`}><Link href="/index-fashion-three" className="sub-menu-item">Wallet</Link></li>
                             </ul>
-                        </li>
+                        </li> */}
 
-                        <li className={`has-submenu parent-parent-menu-item ${['/product-item'].includes(manu) ? 'active' : ''}`}>
+                        {/* <li className={`has-submenu parent-parent-menu-item ${['/product-item'].includes(manu) ? 'active' : ''}`}>
                             <Link href="#" onClick={()=>setSubManu(setManu === '/product-item' ? '' : '/product-item' )}>Womens</Link><span className="menu-arrow"></span>
                             <ul className={`submenu ${['/', '/index-fashion-two', '/index-fashion-three','/index-fashion-four','/index-item'].includes(subManu) ? 'open' : ''}`}>
                                 <li className={`ms-0 ${manu === '/' ? 'active' : ''}`}><Link href="/" className="sub-menu-item">Leather Jackets</Link></li>
@@ -239,20 +239,21 @@ export default function Navbar({navClass, navlight}){
                                 <li className={`ms-0 ${manu === '/index-fashion-three' ? 'active' : ''}`}><Link href="/index-fashion-three" className="sub-menu-item">Wallet</Link></li>
                             </ul>
                           
-                        </li>
+                        </li> */}
 
-                        <li className={`has-submenu parent-parent-menu-item ${['/product-item'].includes(manu) ? 'active' : ''}`}>
+                        {/* <li className={`has-submenu parent-parent-menu-item ${['/product-item'].includes(manu) ? 'active' : ''}`}>
                             <Link href="#" onClick={()=>setSubManu(setManu === '/product-item' ? '' : '/product-item' )}>Bags</Link><span className="menu-arrow"></span>
                             <ul className={`submenu ${['/', '/index-fashion-two', '/index-fashion-three','/index-fashion-four','/index-item'].includes(subManu) ? 'open' : ''}`}>
                                 <li className={`ms-0 ${manu === '/' ? 'active' : ''}`}><Link href="/" className="sub-menu-item">Womens Bags</Link></li>
                                 <li className={`ms-0 ${manu === '/index-fashion-two' ? 'active' : ''}`}><Link href="/index-fashion-two" className="sub-menu-item">Backpack</Link></li>
                             </ul>
                           
-                        </li>
+                        </li> */}
                 
-                        <li className={`${manu === '/sale' ? 'active' : ''}`}><Link href="/sale" className="sub-menu-item">Sale</Link></li>
+                        <li className={`${manu === '/products' ? 'active' : ''}`}><Link href="/products" className="sub-menu-item">Shop</Link></li>
 
-                        <li className={`${manu === '/contact' ? 'active' : ''}`}><Link href="/contact" className="sub-menu-item">About Us</Link></li>
+                        {/* <li className={`${manu === '/contact' ? 'active' : ''}`}><Link href="/contact" className="sub-menu-item">Business</Link></li> */}
+                        <li className={`${manu === '/aboutus' ? 'active' : ''}`}><Link href="/aboutus" className="sub-menu-item">About Us</Link></li>
                         <li className={`${manu === '/contact' ? 'active' : ''}`}><Link href="/contact" className="sub-menu-item">Contact</Link></li>
 
                     </ul>

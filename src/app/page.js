@@ -23,7 +23,7 @@ export default function Home() {
                         <div className="text-center">
                             <span className="uppercase font-semibold text-lg">New Collection</span>
                             <h4 className="md:text-6xl text-4xl md:leading-normal leading-normal font-bold my-3"> Leather Jackets</h4>
-                            <p className="text-lg">Explore the latest </p>
+                            <p className="text-lg">Explore Men's Jackets </p>
 
                             <div className="mt-6">
                                 <Link href="#" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-center bg-slate-900 dark:bg-orange-500 text-white rounded-md">Shop Now <i className="mdi mdi-arrow-right"></i></Link>
@@ -33,11 +33,10 @@ export default function Home() {
                 </div>
             </section>
 
-            <section className="relative md:py-24 py-16">
-                <div className="container relative">
+            <section className="relative md:pb-24 pb-16">
+                {/* <div className="container relative">
                     <div className="grid grid-cols-1 justify-center text-center mb-6">
                         <h5 className="font-semibold text-3xl leading-normal mb-4">Shop by Collections</h5>
-                        {/* <p className="text-slate-400 max-w-xl mx-auto">Explore the genuine leather categories</p> */}
                     </div>
 
                     <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-2 pt-6 gap-6">
@@ -50,15 +49,15 @@ export default function Home() {
                             )
                         })}
                     </div>
-                </div>
+                </div> */}
 
                 <div className="container relative md:mt-24 mt-16">
                     <div className="grid grid-cols-1 justify-center text-center mb-6">
-                        <h5 className="font-semibold text-3xl leading-normal mb-4">New Arrival</h5>
+                        <h5 className="font-semibold text-3xl leading-normal mb-4">Premium Men’s Leather Jacket</h5>
                         {/* <p className="text-slate-400 max-w-xl mx-auto">Shop the latest products from the most popular collections</p> */}
                     </div>
 
-                    <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 pt-6 gap-6">
+                    <div className="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 pt-6 gap-6">
                         {newProduct.slice(0, 12).map((item, index) => {
                             return (
                                 <div className="group" key={index}>
@@ -110,11 +109,11 @@ export default function Home() {
 
                 <CtaOne />
 
-                <div className="container relative md:mt-24 mt-16">
+                {/* <div className="container relative md:mt-24 mt-16">
                     <div className="grid items-end md:grid-cols-2 mb-6">
                         <div className="md:text-start text-center">
                             <h5 className="font-semibold text-3xl leading-normal mb-4">Popular Items</h5>
-                            {/* <p className="text-slate-400 max-w-xl">Popular items in this week</p> */}
+                            <p className="text-slate-400 max-w-xl">Popular items in this week</p>
                         </div>
 
                         <div className="md:text-end hidden md:block">
@@ -168,7 +167,7 @@ export default function Home() {
                             <Link href="/shop-grid" className="text-slate-400 hover:text-orange-500">See More Items <i className="mdi mdi-arrow-right"></i></Link>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </section>
             <Footer />
             <Switcher />
