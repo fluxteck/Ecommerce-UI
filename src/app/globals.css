@@ -3,3 +3,10 @@
 @tailwind utilities;
 
 
+.text-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    /* max lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

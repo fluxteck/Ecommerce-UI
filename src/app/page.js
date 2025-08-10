@@ -17,16 +17,16 @@ export default function Home() {
         <>
             <Tagline />
             <Navbar navClass="defaultscroll is-sticky tagline-height" />
-            <section className="relative md:flex table w-full items-center md:h-screen py-36 bg-emerald-500/5 md:bg-top bg-center bg-no-repeat bg-cover" style={{ backgroundImage: "url('/images/hero/bg3.png')" }}>
+            <section className="relative md:flex table w-full items-center py-2 md:py-36 md:bg-top mt-5 bg-center bg-no-repeat md:bg-cover bg-contain" style={{ backgroundImage: "url('https://yxdyohefwpubwydtctbs.supabase.co/storage/v1/object/public/products/Home%20Page/Main%20Banner.png')" }}>
                 <div className="container relative">
                     <div className="grid grid-cols-1 justify-center">
                         <div className="text-center">
-                            <span className="uppercase font-semibold text-lg">New Collection</span>
+                            <span className="uppercase font-semibold text-lg">Style that never fades</span>
                             <h4 className="md:text-6xl text-4xl md:leading-normal leading-normal font-bold my-3"> Leather Jackets</h4>
-                            <p className="text-lg">Explore Men's Jackets </p>
+                            {/* <p className="text-lg">Style that never fades </p> */}
 
                             <div className="mt-6">
-                                <Link href="#" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-center bg-slate-900 dark:bg-orange-500 text-white rounded-md">Shop Now <i className="mdi mdi-arrow-right"></i></Link>
+                                <Link href="/products/clothing" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-center bg-slate-900 dark:bg-orange-500 text-white rounded-md">Shop Now <i className="mdi mdi-arrow-right"></i></Link>
                             </div>
                         </div>
                     </div>
@@ -57,24 +57,24 @@ export default function Home() {
                         {/* <p className="text-slate-400 max-w-xl mx-auto">Shop the latest products from the most popular collections</p> */}
                     </div>
 
-                    <div className="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 pt-6 gap-6">
+                    <div className="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-2 pt-6 gap-3">
                         {newProduct.slice(0, 12).map((item, index) => {
                             return (
-                                <div className="group" key={index}>
-                                    <div className="relative overflow-hidden shadow dark:shadow-gray-800 group-hover:shadow-lg group-hover:dark:shadow-gray-800 rounded-md duration-500">
-                                        <Image src={item.image} width={0} height={0} sizes="100vw" style={{ width: '100%', height: 'auto' }} className="group-hover:scale-110 duration-500" alt="" />
 
-                                        <div className="absolute -bottom-20 group-hover:bottom-3 start-3 end-3 duration-500">
-                                            <Link href="/shop-cart" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-slate-900 text-white w-full rounded-md">Add to Cart</Link>
-                                        </div>
+                                <div className="group mb-5" key={index}>
+                                    <Link href={`/product/${item.id}`} >
+                                        <div className="relative overflow-hidden shadow dark:shadow-gray-800 group-hover:shadow-lg group-hover:dark:shadow-gray-800 rounded-md duration-500">
+                                            <Image src={item.image} width={0} height={0} sizes="100vw" style={{ width: '100%', height: 'auto' }} className="group-hover:scale-110 duration-500" alt="" />
 
-                                        <ul className="list-none absolute top-[10px] end-4 opacity-0 group-hover:opacity-100 duration-500 space-y-1">
+
+
+                                            {/* <ul className="list-none absolute top-[10px] end-4 opacity-0 group-hover:opacity-100 duration-500 space-y-1">
                                             <li><Link href="#" className="size-10 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-center rounded-full bg-white text-slate-900 hover:bg-slate-900 hover:text-white shadow"><FiHeart className="size-4"></FiHeart></Link></li>
                                             <li className="mt-1 ms-0"><Link href="/shop-item-detail" className="size-10 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-center rounded-full bg-white text-slate-900 hover:bg-slate-900 hover:text-white shadow"><FiEye className="size-4"></FiEye></Link></li>
                                             <li className="mt-1 ms-0"><Link href="#" className="size-10 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-center rounded-full bg-white text-slate-900 hover:bg-slate-900 hover:text-white shadow"><FiBookmark className="size-4"></FiBookmark></Link></li>
-                                        </ul>
+                                        </ul> */}
 
-                                        <ul className="list-none absolute top-[10px] start-4">
+                                            {/* <ul className="list-none absolute top-[10px] start-4">
                                             {item.offer === true && (
 
                                                 <li><Link href="#" className="bg-orange-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5">{item.tag}</Link></li>
@@ -85,29 +85,50 @@ export default function Home() {
                                             {item.tag === 'Featured' && (
                                                 <li><Link href="#" className="bg-emerald-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5">{item.tag}</Link></li>
                                             )}
-                                        </ul>
-                                    </div>
-
-                                    <div className="mt-4">
-                                        <Link href={`/product-detail-one/${item.id}`} className="hover:text-orange-500 text-lg font-medium">{item.name}</Link>
-                                        <div className="flex justify-between items-center mt-1">
-                                            <p>{item.desRate} <del className="text-slate-400">{item.amount}</del></p>
-                                            <ul className="font-medium text-amber-400 list-none">
-                                                <li className="inline"><i className="mdi mdi-star"></i></li>
-                                                <li className="inline"><i className="mdi mdi-star"></i></li>
-                                                <li className="inline"><i className="mdi mdi-star"></i></li>
-                                                <li className="inline"><i className="mdi mdi-star"></i></li>
-                                                <li className="inline"><i className="mdi mdi-star"></i></li>
-                                            </ul>
+                                        </ul> */}
                                         </div>
+                                    </Link>
+
+                                    <div className="mt-1">
+                                        <Link href={`/product/${item.id}`} >
+                                            <p className="text-clamp-2 hover:text-red-500 md:text-lg text-sm font-medium">{item.name}</p>
+                                            <div className="flex justify-between items-center mt-1">
+                                                <p>{item.desRate} <del className="text-slate-400">{item.amount}</del></p>
+                                                {/* <ul className="font-medium text-amber-400 list-none">
+                                                    <li className="inline"><i className="mdi mdi-star"></i></li>
+                                                    <li className="inline"><i className="mdi mdi-star"></i></li>
+                                                    <li className="inline"><i className="mdi mdi-star"></i></li>
+                                                    <li className="inline"><i className="mdi mdi-star"></i></li>
+                                                    <li className="inline"><i className="mdi mdi-star"></i></li>
+                                                </ul> */}
+                                            </div>
+                                        </Link>
+                                        {/* <div className="my-1  start-3 end-3 duration-500">
+                                            <Link href="/shop-cart" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-slate-900 text-white w-full rounded-md">Add to Cart</Link>
+                                        </div> */}
                                     </div>
                                 </div>
+
                             )
                         })}
                     </div>
                 </div>
 
                 <CtaOne />
+                {/* <div className="grid grid-cols-1">
+                    <div className="py-[30px] px-0 border-t border-slate-800">
+                        <div className="grid lg:grid-cols-4 md:grid-cols-2">
+                            {footerServices.map((item,index) =>{
+                                return(
+                                    <div className="flex items-center lg:justify-center" key={index}>
+                                        <i className={`align-middle text-lg mb-0 me-2 ${item.icon}`}></i>
+                                        <h6 className="mb-0 font-medium">{item.name}</h6>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </div>
+                </div> */}
 
                 {/* <div className="container relative md:mt-24 mt-16">
                     <div className="grid items-end md:grid-cols-2 mb-6">

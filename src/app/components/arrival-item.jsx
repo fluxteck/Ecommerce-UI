@@ -10,7 +10,7 @@ export default function ArrivalItem(){
     return(
         <div className="container lg:mt-24 mt-16">
             <div className="grid grid-cols-1 mb-6 text-center">
-                <h3 className="font-semibold text-3xl leading-normal">New Arrival Items</h3>
+                <h3 className="font-semibold text-3xl leading-normal">More Leather Jackets</h3>
             </div>
 
             <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 pt-6">

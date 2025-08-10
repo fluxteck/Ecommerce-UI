@@ -207,30 +207,43 @@ export default function Navbar({ navClass, navlight }) {
                                                 </span>
                                             </span>
 
-                                            <span className="font-semibold">$250</span>
-                                        </Link>
-                                    </li>
+                      <span className="font-semibold">$250</span>
+                    </Link>
+                  </li>
 
-                                    <li className='ms-0'>
-                                        <Link href="#" className="flex items-center justify-between py-1.5 px-4">
-                                            <span className="flex items-center">
-                                                <Image src='/images/shop/apple-smart-watch.jpg' width={36} height={46} className="rounded shadow dark:shadow-gray-800 w-9" alt=""/>
-                                                <span className="ms-3">
-                                                    <span className="block font-semibold">Watch (Men)</span>
-                                                    <span className="block text-sm text-slate-400">$800 X 1</span>
-                                                </span>
-                                            </span>
+                  <li className="ms-0">
+                    <Link
+                      href="#"
+                      className="flex items-center justify-between py-1.5 px-4"
+                    >
+                      <span className="flex items-center">
+                        <Image
+                          src="/images/shop/apple-smart-watch.jpg"
+                          width={36}
+                          height={46}
+                          className="rounded shadow dark:shadow-gray-800 w-9"
+                          alt=""
+                        />
+                        <span className="ms-3">
+                          <span className="block font-semibold">
+                            Watch (Men)
+                          </span>
+                          <span className="block text-sm text-slate-400">
+                            $800 X 1
+                          </span>
+                        </span>
+                      </span>
 
-                                            <span className="font-semibold">$800</span>
-                                        </Link>
-                                    </li>
+                      <span className="font-semibold">$800</span>
+                    </Link>
+                  </li>
 
-                                    <li className="border-t border-gray-100 dark:border-gray-800 my-2 ms-0"></li>
+                  <li className="border-t border-gray-100 dark:border-gray-800 my-2 ms-0"></li>
 
-                                    <li className="flex items-center justify-between py-1.5 px-4 ms-0">
-                                        <h6 className="font-semibold mb-0">Total($):</h6>
-                                        <h6 className="font-semibold mb-0">$1690</h6>
-                                    </li>
+                  <li className="flex items-center justify-between py-1.5 px-4 ms-0">
+                    <h6 className="font-semibold mb-0">Total($):</h6>
+                    <h6 className="font-semibold mb-0">$1690</h6>
+                  </li>
 
                                     <li className="py-1.5 px-4 ms-0">
                                         <span className="text-center block">

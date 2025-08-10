@@ -20,7 +20,7 @@ export default function ShopGrid() {
   return (
     <>
       <Navbar />
-      <section className="relative table w-full py-20 lg:py-24 md:pt-28 bg-gray-50 dark:bg-slate-800">
+      <section className="relative table w-full pt-20 lg:pt-24 md:pt-28 bg-gray-50 dark:bg-slate-800">
         <div className="container relative">
           <div className="grid grid-cols-1 mt-14">
             <h3 className="text-3xl leading-normal font-semibold">Fashion</h3>
@@ -45,7 +45,7 @@ export default function ShopGrid() {
         </div>
       </section>
 
-      <section className="relative md:py-24 py-16">
+      <section className="relative">
         <div className="container relative">
           <div className="md:flex justify-between items-center mb-6">
             <span className="font-semibold">Showing 1-16 of 40 items</span>

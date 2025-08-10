@@ -26,150 +26,59 @@ export const collections = [
 
 export const newProduct = [
     {
-        id: 1,
-        image: '/images/',
-        tag: '-40% Off',
-        name: 'Black Print T-Shirt',
-        amount: '$21.00',
+        id: '1ddb00a9-a9a7-40d4-9df6-178b409cb1ac',
+        image: 'https://yxdyohefwpubwydtctbs.supabase.co/storage/v1/object/public/products/products/1ddb00a9-a9a7-40d4-9df6-178b409cb1ac-1754762790581-j9mee0.blob',
+        // tag: '-40% Off',
+        name: 'Glenwood Driving Leather Jacket',
+        amount: '$8999',
         desRate: '$16.00',
         offer: true,
-        desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
+        // desc: 'DESCRIPTION:'
     },
     {
-        id: 2,
-        image: '/images/shop/fashion-shoes-sneaker.jpg',
-        tag: 'New',
-        name: 'Fashion Shoes Sneaker',
-        amount: '$21.00',
+        id: '061c285d-3432-4b81-b900-524ad2652938',
+        image: 'https://yxdyohefwpubwydtctbs.supabase.co/storage/v1/object/public/products/products/061c285d-3432-4b81-b900-524ad2652938-1754835212229-96yvp6.blob',
+        // tag: 'New',
+        name: 'Moto Leather Jacket',
+        amount: '$10999',
         desRate: '$16.00',
-        desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
+        // desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
     },
     {
-        id: 3,
-        image: '/images/shop/men-white-espadrilles-slip-shoes.jpg',
+        id: '85032514-cf3e-403e-8b07-db2b9ec915fc',
+        image: 'https://yxdyohefwpubwydtctbs.supabase.co/storage/v1/object/public/products/products/85032514-cf3e-403e-8b07-db2b9ec915fc-1754765064760-uxj7f3.blob',
+        // tag: '',
+        name: 'Shearling Leather Jacket',
+        amount: '$11999',
+        desRate: '$16.00',
+        // desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
+    },
+    {
+        id: '750153b4-6e0a-454c-978f-baf622a42e3f',
+        image: 'https://yxdyohefwpubwydtctbs.supabase.co/storage/v1/object/public/products/products/750153b4-6e0a-454c-978f-baf622a42e3f-1754754966428-n87x94.blob',
+        // tag: '',
+        name: 'Ultimate Contrast Leather Jacket',
+        amount: '$12300',
+        desRate: '$16.00',
+        // desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
+    },
+    {
+        id: 'b86fd720-9b0a-41e3-b77c-9dabc990430d',
+        image: 'https://yxdyohefwpubwydtctbs.supabase.co/storage/v1/object/public/products/products/b86fd720-9b0a-41e3-b77c-9dabc990430d-1754835593582-zerf9i.blob',
         tag: '',
-        name: 'Mens White Slip Shoes',
-        amount: '$21.00',
+        name: 'Coat Style Leather Jacket',
+        amount: '$11200',
         desRate: '$16.00',
-        desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
+        // desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
     },
     {
-        id: 4,
-        image: '/images/shop/luxurious-bag.jpg',
-        tag: '',
-        name: 'Ladies Luxurious Bag',
-        amount: '$21.00',
+        id: 'b3b116af-f5a4-44fc-940a-78b97eff1e27',
+        image: 'https://yxdyohefwpubwydtctbs.supabase.co/storage/v1/object/public/products/products/b3b116af-f5a4-44fc-940a-78b97eff1e27-1754755363170-kd2mz0.blob',
+        // tag: '',
+        name: 'Driggs Leather Jacket',
+        amount: '$10999',
         desRate: '$16.00',
-        desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
-    },
-    {
-        id: 5,
-        image: '/images/shop/ladies-1.jpg',
-        tag: '',
-        name: 'Ladies Green Top',
-        amount: '$21.00',
-        desRate: '$16.00',
-        desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
-    },
-    {
-        id: 6,
-        image: '/images/shop/ladies-2.jpg',
-        tag: '',
-        name: 'Ladies Onepiece Wear',
-        amount: '$21.00',
-        desRate: '$16.00',
-        desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
-    },
-    {
-        id: 7,
-        image: '/images/shop/mens-jecket.jpg',
-        tag: 'Featured',
-        name: 'Mens Brown Jecket',
-        amount: '$21.00',
-        desRate: '$16.00',
-        desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
-    },
-    {
-        id: 8,
-        image: '/images/shop/sweater-t-shirt.jpg',
-        tag: '',
-        name: 'Sweater T-Shirt',
-        amount: '$21.00',
-        desRate: '$16.00',
-        desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
-    },
-    {
-        id: 9,
-        image: '/images/shop/trendy-t-shirt2.jpg',
-        tag: '',
-        name: 'Trendy T-shirt',
-        amount: '$21.00',
-        desRate: '$16.00',
-        desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
-    },
-    {
-        id: 10,
-        image: '/images/shop/men-sun-glasses.jpg',
-        tag: 'New',
-        name: 'Men Sun Glasses',
-        amount: '$21.00',
-        desRate: '$16.00',
-        desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
-    },
-    {
-        id: 11,
-        image: '/images/shop/women-s-white-low-heel-shoes.jpg',
-        tag: '-25% Off',
-        name: 'Women White Low Heel Shoes',
-        amount: '$21.00',
-        desRate: '$16.00',
-        offer: true,
-        desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
-    },
-    {
-        id: 12,
-        image: '/images/shop/casual-men-shorts.jpg',
-        tag: 'Featured',
-        name: 'Black Print T-Shirt',
-        amount: '$21.00',
-        desRate: '$16.00',
-        desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
-    },
-    {
-        id: 13,
-        image: '/images/shop/luxurious-bag2.jpg',
-        tag: 'New',
-        name: 'Orange Luxurious Bag',
-        rate: '$21.00',
-        desRate: '$16.00',
-        desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
-    },
-    {
-        id: 14,
-        image: '/images/shop/smart-watch.jpg',
-        tag: '',
-        name: 'Smart Watch',
-        rate: '$21.00',
-        desRate: '$16.00',
-        desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
-    },
-    {
-        id: 15,
-        image: '/images/shop/white-sandals-summer-footwear.jpg',
-        tag: '',
-        name: 'White Sandals',
-        rate: '$21.00',
-        desRate: '$16.00',
-        desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
-    },
-    {
-        id: 16,
-        image: '/images/shop/ladies-skirt-pair.jpg',
-        tag: '',
-        name: 'Ladies Skirt',
-        rate: '$21.00',
-        desRate: '$16.00',
-        desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
+        // desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
     },
 ]
 
