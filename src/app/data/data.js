@@ -27,7 +27,7 @@ export const collections = [
 export const newProduct = [
     {
         id: 1,
-        image: '/images/product1.webp',
+        image: '/images/',
         tag: '-40% Off',
         name: 'Black Print T-Shirt',
         amount: '$21.00',
