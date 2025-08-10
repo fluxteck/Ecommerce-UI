@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.9",
-    "ecommerse-user-sdk": "file:../../../../Desktop/ecommerce/ecommerse-user-sdk",
+    "dompurify": "^3.2.6",
+    "ecom-user-sdk": "^1.0.0",
     "next": "15.0.3",
     "react": "^18.3.1",
     "react-countup": "^6.5.3",

@@ -2,9 +2,9 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
-import Switcher from "../components/switcher";
+import Navbar from "../../components/navbar";
+import Footer from "../../components/footer";
+import Switcher from "../../components/switcher";
 
 import {
   FiHeart,
@@ -12,11 +12,13 @@ import {
   FiBookmark,
   FiChevronLeft,
   FiChevronRight,
-} from "../assets/icons/vander";
-import { newProduct } from "../data/data";
-import ScrollToTop from "../components/scroll-to-top";
+} from "../../assets/icons/vander";
+// import { newProduct } from "../../data/data";
+import ScrollToTop from "../../components/scroll-to-top";
 
-export default function ShopGrid() {
+export default function Colections({ products }) {
+  // console.log(products);
+
   return (
     <>
       <Navbar />
@@ -63,12 +65,16 @@ export default function ShopGrid() {
             </div>
           </div>
           <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
-            {newProduct.map((item, index) => {
+            {products.map((item, index) => {
               return (
                 <div className="group" key={index}>
                   <div className="relative overflow-hidden shadow dark:shadow-gray-800 group-hover:shadow-lg group-hover:dark:shadow-gray-800 rounded-md duration-500">
                     <Image
-                      src={item.image}
+                      src={
+                        item.image_url
+                          ? item.image_url
+                          : "/images/product1.webp"
+                      }
                       width={0}
                       height={0}
                       sizes="100vw"
@@ -149,15 +155,33 @@ export default function ShopGrid() {
 
                   <div className="mt-4">
                     <Link
-                      href={`/product-detail-one/${item.id}`}
+                      href={`/product/${item.id}`}
                       className="hover:text-orange-500 text-lg font-medium"
                     >
-                      {item.name}
+                      {item.product_name}
                     </Link>
                     <div className="flex justify-between items-center mt-1">
                       <p>
-                        {item.desRate}{" "}
-                        <del className="text-slate-400">{item.amount}</del>
+                        {item.discount_type === "no-discount" ? (
+                          item.base_price.toFixed(2)
+                        ) : item.discount_type === "percentage" ? (
+                          <>
+                            {(
+                              item.base_price -
+                              (item.discount * item.base_price) / 100
+                            ).toFixed(2)}
+                            <del className="text-red-600 ms-2">
+                              {item.base_price.toFixed(2)}
+                            </del>
+                          </>
+                        ) : (
+                          <>
+                            {(item.base_price - item.discount).toFixed(2)}
+                            <del className="text-red-600 ms-2">
+                              {item.base_price.toFixed(2)}
+                            </del>
+                          </>
+                        )}
                       </p>
                       <ul className="font-medium text-amber-400 list-none">
                         <li className="inline">
