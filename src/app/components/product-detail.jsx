@@ -135,7 +135,7 @@ export default function ProductDetail({ product }) {
           </button>
         </div>
       </div>
-      <div className="mt-4 space-x-1">
+      <div className="mt-4 space-x-1 ">
         <Link
           href=""
           className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center bg-orange-500 text-white rounded-md mt-2"

@@ -35,7 +35,7 @@ export default function ProductDetailTwo({ product }) {
     <>
       <Tagline />
       <Navbar navClass="defaultscroll is-sticky tagline-height" />
-      <section className="relative table w-full py-20 lg:py-24 md:pt-28 bg-gray-50 dark:bg-slate-800">
+      <section className="relative table w-full pt-18 lg:pt-18 md:pt-18 bg-gray-50 dark:bg-slate-800">
         <div className="container relative">
           <div className="grid grid-cols-1 mt-14">
             <h3 className="text-3xl leading-normal font-semibold">
@@ -70,7 +70,7 @@ export default function ProductDetailTwo({ product }) {
 
       <section className="relative md:py-24 py-16">
         <div className="container relative">
-          <div className="grid md:grid-cols-2 grid-cols-1 gap-6 items-center">
+          <div className="grid md:grid-cols-2 grid-cols-1 gap-6 ">
             <div className="">
               <ProductViewTwo product={product} />
             </div>

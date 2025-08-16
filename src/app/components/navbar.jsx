@@ -170,11 +170,11 @@ export default function Navbar({ navClass, navlight }) {
             )}
           </li>
 
-          <li className="dropdown inline-block relative ps-0.5" ref={cartRef}>
+          <li className="dropdown inline-block relative ps-0.5 mx-1" ref={cartRef}>
             <Link
               href={"/shop-cart"}
               data-dropdown-toggle="dropdown"
-              className="dropdown-toggle size-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-orange-500 border border-orange-500 text-white"
+              className="dropdown-toggle size-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-red-600 border border-red-600 text-white"
               type="button"
               onClick={() => setCartManu(!cartManu)}
             >
@@ -257,23 +257,23 @@ export default function Navbar({ navClass, navlight }) {
                         )} */}
           </li>
 
-          <li className="inline-block ps-0.5">
+          <li className="inline-block ps-0.5 mx-1">
             <Link
               href="#"
-              className="size-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-orange-500 text-white"
+              className="size-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-red-600 text-white"
             >
               <FiHeart data-feather="heart" className="h-4 w-4"></FiHeart>
             </Link>
           </li>
 
-          <li className="dropdown inline-block relative ps-0.5" ref={userRef}>
+          <li className="dropdown inline-block relative ps-0.5 mx-1" ref={userRef}>
             <button
               data-dropdown-toggle="dropdown"
               className="dropdown-toggle items-center"
               type="button"
               onClick={() => setUserManu(!userManu)}
             >
-              <span className="size-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full border border-orange-500 bg-orange-500 text-white">
+              <span className="size-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full border border-red-600 bg-red-600 text-white">
                 <Image
                   src="/images/client/16.jpg"
                   width={34}

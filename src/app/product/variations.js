@@ -58,7 +58,7 @@ const VariationSection = ({
 
   // Default (Size, Material, etc.)
   return (
-    <div className="flex items-center">
+    <div className="flex items-center mb-3">
       <h5 className="text-lg font-semibold me-2">{type}:</h5>
       <div className="space-x-1">
         {values.map(({ id, value }) => (
@@ -95,7 +95,7 @@ const VariationsGrid = ({
   }, [variations]);
 
   return (
-    <div className="grid lg:grid-cols-2 grid-cols-1 gap-6 mt-4">
+    <div className="grid grid-cols-1 gap-6 mt-4">
       {Object.entries(groupedVariations).map(([type, values]) => (
         <VariationSection
           key={type}
