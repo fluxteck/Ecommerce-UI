@@ -10,7 +10,7 @@ export default function Cta(){
                     <div className="grid md:grid-cols-2 grid-cols-1 items-end gap-6 relative z-1">
                         <h3 className="text-4xl leading-normal tracking-wide font-bold text-white">Sale Outlet <br/> Up to 75% Off</h3>
                         <div className="md:text-end">
-                            <Link href="/sale" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-center bg-white text-orange-500 rounded-md">Offer Grab Now</Link>
+                            <Link href="/sale" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-center bg-white text-red-600 rounded-md">Offer Grab Now</Link>
                         </div>
                     </div>
                 </div>

@@ -45,7 +45,7 @@ export default function ArrivalItem(){
                             </div>
 
                             <div className="mt-4">
-                                <Link href={`/product-detail-one/${item.id}`} className="hover:text-orange-500 text-lg font-medium">{item.name}</Link>
+                                <Link href={`/product-detail-one/${item.id}`} className="hover:text-red-600 text-lg font-medium">{item.name}</Link>
                                 <div className="flex justify-between items-center mt-1">
                                     <p>{item.desRate} <del className="text-slate-400">{item.amount}</del></p>
                                     <ul className="font-medium text-amber-400 list-none">

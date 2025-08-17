@@ -15,7 +15,7 @@ export default function FeaturedCollection(){
                     <div className="relative overflow-hidden group rounded-md shadow dark:shadow-gray-800">
                         <Link href="" className="">
                             <Image src='/images/categories/ladies-ware.jpg' width={0} height={0} sizes="100vw" style={{width:'100%', height:'auto'}}  className="h-full w-full object-cover xl:h-[738.66px] lg:h-[614.66px] rounded-md group-hover:scale-110 duration-500" alt=""/>
-                            <span className="bg-white dark:bg-slate-900 group-hover:text-orange-500 py-2 px-4 rounded-md shadow dark:shadow-gray-800 absolute mx-4 bottom-4 text-lg font-medium">Ladies Wear</span>
+                            <span className="bg-white dark:bg-slate-900 group-hover:text-red-600 py-2 px-4 rounded-md shadow dark:shadow-gray-800 absolute mx-4 bottom-4 text-lg font-medium">Ladies Wear</span>
                         </Link>
                     </div>
                 </div>
@@ -25,14 +25,14 @@ export default function FeaturedCollection(){
                         <div className="relative overflow-hidden group rounded-md shadow dark:shadow-gray-800">
                             <Link href="" className="">
                                 <Image src='/images/categories/chappal-shoes.jpg' width={0} height={0} sizes="100vw" style={{width:'100%', height:'auto'}} className="group-hover:scale-110 duration-500" alt=""/>
-                                <span className="bg-white dark:bg-slate-900 group-hover:text-orange-500 py-2 px-4 rounded-md shadow dark:shadow-gray-800 absolute mx-4 bottom-4 text-lg font-medium">Chappal & Shoes</span>
+                                <span className="bg-white dark:bg-slate-900 group-hover:text-red-600 py-2 px-4 rounded-md shadow dark:shadow-gray-800 absolute mx-4 bottom-4 text-lg font-medium">Chappal & Shoes</span>
                             </Link>
                         </div>
 
                         <div className="relative overflow-hidden group rounded-md shadow dark:shadow-gray-800">
                             <Link href="" className="">
                                 <Image src='/images/categories/sunglasses.jpg' width={0} height={0} sizes="100vw" style={{width:'100%', height:'auto'}} className="group-hover:scale-110 duration-500" alt=""/>
-                                <span className="bg-white dark:bg-slate-900 group-hover:text-orange-500 py-2 px-4 rounded-md shadow dark:shadow-gray-800 absolute mx-4 bottom-4 text-lg font-medium">Sunglasses</span>
+                                <span className="bg-white dark:bg-slate-900 group-hover:text-red-600 py-2 px-4 rounded-md shadow dark:shadow-gray-800 absolute mx-4 bottom-4 text-lg font-medium">Sunglasses</span>
                             </Link>
                         </div>
                     </div>
@@ -42,7 +42,7 @@ export default function FeaturedCollection(){
                     <div className="relative overflow-hidden group rounded-md shadow dark:shadow-gray-800">
                         <Link href="" className="">
                             <Image src='/images/categories/mens-ware.jpg' width={0} height={0} sizes="100vw" style={{width:'100%', height:'auto'}} className="h-full w-full object-cover xl:h-[738.66px] lg:h-[614.66px] rounded-md group-hover:scale-110 duration-500" alt=""/>
-                            <span className="bg-white dark:bg-slate-900 group-hover:text-orange-500 py-2 px-4 rounded-md shadow dark:shadow-gray-800 absolute mx-4 bottom-4 text-lg font-medium">Mens Wear</span>
+                            <span className="bg-white dark:bg-slate-900 group-hover:text-red-600 py-2 px-4 rounded-md shadow dark:shadow-gray-800 absolute mx-4 bottom-4 text-lg font-medium">Mens Wear</span>
                         </Link>
                     </div>
                 </div>

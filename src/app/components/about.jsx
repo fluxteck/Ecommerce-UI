@@ -17,7 +17,7 @@ export default function About(){
 
                 <div className="lg:col-span-7 md:col-span-6">
                     <div className="lg:ms-8">
-                        <h6 className="text-orange-500 font-semibold uppercase text-lg">Our Shop</h6>
+                        <h6 className="text-red-600 font-semibold uppercase text-lg">Our Shop</h6>
                         <h5 className="font-semibold text-3xl leading-normal my-4">Focusing on Quality <br/> Material, Good Design</h5>
                         <p className="text-slate-400 max-w-xl">Donec non interdum nisl. Sed ut est ac lacus sodales convallis. Nam non velit justo. Mauris vel ultrices tortor. Proin bibendum magna porttitor porttitor suscipit. Praesent sit amet consequat eros. Quisque ullamcorper ornare vulputate. Nam sodales sem id diam sollicitudin, id lobortis tellus tincidunt.</p>
 
@@ -33,7 +33,7 @@ export default function About(){
                             <FiMapPin className="w-6 h-6 me-4"></FiMapPin>
                             <div className="">
                                 <h5 className="title font-bold mb-0">Location</h5>
-                                <Link href="#" scroll={false} onClick={()=>setModal(true)} className="text-orange-500" >View on Google map</Link>
+                                <Link href="#" scroll={false} onClick={()=>setModal(true)} className="text-red-600" >View on Google map</Link>
                             </div>
                         </div> */}
                     </div>
