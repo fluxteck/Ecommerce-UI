@@ -22,7 +22,7 @@ export default function Privacy() {
         <div className="absolute text-center z-10 bottom-5 start-0 end-0 mx-3">
           <ul className="tracking-[0.5px] mb-0 inline-block">
             <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-orange-500">
-              <Link href="/">Cartzio</Link>
+              <Link href="/">MA Mark</Link>
             </li>
             <li className="inline-block text-base text-slate-950 dark:text-white mx-0.5 ltr:rotate-0 rtl:rotate-180">
               <i className="mdi mdi-chevron-right"></i>
