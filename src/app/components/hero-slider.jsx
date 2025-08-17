@@ -20,7 +20,7 @@ export default function HeroSlider(){
                                         <p className="text-lg">Our latest collection of essential basics.</p>
                 
                                         <div className="mt-6">
-                                            <Link href="" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-center bg-slate-900 dark:bg-orange-500 text-white rounded-md">Shop Now <i className="mdi mdi-arrow-right"></i></Link>
+                                            <Link href="" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-center bg-slate-900 dark:bg-red-600 text-white rounded-md">Shop Now <i className="mdi mdi-arrow-right"></i></Link>
                                         </div>
                                     </div>
                                 </div>
@@ -38,7 +38,7 @@ export default function HeroSlider(){
                                         <p className="text-lg">Our latest collection of essential basics.</p>
                 
                                         <div className="mt-6">
-                                            <Link href="" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-center bg-slate-900 dark:bg-orange-500 text-white rounded-md">View Collection <i className="mdi mdi-arrow-right"></i></Link>
+                                            <Link href="" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-center bg-slate-900 dark:bg-red-600 text-white rounded-md">View Collection <i className="mdi mdi-arrow-right"></i></Link>
                                         </div>
                                     </div>
                                 </div>
