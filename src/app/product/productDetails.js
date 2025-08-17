@@ -13,7 +13,7 @@ import ScrollToTop from "../components/scroll-to-top";
 // import { useParams } from "next/navigation";
 
 export default function ProductDetailTwo({ product }) {
-  //   console.log(product);
+  // console.log(product);
 
   //   const { id } = useParams();
   //   useEffect(() => {

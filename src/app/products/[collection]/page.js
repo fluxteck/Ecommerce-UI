@@ -44,6 +44,7 @@ const Page = async ({ params, searchParams }) => {
   const limit = 20;
   const filter = {
     category: collection,
+    status: "Active",
   };
   //   const page = parseInt(searchParams?.page) || 1;
   const product = await getProduct(page, limit, filter);

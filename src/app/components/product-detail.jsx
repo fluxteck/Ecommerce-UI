@@ -6,7 +6,7 @@ import { RenderSafeHTML } from "./renderPurifyHtml";
 import { useCartActions } from "ecom-user-sdk/cart";
 
 export default function ProductDetail({ product }) {
-  console.log(product);
+  // console.log(product);
   const [activeVariations, setActiveVariations] = useState([]);
   const { addToCart } = useCartActions();
   let [count, setCount] = useState(1);
@@ -29,7 +29,7 @@ export default function ProductDetail({ product }) {
       variationIds: activeVariations,
     });
     // console.log(data);
-    console.log(error);
+    // console.log(error);
   }
   return (
     <div className="sticky top-20">
