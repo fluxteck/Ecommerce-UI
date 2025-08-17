@@ -40,7 +40,7 @@ export default function CtaOne(){
                             </ul>
                         </div>
                         <div className="mt-4">
-                            <Link href="/sale" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-center bg-white text-orange-500 rounded-md"><i className="mdi mdi-cart-outline"></i> Shop Now</Link>
+                            <Link href="/sale" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-center bg-white text-red-600 rounded-md"><i className="mdi mdi-cart-outline"></i> Shop Now</Link>
                         </div>
                     </div>
                 </div>

@@ -23,7 +23,7 @@ export default function Store(){
                             <FiPhone className="w-6 h-6 me-4"></FiPhone>
                             <div className="">
                                 <h5 className="title font-bold mb-0">Phone</h5>
-                                <Link href="tel:+152534-468-854" className="tracking-wide text-orange-500">+152 534-468-854</Link>
+                                <Link href="tel:+152534-468-854" className="tracking-wide text-red-600">+152 534-468-854</Link>
                             </div>
                         </div>
                         
@@ -47,7 +47,7 @@ export default function Store(){
                             <FiPhone className="w-6 h-6 me-4"></FiPhone>
                             <div className="">
                                 <h5 className="title font-bold mb-0">Phone</h5>
-                                <Link href="tel:+152534-468-854" className="tracking-wide text-orange-500">+152 534-468-854</Link>
+                                <Link href="tel:+152534-468-854" className="tracking-wide text-red-600">+152 534-468-854</Link>
                             </div>
                         </div>
                         
@@ -71,7 +71,7 @@ export default function Store(){
                             <FiPhone className="w-6 h-6 me-4"></FiPhone>
                             <div className="">
                                 <h5 className="title font-bold mb-0">Phone</h5>
-                                <Link href="tel:+152534-468-854" scroll={false} className="tracking-wide text-orange-500">+152 534-468-854</Link>
+                                <Link href="tel:+152534-468-854" scroll={false} className="tracking-wide text-red-600">+152 534-468-854</Link>
                             </div>
                         </div>
                         

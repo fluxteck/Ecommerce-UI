@@ -170,11 +170,11 @@ export default function Navbar({ navClass, navlight }) {
             )}
           </li>
 
-          <li className="dropdown inline-block relative ps-0.5" ref={cartRef}>
+          <li className="dropdown inline-block relative ps-0.5 mx-1" ref={cartRef}>
             <Link
               href={"/shop-cart"}
               data-dropdown-toggle="dropdown"
-              className="dropdown-toggle size-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-orange-500 border border-orange-500 text-white"
+              className="dropdown-toggle size-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-red-600 border border-red-600 text-white"
               type="button"
               onClick={() => setCartManu(!cartManu)}
             >
@@ -247,8 +247,8 @@ export default function Navbar({ navClass, navlight }) {
 
                                     <li className="py-1.5 px-4 ms-0">
                                         <span className="text-center block">
-                                            <Link href="#" className="py-[5px] px-4 inline-block font-semibold tracking-wide align-middle duration-500 text-sm text-center rounded-md bg-orange-500 border border-orange-500 text-white me-1">View Cart</Link>
-                                            <Link href="#" className="py-[5px] px-4 inline-block font-semibold tracking-wide align-middle duration-500 text-sm text-center rounded-md bg-orange-500 border border-orange-500 text-white">Checkout</Link>
+                                            <Link href="#" className="py-[5px] px-4 inline-block font-semibold tracking-wide align-middle duration-500 text-sm text-center rounded-md bg-red-600 border border-red-600 text-white me-1">View Cart</Link>
+                                            <Link href="#" className="py-[5px] px-4 inline-block font-semibold tracking-wide align-middle duration-500 text-sm text-center rounded-md bg-red-600 border border-red-600 text-white">Checkout</Link>
                                         </span>
                                         <p className="text-sm text-slate-400 mt-1">*T&C Apply</p>
                                     </li>
@@ -257,23 +257,23 @@ export default function Navbar({ navClass, navlight }) {
                         )} */}
           </li>
 
-          <li className="inline-block ps-0.5">
+          <li className="inline-block ps-0.5 mx-1">
             <Link
               href="#"
-              className="size-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-orange-500 text-white"
+              className="size-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-red-600 text-white"
             >
               <FiHeart data-feather="heart" className="h-4 w-4"></FiHeart>
             </Link>
           </li>
 
-          <li className="dropdown inline-block relative ps-0.5" ref={userRef}>
+          <li className="dropdown inline-block relative ps-0.5 mx-1" ref={userRef}>
             <button
               data-dropdown-toggle="dropdown"
               className="dropdown-toggle items-center"
               type="button"
               onClick={() => setUserManu(!userManu)}
             >
-              <span className="size-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full border border-orange-500 bg-orange-500 text-white">
+              <span className="size-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full border border-red-600 bg-red-600 text-white">
                 <Image
                   src="/images/client/16.jpg"
                   width={34}
@@ -290,27 +290,27 @@ export default function Navbar({ navClass, navlight }) {
                     <p className="text-slate-400 pt-2 px-4">Welcome Jesus!</p>
                   </li>
                   {/* <li className='ms-0'>
-                                        <p className="flex items-center font-medium py-2 px-4"><FiDollarSign className="h-4 w-4 me-2"></FiDollarSign> Balance: <span className="text-orange-500 ms-2">$ 245.10</span></p>
+                                        <p className="flex items-center font-medium py-2 px-4"><FiDollarSign className="h-4 w-4 me-2"></FiDollarSign> Balance: <span className="text-red-600 ms-2">$ 245.10</span></p>
                                     </li> */}
                   <li className="ms-0">
                     <Link
                       href="/user-account"
-                      className="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-orange-500 dark:hover:text-white"
+                      className="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-600 dark:hover:text-white"
                     >
                       <FiUser className="h-4 w-4 me-2"></FiUser>Account
                     </Link>
                   </li>
                   {/* <li className='ms-0'>
-                                        <Link href="/helpcenter" className="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-orange-500 dark:hover:text-white"><FiHelpCircle className="h-4 w-4 me-2"></FiHelpCircle>Helpcenter</Link>
+                                        <Link href="/helpcenter" className="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-600 dark:hover:text-white"><FiHelpCircle className="h-4 w-4 me-2"></FiHelpCircle>Helpcenter</Link>
                                     </li> */}
                   {/* <li className='ms-0'>
-                                        <Link href="/user-setting" className="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-orange-500 dark:hover:text-white"><FiSettings className="h-4 w-4 me-2"></FiSettings>Settings</Link>
+                                        <Link href="/user-setting" className="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-600 dark:hover:text-white"><FiSettings className="h-4 w-4 me-2"></FiSettings>Settings</Link>
                                     </li> */}
                   <li className="border-t border-gray-100 dark:border-gray-800 my-2"></li>
                   <li className="ms-0">
                     <Link
                       href="/login"
-                      className="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-orange-500 dark:hover:text-white"
+                      className="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-600 dark:hover:text-white"
                     >
                       <FiLogOut className="h-4 w-4 me-2"></FiLogOut>Logout
                     </Link>

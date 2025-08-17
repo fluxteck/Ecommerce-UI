@@ -10,7 +10,7 @@ export default function ContactModal(){
         <>
         <div className="mt-5">
             <Link href="#" scroll={false} onClick={()=>setModal(true)}
-            data-type="iframe" className="video-play-icon read-more lightbox text-orange-500 font-medium">View on Google map</Link>
+            data-type="iframe" className="video-play-icon read-more lightbox text-red-600 font-medium">View on Google map</Link>
         </div> 
         {modal && (
             <div className="w-full h-screen bg-slate-900/80 fixed top-0 left-0 bottom-0 right-0 z-999 flex items-center justify-center">

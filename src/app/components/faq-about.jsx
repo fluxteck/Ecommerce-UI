@@ -17,16 +17,16 @@ export default function FaqAbout(){
                     let Icon = item.icon
                     return(
                         <div className="text-center px-6 mt-6" key={index}>
-                            <div className="w-20 h-20 bg-orange-500/5 text-orange-500 rounded-xl text-3xl flex align-middle justify-center items-center shadow-sm dark:shadow-gray-800 mx-auto">
+                            <div className="w-20 h-20 bg-red-600/5 text-red-600 rounded-xl text-3xl flex align-middle justify-center items-center shadow-sm dark:shadow-gray-800 mx-auto">
                                 <Icon className="size-[30px]"></Icon>
                             </div>
 
                             <div className="content mt-7">
-                                <Link href="/helpcenter-faqs" className="title h5 text-lg font-medium hover:text-orange-500">{item.title}</Link>
+                                <Link href="/helpcenter-faqs" className="title h5 text-lg font-medium hover:text-red-600">{item.title}</Link>
                                 <p className="text-slate-400 mt-3">{item.desc}</p>
                                 
                                 <div className="mt-5">
-                                    <Link href="/helpcenter-faqs" className="text-orange-500">Read More <i className="mdi mdi-chevron-right"></i></Link>
+                                    <Link href="/helpcenter-faqs" className="text-red-600">Read More <i className="mdi mdi-chevron-right"></i></Link>
                                 </div>
                             </div>
                         </div>

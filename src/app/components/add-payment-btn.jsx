@@ -8,7 +8,7 @@ export default function AddPaymentBtn(){
     return(
         <>
         <li className="py-6 border-t border-gray-100 dark:border-gray-700">
-            <Link href="#" scroll={false} onClick={()=>setModal(!modal)} className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-orange-500 text-white rounded-md">Add Payment Method</Link>
+            <Link href="#" scroll={false} onClick={()=>setModal(!modal)} className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-red-600 text-white rounded-md">Add Payment Method</Link>
         </li>
         {modal && (
             <div className="rounded-md shadow dark:shadow-gray-800 bg-slate-900/75 text-slate-900 dark:text-white fixed w-full h-screen top-0 left-0 bottom-0 right-0 flex items-center justify-center z-999">
@@ -88,7 +88,7 @@ export default function AddPaymentBtn(){
                             </div>
                             
                             <div className="mt-4">
-                                <button type="submit" id="submit" name="send" className="py-2 px-5 font-semibold tracking-wide align-middle duration-500 text-base text-center bg-orange-500 text-white rounded-md justify-center flex items-center">Add Card</button>
+                                <button type="submit" id="submit" name="send" className="py-2 px-5 font-semibold tracking-wide align-middle duration-500 text-base text-center bg-red-600 text-white rounded-md justify-center flex items-center">Add Card</button>
                             </div>
                         </form>
                     </div>
