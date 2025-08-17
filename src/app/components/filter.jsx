@@ -35,7 +35,7 @@ export default function Filter(){
                     <ul className="list-none mt-2">
                         {brandFilter.map((item,index)=>{
                             return(
-                                <li key={index} className="ms-0"><Link href="" className="text-slate-400 dark:text-gray-100"><i className="mdi mdi-shopping-outline text-orange-500 me-2"></i>{item}</Link></li>
+                                <li key={index} className="ms-0"><Link href="" className="text-slate-400 dark:text-gray-100"><i className="mdi mdi-shopping-outline text-red-600 me-2"></i>{item}</Link></li>
                             )
                         })}
                     </ul>

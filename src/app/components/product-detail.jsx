@@ -91,15 +91,15 @@ export default function ProductDetail({ product }) {
 
         {/* <ul className="list-none text-slate-400 mt-4">
           <li className="mb-1 flex ms-0">
-            <i className="mdi mdi-check-circle-outline text-orange-500 text-xl me-2"></i>{" "}
+            <i className="mdi mdi-check-circle-outline text-red-600 text-xl me-2"></i>{" "}
             Digital Marketing Solutions for Tomorrow
           </li>
           <li className="mb-1 flex ms-0">
-            <i className="mdi mdi-check-circle-outline text-orange-500 text-xl me-2"></i>{" "}
+            <i className="mdi mdi-check-circle-outline text-red-600 text-xl me-2"></i>{" "}
             Our Talented & Experienced Marketing Agency
           </li>
           <li className="mb-1 flex ms-0">
-            <i className="mdi mdi-check-circle-outline text-orange-500 text-xl me-2"></i>{" "}
+            <i className="mdi mdi-check-circle-outline text-red-600 text-xl me-2"></i>{" "}
             Create your own skin to match your brand
           </li>
         </ul> */}
@@ -115,7 +115,7 @@ export default function ProductDetail({ product }) {
         <div className="qty-icons ms-3 space-x-0.5">
           <button
             onClick={() => decrements()}
-            className="size-9 inline-flex items-center justify-center tracking-wide align-middle text-base text-center rounded-md bg-orange-500/5 hover:bg-orange-500 text-orange-500 hover:text-white minus"
+            className="size-9 inline-flex items-center justify-center tracking-wide align-middle text-base text-center rounded-md bg-red-600/5 hover:bg-red-600 text-red-600 hover:text-white minus"
           >
             -
           </button>
@@ -125,27 +125,27 @@ export default function ProductDetail({ product }) {
             value={count}
             onChange={() => {}}
             type="number"
-            className="h-9 inline-flex items-center justify-center tracking-wide align-middle text-base text-center rounded-md bg-orange-500/5 hover:bg-orange-500 text-orange-500 hover:text-white pointer-events-none w-16 ps-4 quantity"
+            className="h-9 inline-flex items-center justify-center tracking-wide align-middle text-base text-center rounded-md bg-red-600/5 hover:bg-red-600 text-red-600 hover:text-white pointer-events-none w-16 ps-4 quantity"
           />
           <button
             onClick={() => increments()}
-            className="size-9 inline-flex items-center justify-center tracking-wide align-middle text-base text-center rounded-md bg-orange-500/5 hover:bg-orange-500 text-orange-500 hover:text-white plus"
+            className="size-9 inline-flex items-center justify-center tracking-wide align-middle text-base text-center rounded-md bg-red-600/5 hover:bg-red-600 text-red-600 hover:text-white plus"
           >
             +
           </button>
         </div>
       </div>
-      <div className="mt-4 space-x-1 ">
+      <div className="mt-4 space-x-1 flex flex-col-reverse">
         <Link
           href=""
-          className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center bg-orange-500 text-white rounded-md mt-2"
+          className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center bg-red-600 text-white rounded-md mt-2"
         >
           Shop Now
         </Link>
         <div
           //   href=""
           onClick={handleAddToCart}
-          className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center rounded-md bg-orange-500/5 hover:bg-orange-500 text-orange-500 hover:text-white mt-2 cursor-pointer"
+          className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center rounded-md bg-red-600/5 hover:bg-red-600 text-red-600 hover:text-white mt-2 cursor-pointer"
         >
           Add to Cart
         </div>

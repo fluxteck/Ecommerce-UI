@@ -36,7 +36,7 @@ export default function Faq(){
                                 return(
                                     <div className="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden mt-4" key={index}>
                                         <h2 className="text-base font-semibold" id="accordion-collapse-heading-1">
-                                            <button type="button" className={`flex justify-between items-center p-5 w-full font-medium text-start ${item.id === activeIndex ? 'bg-gray-50 dark:bg-slate-800 text-orange-500' : '' }`} onClick={()=>setActiveIndex(item.id)}>
+                                            <button type="button" className={`flex justify-between items-center p-5 w-full font-medium text-start ${item.id === activeIndex ? 'bg-gray-50 dark:bg-slate-800 text-red-600' : '' }`} onClick={()=>setActiveIndex(item.id)}>
                                                 <span>{item.title}</span>
                                                 <FiChevronUp className={`size-4 shrink-0 ${activeIndex === item.id ? '' :'rotate-180'}`}/>
                                             </button>
@@ -60,7 +60,7 @@ export default function Faq(){
                                 return(
                                     <div className="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden mt-4" key={index}>
                                         <h2 className="text-base font-semibold" id="accordion-collapse-heading-1">
-                                            <button type="button" className={`flex justify-between items-center p-5 w-full font-medium text-start ${item.id === activeIndex2 ? 'bg-gray-50 dark:bg-slate-800 text-orange-500' : '' }`} onClick={()=>setActiveIndex2(item.id)}>
+                                            <button type="button" className={`flex justify-between items-center p-5 w-full font-medium text-start ${item.id === activeIndex2 ? 'bg-gray-50 dark:bg-slate-800 text-red-600' : '' }`} onClick={()=>setActiveIndex2(item.id)}>
                                                 <span>{item.title}</span>
                                                 <FiChevronUp className={`size-4 shrink-0 ${activeIndex2 === item.id ? '' :'rotate-180'}`}/>
                                             </button>
@@ -84,7 +84,7 @@ export default function Faq(){
                                 return(
                                     <div className="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden mt-4" key={index}>
                                         <h2 className="text-base font-semibold" id="accordion-collapse-heading-1">
-                                            <button type="button" className={`flex justify-between items-center p-5 w-full font-medium text-start ${item.id === activeIndex4 ? 'bg-gray-50 dark:bg-slate-800 text-orange-500' : '' }`} onClick={()=>setActiveIndex4(item.id)}>
+                                            <button type="button" className={`flex justify-between items-center p-5 w-full font-medium text-start ${item.id === activeIndex4 ? 'bg-gray-50 dark:bg-slate-800 text-red-600' : '' }`} onClick={()=>setActiveIndex4(item.id)}>
                                                 <span>{item.title}</span>
                                                 <FiChevronUp className={`size-4 shrink-0 ${activeIndex4 === item.id ? '' :'rotate-180'}`}/>
                                             </button>
@@ -108,7 +108,7 @@ export default function Faq(){
                                 return(
                                     <div className="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden mt-4" key={index}>
                                         <h2 className="text-base font-semibold" id="accordion-collapse-heading-1">
-                                            <button type="button" className={`flex justify-between items-center p-5 w-full font-medium text-start ${item.id === activeIndex3 ? 'bg-gray-50 dark:bg-slate-800 text-orange-500' : '' }`} onClick={()=>setActiveIndex3(item.id)}>
+                                            <button type="button" className={`flex justify-between items-center p-5 w-full font-medium text-start ${item.id === activeIndex3 ? 'bg-gray-50 dark:bg-slate-800 text-red-600' : '' }`} onClick={()=>setActiveIndex3(item.id)}>
                                                 <span>{item.title}</span>
                                                 <FiChevronUp className={`size-4 shrink-0 ${activeIndex3 === item.id ? '' :'rotate-180'}`}/>
                                             </button>

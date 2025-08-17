@@ -58,7 +58,7 @@ const VariationSection = ({
 
   // Default (Size, Material, etc.)
   return (
-    <div className="flex items-center mb-3">
+    <div className="flex items-center mb-4">
       <h5 className="text-lg font-semibold me-2">{type}:</h5>
       <div className="space-x-1">
         {values.map(({ id, value }) => (
@@ -68,7 +68,7 @@ const VariationSection = ({
             className={`px-3 py-1 rounded-md text-sm font-medium border transition-all duration-200 ${
               isActive(id)
                 ? "bg-black text-white border-black"
-                : "bg-orange-500/5 text-black hover:bg-black hover:text-white border-transparent"
+                : "bg-red-600/5 text-black hover:bg-black hover:text-white border-transparent"
             }`}
           >
             {value.toUpperCase()}
@@ -95,7 +95,7 @@ const VariationsGrid = ({
   }, [variations]);
 
   return (
-    <div className="grid grid-cols-1 gap-6 mt-4">
+    <div className="grid grid-cols-1 gap-6 mt-4 mb-2">
       {Object.entries(groupedVariations).map(([type, values]) => (
         <VariationSection
           key={type}
@@ -149,7 +149,7 @@ export default VariationsGrid;
 //           <Link
 //             key={id}
 //             href="#"
-//             className="px-2 inline-flex items-center justify-center tracking-wide align-middle text-base text-center rounded-md bg-orange-500/5 hover:bg-black text-black hover:text-white"
+//             className="px-2 inline-flex items-center justify-center tracking-wide align-middle text-base text-center rounded-md bg-red-600/5 hover:bg-black text-black hover:text-white"
 //           >
 //             {value.toUpperCase()}
 //           </Link>
