@@ -75,24 +75,24 @@ export default function Navbar({ navClass, navlight }) {
           <Link className="logo" href="/">
             <span className="inline-block dark:hidden">
               <Image
-                src="/images/logo-main.webp"
-                width={50}
-                height={50}
+                src="/images/logo-100.png"
+                width={65}
+                height={65}
                 className="l-dark"
                 alt=""
               />
               <Image
-                src="/images/logo-main.webp"
-                width={50}
-                height={50}
+                src="/images/logo-100.png"
+                width={65}
+                height={65}
                 className="l-light"
                 alt=""
               />
             </span>
             <Image
-              src="/images/logo-main.webp"
-              width={50}
-              height={50}
+              src="/images/logo-100.png"
+              width={65}
+              height={65}
               className="hidden dark:inline-block"
               alt=""
             />
@@ -101,17 +101,17 @@ export default function Navbar({ navClass, navlight }) {
           <Link className="logo" href="/">
             <div>
               <Image
-                src="/images/logo-main.webp"
-                width={50}
-                height={50}
-                className="h-[50px] inline-block dark:hidden"
+                src="/images/logo-100.png"
+                width={65}
+                height={65}
+                className="h-[65px] inline-block dark:hidden"
                 alt=""
               />
               <Image
-                src="/images/logo-main.webp"
-                width={50}
-                height={50}
-                className="h-[50px] hidden dark:inline-block"
+                src="/images/logo-100.png"
+                width={65}
+                height={65}
+                className="h-[65px] hidden dark:inline-block"
                 alt=""
               />
             </div>
