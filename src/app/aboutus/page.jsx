@@ -29,6 +29,7 @@ export default function AboutUs() {
               About Us
             </h3>
 
+
             <p className="text-slate-400 text-lg max-w-xl mx-auto">
               Believe in Craftsmanship and Luxurious Design.
             </p>

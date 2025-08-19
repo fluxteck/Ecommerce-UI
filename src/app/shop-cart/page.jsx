@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import Navbar from "../components/navbar";
-import MobileApp from "../components/mobile-app";
+// import MobileApp from "../components/mobile-app";
 import Footer from "../components/footer";
 import Switcher from "../components/switcher";
 import Counter from "../components/counter";
@@ -89,7 +89,7 @@ export default function ShopCart() {
   return (
     <>
       <Navbar navClass="defaultscroll is-sticky" />
-      <section className="relative table w-full py-20 lg:py-24 md:pt-28 bg-gray-50 dark:bg-slate-800">
+      <section className="relative table w-full pt-15 pb-2 lg:pt-15 md:pt-13 bg-gray-50 dark:bg-slate-800">
         <div className="container relative">
           <div className="grid grid-cols-1 mt-14">
             <h3 className="text-3xl leading-normal font-semibold">Fashion</h3>
@@ -253,7 +253,7 @@ export default function ShopCart() {
           </div>
         </div>
 
-        <MobileApp />
+        {/* <MobileApp /> */}
       </section>
       <Footer />
       <Switcher />

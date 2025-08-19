@@ -20,8 +20,8 @@ export default function Login(){
                             <div className="p-8 lg:px-20">
                                 <div className="text-center">
                                     <Link href="/">
-                                        <Image src='/images/logo-dark.png' width={114} height={22} className="mx-auto block dark:hidden" alt=""/>
-                                        <Image src='/images/logo-light.png' width={114} height={22} className="mx-auto hidden dark:block" alt=""/>
+                                        <Image src='/images/logo-main.webp' width={114} height={22} className="mx-auto block dark:hidden" alt=""/>
+                                        <Image src='/images/logo-main.webp' width={114} height={22} className="mx-auto hidden dark:block" alt=""/>
                                     </Link>
                                 </div>
 

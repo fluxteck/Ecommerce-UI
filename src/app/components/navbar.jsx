@@ -75,24 +75,24 @@ export default function Navbar({ navClass, navlight }) {
           <Link className="logo" href="/">
             <span className="inline-block dark:hidden">
               <Image
-                src="/images/logo-dark.png"
-                width={114}
-                height={22}
+                src="/images/logo-100.png"
+                width={65}
+                height={65}
                 className="l-dark"
                 alt=""
               />
               <Image
-                src="/images/logo-light.png"
-                width={114}
-                height={22}
+                src="/images/logo-100.png"
+                width={65}
+                height={65}
                 className="l-light"
                 alt=""
               />
             </span>
             <Image
-              src="/images/logo-light.png"
-              width={114}
-              height={22}
+              src="/images/logo-100.png"
+              width={65}
+              height={65}
               className="hidden dark:inline-block"
               alt=""
             />
@@ -101,17 +101,17 @@ export default function Navbar({ navClass, navlight }) {
           <Link className="logo" href="/">
             <div>
               <Image
-                src="/images/logo-dark.png"
-                width={114}
-                height={22}
-                className="h-[22px] inline-block dark:hidden"
+                src="/images/logo-100.png"
+                width={65}
+                height={65}
+                className="h-[65px] inline-block dark:hidden"
                 alt=""
               />
               <Image
-                src="/images/logo-white.png"
-                width={114}
-                height={22}
-                className="h-[22px] hidden dark:inline-block"
+                src="/images/logo-100.png"
+                width={65}
+                height={65}
+                className="h-[65px] hidden dark:inline-block"
                 alt=""
               />
             </div>
@@ -180,6 +180,8 @@ export default function Navbar({ navClass, navlight }) {
             >
               <FiShoppingCart className="h-4 w-4"></FiShoppingCart>
             </Link>
+
+
             {/* {cartManu && (
                             <div className="dropdown-menu absolute end-0 m-0 mt-4 z-10 w-64 rounded-md bg-white dark:bg-slate-900 shadow dark:shadow-gray-800">
                                 <ul className="py-3 text-start" aria-labelledby="dropdownDefault">
@@ -257,6 +259,11 @@ export default function Navbar({ navClass, navlight }) {
                         )} */}
           </li>
 
+
+
+{/* WishList  */}
+
+{/* 
           <li className="inline-block ps-0.5 mx-1">
             <Link
               href="#"
@@ -264,7 +271,7 @@ export default function Navbar({ navClass, navlight }) {
             >
               <FiHeart data-feather="heart" className="h-4 w-4"></FiHeart>
             </Link>
-          </li>
+          </li> */}
 
           <li className="dropdown inline-block relative ps-0.5 mx-1" ref={userRef}>
             <button
@@ -358,8 +365,8 @@ export default function Navbar({ navClass, navlight }) {
                           
                         </li> */}
 
-            <li className={`${manu === "/products" ? "active" : ""}`}>
-              <Link href="/products" className="sub-menu-item">
+            <li className={`${manu === "/products/clothing" ? "active" : ""}`}>
+              <Link href="/products/clothing" className="sub-menu-item">
                 Shop
               </Link>
             </li>
