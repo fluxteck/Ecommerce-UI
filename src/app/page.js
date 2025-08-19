@@ -17,7 +17,7 @@ export default function Home() {
         <>
             <Tagline />
             <Navbar navClass="defaultscroll is-sticky tagline-height" />
-            <section className="relative md:flex table w-full items-center py-2 md:py-36 md:bg-top mt-5 bg-center bg-no-repeat md:bg-cover bg-contain" style={{ backgroundImage: "url('https://yxdyohefwpubwydtctbs.supabase.co/storage/v1/object/public/products/Home%20Page/Main%20Banner.png')" }}>
+            <section className="relative md:flex table w-full items-center py-4 md:py-36 md:bg-top mt-5 bg-center bg-no-repeat md:bg-cover bg-contain" style={{ backgroundImage: "url('https://yxdyohefwpubwydtctbs.supabase.co/storage/v1/object/public/products/Home%20Page/Main%20Banner.png')" }}>
                 <div className="container relative">
                     <div className="grid grid-cols-1 justify-center">
                         <div className="text-center">
