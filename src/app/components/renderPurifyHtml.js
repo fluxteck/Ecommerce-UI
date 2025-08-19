@@ -9,6 +9,7 @@
 //     />
 //   );
 // };
+
 import DOMPurify from "isomorphic-dompurify";
 
 export const RenderSafeHTML = ({ html }) => {

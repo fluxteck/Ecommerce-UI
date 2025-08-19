@@ -209,7 +209,7 @@ export default function ShopCart() {
               <div className="lg:col-span-9 md:order-1 order-3">
                 <div className="space-x-1">
                   <Link
-                    href=""
+                    href="shop-checkout"
                     className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center bg-orange-500 text-white rounded-md mt-2"
                   >
                     Shop Now

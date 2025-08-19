@@ -13,7 +13,9 @@ import {
   calculatePrice,
 } from "../components/functions/priceFunctions";
 import { truncateString } from "../components/functions/sliceString";
-// import { useCartActions } from "ecom-user-sdk/cart";
+import { addAddress } from "ecom-user-sdk/user";
+import { processOrderPayment } from "ecom-user-sdk/payment/razorpay";
+import { useCartActions } from "ecom-user-sdk/cart";
 
 export default function ShopCheckout() {
   const {
@@ -23,19 +25,63 @@ export default function ShopCheckout() {
     fetchCart,
     // deleteProductInCartContext,
   } = useCartContext();
+  const {
+    register,
+    handleSubmit,
+    onSubmit,
+    formState: { errors },
+  } = addAddress();
+  const { emptyCart } = useCartActions();
   const userId = "f47ac10b-58cc-4372-a567-0e02b2c3d479";
   const [cart, setCart] = useState(cartData);
   const [cartTotals, setCartTotals] = useState(null);
+  const [saveShippingAddress, setSaveShippingAddress] = useState(false);
+  const [isAddressSame, setIsAddressSame] = useState(true);
   useEffect(() => {
-    if (cart.length === 0) fetchCart({ userId });
+    if (cartData && cartData.length === 0) fetchCart({ userId });
   }, [userId]);
   useEffect(() => {
     setCart(cartData);
     setCartTotals(calculateCartTotals(cartData));
   }, [cartData]);
 
-  console.log(cartData);
+  //   console.log(cartData);
 
+  async function handleCheckout({ data: address, extra }) {
+    // console.log(address);
+    // console.log(extra);
+    // await emptyCart({ user_id: userId });
+    if (saveShippingAddress) {
+      await onSubmit({
+        data: address,
+        extra: extra,
+      });
+    }
+    // e.preventDefault();
+    const name = address?.first_name + " " + address?.last_name;
+    const amount = cartTotals.grandTotal.toFixed(2) * 100;
+
+    const user = {
+      name: name,
+      email: address.email,
+      phone: address.mobile_no,
+      user_id: userId,
+    };
+    // console.log(user);
+
+    await processOrderPayment({
+      amount: amount,
+      user,
+      billing_address: address,
+      key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+      shipping_address: address, //shipping address
+      onSuccess: async (res) => {
+        if (res?.success) await emptyCart({ user_id: userId });
+        console.log("✅ Payment Success:", res);
+      },
+      onFailure: (err) => console.error("❌ Payment Failed:", err),
+    });
+  }
   return (
     <>
       <Navbar navClass="defaultscroll is-sticky" />
@@ -73,164 +119,248 @@ export default function ShopCheckout() {
                   Billing address
                 </h3>
 
-                <form>
+                <form
+                  //   onSubmit={handleCheckout}
+                  onSubmit={handleSubmit((data) =>
+                    handleCheckout({
+                      data: data,
+                      extra: { userId: userId, type: "billing" },
+                    })
+                  )}
+                >
                   <div className="grid lg:grid-cols-12 grid-cols-1 mt-6 gap-5">
+                    {/* First Name */}
                     <div className="lg:col-span-6">
                       <label className="form-label font-semibold">
-                        First Name : <span className="text-red-600">*</span>
+                        First Name: <span className="text-red-600">*</span>
                       </label>
                       <input
                         type="text"
-                        className="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
-                        placeholder="First Name:"
-                        id="firstname"
-                        name="name"
-                        required=""
+                        placeholder="First Name"
+                        className="w-full py-2 px-3 h-10 bg-transparent rounded border mt-2"
+                        {...register("first_name", {
+                          required: "First Name is required",
+                        })}
                       />
+                      {errors.first_name && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.first_name.message}
+                        </p>
+                      )}
                     </div>
 
+                    {/* Last Name */}
                     <div className="lg:col-span-6">
                       <label className="form-label font-semibold">
-                        Last Name : <span className="text-red-600">*</span>
+                        Last Name: <span className="text-red-600">*</span>
                       </label>
                       <input
                         type="text"
-                        className="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
-                        placeholder="Last Name:"
-                        id="lastname"
-                        name="name"
-                        required=""
+                        placeholder="Last Name"
+                        className="w-full py-2 px-3 h-10 bg-transparent rounded border mt-2"
+                        {...register("last_name", {
+                          required: "Last Name is required",
+                        })}
                       />
+                      {errors.last_name && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.last_name.message}
+                        </p>
+                      )}
                     </div>
 
+                    {/* Email */}
                     <div className="lg:col-span-6">
                       <label className="form-label font-semibold">
-                        Username
-                      </label>
-                      <div className="relative mt-2">
-                        <span
-                          className="absolute top-0.5 start-0.5 w-9 h-9 text-xl bg-gray-100 dark:bg-slate-800 inline-flex justify-center items-center text-dark dark:text-white rounded"
-                          id="basic-addon1"
-                        >
-                          <i className="mdi mdi-at"></i>
-                        </span>
-                        <input
-                          type="text"
-                          className="ps-12 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0"
-                          placeholder="Username"
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div className="lg:col-span-6">
-                      <label className="form-label font-semibold">
-                        Your Email : <span className="text-red-600">*</span>
+                        Your Email: <span className="text-red-600">*</span>
                       </label>
                       <input
                         type="email"
-                        className="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
                         placeholder="Email"
-                        name="email"
-                        required=""
+                        className="w-full py-2 px-3 h-10 bg-transparent rounded border mt-2"
+                        {...register("email", {
+                          required: "Email is required",
+                        })}
                       />
+                      {errors.email && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.email.message}
+                        </p>
+                      )}
                     </div>
 
+                    {/* Mobile Number */}
+                    <div className="lg:col-span-6">
+                      <label className="form-label font-semibold">
+                        Mobile Number: <span className="text-red-600">*</span>
+                      </label>
+                      <input
+                        type="tel"
+                        placeholder="Mobile Number"
+                        className="w-full py-2 px-3 h-10 bg-transparent rounded border mt-2"
+                        {...register("mobile_no", {
+                          required: "Mobile Number is required",
+                        })}
+                      />
+                      {errors.mobile_no && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.mobile_no.message}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Address Line 1 */}
                     <div className="lg:col-span-12">
                       <label className="form-label font-semibold">
-                        Address : <span className="text-red-600">*</span>
+                        Address: <span className="text-red-600">*</span>
                       </label>
                       <input
                         type="text"
-                        className="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
-                        placeholder="Address:"
-                        id="address"
-                        name="name"
-                        required=""
+                        placeholder="Address Line 1"
+                        className="w-full py-2 px-3 h-10 bg-transparent rounded border mt-2"
+                        {...register("address_line1", {
+                          required: "Address is required",
+                        })}
                       />
+                      {errors.address_line1 && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.address_line1.message}
+                        </p>
+                      )}
                     </div>
 
+                    {/* Address Line 2 */}
                     <div className="lg:col-span-12">
                       <label className="form-label font-semibold">
-                        Address 2 :{" "}
+                        Address 2:
                       </label>
                       <input
                         type="text"
-                        className="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
-                        placeholder="Address:"
-                        id="address"
-                        name="name"
-                        required=""
+                        placeholder="Address Line 2"
+                        className="w-full py-2 px-3 h-10 bg-transparent rounded border mt-2"
+                        {...register("address_line2")}
                       />
                     </div>
 
+                    {/* Country */}
                     <div className="lg:col-span-4">
-                      <label className="font-semibold">Country:</label>
-                      <select className="form-select form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0">
-                        <option value="USA">USA</option>
-                        <option value="CAD">Canada</option>
-                        <option value="CHINA">China</option>
+                      <label className="font-semibold">
+                        Country: <span className="text-red-600">*</span>
+                      </label>
+                      <select
+                        className="form-select mt-2 w-full py-2 px-3 h-10 rounded border"
+                        defaultValue=""
+                        {...register("country", {
+                          required: "Country is required",
+                        })}
+                      >
+                        <option value="" disabled>
+                          Select a country
+                        </option>
+                        <option value="India">India</option>
                       </select>
+                      {errors.country && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.country.message}
+                        </p>
+                      )}
                     </div>
 
+                    {/* State */}
                     <div className="lg:col-span-4">
-                      <label className="font-semibold">State:</label>
-                      <select className="form-select form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0">
-                        <option value="CAL">California</option>
-                        <option value="TEX">Texas</option>
-                        <option value="FLOR">Florida</option>
+                      <label className="font-semibold">
+                        State: <span className="text-red-600">*</span>
+                      </label>
+                      <select
+                        className="form-select mt-2 w-full py-2 px-3 h-10 rounded border"
+                        defaultValue=""
+                        {...register("state", {
+                          required: "State is required",
+                        })}
+                      >
+                        <option value="" disabled>
+                          Select a state
+                        </option>
+
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Delhi">Delhi</option>
                       </select>
+                      {errors.state && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.state.message}
+                        </p>
+                      )}
                     </div>
 
+                    {/* Zip Code */}
                     <div className="lg:col-span-4">
                       <label className="form-label font-semibold">
-                        Zip Code : <span className="text-red-600">*</span>
+                        Zip Code: <span className="text-red-600">*</span>
                       </label>
                       <input
                         type="number"
-                        className="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
-                        placeholder="Zip:"
-                        id="zipcode"
-                        name="number"
-                        required=""
+                        placeholder="Zip Code"
+                        className="w-full py-2 px-3 h-10 bg-transparent rounded border mt-2"
+                        {...register("postal_code", {
+                          required: "Zip Code is required",
+                        })}
                       />
+                      {errors.postal_code && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.postal_code.message}
+                        </p>
+                      )}
                     </div>
 
+                    {/* Checkboxes */}
                     <div className="lg:col-span-12">
-                      <div className="flex items-center w-full mb-0">
+                      <div className="flex items-center mb-2">
                         <input
-                          className="form-checkbox rounded border-gray-100 dark:border-gray-800 text-orange-500 focus:border-orange-300 focus:ring focus:ring-offset-0 focus:ring-orange-200 focus:ring-opacity-50 me-2"
                           type="checkbox"
-                          value=""
                           id="sameaddress"
+                          checked={isAddressSame}
+                          onChange={() => setIsAddressSame(!isAddressSame)}
+                          //   {...register("same_as_billing")}
+                          className="form-checkbox me-2"
                         />
-                        <label
-                          className="form-check-label text-slate-400"
-                          htmlFor="sameaddress"
-                        >
+                        <label htmlFor="sameaddress" className="text-slate-400">
                           Shipping address is the same as my billing address
                         </label>
                       </div>
 
-                      <div className="flex items-center w-full mb-0">
+                      <div className="flex items-center">
                         <input
-                          className="form-checkbox rounded border-gray-100 dark:border-gray-800 text-orange-500 focus:border-orange-300 focus:ring focus:ring-offset-0 focus:ring-orange-200 focus:ring-opacity-50 me-2"
                           type="checkbox"
-                          value=""
                           id="savenexttime"
+                          checked={saveShippingAddress}
+                          onChange={() =>
+                            setSaveShippingAddress(!saveShippingAddress)
+                          }
+                          //   {...register("save_for_next_time")}
+                          className="form-checkbox me-2"
                         />
                         <label
-                          className="form-check-label text-slate-400"
                           htmlFor="savenexttime"
+                          className="text-slate-400"
                         >
                           Save this information for next time
                         </label>
                       </div>
                     </div>
                   </div>
+
+                  {/* Submit */}
+                  <div className="mt-6">
+                    <button
+                      type="submit"
+                      className="py-2 px-5 w-full bg-orange-500 text-white rounded-md"
+                    >
+                      Continue to checkout
+                    </button>
+                  </div>
                 </form>
 
-                <h3 className="text-xl leading-normal font-semibold mt-6">
+                {/* <h3 className="text-xl leading-normal font-semibold mt-6">
                   Payment
                 </h3>
 
@@ -353,7 +483,7 @@ export default function ShopCheckout() {
                     className="py-2 px-5 inline-block tracking-wide align-middle duration-500 text-base text-center bg-orange-500 text-white rounded-md w-full"
                     value="Continue to checkout"
                   />
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -366,14 +496,14 @@ export default function ShopCheckout() {
                     href="#"
                     className="bg-orange-500 flex justify-center items-center text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full h-5"
                   >
-                    {cartData && cartData.length}
+                    {cart && cart.length}
                   </Link>
                 </div>
 
                 <div className="mt-4 rounded-md shadow dark:shadow-gray-800">
-                  {cartData &&
-                    cartData.length > 0 &&
-                    cartData.map((cart, idx) => {
+                  {cart &&
+                    cart.length > 0 &&
+                    cart.map((cart, idx) => {
                       const product = cart.products;
                       const price = calculatePrice(product);
                       const taxedPrice = (price * product.gst_amount) / 100;

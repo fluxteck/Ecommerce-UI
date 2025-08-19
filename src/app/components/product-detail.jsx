@@ -57,25 +57,6 @@ export default function ProductDetail({ product }) {
             </>
           )}
         </span>
-
-        {/* <ul className="list-none inline-block text-orange-400">
-          <li className="inline">
-            <i className="mdi mdi-star text-lg"></i>
-          </li>
-          <li className="inline">
-            <i className="mdi mdi-star text-lg"></i>
-          </li>
-          <li className="inline">
-            <i className="mdi mdi-star text-lg"></i>
-          </li>
-          <li className="inline">
-            <i className="mdi mdi-star text-lg"></i>
-          </li>
-          <li className="inline">
-            <i className="mdi mdi-star text-lg"></i>
-          </li>
-          <li className="inline text-slate-400 font-semibold">4.8 (45)</li>
-        </ul> */}
       </div>
       <div className="mt-4">
         <h5 className="text-lg font-semibold">Overview :</h5>
@@ -88,23 +69,7 @@ export default function ProductDetail({ product }) {
             }
           />
         </div>
-
-        {/* <ul className="list-none text-slate-400 mt-4">
-          <li className="mb-1 flex ms-0">
-            <i className="mdi mdi-check-circle-outline text-red-600 text-xl me-2"></i>{" "}
-            Digital Marketing Solutions for Tomorrow
-          </li>
-          <li className="mb-1 flex ms-0">
-            <i className="mdi mdi-check-circle-outline text-red-600 text-xl me-2"></i>{" "}
-            Our Talented & Experienced Marketing Agency
-          </li>
-          <li className="mb-1 flex ms-0">
-            <i className="mdi mdi-check-circle-outline text-red-600 text-xl me-2"></i>{" "}
-            Create your own skin to match your brand
-          </li>
-        </ul> */}
       </div>
-
       <VariationsGrid
         variations={product.variations}
         activeVariations={activeVariations}
