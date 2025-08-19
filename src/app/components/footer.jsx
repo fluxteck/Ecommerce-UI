@@ -23,7 +23,7 @@ export default function Footer() {
                 <div className="lg:col-span-3 md:col-span-12">
                   <Link href="#" className="text-[22px] focus:outline-none">
                     <Image
-                      src="/images/logo-light.png"
+                      src="/images/logo-main.webp"
                       width={114}
                       height={22}
                       alt=""
@@ -64,40 +64,37 @@ export default function Footer() {
                                                 })}
                                             </ul>
                                         </div> */}
+<div className="md:col-span-6">
+  <ul className="list-none footer-list mt-6">
+    {footerShopping2.map((item, index) => (
+      <li className="ms-0 mt-[10px]" key={index}>
+        <Link
+          href={item.url}
+          className="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"
+        >
+          <i className="mdi mdi-chevron-right"></i> {item.name}
+        </Link>
+      </li>
+    ))}
+  </ul>
+</div>
 
-                    <div className="md:col-span-6">
-                      <ul className="list-none footer-list mt-6">
-                        {footerShopping2.map((item, index) => {
-                          return (
-                            <li className="ms-0 mt-[10px]" key={index}>
-                              <Link
-                                href=""
-                                className="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"
-                              >
-                                <i className="mdi mdi-chevron-right"></i> {item}{" "}
-                              </Link>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </div>
+<div className="md:col-span-6">
+  <ul className="list-none footer-list mt-6">
+    {footerShopping3.map((item, index) => (
+      <li className="mt-[10px] ms-0" key={index}>
+        <Link
+          href={item.url}
+          className="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"
+        >
+          <i className="mdi mdi-chevron-right"></i> {item.name}
+        </Link>
+      </li>
+    ))}
+  </ul>
+</div>
 
-                    <div className="md:col-span-6">
-                      <ul className="list-none footer-list mt-6">
-                        {footerShopping3.map((item, index) => {
-                          return (
-                            <li className="mt-[10px] ms-0" key={index}>
-                              <Link
-                                href=""
-                                className="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"
-                              >
-                                <i className="mdi mdi-chevron-right"></i> {item}
-                              </Link>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </div>
+
                   </div>
                 </div>
 

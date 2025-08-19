@@ -22,10 +22,10 @@ export default function Colections({ products }) {
   return (
     <>
       <Navbar />
-      <section className="relative table w-full py-20 lg:py-24 md:pt-28 bg-gray-50 dark:bg-slate-800">
+      <section className="relative table w-full pt-15 pb-2 lg:pt-15 md:pt-13 bg-gray-50 dark:bg-slate-800">
         <div className="container relative">
           <div className="grid grid-cols-1 mt-14">
-            <h3 className="text-3xl leading-normal font-semibold">Fashion</h3>
+            <h3 className="text-3xl leading-normal font-semibold">Leather Jackets</h3>
           </div>
 
           <div className="relative mt-3">
@@ -47,10 +47,10 @@ export default function Colections({ products }) {
         </div>
       </section>
 
-      <section className="relative md:py-24 py-16">
+      <section className="relative md:pb-24 pb-16">
         <div className="container relative">
           <div className="md:flex justify-between items-center mb-6">
-            <span className="font-semibold">Showing 1-16 of 40 items</span>
+            {/* <span className="font-semibold">Showing 1-16 of 40 items</span> */}
 
             <div className="md:flex items-center">
               <label className="font-semibold md:me-2">Sort by:</label>
