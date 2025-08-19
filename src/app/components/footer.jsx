@@ -23,13 +23,13 @@ export default function Footer() {
                 <div className="lg:col-span-3 md:col-span-12">
                   <Link href="#" className="text-[22px] focus:outline-none">
                     <Image
-                      src="/images/logo-main.webp"
-                      width={114}
-                      height={22}
+                      src="/images/without-bg.png"
+                      width={80}
+                      height={80}
                       alt=""
                     />
                   </Link>
-                  <p className="mt-6 text-gray-300">Company tagline</p>
+                  <p className="mt-6 text-gray-300">The Kind of Leather</p>
                   <ul className="list-none mt-6 space-x-1">
                     {footerSocial.map((item, index) => {
                       let Icon = item.icon;

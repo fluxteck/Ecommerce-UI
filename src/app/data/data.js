@@ -134,8 +134,8 @@ export const footerShopping1 = [
     'Men Jackets', 'Women Jackets', 'Shoes', 'Bags'
 ]
 export const footerShopping2 = [
-  { name: 'About Us', url: '/about-us' },
-  { name: 'Contact Us', url: '/contact-us' },
+  { name: 'About Us', url: '/about' },
+  { name: 'Contact Us', url: '/contact' },
 //   { name: 'Blogs', url: '/blogs' },
 //   { name: "FAQ's", url: '/faqs' },
 ]
