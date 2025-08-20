@@ -25,7 +25,7 @@ export default function Blogs(){
             
             <div className="absolute text-center z-10 bottom-5 start-0 end-0 mx-3">
                 <ul className="tracking-[0.5px] mb-0 inline-block">
-                    <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white"><Link href="/">Cartzio</Link></li>
+                    <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white"><Link href="/">MA Mark</Link></li>
                     <li className="inline-block text-base text-white/50 mx-0.5 ltr:rotate-0 rtl:rotate-180"><i className="mdi mdi-chevron-right"></i></li>
                     <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white" aria-current="page">Blogs</li>
                 </ul>
@@ -52,7 +52,7 @@ export default function Blogs(){
                                     <p className="text-slate-400 mt-2">{item.desc}</p>
 
                                     <div className="mt-3">
-                                        <span className="text-slate-400">by <Link href="/" className="text-slate-900 dark:text-white hover:text-orange-500 dark:hover:text-orange-500 font-medium">Cartzio</Link></span>
+                                        <span className="text-slate-400">by <Link href="/" className="text-slate-900 dark:text-white hover:text-orange-500 dark:hover:text-orange-500 font-medium">MA Mark</Link></span>
                                     </div>
                                 </div>
                             </div>

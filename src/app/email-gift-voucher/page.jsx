@@ -41,13 +41,13 @@ export default function EmailGiftVoucher(){
 
                     <tr>
                         <td style={{padding: '16px 16px 0'}}>
-                            <p style={{margin: '0', color: '#94a3b8'}}>If you have any queries please contact us via our customer support <Link href="" style={{color: '#ea580c'}}>contact@cartzio.com</Link> </p>
+                            <p style={{margin: '0', color: '#94a3b8'}}>If you have any queries please contact us via our customer support <Link href="" style={{color: '#ea580c'}}>contact@MA Mark.com</Link> </p>
                         </td>
                     </tr>
     
                     <tr>
                         <td style={{padding: '16px'}}>
-                            <p style={{margin: '0', fontSize: '18px', fontWeight: '500'}}>Cartzio <br/> Support Team</p>
+                            <p style={{margin: '0', fontSize: '18px', fontWeight: '500'}}>MA Mark <br/> Support Team</p>
                         </td>
                     </tr>
     
@@ -71,7 +71,7 @@ export default function EmailGiftVoucher(){
 
                                     <tr>
                                         <td style={{textAlign: 'center'}}>
-                                            <p style={{margin: '4px 0 10px'}}>© {new Date().getFullYear()} Cartzio. Designed by <Link href="https://shreethemes.in/" target="_blank" style={{textDecoration: 'none', color: '#fff'}}>Shreethemes</Link>.</p>
+                                            <p style={{margin: '4px 0 10px'}}>© {new Date().getFullYear()} MA Mark. Designed by <Link href="https://shreethemes.in/" target="_blank" style={{textDecoration: 'none', color: '#fff'}}>Shreethemes</Link>.</p>
                                         </td>
                                     </tr>
 

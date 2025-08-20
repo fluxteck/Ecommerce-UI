@@ -21,38 +21,32 @@ export default function AboutUs() {
   return (
     <>
       <Navbar navClass="defaultscroll is-sticky" navlight={true} />
-      <section className="relative table w-full items-center py-36 bg-[url('/images/hero/pages.jpg')] bg-top bg-no-repeat bg-cover">
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/80 to-slate-900"></div>
-        <div className="container relative">
-          <div className="grid grid-cols-1 pb-8 text-center mt-10">
-            <h3 className="mb-3 text-4xl leading-normal tracking-wider font-semibold text-white">
-              About Us
-            </h3>
 
+      <section className="relative text-center table w-full pt-15 pb-2 lg:pt-15 md:pt-13 bg-gray-50 dark:bg-slate-800">
+              <div className="container relative">
+                <div className="grid grid-cols-1 mt-14">
+                  <h3 className="text-3xl leading-normal font-semibold">About Us</h3>
+                </div>
+      
+                <div className="relative mt-3">
+                  <ul className="tracking-[0.5px] mb-0 inline-block">
+                    <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-orange-500">
+                      <Link href="/">MA Mark</Link>
+                    </li>
+                    <li className="inline-block text-base text-slate-950 dark:text-white mx-0.5 ltr:rotate-0 rtl:rotate-180">
+                      <i className="mdi mdi-chevron-right"></i>
+                    </li>
+                    <li
+                      className="inline-block uppercase text-[13px] font-bold text-red-600"
+                      aria-current="page"
+                    >
+                      Shop Grid
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
 
-            <p className="text-slate-400 text-lg max-w-xl mx-auto">
-              Believe in Craftsmanship and Luxurious Design.
-            </p>
-          </div>
-        </div>
-
-        <div className="absolute text-center z-10 bottom-5 start-0 end-0 mx-3">
-          <ul className="tracking-[0.5px] mb-0 inline-block">
-            <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white">
-              <Link href="/">MA Mark</Link>
-            </li>
-            <li className="inline-block text-base text-white/50 mx-0.5 ltr:rotate-0 rtl:rotate-180">
-              <i className="mdi mdi-chevron-right"></i>
-            </li>
-            <li
-              className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white"
-              aria-current="page"
-            >
-              About
-            </li>
-          </ul>
-        </div>
-      </section>
       <section className="relative md:py-24 py-16">
         <About />
 

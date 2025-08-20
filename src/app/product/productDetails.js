@@ -46,7 +46,7 @@ export default function ProductDetailTwo({ product }) {
           <div className="relative mt-3">
             <ul className="tracking-[0.5px] mb-0 inline-block">
               <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-red-600">
-                <Link href="/">Cartzio</Link>
+                <Link href="/">MA Mark</Link>
               </li>
               <li className="inline-block text-base text-slate-950 dark:text-white mx-0.5 ltr:rotate-0 rtl:rotate-180">
                 <i className="mdi mdi-chevron-right"></i>

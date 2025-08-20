@@ -73,7 +73,7 @@ export default function EmailItemReview(){
 
                                     <tr>
                                         <td style={{textAlign: 'center'}}>
-                                            <p style={{margin: '4px 0 10px'}}>© {new Date().getFullYear()} Cartzio. Designed by <Link href="https://shreethemes.in/" target="_blank" style={{textDecoration: 'none', color: '#fff'}}>Shreethemes</Link>.</p>
+                                            <p style={{margin: '4px 0 10px'}}>© {new Date().getFullYear()} MA Mark. Designed by <Link href="https://fluxteck.com/" target="_blank" style={{textDecoration: 'none', color: '#fff'}}>Shreethemes</Link>.</p>
                                         </td>
                                     </tr>
 
