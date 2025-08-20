@@ -37,7 +37,7 @@ export default function HelpcenterFaq(){
             <GetInTouch/>
         </section>
         <Footer/>
-        <Switcher/>
+        {/* <Switcher/> */}
         <ScrollToTop/>
         </>
     )

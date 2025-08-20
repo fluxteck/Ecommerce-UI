@@ -8,7 +8,7 @@ import BackToHome from "../components/back-to-home"
 export default function Login(){
     return(
         <>
-         <section className="md:h-screen py-36 flex items-center bg-orange-500/10 dark:bg-orange-500/20 bg-[url('/images/hero/bg-shape.png')] bg-center bg-no-repeat bg-cover">
+         <section className="md:h-screen py-36 flex items-center bg-gray-800/10 dark:bg-gray-800/20 bg-[url('/images/hero/bg-shape.png')] bg-center bg-no-repeat bg-cover">
             <div className="container relative">
                 <div className="grid grid-cols-1">
                     <div className="relative overflow-hidden rounded-md shadow dark:shadow-gray-700 bg-white dark:bg-slate-900">
@@ -39,14 +39,14 @@ export default function Login(){
         
                                         <div className="flex justify-between mb-4">
                                             <div className="flex items-center mb-0">
-                                                <input className="form-checkbox rounded border-gray-100 dark:border-gray-800 text-orange-500 focus:border-orange-300 focus:ring focus:ring-offset-0 focus:ring-orange-200 focus:ring-opacity-50 me-2" type="checkbox" value="" id="RememberMe"/>
+                                                <input className="form-checkbox rounded border-gray-100 dark:border-gray-800 text-gray-800 focus:border-gray-800 focus:ring focus:ring-offset-0 focus:ring-gray-800 focus:ring-opacity-50 me-2" type="checkbox" value="" id="RememberMe"/>
                                                 <label className="form-checkbox-label text-slate-400" htmlFor="RememberMe">Remember me</label>
                                             </div>
                                             <p className="text-slate-400 mb-0"><Link href="/forgot-password" className="text-slate-400">Forgot password ?</Link></p>
                                         </div>
         
                                         <div className="mb-4">
-                                            <input type="submit" className="py-2 px-5 inline-block tracking-wide align-middle duration-500 text-base text-center bg-orange-500 text-white rounded-md w-full" value="Login / Sign in"/>
+                                            <input type="submit" className="py-2 px-5 inline-block tracking-wide align-middle duration-500 text-base text-center bg-gray-800 text-white rounded-md w-full" value="Login / Sign in"/>
                                         </div>
         
                                         <div className="text-center">
@@ -64,7 +64,7 @@ export default function Login(){
                 </div>
             </div>
         </section>
-        <Switcher/>
+        {/* <Switcher/> */}
         <BackToHome/>
         </>
     )

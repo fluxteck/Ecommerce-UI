@@ -62,7 +62,7 @@ export default function Home() {
                     <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-2 pt-6 gap-6">
                         {collections.map((item, index) => {
                             return (
-                                <Link href="" className="text-center hover:text-orange-500" key={index}>
+                                <Link href="" className="text-center hover:text-gray-800" key={index}>
                                     <Image src={item.image} width={0} height={0} sizes="100vw" style={{ width: '100%', height: 'auto' }} className="rounded-full shadow dark:shadow-gray-800" alt="" />
                                     <span className="text-xl font-medium mt-3 block">{item.name}</span>
                                 </Link>
@@ -104,7 +104,7 @@ export default function Home() {
                       {/* <ul className="list-none absolute top-[10px] start-4">
                                             {item.offer === true && (
 
-                                                <li><Link href="#" className="bg-orange-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5">{item.tag}</Link></li>
+                                                <li><Link href="#" className="bg-gray-800 text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5">{item.tag}</Link></li>
                                             )}
                                             {item.tag === 'New' && (
                                                 <li><Link href="#" className="bg-red-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5">{item.tag}</Link></li>
@@ -169,7 +169,7 @@ export default function Home() {
                         </div>
 
                         <div className="md:text-end hidden md:block">
-                            <Link href="/shop-grid" className="text-slate-400 hover:text-orange-500">See More Items <i className="mdi mdi-arrow-right"></i></Link>
+                            <Link href="/shop-grid" className="text-slate-400 hover:text-gray-800">See More Items <i className="mdi mdi-arrow-right"></i></Link>
                         </div>
                     </div>
 
@@ -198,7 +198,7 @@ export default function Home() {
                                     </div>
 
                                     <div className="mt-4">
-                                        <Link href={`/product-detail-one/${item.id}`} className="hover:text-orange-500 text-lg font-medium">{item.name}</Link>
+                                        <Link href={`/product-detail-one/${item.id}`} className="hover:text-gray-800 text-lg font-medium">{item.name}</Link>
                                         <div className="flex justify-between items-center mt-1">
                                             <p>{item.desRate}<del className="text-slate-400">{item.rate}</del></p>
                                             <ul className="font-medium text-amber-400 list-none">
@@ -216,7 +216,7 @@ export default function Home() {
                     </div>
                     <div className="grid grid-cols-1 mt-6">
                         <div className="text-center md:hidden block">
-                            <Link href="/shop-grid" className="text-slate-400 hover:text-orange-500">See More Items <i className="mdi mdi-arrow-right"></i></Link>
+                            <Link href="/shop-grid" className="text-slate-400 hover:text-gray-800">See More Items <i className="mdi mdi-arrow-right"></i></Link>
                         </div>
                     </div>
                 </div> */}

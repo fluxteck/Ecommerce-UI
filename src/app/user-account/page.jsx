@@ -54,7 +54,7 @@ export default function UserAccount(){
                                                     <td className="px-2 py-3 text-start text-red-600">Canceled</td>
                                                 )}
                                                 <td className="px-2 py-3 text-start">{item.total}<span className="text-slate-400">{item.item}</span></td>
-                                                <td className="px-2 py-3 text-start"><Link href="#" className="text-orange-500">View <i className="mdi mdi-chevron-right"></i></Link></td>
+                                                <td className="px-2 py-3 text-start"><Link href="#" className="text-gray-800">View <i className="mdi mdi-chevron-right"></i></Link></td>
                                             </tr>
                                         )
                                     })}
@@ -73,7 +73,7 @@ export default function UserAccount(){
                                                 <Image src={item.image} width={64} height={83} className="rounded shadow dark:shadow-gray-800 w-16" alt=""/>
 
                                                 <div className="ms-4">
-                                                    <Link href="" className="font-semibold hover:text-orange-500">Ladies Top</Link>
+                                                    <Link href="" className="font-semibold hover:text-gray-800">Ladies Top</Link>
                                                     <p className="text-green-600 text-sm mt-1">$16.00 <del className="text-red-600">$21.00</del></p>
                                                 </div>
                                             </div>
@@ -91,7 +91,7 @@ export default function UserAccount(){
             </div>
         </section>
         <Footer/>
-        <Switcher/>
+        {/* <Switcher/> */}
         <ScrollToTop/>
         </>
     )

@@ -6,7 +6,7 @@
     button {
         @apply rounded-full bg-black/20 dark:bg-white/20 transition-all duration-500 ease-in-out border-2 border-white dark:border-slate-900 m-1 p-[2px];
         &.tns-nav-active {
-            @apply bg-orange-500 border-orange-500;
+            @apply bg-gray-800 border-gray-800;
         }
     }
 }
@@ -18,7 +18,7 @@
         @apply absolute top-2/4 -translate-y-2/4 text-base w-8 h-8 rounded-full bg-white dark:bg-slate-900 text-dark dark:text-white border-0 transition-all duration-500 ease-in-out z-10 shadow-md dark:shadow-gray-700;
 
         &:hover {
-            @apply bg-orange-500 text-white;
+            @apply bg-gray-800 text-white;
         }
     }
     button[data-controls="prev"] {

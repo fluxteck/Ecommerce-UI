@@ -23,29 +23,29 @@ export default function AboutUs() {
       <Navbar navClass="defaultscroll is-sticky" navlight={true} />
 
       <section className="relative text-center table w-full pt-15 pb-2 lg:pt-15 md:pt-13 bg-gray-50 dark:bg-slate-800">
-              <div className="container relative">
-                <div className="grid grid-cols-1 mt-14">
-                  <h3 className="text-3xl leading-normal font-semibold">About Us</h3>
-                </div>
-      
-                <div className="relative mt-3">
-                  <ul className="tracking-[0.5px] mb-0 inline-block">
-                    <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-orange-500">
-                      <Link href="/">MA Mark</Link>
-                    </li>
-                    <li className="inline-block text-base text-slate-950 dark:text-white mx-0.5 ltr:rotate-0 rtl:rotate-180">
-                      <i className="mdi mdi-chevron-right"></i>
-                    </li>
-                    <li
-                      className="inline-block uppercase text-[13px] font-bold text-red-600"
-                      aria-current="page"
-                    >
-                      Shop Grid
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </section>
+        <div className="container relative">
+          <div className="grid grid-cols-1 mt-14">
+            <h3 className="text-3xl leading-normal font-semibold">About Us</h3>
+          </div>
+
+          <div className="relative mt-3">
+            <ul className="tracking-[0.5px] mb-0 inline-block">
+              <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-gray-800">
+                <Link href="/">MA Mark</Link>
+              </li>
+              <li className="inline-block text-base text-slate-950 dark:text-white mx-0.5 ltr:rotate-0 rtl:rotate-180">
+                <i className="mdi mdi-chevron-right"></i>
+              </li>
+              <li
+                className="inline-block uppercase text-[13px] font-bold text-red-600"
+                aria-current="page"
+              >
+                Shop Grid
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
       <section className="relative md:py-24 py-16">
         <About />
@@ -65,7 +65,7 @@ export default function AboutUs() {
             </div>
 
             <div className="lg:col-span-7 md:col-span-6 md:order-1 order-2">
-              <h6 className="text-orange-500 font-semibold uppercase text-lg">
+              <h6 className="text-gray-800 font-semibold uppercase text-lg">
                 Founder
               </h6>
               <h5 className="font-semibold text-3xl leading-normal my-4">
@@ -78,7 +78,7 @@ export default function AboutUs() {
                   <Link
                     href="https://dribbble.com/shreethemes"
                     target="_blank"
-                    className="inline-flex hover:text-orange-500 dark:hover:text-orange-500"
+                    className="inline-flex hover:text-gray-800 dark:hover:text-gray-800"
                   >
                     {/* <FiDribbble
                       className="size-5 align-middle"
@@ -90,7 +90,7 @@ export default function AboutUs() {
                   <Link
                     href="http://linkedin.com/company/shreethemes"
                     target="_blank"
-                    className="inline-flex hover:text-orange-500 dark:hover:text-orange-500"
+                    className="inline-flex hover:text-gray-800 dark:hover:text-gray-800"
                   >
                     <FiLinkedin
                       className="size-5 align-middle"
@@ -102,7 +102,7 @@ export default function AboutUs() {
                   <Link
                     href="https://www.facebook.com/shreethemes"
                     target="_blank"
-                    className="inline-flex hover:text-orange-500 dark:hover:text-orange-500"
+                    className="inline-flex hover:text-gray-800 dark:hover:text-gray-800"
                   >
                     <FiFacebook
                       className="size-5 align-middle"
@@ -114,7 +114,7 @@ export default function AboutUs() {
                   <Link
                     href="https://www.instagram.com/shreethemes/"
                     target="_blank"
-                    className="inline-flex hover:text-orange-500 dark:hover:text-orange-500"
+                    className="inline-flex hover:text-gray-800 dark:hover:text-gray-800"
                   >
                     <FiInstagram
                       className="size-5 align-middle"
@@ -126,7 +126,7 @@ export default function AboutUs() {
                   <Link
                     href="https://twitter.com/shreethemes"
                     target="_blank"
-                    className="inline-flex hover:text-orange-500 dark:hover:text-orange-500"
+                    className="inline-flex hover:text-gray-800 dark:hover:text-gray-800"
                   >
                     {/* <FiTwitter
                       className="size-5 align-middle"
@@ -158,7 +158,7 @@ export default function AboutUs() {
                   <div className="content mt-6">
                     <Link
                       href=""
-                      className="title h5 text-xl font-medium hover:text-orange-500"
+                      className="title h5 text-xl font-medium hover:text-gray-800"
                     >
                       {item.title}
                     </Link>
@@ -207,7 +207,7 @@ export default function AboutUs() {
                         <li className="inline">
                           <Link
                             href=""
-                            className="size-8 inline-flex items-center justify-center align-middle rounded-full bg-orange-500 text-white"
+                            className="size-8 inline-flex items-center justify-center align-middle rounded-full bg-gray-800 text-white"
                           >
                             <FiFacebook className="h-4 w-4"></FiFacebook>
                           </Link>
@@ -215,7 +215,7 @@ export default function AboutUs() {
                         <li className="inline">
                           <Link
                             href=""
-                            className="size-8 inline-flex items-center justify-center align-middle rounded-full bg-orange-500 text-white"
+                            className="size-8 inline-flex items-center justify-center align-middle rounded-full bg-gray-800 text-white"
                           >
                             <FiInstagram className="h-4 w-4"></FiInstagram>
                           </Link>
@@ -223,7 +223,7 @@ export default function AboutUs() {
                         <li className="inline">
                           <Link
                             href=""
-                            className="size-8 inline-flex items-center justify-center align-middle rounded-full bg-orange-500 text-white"
+                            className="size-8 inline-flex items-center justify-center align-middle rounded-full bg-gray-800 text-white"
                           >
                             <FiLinkedin className="h-4 w-4"></FiLinkedin>
                           </Link>
@@ -234,7 +234,7 @@ export default function AboutUs() {
                     <div className="content mt-3">
                       <Link
                         href=""
-                        className="text-lg font-semibold hover:text-orange-500 duration-500"
+                        className="text-lg font-semibold hover:text-gray-800 duration-500"
                       >
                         {item.name}
                       </Link>
@@ -248,7 +248,7 @@ export default function AboutUs() {
         </div> */}
       </section>
       <Footer />
-      <Switcher />
+      {/* <Switcher /> */}
       <ScrollToTop />
     </>
   );

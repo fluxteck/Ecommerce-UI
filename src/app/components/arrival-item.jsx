@@ -33,7 +33,7 @@ export default function ArrivalItem(){
                                 {/* <ul className="list-none absolute top-[10px] start-4">
                                     {item.offer === true && (
 
-                                        <li><Link href="#" className="bg-orange-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5">{item.tag}</Link></li>
+                                        <li><Link href="#" className="bg-gray-800 text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5">{item.tag}</Link></li>
                                     )}
                                     {item.tag === 'New' && (
                                         <li><Link href="#" className="bg-red-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5">{item.tag}</Link></li>

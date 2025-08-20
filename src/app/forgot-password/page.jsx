@@ -8,7 +8,7 @@ import Switcher from '../components/switcher';
 export default function ForgotPassword(){
     return(
         <>
-        <section className="md:h-screen py-36 flex items-center bg-orange-500/10 dark:bg-orange-500/20 bg-[url('/images/hero/bg-shape.png')] bg-center bg-no-repeat bg-cover">
+        <section className="md:h-screen py-36 flex items-center bg-gray-800/10 dark:bg-gray-800/20 bg-[url('/images/hero/bg-shape.png')] bg-center bg-no-repeat bg-cover">
             <div className="container relative">
                 <div className="grid grid-cols-1">
                     <div className="relative overflow-hidden rounded-md shadow dark:shadow-gray-700 bg-white dark:bg-slate-900">
@@ -34,7 +34,7 @@ export default function ForgotPassword(){
                                         </div>
 
                                         <div className="mb-4">
-                                            <input type="submit" className="py-2 px-5 inline-block tracking-wide align-middle duration-500 text-base text-center bg-orange-500 text-white rounded-md w-full" value="Send"/>
+                                            <input type="submit" className="py-2 px-5 inline-block tracking-wide align-middle duration-500 text-base text-center bg-gray-800 text-white rounded-md w-full" value="Send"/>
                                         </div>
 
                                         <div className="text-center">
@@ -53,7 +53,7 @@ export default function ForgotPassword(){
             </div>
         </section>
         <BackToHome/>
-        <Switcher/>
+        {/* <Switcher/> */}
         </>
     )
 }
