@@ -75,23 +75,23 @@ export default function Navbar({ navClass, navlight }) {
           <Link className="logo" href="/">
             <span className="inline-block dark:hidden">
               <Image
-                src="/images/logo-100.png"
-                width={65}
+                src="/images/logo-main-blk.png"
+                width={120}
                 height={65}
                 className="l-dark"
                 alt=""
               />
               <Image
-                src="/images/logo-100.png"
-                width={65}
+                src="/images/logo-main-blk.png"
+                width={120}
                 height={65}
                 className="l-light"
                 alt=""
               />
             </span>
             <Image
-              src="/images/logo-100.png"
-              width={65}
+              src="/images/logo-main-blk.png"
+              width={120}
               height={65}
               className="hidden dark:inline-block"
               alt=""
@@ -101,15 +101,15 @@ export default function Navbar({ navClass, navlight }) {
           <Link className="logo" href="/">
             <div>
               <Image
-                src="/images/logo-100.png"
-                width={65}
+                src="/images/logo-main-blk.png"
+                width={120}
                 height={65}
                 className="h-[65px] inline-block dark:hidden"
                 alt=""
               />
               <Image
-                src="/images/logo-100.png"
-                width={65}
+                src="/images/logo-main-blk.png"
+                width={120}
                 height={65}
                 className="h-[65px] hidden dark:inline-block"
                 alt=""
@@ -136,7 +136,8 @@ export default function Navbar({ navClass, navlight }) {
         </div>
 
         <ul className="buy-button list-none mb-0">
-          <li className="dropdown inline-block relative pe-1" ref={dropdownRef}>
+
+          {/* <li className="dropdown inline-block relative pe-1" ref={dropdownRef}>
             <button
               data-dropdown-toggle="dropdown"
               className="dropdown-toggle align-middle inline-flex search-dropdown"
@@ -168,7 +169,7 @@ export default function Navbar({ navClass, navlight }) {
                 </div>
               </div>
             )}
-          </li>
+          </li> */}
 
           <li className="dropdown inline-block relative ps-0.5 mx-1" ref={cartRef}>
             <Link

@@ -37,7 +37,7 @@ export default function MailOffers(){
                     <tr>
                         <td style={{padding: '16px 16px 0', color: '#161c2d'}}>
                             <p style={{margin: '0', fontSize: '18px', fontWeight: '500'}}>Hello, Harry!</p>
-                            <p style={{marginBottom: '0', color: '#94a3b8'}}>Please check new offer from Cartzio for you.</p>
+                            <p style={{marginBottom: '0', color: '#94a3b8'}}>Please check new offer from MA Mark for you.</p>
                         </td>
                     </tr>
 
@@ -98,7 +98,7 @@ export default function MailOffers(){
 
                                     <tr>
                                         <td style={{textAlign: 'center'}}>
-                                            <p style={{margin: '4px 0 10px'}}>© {new Date().getFullYear()} Cartzio. Designed by <Link href="https://shreethemes.in/" target="_blank" style={{textDecoration: 'none', color: '#fff'}}>Shreethemes</Link>.</p>
+                                            <p style={{margin: '4px 0 10px'}}>© {new Date().getFullYear()} MA Mark. Designed by <Link href="https://shreethemes.in/" target="_blank" style={{textDecoration: 'none', color: '#fff'}}>Shreethemes</Link>.</p>
                                         </td>
                                     </tr>
 

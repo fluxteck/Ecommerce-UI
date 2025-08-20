@@ -26,7 +26,7 @@ export default function UserInvoice(){
                                         <Image src='/images/logo-light.png' width={114} height={22} className="hidden dark:block" alt=""/>
                                         <div className="flex mt-4">
                                             <FiLink className="h-4 w-4 me-3 mt-1"></FiLink>
-                                            <Link href="https://1.envato.market/cartzio-next" target="_blank" className="text-orange-500 dark:text-white font-medium">https://1.envato.market/cartzio-next</Link>
+                                            <Link href="https://1.envato.market/MA Mark-next" target="_blank" className="text-orange-500 dark:text-white font-medium">https://1.envato.market/MA Mark-next</Link>
                                         </div>
                                     </div> */}
 
@@ -41,7 +41,7 @@ export default function UserInvoice(){
                                             
                                             <li className="flex mt-3 ms-0">
                                                 <FiMail className="h-4 w-4 me-3 mt-1"></FiMail>
-                                                <Link href="mailto:contact@example.com" className="text-slate-400">info@cartzio.com</Link>
+                                                <Link href="mailto:contact@example.com" className="text-slate-400">info@MA Mark.com</Link>
                                             </li>
                                             
                                             <li className="flex mt-3 ms-0">

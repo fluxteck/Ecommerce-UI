@@ -28,11 +28,11 @@ export default function CtaOne() {
         <div className="grid grid-cols-1">
           <div
             className="relative overflow-hidden py-24 px-4 md:px-10 bg-red-600 bg-center bg-no-repeat bg-cover"
-            style={{ backgroundImage: "url('/images/hero/bg3.png')" }}
+            // style={{ backgroundImage: "url('/images/hero/bg3.png')" }}
           >
             <div
               className="absolute inset-0 bg-center bg-no-repeat bg-cover"
-              // style={{backgroundImage:`url('/images/hero/bg-shape.png')`}}
+              style={{backgroundImage:`url('/images/hero/bg-shape.png')`}}
             ></div>
             <div className="grid grid-cols-1 justify-center text-center relative z-1">
               <h3 className="text-4xl leading-normal tracking-wide font-bold text-white">

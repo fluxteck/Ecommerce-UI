@@ -23,13 +23,13 @@ export default function Footer() {
                 <div className="lg:col-span-3 md:col-span-12">
                   <Link href="#" className="text-[22px] focus:outline-none">
                     <Image
-                      src="/images/without-bg.png"
-                      width={80}
+                      src="/images/logo-main-wht.png"
+                      width={140}
                       height={80}
                       alt=""
                     />
                   </Link>
-                  <p className="mt-6 text-gray-300">The Kind of Leather</p>
+                  <p className="mt-2 text-gray-300">The Kind of Leather</p>
                   <ul className="list-none mt-6 space-x-1">
                     {footerSocial.map((item, index) => {
                       let Icon = item.icon;
@@ -64,37 +64,37 @@ export default function Footer() {
                                                 })}
                                             </ul>
                                         </div> */}
-<div className="md:col-span-6">
-  <ul className="list-none footer-list mt-6">
-    {footerShopping2.map((item, index) => (
-      <li className="ms-0 mt-[10px]" key={index}>
-        <Link
-          href={item.url}
-          className="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"
-        >
-          <i className="mdi mdi-chevron-right"></i> {item.name}
-        </Link>
-      </li>
-    ))}
-  </ul>
-</div>
+                    <div className="md:col-span-6">
+                      <ul className="list-none footer-list mt-6">
+                        {footerShopping2.map((item, index) => (
+                          <li className="ms-0 mt-[10px]" key={index}>
+                            <Link
+                              href={item.url}
+                              className="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"
+                            >
+                              <i className="mdi mdi-chevron-right"></i>{" "}
+                              {item.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
 
-<div className="md:col-span-6">
-  <ul className="list-none footer-list mt-6">
-    {footerShopping3.map((item, index) => (
-      <li className="mt-[10px] ms-0" key={index}>
-        <Link
-          href={item.url}
-          className="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"
-        >
-          <i className="mdi mdi-chevron-right"></i> {item.name}
-        </Link>
-      </li>
-    ))}
-  </ul>
-</div>
-
-
+                    <div className="md:col-span-6">
+                      <ul className="list-none footer-list mt-6">
+                        {footerShopping3.map((item, index) => (
+                          <li className="mt-[10px] ms-0" key={index}>
+                            <Link
+                              href={item.url}
+                              className="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"
+                            >
+                              <i className="mdi mdi-chevron-right"></i>{" "}
+                              {item.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
 
@@ -128,7 +128,7 @@ export default function Footer() {
                         type="submit"
                         id="submitsubscribe"
                         name="send"
-                        className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-red-600 text-white rounded-md"
+                        className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-white text-red-600 rounded-md"
                       >
                         Subscribe
                       </button>

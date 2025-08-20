@@ -103,14 +103,14 @@ export default function ProductDetail({ product }) {
       <div className="mt-4 space-x-1 flex flex-col-reverse">
         <Link
           href=""
-          className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center bg-red-600 text-white rounded-md mt-2"
+          className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center bg-slate-900 hover:bg-slate-800 text-white rounded-md mt-2"
         >
           Shop Now
         </Link>
         <div
           //   href=""
           onClick={handleAddToCart}
-          className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center rounded-md bg-red-600/5 hover:bg-red-600 text-red-600 hover:text-white mt-2 cursor-pointer"
+          className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center rounded-md bg-red-600/5 hover:bg-slate-800 text-slate-900 hover:text-white mt-2 cursor-pointer"
         >
           Add to Cart
         </div>

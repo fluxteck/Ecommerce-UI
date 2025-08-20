@@ -60,7 +60,7 @@ export default function Signup(){
                                 </form>
 
                                 <div className="text-center">
-                                    <p className="mb-0 text-slate-400">© {new Date().getFullYear()} Cartzio. Develop  with <i className="mdi mdi-heart text-red-600"></i> by <Link href="https://shreethemes.in/" target="_blank" className="text-reset">Shreethemes</Link>.</p>
+                                    <p className="mb-0 text-slate-400">© {new Date().getFullYear()} MA Mark. Develop  with <i className="mdi mdi-heart text-red-600"></i> by <Link href="https://shreethemes.in/" target="_blank" className="text-reset">Shreethemes</Link>.</p>
                                 </div>
                             </div>
                         </div>
