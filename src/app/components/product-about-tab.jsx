@@ -129,7 +129,7 @@ export default function ProductAboutTab({ product }) {
                       </Link>
                     </div>
                     <div className="p-4 bg-gray-50 dark:bg-slate-800 rounded-md shadow dark:shadow-gray-800 mt-6">
-                      <ul className="list-none inline-block text-orange-400">
+                      <ul className="list-none inline-block text-gray-800">
                         <li className="inline">
                           <i className="mdi mdi-star text-lg"></i>
                         </li>

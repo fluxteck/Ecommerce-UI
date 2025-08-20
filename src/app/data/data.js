@@ -238,7 +238,7 @@ export const categories = [
 ]
 
 export const colorFilter = [
-    'bg-red-600', 'bg-indigo-600', 'bg-emerald-600', 'bg-slate-900', 'bg-gray-400', 'bg-orange-600', 'bg-violet-600'
+    'bg-red-600', 'bg-indigo-600', 'bg-emerald-600', 'bg-slate-900', 'bg-gray-400', 'bg-gray-800', 'bg-violet-600'
 ]
 
 export const brandFilter = [

@@ -93,14 +93,14 @@ export default function ShopCheckout() {
 
           <div className="relative mt-3">
             <ul className="tracking-[0.5px] mb-0 inline-block">
-              <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-orange-500">
+              <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-gray-800">
                 <Link href="/">MA Mark</Link>
               </li>
               <li className="inline-block text-base text-slate-950 dark:text-white mx-0.5 ltr:rotate-0 rtl:rotate-180">
                 <i className="mdi mdi-chevron-right"></i>
               </li>
               <li
-                className="inline-block uppercase text-[13px] font-bold text-orange-500"
+                className="inline-block uppercase text-[13px] font-bold text-gray-800"
                 aria-current="page"
               >
                 Checkout
@@ -353,7 +353,7 @@ export default function ShopCheckout() {
                   <div className="mt-6">
                     <button
                       type="submit"
-                      className="py-2 px-5 w-full bg-orange-500 text-white rounded-md"
+                      className="py-2 px-5 w-full bg-gray-800 text-white rounded-md"
                     >
                       Continue to checkout
                     </button>
@@ -373,7 +373,7 @@ export default function ShopCheckout() {
                             <label className="inline-flex items-center">
                               <input
                                 type="radio"
-                                className="form-radio border-gray-100 dark:border-gray-800 text-orange-500 focus:border-orange-300 focus:ring focus:ring-offset-0 focus:ring-orange-200 focus:ring-opacity-50 me-2"
+                                className="form-radio border-gray-100 dark:border-gray-800 text-gray-800 focus:border-orange-300 focus:ring focus:ring-offset-0 focus:ring-orange-200 focus:ring-opacity-50 me-2"
                                 name="radio-colors"
                                 value="1"
                                 readOnly
@@ -391,7 +391,7 @@ export default function ShopCheckout() {
                             <label className="inline-flex items-center">
                               <input
                                 type="radio"
-                                className="form-radio border-gray-100 dark:border-gray-800 text-orange-500 focus:border-orange-300 focus:ring focus:ring-offset-0 focus:ring-orange-200 focus:ring-opacity-50 me-2"
+                                className="form-radio border-gray-100 dark:border-gray-800 text-gray-800 focus:border-orange-300 focus:ring focus:ring-offset-0 focus:ring-orange-200 focus:ring-opacity-50 me-2"
                                 name="radio-colors"
                                 value="1"
                                 readOnly
@@ -406,7 +406,7 @@ export default function ShopCheckout() {
                             <label className="inline-flex items-center">
                               <input
                                 type="radio"
-                                className="form-radio border-gray-100 dark:border-gray-800 text-orange-500 focus:border-orange-300 focus:ring focus:ring-offset-0 focus:ring-orange-200 focus:ring-opacity-50 me-2"
+                                className="form-radio border-gray-100 dark:border-gray-800 text-gray-800 focus:border-orange-300 focus:ring focus:ring-offset-0 focus:ring-orange-200 focus:ring-opacity-50 me-2"
                                 name="radio-colors"
                                 value="1"
                                 readOnly
@@ -480,7 +480,7 @@ export default function ShopCheckout() {
                 <div className="mt-4">
                   <input
                     type="submit"
-                    className="py-2 px-5 inline-block tracking-wide align-middle duration-500 text-base text-center bg-orange-500 text-white rounded-md w-full"
+                    className="py-2 px-5 inline-block tracking-wide align-middle duration-500 text-base text-center bg-gray-800 text-white rounded-md w-full"
                     value="Continue to checkout"
                   />
                 </div> */}
@@ -494,7 +494,7 @@ export default function ShopCheckout() {
 
                   <Link
                     href="#"
-                    className="bg-orange-500 flex justify-center items-center text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full h-5"
+                    className="bg-gray-800 flex justify-center items-center text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full h-5"
                   >
                     {cart && cart.length}
                   </Link>
@@ -598,7 +598,7 @@ export default function ShopCheckout() {
                     />
                     <button
                       type="submit"
-                      className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center absolute top-[2px] end-[3px] h-[46px] bg-orange-500 text-white rounded-full"
+                      className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center absolute top-[2px] end-[3px] h-[46px] bg-gray-800 text-white rounded-full"
                     >
                       Redeem
                     </button>
@@ -612,7 +612,7 @@ export default function ShopCheckout() {
         <MobileApp />
       </section>
       <Footer />
-      <Switcher />
+      {/* <Switcher /> */}
       <ScrollToTop />
     </>
   );

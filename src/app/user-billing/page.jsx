@@ -29,7 +29,7 @@ export default function UserBilling(){
                                 <div className="">
                                     <div className="flex items-center mb-4 justify-between">
                                         <h5 className="text-xl font-medium">Billing Address:</h5>
-                                        <Link href="#" className="text-orange-500 text-lg"><FiEdit className="size-4"></FiEdit></Link>
+                                        <Link href="#" className="text-gray-800 text-lg"><FiEdit className="size-4"></FiEdit></Link>
                                     </div>
                                     <div className="pt-4 border-t border-gray-100 dark:border-gray-700">
                                         <p className="text-lg font-medium mb-2">Jesus Zamora</p>
@@ -51,7 +51,7 @@ export default function UserBilling(){
                                 <div className="">
                                     <div className="flex items-center mb-4 justify-between">
                                         <h5 className="text-xl font-medium">Shipping Address:</h5>
-                                        <Link href="#" className="text-orange-500 text-lg"><FiEdit className="size-4"></FiEdit></Link>
+                                        <Link href="#" className="text-gray-800 text-lg"><FiEdit className="size-4"></FiEdit></Link>
                                     </div>
                                     <div className="pt-4 border-t border-gray-100 dark:border-gray-700">
                                         <p className="text-lg font-medium mb-2">Jesus Zamora</p>
@@ -76,7 +76,7 @@ export default function UserBilling(){
             </div>
         </section>
         <Footer/>
-        <Switcher/>
+        {/* <Switcher/> */}
         <ScrollToTop/>
         </>
     )

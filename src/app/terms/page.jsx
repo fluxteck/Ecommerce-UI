@@ -22,11 +22,11 @@ export default function Terms(){
             
             <div className="absolute text-center z-10 bottom-5 start-0 end-0 mx-3">
                 <ul className="tracking-[0.5px] mb-0 inline-block">
-                    <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-orange-500"><Link href="/">MA Mark</Link></li>
+                    <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-gray-800"><Link href="/">MA Mark</Link></li>
                     <li className="inline-block text-base text-slate-950 dark:text-white mx-0.5 ltr:rotate-0 rtl:rotate-180"><i className="mdi mdi-chevron-right"></i></li>
-                    <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-orange-500"><Link href="">Utility</Link></li>
+                    <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-gray-800"><Link href="">Utility</Link></li>
                     <li className="inline-block text-base text-slate-950 dark:text-white mx-0.5 ltr:rotate-0 rtl:rotate-180"><i className="mdi mdi-chevron-right"></i></li>
-                    <li className="inline-block uppercase text-[13px] font-bold text-orange-500" aria-current="page">Terms</li>
+                    <li className="inline-block uppercase text-[13px] font-bold text-gray-800" aria-current="page">Terms</li>
                 </ul>
             </div>
         </section>
@@ -87,7 +87,7 @@ This Terms of Service is effective as of [Date].
                             <ul className="list-none text-slate-400 mt-3">
                                 {termsData.map((item,index)=>{
                                     return(
-                                        <li className="flex mt-2 ms-0" key={index}><i className="mdi mdi-chevron-right text-orange-500 text-lg align-middle me-2"></i>{item}</li>
+                                        <li className="flex mt-2 ms-0" key={index}><i className="mdi mdi-chevron-right text-gray-800 text-lg align-middle me-2"></i>{item}</li>
                                     )
                                 })}
                             </ul>
@@ -97,8 +97,8 @@ This Terms of Service is effective as of [Date].
                             <FaqTwo/>
 
                             <div className="mt-6">
-                                <Link href="" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-orange-500 hover:bg-orange-600 border-orange-500 hover:border-orange-600 text-white rounded-md">Accept</Link>
-                                <Link href="" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-transparent hover:bg-orange-500 border-orange-500 text-orange-500 hover:text-white rounded-md ms-2">Decline</Link>
+                                <Link href="" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-gray-800 hover:bg-gray-800 border-gray-800 hover:border-gray-800 text-white rounded-md">Accept</Link>
+                                <Link href="" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-transparent hover:bg-gray-800 border-gray-800 text-gray-800 hover:text-white rounded-md ms-2">Decline</Link>
                             </div>
                         </div>
                     </div>
@@ -106,7 +106,7 @@ This Terms of Service is effective as of [Date].
             </div>
         </section>
         <Footer/>
-        <Switcher/>
+        {/* <Switcher/> */}
         <ScrollToTop/>
         </>
     )

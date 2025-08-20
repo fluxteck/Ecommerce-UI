@@ -32,7 +32,7 @@ export default function UserPayment(){
                                 <div className="mb-4 md:mb-0">
                                     <h5 className="text-xl font-semibold">Current Plan</h5>
                                 </div>
-                                <Link href="" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-orange-500 text-white rounded-md">Switch to Annual Plan</Link>
+                                <Link href="" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-gray-800 text-white rounded-md">Switch to Annual Plan</Link>
                             </div>
 
                             <div className="p-6">
@@ -77,7 +77,7 @@ export default function UserPayment(){
             </div>
         </section>
         <Footer/>
-        <Switcher/>
+        {/* <Switcher/> */}
         <ScrollToTop/>
         </>
     )

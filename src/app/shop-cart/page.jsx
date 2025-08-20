@@ -97,14 +97,14 @@ export default function ShopCart() {
 
           <div className="relative mt-3">
             <ul className="tracking-[0.5px] mb-0 inline-block">
-              <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-orange-500">
+              <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-gray-800">
                 <Link href="/">MA Mark</Link>
               </li>
               <li className="inline-block text-base text-slate-950 dark:text-white mx-0.5 ltr:rotate-0 rtl:rotate-180">
                 <i className="mdi mdi-chevron-right"></i>
               </li>
               <li
-                className="inline-block uppercase text-[13px] font-bold text-orange-500"
+                className="inline-block uppercase text-[13px] font-bold text-gray-800"
                 aria-current="page"
               >
                 SHOPCART
@@ -210,13 +210,13 @@ export default function ShopCart() {
                 <div className="space-x-1">
                   <Link
                     href="shop-checkout"
-                    className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center bg-orange-500 text-white rounded-md mt-2"
+                    className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center bg-gray-900 text-white rounded-md mt-2"
                   >
                     Shop Now
                   </Link>
                   {/* <Link
                     href=""
-                    className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center rounded-md bg-orange-500/5 hover:bg-orange-500 text-orange-500 hover:text-white mt-2"
+                    className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center rounded-md bg-gray-800/5 hover:bg-gray-800 text-gray-800 hover:text-white mt-2"
                   >
                     Add to Cart
                   </Link> */}
@@ -256,7 +256,7 @@ export default function ShopCart() {
         {/* <MobileApp /> */}
       </section>
       <Footer />
-      <Switcher />
+      {/* <Switcher /> */}
       <ScrollToTop />
     </>
   );
