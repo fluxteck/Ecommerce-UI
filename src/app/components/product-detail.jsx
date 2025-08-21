@@ -4,9 +4,11 @@ import Link from "next/link";
 import VariationsGrid from "../product/variations";
 import { RenderSafeHTML } from "./renderPurifyHtml";
 import { useCartActions } from "ecom-user-sdk/cart";
+import { useRouter } from "next/navigation";
 
 export default function ProductDetail({ product }) {
   // console.log(product);
+  const router = useRouter();
   const [activeVariations, setActiveVariations] = useState([]);
   const { addToCart } = useCartActions();
   let [count, setCount] = useState(1);
@@ -28,8 +30,18 @@ export default function ProductDetail({ product }) {
       qty: count,
       variationIds: activeVariations,
     });
+
     // console.log(data);
     // console.log(error);
+  }
+  async function handleCheckout() {
+    await addToCart({
+      userId: "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+      productId: product.id,
+      qty: count,
+      variationIds: activeVariations,
+    });
+    router.push("/shop-checkout");
   }
   return (
     <div className="sticky top-20">
@@ -101,12 +113,12 @@ export default function ProductDetail({ product }) {
         </div>
       </div>
       <div className="mt-4 space-x-1 flex flex-col-reverse">
-        <Link
-          href=""
-          className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center bg-slate-900 hover:bg-slate-800 text-white rounded-md mt-2"
+        <div
+          onClick={handleCheckout}
+          className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center bg-slate-900 hover:bg-slate-800 text-white rounded-md mt-2 mt-2 cursor-pointer"
         >
           Shop Now
-        </Link>
+        </div>
         <div
           //   href=""
           onClick={handleAddToCart}

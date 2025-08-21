@@ -1,23 +1,40 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
-import Switcher from "../../components/switcher";
+// import Switcher from "../../components/switcher";
+import { useCartActions } from "ecom-user-sdk/cart";
 
-import {
-  FiHeart,
-  FiEye,
-  FiBookmark,
-  FiChevronLeft,
-  FiChevronRight,
-} from "../../assets/icons/vander";
+// import {
+//   FiHeart,
+//   FiEye,
+//   FiBookmark,
+//   FiChevronLeft,
+//   FiChevronRight,
+// } from "../../assets/icons/vander";
 // import { newProduct } from "../../data/data";
 import ScrollToTop from "../../components/scroll-to-top";
 
 export default function Colections({ products }) {
   // console.log(products);
+  const { addToCart } = useCartActions();
+  async function handleAddToCart(productId) {
+    // console.log(activeVariations);
+    // console.log(count);
+
+    const { data, error } = await addToCart({
+      userId: "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+      productId: productId,
+      qty: 1,
+    });
+
+    // console.log(data);
+    // console.log(error);
+  }
 
   return (
     <>
@@ -25,7 +42,9 @@ export default function Colections({ products }) {
       <section className="relative table w-full pt-15 pb-2 lg:pt-15 md:pt-13 bg-gray-50 dark:bg-slate-800">
         <div className="container relative">
           <div className="grid grid-cols-1 mt-14">
-            <h3 className="text-3xl leading-normal font-semibold">Leather Jackets</h3>
+            <h3 className="text-3xl leading-normal font-semibold">
+              Leather Jackets
+            </h3>
           </div>
 
           <div className="relative mt-3">
@@ -84,15 +103,16 @@ export default function Colections({ products }) {
                     />
 
                     <div className="absolute -bottom-20 group-hover:bottom-3 start-3 end-3 duration-500">
-                      <Link
-                        href="/shop-cart"
+                      <button
+                        type="button"
+                        onClick={() => handleAddToCart(item.id)}
                         className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-slate-900 text-white w-full rounded-md"
                       >
                         Add to Cart
-                      </Link>
+                      </button>
                     </div>
 
-{/* Product Hover Actions -  Wishlist, Quick View, Save  */}
+                    {/* Product Hover Actions -  Wishlist, Quick View, Save  */}
                     {/* <ul className="list-none absolute top-[10px] end-4 opacity-0 group-hover:opacity-100 duration-500 space-y-1">
                       <li>
                         <Link
@@ -202,7 +222,6 @@ export default function Colections({ products }) {
                           <i className="mdi mdi-star"></i>
                         </li>
                       </ul> */}
-
                     </div>
                   </div>
                 </div>
@@ -275,7 +294,6 @@ export default function Colections({ products }) {
               </nav>
             </div>
           </div> */}
-
         </div>
       </section>
       <Footer />
