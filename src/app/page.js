@@ -70,6 +70,7 @@ export default function Home() {
                         })}
                     </div>
                 </div> */}
+        <CtaOne />
 
         <div className="container relative md:mt-24 mt-16">
           <div className="grid grid-cols-1 justify-center text-center mb-6">
@@ -92,7 +93,7 @@ export default function Home() {
                         height={0}
                         sizes="100vw"
                         style={{ width: "100%", height: "auto" }}
-                        className="group-hover:scale-110 duration-500"
+                        className=""
                         alt=""
                       />
 
@@ -146,7 +147,7 @@ export default function Home() {
           </div>
         </div>
 
-        <CtaOne />
+
         {/* <div className="grid grid-cols-1">
                     <div className="py-[30px] px-0 border-t border-slate-800">
                         <div className="grid lg:grid-cols-4 md:grid-cols-2">

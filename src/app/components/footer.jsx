@@ -102,9 +102,9 @@ export default function Footer() {
                   <h5 className="tracking-[1px] text-gray-100 font-semibold">
                     Newsletter
                   </h5>
-                  <p className="mt-6">
+                  {/* <p className="mt-6">
                     Sign up and receive the latest tips & deals.
-                  </p>
+                  </p> */}
                   <form>
                     <div className="grid grid-cols-1">
                       <div className="my-3">

@@ -24,7 +24,7 @@ export default function CtaOne() {
 
   return (
     <>
-      <div className="container-fluid relative md:mt-24 mt-16">
+      <div className="container-fluid relative">
         <div className="grid grid-cols-1">
           <div
             className="relative overflow-hidden py-10 md:py-24 px-4 md:px-10 bg-red-600 bg-center bg-no-repeat bg-cover"
@@ -37,7 +37,7 @@ export default function CtaOne() {
             <div className="grid grid-cols-1 justify-center text-center relative z-1">
               <h3 className="text-2xl sm:text-3xl md:text-4xl leading-normal tracking-wide font-bold text-white">
                 Big Winter Season Sale
-                <br /> Sale upto 30%
+                <br /> Flat 30% Off
               </h3>
 
               {/* Count Down Timer Start */}

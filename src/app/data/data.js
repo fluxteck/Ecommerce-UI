@@ -30,8 +30,8 @@ export const newProduct = [
         image: 'https://yxdyohefwpubwydtctbs.supabase.co/storage/v1/object/public/products/products/1ddb00a9-a9a7-40d4-9df6-178b409cb1ac-1754762790581-j9mee0.blob',
         // tag: '-40% Off',
         name: 'Glenwood Driving Leather Jacket',
-        amount: 'Rs. 6,299',
-        desRate: 'Rs. 8,999',
+        amount: 'Rs. 8,999',
+        desRate: 'Rs. 6,299',
         offer: true,
         // desc: 'DESCRIPTION:'
     },
@@ -40,8 +40,8 @@ export const newProduct = [
         image: 'https://yxdyohefwpubwydtctbs.supabase.co/storage/v1/object/public/products/products/061c285d-3432-4b81-b900-524ad2652938-1754835212229-96yvp6.blob',
         // tag: 'New',
         name: 'Moto Leather Jacket',
-        amount: 'Rs. 7,699',
-        desRate: 'Rs. 10,999',
+        amount: 'Rs. 10,999',
+        desRate: 'Rs. 7,699',
         // desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
     },
     {
@@ -49,8 +49,8 @@ export const newProduct = [
         image: 'https://yxdyohefwpubwydtctbs.supabase.co/storage/v1/object/public/products/products/85032514-cf3e-403e-8b07-db2b9ec915fc-1754765064760-uxj7f3.blob',
         // tag: '',
         name: 'Shearling Leather Jacket',
-        amount: 'Rs. 8,399',
-        desRate: 'Rs. 11,999',
+        amount: 'Rs. 11,999',
+        desRate: 'Rs. 8,399',
         // desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
     },
     {
@@ -58,8 +58,8 @@ export const newProduct = [
         image: 'https://yxdyohefwpubwydtctbs.supabase.co/storage/v1/object/public/products/products/750153b4-6e0a-454c-978f-baf622a42e3f-1754754966428-n87x94.blob',
         // tag: '',
         name: 'Ultimate Contrast Leather Jacket',
-        amount: 'Rs. 8,610',
-        desRate: 'Rs. 12,300',
+        amount: 'Rs. 12,300',
+        desRate: 'Rs. 8,610',
         // desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
     },
     {
@@ -67,8 +67,8 @@ export const newProduct = [
         image: 'https://yxdyohefwpubwydtctbs.supabase.co/storage/v1/object/public/products/products/b86fd720-9b0a-41e3-b77c-9dabc990430d-1754835593582-zerf9i.blob',
         tag: '',
         name: 'Coat Style Leather Jacket',
-        amount: 'Rs. 7,840',
-        desRate: 'Rs. 11,200',
+        amount: 'Rs. 11,200',
+        desRate: 'Rs. 7,840',
         // desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
     },
     {
@@ -76,8 +76,8 @@ export const newProduct = [
         image: 'https://yxdyohefwpubwydtctbs.supabase.co/storage/v1/object/public/products/products/b3b116af-f5a4-44fc-940a-78b97eff1e27-1754755363170-kd2mz0.blob',
         // tag: '',
         name: 'Driggs Leather Jacket',
-        amount: 'Rs. 7,699',
-        desRate: 'Rs. 10,999',
+        amount: 'Rs. 10,999',
+        desRate: 'Rs. 7,699',
         // desc: 'Viverra a consectetur Go sporty this vintage navy and white striped.'
     },
 ]
