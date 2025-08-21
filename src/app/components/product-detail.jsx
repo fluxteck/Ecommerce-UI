@@ -118,8 +118,8 @@ export default function ProductDetail({ product }) {
           Add to Cart
         </div>
       </div>
-      <div className="mt-4 pb-2">
-        <h5 className="text-lg font-semibold">Overview :</h5>
+      <div className="mt-5 pb-2">
+        {/* <h5 className="text-lg font-semibold">Overview :</h5> */}
         <div className="text-slate-400 mt-2">
           {/* <RenderSafeHTML
             html={
@@ -128,7 +128,7 @@ export default function ProductDetail({ product }) {
                 : product.description
             }
           /> */}
-          <ul className="list-disc list-inside text-slate-600 mt-2 space-y-1">
+          <ul className="list-disc list-inside text-slate-600 mt-2 space-y-1 text-lg">
             <li>100% Genuine Leather</li>
             <li>Handcrafted Excellence</li>
             <li>Free Pan India Shipping</li>

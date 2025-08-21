@@ -78,7 +78,7 @@ export default function ProductDetailTwo({ product }) {
             <ProductDetail product={product} />
           </div>
 
-          <ProductAboutTab product={product} />
+          {/* <ProductAboutTab product={product} /> */}
         </div>
 
         <ArrivalItem />

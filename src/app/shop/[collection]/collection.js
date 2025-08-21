@@ -68,8 +68,8 @@ export default function Colections({ products }) {
 
       <section className="relative md:pb-24 pb-16">
         <div className="container relative">
-          <div className="md:flex justify-between items-center mb-6">
-            {/* <span className="font-semibold">Showing 1-16 of 40 items</span> */}
+          {/* <div className="md:flex justify-between items-center mb-6">
+
 
             <div className="md:flex items-center">
               <label className="font-semibold md:me-2">Sort by:</label>
@@ -82,7 +82,7 @@ export default function Colections({ products }) {
                 <option defaultValue="">Price High-Low</option>
               </select>
             </div>
-          </div>
+          </div> */}
           <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-2 gap-6">
             {products.map((item, index) => {
               return (
