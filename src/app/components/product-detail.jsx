@@ -70,10 +70,7 @@ export default function ProductDetail({ product }) {
             </>
           )}
         </span>
-        <span class="text-slate-400 font-semibold me-1">
-          {" "}
-          Incluisve off all taxes
-        </span>
+        <span class="text-slate-400 me-1"> Incluisve off all taxes</span>
       </div>
       <div className="mt-4">
         <h5 className="text-lg font-semibold">Overview :</h5>
