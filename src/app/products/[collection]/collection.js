@@ -98,7 +98,7 @@ export default function Colections({ products }) {
                       height={0}
                       sizes="100vw"
                       style={{ width: "100%", height: "auto" }}
-                      className="group-hover:scale-110 duration-500"
+                      className=""
                       alt=""
                     />
 

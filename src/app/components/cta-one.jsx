@@ -24,7 +24,7 @@ export default function CtaOne() {
 
   return (
     <>
-      <div className="container-fluid relative">
+      <div className="border-t border-b border-black container-fluid relative">
         <div className="grid grid-cols-1">
           <div
             className="relative overflow-hidden py-10 md:py-24 px-4 md:px-10 bg-red-600 bg-center bg-no-repeat bg-cover"
@@ -78,14 +78,14 @@ export default function CtaOne() {
 
               {/* Count Down Timer End */}
 
-              <div className="mt-4">
+              {/* <div className="mt-4">
                 <Link
                   href="/shop"
                   className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-center bg-white text-red-600 rounded-md"
                 >
                   <i className="mdi mdi-cart-outline"></i> Shop Now
                 </Link>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
