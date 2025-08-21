@@ -183,7 +183,7 @@ export default function ShopGrid() {
             })}
           </div>
 
-          <div className="grid md:grid-cols-12 grid-cols-1 mt-6">
+          {/* <div className="grid md:grid-cols-12 grid-cols-1 mt-6">
             <div className="md:col-span-12 text-center">
               <nav aria-label="Page navigation example">
                 <ul className="inline-flex items-center -space-x-px">
@@ -247,7 +247,8 @@ export default function ShopGrid() {
                 </ul>
               </nav>
             </div>
-          </div>
+          </div> */}
+
         </div>
       </section>
       <Footer />

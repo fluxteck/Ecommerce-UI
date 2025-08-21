@@ -608,8 +608,6 @@ export default function ShopCheckout() {
             </div>
           </div>
         </div>
-
-        <MobileApp />
       </section>
       <Footer />
       {/* <Switcher /> */}

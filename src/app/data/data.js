@@ -117,16 +117,16 @@ export const footerSocial = [
 
     {
         icon: FiInstagram,
-        link: 'https://www.instagram.com/shreethemes'
+        link: 'https://www.instagram.com/mamark.shop/'
     },
     {
         icon: FiFacebook,
-        link: 'https://www.facebook.com/shreethemes'
+        link: 'https://www.facebook.com/mamark.shop'
     },
 
     {
         icon: FiMail,
-        link: 'mailto:support@shreethemes.in'
+        link: 'mailto:official.mamark@gmail.com'
     },
 ]
 
@@ -134,7 +134,7 @@ export const footerShopping1 = [
     'Men Jackets', 'Women Jackets', 'Shoes', 'Bags'
 ]
 export const footerShopping2 = [
-  { name: 'About Us', url: '/about' },
+  { name: 'About Us', url: '/aboutus' },
   { name: 'Contact Us', url: '/contact' },
 //   { name: 'Blogs', url: '/blogs' },
 //   { name: "FAQ's", url: '/faqs' },

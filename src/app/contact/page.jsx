@@ -148,7 +148,7 @@ export default function Contact() {
 
                 <div className="mt-5">
                   <Link
-                    href="mailto:contact@example.com"
+                    href="mailto:official.mamark@gmail.com"
                     className="text-black font-medium"
                   >
                     official.mamark@gmail.com

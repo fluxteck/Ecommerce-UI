@@ -136,7 +136,6 @@ export default function Navbar({ navClass, navlight }) {
         </div>
 
         <ul className="buy-button list-none mb-0">
-
           {/* <li className="dropdown inline-block relative pe-1" ref={dropdownRef}>
             <button
               data-dropdown-toggle="dropdown"
@@ -171,7 +170,10 @@ export default function Navbar({ navClass, navlight }) {
             )}
           </li> */}
 
-          <li className="dropdown inline-block relative ps-0.5 mx-1" ref={cartRef}>
+          <li
+            className="dropdown inline-block relative ps-0.5 mx-1"
+            ref={cartRef}
+          >
             <Link
               href={"/shop-cart"}
               data-dropdown-toggle="dropdown"
@@ -181,7 +183,6 @@ export default function Navbar({ navClass, navlight }) {
             >
               <FiShoppingCart className="h-4 w-4"></FiShoppingCart>
             </Link>
-
 
             {/* {cartManu && (
                             <div className="dropdown-menu absolute end-0 m-0 mt-4 z-10 w-64 rounded-md bg-white dark:bg-slate-900 shadow dark:shadow-gray-800">
@@ -260,11 +261,9 @@ export default function Navbar({ navClass, navlight }) {
                         )} */}
           </li>
 
+          {/* WishList  */}
 
-
-{/* WishList  */}
-
-{/* 
+          {/* 
           <li className="inline-block ps-0.5 mx-1">
             <Link
               href="#"
@@ -274,7 +273,10 @@ export default function Navbar({ navClass, navlight }) {
             </Link>
           </li> */}
 
-          <li className="dropdown inline-block relative ps-0.5 mx-1" ref={userRef}>
+          <li
+            className="dropdown inline-block relative ps-0.5 mx-1"
+            ref={userRef}
+          >
             <button
               data-dropdown-toggle="dropdown"
               className="dropdown-toggle items-center"
@@ -295,14 +297,15 @@ export default function Navbar({ navClass, navlight }) {
               <div className="dropdown-menu absolute end-0 m-0 mt-4 z-10 w-48 rounded-md overflow-hidden bg-white dark:bg-slate-900 shadow dark:shadow-gray-700">
                 <ul className="py-2 text-start">
                   <li className="ms-0">
-                    <p className="text-slate-400 pt-2 px-4">Welcome Jesus!</p>
+                    <p className="text-slate-400 pt-2 px-4">Welcome User</p>
                   </li>
                   {/* <li className='ms-0'>
                                         <p className="flex items-center font-medium py-2 px-4"><FiDollarSign className="h-4 w-4 me-2"></FiDollarSign> Balance: <span className="text-red-600 ms-2">$ 245.10</span></p>
                                     </li> */}
                   <li className="ms-0">
                     <Link
-                      href="/user-account"
+                      // href="/user-account"
+                      href="#"
                       className="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-600 dark:hover:text-white"
                     >
                       <FiUser className="h-4 w-4 me-2"></FiUser>Account

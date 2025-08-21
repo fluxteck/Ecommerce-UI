@@ -54,7 +54,7 @@ export default function AboutUs() {
           <div className="grid md:grid-cols-12 grid-cols-1 items-center gap-6">
             <div className="lg:col-span-5 md:col-span-6 md:order-2 order-1">
               <Image
-                src="/images/ab2.jpg"
+                src="/images/product1.jpg"
                 width={0}
                 height={0}
                 sizes="100vw"
@@ -74,33 +74,10 @@ export default function AboutUs() {
               <p className="text-slate-400 max-w-xl"></p>
 
               <ul className="list-none mt-6 space-x-3">
+
                 <li className="inline">
                   <Link
-                    href="https://dribbble.com/shreethemes"
-                    target="_blank"
-                    className="inline-flex hover:text-gray-800 dark:hover:text-gray-800"
-                  >
-                    {/* <FiDribbble
-                      className="size-5 align-middle"
-                      title="dribbble"
-                    ></FiDribbble> */}
-                  </Link>
-                </li>
-                <li className="inline">
-                  <Link
-                    href="http://linkedin.com/company/shreethemes"
-                    target="_blank"
-                    className="inline-flex hover:text-gray-800 dark:hover:text-gray-800"
-                  >
-                    <FiLinkedin
-                      className="size-5 align-middle"
-                      title="Linkedin"
-                    ></FiLinkedin>
-                  </Link>
-                </li>
-                <li className="inline">
-                  <Link
-                    href="https://www.facebook.com/shreethemes"
+                    href="https://www.facebook.com/mamark.shop"
                     target="_blank"
                     className="inline-flex hover:text-gray-800 dark:hover:text-gray-800"
                   >
@@ -112,7 +89,7 @@ export default function AboutUs() {
                 </li>
                 <li className="inline">
                   <Link
-                    href="https://www.instagram.com/shreethemes/"
+                    href="https://www.instagram.com/mamark.shop/"
                     target="_blank"
                     className="inline-flex hover:text-gray-800 dark:hover:text-gray-800"
                   >
@@ -122,18 +99,7 @@ export default function AboutUs() {
                     ></FiInstagram>
                   </Link>
                 </li>
-                <li className="inline">
-                  <Link
-                    href="https://twitter.com/shreethemes"
-                    target="_blank"
-                    className="inline-flex hover:text-gray-800 dark:hover:text-gray-800"
-                  >
-                    {/* <FiTwitter
-                      className="size-5 align-middle"
-                      title="twitter"
-                    ></FiTwitter> */}
-                  </Link>
-                </li>
+             
               </ul>
             </div>
           </div>

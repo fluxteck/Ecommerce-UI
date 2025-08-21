@@ -120,7 +120,7 @@ export default function Sale(){
                 </div>
             </div>
 
-            <MobileApp/>
+          
         </section>
         <Footer/>
         {/* <Switcher/> */}

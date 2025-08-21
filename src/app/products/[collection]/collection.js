@@ -64,7 +64,7 @@ export default function Colections({ products }) {
               </select>
             </div>
           </div>
-          <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
+          <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-2 gap-6">
             {products.map((item, index) => {
               return (
                 <div className="group" key={index}>
@@ -92,7 +92,8 @@ export default function Colections({ products }) {
                       </Link>
                     </div>
 
-                    <ul className="list-none absolute top-[10px] end-4 opacity-0 group-hover:opacity-100 duration-500 space-y-1">
+{/* Product Hover Actions -  Wishlist, Quick View, Save  */}
+                    {/* <ul className="list-none absolute top-[10px] end-4 opacity-0 group-hover:opacity-100 duration-500 space-y-1">
                       <li>
                         <Link
                           href="#"
@@ -117,7 +118,7 @@ export default function Colections({ products }) {
                           <FiBookmark className="size-4"></FiBookmark>
                         </Link>
                       </li>
-                    </ul>
+                    </ul> */}
 
                     <ul className="list-none absolute top-[10px] start-4">
                       {item.offer === true && (
@@ -183,7 +184,8 @@ export default function Colections({ products }) {
                           </>
                         )}
                       </p>
-                      <ul className="font-medium text-amber-400 list-none">
+
+                      {/* <ul className="font-medium text-amber-400 list-none">
                         <li className="inline">
                           <i className="mdi mdi-star"></i>
                         </li>
@@ -199,7 +201,8 @@ export default function Colections({ products }) {
                         <li className="inline">
                           <i className="mdi mdi-star"></i>
                         </li>
-                      </ul>
+                      </ul> */}
+
                     </div>
                   </div>
                 </div>
@@ -207,7 +210,7 @@ export default function Colections({ products }) {
             })}
           </div>
 
-          <div className="grid md:grid-cols-12 grid-cols-1 mt-6">
+          {/* <div className="grid md:grid-cols-12 grid-cols-1 mt-6">
             <div className="md:col-span-12 text-center">
               <nav aria-label="Page navigation example">
                 <ul className="inline-flex items-center -space-x-px">
@@ -271,7 +274,8 @@ export default function Colections({ products }) {
                 </ul>
               </nav>
             </div>
-          </div>
+          </div> */}
+
         </div>
       </section>
       <Footer />
