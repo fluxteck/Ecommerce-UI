@@ -164,7 +164,7 @@ export default function Footer() {
                 © {new Date().getFullYear()} MA Mark Design & Develop with{" "}
                 <i className="mdi mdi-heart text-red-600"></i> by{" "}
                 <Link
-                  href="https://shreethemes.in/"
+                  href="https://fluxteck.com/"
                   target="_blank"
                   className="text-reset"
                 >

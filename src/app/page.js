@@ -73,9 +73,10 @@ export default function Home() {
 
         <div className="container relative md:mt-24 mt-16">
           <div className="grid grid-cols-1 justify-center text-center mb-6">
-            <h5 className="font-semibold text-3xl leading-normal mb-4">
+            <h5 className="font-semibold text-xl sm:text-2xl md:text-3xl leading-normal mb-4">
               Premium Men’s Leather Jacket
             </h5>
+
             {/* <p className="text-slate-400 max-w-xl mx-auto">Shop the latest products from the most popular collections</p> */}
           </div>
 

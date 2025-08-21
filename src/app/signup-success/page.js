@@ -26,7 +26,7 @@ export default function SignupSuccessfull(){
                             </div>
 
                             <div className="text-center p-6 border-t border-gray-100 dark:border-gray-700">
-                                <p className="mb-0 text-slate-400">© {new Date().getFullYear()} MA Mark. Design & Develop with <i className="mdi mdi-heart text-red-600"></i> by <Link href="https://shreethemes.in/" target="_blank" className="text-reset">Shreethemes</Link>.</p>
+                                <p className="mb-0 text-slate-400">© {new Date().getFullYear()} MA Mark. Design & Develop with <i className="mdi mdi-heart text-red-600"></i> by <Link href="https://fluxteck.com/" target="_blank" className="text-reset">Fluxteck</Link>.</p>
                             </div>
                         </div>
                     </div>
