@@ -52,7 +52,7 @@ export default function ProductDetailTwo({ product }) {
                 <i className="mdi mdi-chevron-right"></i>
               </li>
               <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-red-600">
-                <Link href="/shop-grid">Store</Link>
+                <Link href="/shop-grid">Shop</Link>
               </li>
               <li className="inline-block text-base text-slate-950 dark:text-white mx-0.5 ltr:rotate-0 rtl:rotate-180">
                 <i className="mdi mdi-chevron-right"></i>

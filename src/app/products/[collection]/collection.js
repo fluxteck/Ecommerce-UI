@@ -183,7 +183,7 @@ export default function Colections({ products }) {
                     </Link>
                     <div className="flex justify-between items-center mt-1">
                       <p>
-                        {item.discount_type === "no-discount" ? (
+                        Rs. {item.discount_type === "no-discount" ? (
                           item.base_price.toFixed(2)
                         ) : item.discount_type === "percentage" ? (
                           <>

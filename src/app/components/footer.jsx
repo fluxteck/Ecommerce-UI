@@ -29,7 +29,7 @@ export default function Footer() {
                       alt=""
                     />
                   </Link>
-                  <p className="mt-2 text-gray-300">The Kind of Leather</p>
+                  <p className="mt-2 text-gray-300">The King of Leather</p>
                   <ul className="list-none mt-6 space-x-1">
                     {footerSocial.map((item, index) => {
                       let Icon = item.icon;

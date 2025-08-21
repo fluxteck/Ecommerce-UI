@@ -48,6 +48,7 @@ export default function ProductDetail({ product }) {
       <h5 className="text-2xl font-semibold">{product.product_name}</h5>
       <div className="mt-2">
         <span className="text-slate-400 font-semibold me-1">
+          Rs.{" "}
           {product.discount_type === "no-discount" ? (
             product.base_price.toFixed(2)
           ) : product.discount_type === "percentage" ? (

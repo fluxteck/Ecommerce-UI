@@ -548,7 +548,7 @@ export default function ShopCheckout() {
                           </div>
 
                           <p className="text-slate-400 font-semibold">
-                            $
+                            Rs.
                             {product.tax_inclusive
                               ? price * cart.quantity
                               : ((price + taxedPrice) * cart.quantity).toFixed(
@@ -580,7 +580,7 @@ export default function ShopCheckout() {
                     </div>
 
                     <p className="text-slate-400 font-semibold">
-                      ${cartTotals?.subtotal.toFixed(2)}
+                      Rs.{cartTotals?.subtotal.toFixed(2)}
                     </p>
                   </div>
                   <div className="p-3 flex justify-between items-center">
@@ -595,7 +595,7 @@ export default function ShopCheckout() {
                     </div>
 
                     <p className="text-slate-400 font-semibold">
-                      ${cartTotals?.totalGST.toFixed(2)}
+                      Rs.{cartTotals?.totalGST.toFixed(2)}
                     </p>
                   </div>
                   <div className="p-3 flex justify-between items-center border border-gray-100 dark:border-gray-800">
@@ -604,7 +604,7 @@ export default function ShopCheckout() {
                     </div>
 
                     <p className="font-semibold">
-                      ${cartTotals?.grandTotal.toFixed(2)}
+                      Rs.{cartTotals?.grandTotal.toFixed(2)}
                     </p>
                   </div>
                 </div>
