@@ -25,19 +25,21 @@ export default function About() {
 
           <div className="lg:col-span-7 md:col-span-6">
             <div className="lg:ms-8">
-              <h6 className="text-red-600 font-semibold uppercase text-lg">
+              <h6 className="text-red-600 font-semibold uppercase text-lg  mb-2">
                 Crafting Confidence Since 2010
               </h6>
               {/* <h5 className="font-semibold text-3xl leading-normal my-4">
                 Crafting Confidence Since 2010
               </h5> */}
-              <p className="text-slate-400 max-w-xl">
+
+              <p class="mb-2">
                 At M.A Mark, leather isn’t just a material - it’s a statement.
                 Since 2010, we’ve been dedicated to creating premium leather
                 jackets that blend timeless style, uncompromising quality, and
                 modern design. Every piece we craft is more than just outerwear
                 - it’s an expression of individuality, attitude, and confidence.
               </p>
+
               <p>
                 From the very beginning, our vision was clear: to offer style
                 enthusiasts around the world jackets that don’t just protect you

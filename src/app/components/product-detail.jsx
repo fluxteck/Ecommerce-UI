@@ -47,7 +47,7 @@ export default function ProductDetail({ product }) {
     <div className="sticky top-20">
       <h5 className="text-2xl font-semibold">{product.product_name}</h5>
       <div className="mt-2">
-        <span className="text-slate-400 font-semibold me-1">
+        <span className="text-black-400 font-semibold text-xl me-1">
           Rs.{" "}
           {product.discount_type === "no-discount" ? (
             product.base_price.toFixed(2)
@@ -69,6 +69,10 @@ export default function ProductDetail({ product }) {
               </del>
             </>
           )}
+        </span>
+        <span class="text-slate-400 font-semibold me-1">
+          {" "}
+          Incluisve off all taxes
         </span>
       </div>
       <div className="mt-4">

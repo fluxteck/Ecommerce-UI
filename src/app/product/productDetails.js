@@ -37,11 +37,11 @@ export default function ProductDetailTwo({ product }) {
       <Navbar navClass="defaultscroll is-sticky tagline-height" />
       <section className="relative table w-full pt-20 pb-2 lg:pt-15 md:pt-13 bg-gray-50 dark:bg-slate-800">
         <div className="container relative">
-          <div className="grid grid-cols-1 mt-14">
+          {/* <div className="grid grid-cols-1 mt-14">
             <h3 className="text-3xl leading-normal font-semibold">
               Mens Brown Jecket
             </h3>
-          </div>
+          </div> */}
 
           <div className="relative mt-3">
             <ul className="tracking-[0.5px] mb-0 inline-block">
