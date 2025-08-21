@@ -6,7 +6,7 @@ import Footer from "../components/footer";
 import Switcher from "../components/switcher";
 import ScrollToTop from "../components/scroll-to-top";
 
-export default function Privacy() {
+export default function Terms() {
   return (
     <>
       <Navbar />
@@ -14,7 +14,7 @@ export default function Privacy() {
         <div className="container relative">
           <div className="grid grid-cols-1 text-center mt-10">
             <h1 className="text-3xl leading-normal font-semibold">
-              Privacy Policy
+              Terms & Conditions
             </h1>
           </div>
         </div>
@@ -37,7 +37,7 @@ export default function Privacy() {
               className="inline-block uppercase text-[13px] font-bold text-orange-500"
               aria-current="page"
             >
-              Privacy
+              Terms & Conditions
             </li>
           </ul>
         </div>

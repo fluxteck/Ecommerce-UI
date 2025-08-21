@@ -134,11 +134,19 @@ export const footerShopping1 = [
     'Men Jackets', 'Women Jackets', 'Shoes', 'Bags'
 ]
 export const footerShopping2 = [
-    'About Us', 'Contact Us ', 'Blogs', "FAQ's"
+  { name: 'About Us', url: '/about-us' },
+  { name: 'Contact Us', url: '/contact-us' },
+//   { name: 'Blogs', url: '/blogs' },
+//   { name: "FAQ's", url: '/faqs' },
 ]
+
 export const footerShopping3 = [
-    'Terms & Conditions', 'Return & Replacement', 'Shipping Policy', 'Privacy Policy'
-]
+  { name: 'Terms & Conditions', url: '/terms-condition' },
+  { name: 'Return & Replacement', url: '/return-replacement' },
+  { name: 'Shipping Policy', url: '/shipping-policy' },
+  { name: 'Privacy Policy', url: '/privacy-policy' },
+];
+
 
 export const footerServices = [
     {

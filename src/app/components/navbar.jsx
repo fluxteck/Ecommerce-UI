@@ -180,6 +180,8 @@ export default function Navbar({ navClass, navlight }) {
             >
               <FiShoppingCart className="h-4 w-4"></FiShoppingCart>
             </Link>
+
+
             {/* {cartManu && (
                             <div className="dropdown-menu absolute end-0 m-0 mt-4 z-10 w-64 rounded-md bg-white dark:bg-slate-900 shadow dark:shadow-gray-800">
                                 <ul className="py-3 text-start" aria-labelledby="dropdownDefault">
@@ -257,6 +259,11 @@ export default function Navbar({ navClass, navlight }) {
                         )} */}
           </li>
 
+
+
+{/* WishList  */}
+
+{/* 
           <li className="inline-block ps-0.5 mx-1">
             <Link
               href="#"
@@ -264,7 +271,7 @@ export default function Navbar({ navClass, navlight }) {
             >
               <FiHeart data-feather="heart" className="h-4 w-4"></FiHeart>
             </Link>
-          </li>
+          </li> */}
 
           <li className="dropdown inline-block relative ps-0.5 mx-1" ref={userRef}>
             <button
