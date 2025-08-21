@@ -9,7 +9,7 @@ export default function MailOffers(){
             <table cellPadding="0" cellSpacing="0" style={{fontFamily: 'DM Sans, sans-serif', fontSize: '16px', fontWeight: '400', width: '600px', border: 'none', margin: '0 auto', borderRadius: '6px', overflow: 'hidden', backgroundColor: '#fff', boxShadow:' 0 0 3px rgba(60, 72, 88, 0.15)'}}>
                 <thead style={{padding: '16px', display: 'block',}}>
                     <tr style={{display: 'block', border: 'none', textAlign: 'center', fontSize: '24px', letterSpacing:'1px'}}>
-                        <th scope="col" style={{margin:' auto', display: 'block'}}><Link href="/" style={{display:'flex', justifyContent:'center'}}><Image src='/images/logo-icon-64.png' width={64} height={64} alt=""/></Link></th>
+                        <th scope="col" style={{margin:' auto', display: 'block'}}><Link href="/" style={{display:'flex', justifyContent:'center'}}><Image src='/images/logo-main.webp' width={64} height={64} alt=""/></Link></th>
                     </tr>
                 </thead>
 
@@ -37,7 +37,7 @@ export default function MailOffers(){
                     <tr>
                         <td style={{padding: '16px 16px 0', color: '#161c2d'}}>
                             <p style={{margin: '0', fontSize: '18px', fontWeight: '500'}}>Hello, Harry!</p>
-                            <p style={{marginBottom: '0', color: '#94a3b8'}}>Please check new offer from Cartzio for you.</p>
+                            <p style={{marginBottom: '0', color: '#94a3b8'}}>Please check new offer from MA Mark for you.</p>
                         </td>
                     </tr>
 
@@ -98,7 +98,7 @@ export default function MailOffers(){
 
                                     <tr>
                                         <td style={{textAlign: 'center'}}>
-                                            <p style={{margin: '4px 0 10px'}}>© {new Date().getFullYear()} Cartzio. Designed by <Link href="https://shreethemes.in/" target="_blank" style={{textDecoration: 'none', color: '#fff'}}>Shreethemes</Link>.</p>
+                                            <p style={{margin: '4px 0 10px'}}>© {new Date().getFullYear()} MA Mark. Designed by <Link href="https://fluxteck.com/" target="_blank" style={{textDecoration: 'none', color: '#fff'}}>Fluxteck</Link>.</p>
                                         </td>
                                     </tr>
 

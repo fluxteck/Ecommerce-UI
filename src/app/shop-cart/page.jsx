@@ -14,6 +14,10 @@ import Counter from "../components/counter";
 import ScrollToTop from "../components/scroll-to-top";
 import { useCartContext } from "ecom-user-sdk/context";
 import { useCartActions } from "ecom-user-sdk/cart";
+import {
+  calculateCartTotals,
+  calculatePrice,
+} from "../components/functions/priceFunctions";
 export default function ShopCart() {
   const {
     cart: cartData,
@@ -23,49 +27,51 @@ export default function ShopCart() {
     // deleteProductInCartContext,
   } = useCartContext();
   const { removeFromCart } = useCartActions();
+
   const [cart, setCart] = useState(cartData);
+  const [cartTotals, setCartTotals] = useState(null);
   const userId = "f47ac10b-58cc-4372-a567-0e02b2c3d479"; // from user context or auth
-  //   console.log(cart);
   //   console.log(loading);
   //   console.log(error);
   useEffect(() => {
     setCart(cartData);
+    setCartTotals(calculateCartTotals(cartData));
   }, [cartData]);
   useEffect(() => {
     if (cart.length === 0) fetchCart({ userId });
   }, [userId]);
 
-  const calculatePrice = (product) => {
-    if (product.discount_type === "no-discount") {
-      return product.base_price;
-    }
-    if (product.discount_type === "percentage") {
-      return product.base_price - (product.discount * product.base_price) / 100;
-    }
-    return product.base_price - product.discount;
-  };
+  // const calculatePrice = (product) => {
+  //   if (product.discount_type === "no-discount") {
+  //     return product.base_price;
+  //   }
+  //   if (product.discount_type === "percentage") {
+  //     return product.base_price - (product.discount * product.base_price) / 100;
+  //   }
+  //   return product.base_price - product.discount;
+  // };
 
-  let subtotal = 0;
-  let totalGST = 0;
+  // let subtotal = 0;
+  // let totalGST = 0;
 
-  cart.forEach((item) => {
-    const price = calculatePrice(item.products);
-    const itemSubtotal = price * item.quantity;
-    const itemGST = ((price * item.products.gst_amount) / 100) * item.quantity;
+  // cart.forEach((item) => {
+  //   const price = calculatePrice(item.products);
+  //   const itemSubtotal = price * item.quantity;
+  //   const itemGST = ((price * item.products.gst_amount) / 100) * item.quantity;
 
-    subtotal += itemSubtotal;
-    totalGST += itemGST;
-  });
+  //   subtotal += itemSubtotal;
+  //   totalGST += itemGST;
+  // });
 
-  const grandTotal = subtotal + totalGST;
+  // const grandTotal = subtotal + totalGST;
 
   async function removeItem(cart_id) {
     const { success, error } = await removeFromCart({
       cart_id,
     });
     // if (success) await deleteProductInCartContext(cart_id);
-    console.log(success);
-    console.log(error);
+    // console.log(success);
+    // console.log(error);
   }
 
   //  const { data, error } = await getCartItems({
@@ -91,14 +97,14 @@ export default function ShopCart() {
 
           <div className="relative mt-3">
             <ul className="tracking-[0.5px] mb-0 inline-block">
-              <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-orange-500">
-                <Link href="/">Cartzio</Link>
+              <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-gray-800">
+                <Link href="/">MA Mark</Link>
               </li>
               <li className="inline-block text-base text-slate-950 dark:text-white mx-0.5 ltr:rotate-0 rtl:rotate-180">
                 <i className="mdi mdi-chevron-right"></i>
               </li>
               <li
-                className="inline-block uppercase text-[13px] font-bold text-orange-500"
+                className="inline-block uppercase text-[13px] font-bold text-gray-800"
                 aria-current="page"
               >
                 SHOPCART
@@ -187,7 +193,10 @@ export default function ShopCart() {
                           />
                         </td>
                         <td className="p-4  text-end">
-                          $ {((price + taxedPrice) * item.quantity).toFixed(2)}
+                          $
+                          {product.tax_inclusive
+                            ? price * item.quantity
+                            : ((price + taxedPrice) * item.quantity).toFixed(2)}
                         </td>
                       </tr>
                     );
@@ -200,14 +209,14 @@ export default function ShopCart() {
               <div className="lg:col-span-9 md:order-1 order-3">
                 <div className="space-x-1">
                   <Link
-                    href=""
-                    className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center bg-orange-500 text-white rounded-md mt-2"
+                    href="shop-checkout"
+                    className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center bg-gray-900 text-white rounded-md mt-2"
                   >
                     Shop Now
                   </Link>
                   {/* <Link
                     href=""
-                    className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center rounded-md bg-orange-500/5 hover:bg-orange-500 text-orange-500 hover:text-white mt-2"
+                    className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center rounded-md bg-gray-800/5 hover:bg-gray-800 text-gray-800 hover:text-white mt-2"
                   >
                     Add to Cart
                   </Link> */}
@@ -219,13 +228,13 @@ export default function ShopCart() {
                   <li className="flex justify-between p-4">
                     <span className="font-semibold text-lg">Subtotal :</span>
                     <span className="text-slate-400">
-                      ${subtotal.toFixed(2)}
+                      ${cartTotals?.subtotal.toFixed(2)}
                     </span>
                   </li>
                   <li className="flex justify-between p-4 border-t border-gray-100 dark:border-gray-800">
                     <span className="font-semibold text-lg">Taxes :</span>
                     <span className="text-slate-400">
-                      ${totalGST.toFixed(2)}
+                      ${cartTotals?.totalGST.toFixed(2)}
                     </span>
                   </li>
                   <li className="flex justify-between p-4 border-t border-gray-100 dark:border-gray-800">
@@ -235,7 +244,7 @@ export default function ShopCart() {
                   <li className="flex justify-between font-semibold p-4 border-t border-gray-200 dark:border-gray-600">
                     <span className="font-semibold text-lg">Total :</span>
                     <span className="font-semibold">
-                      ${grandTotal.toFixed(2)}
+                      ${cartTotals?.grandTotal.toFixed(2)}
                     </span>
                   </li>
                 </ul>
@@ -247,7 +256,7 @@ export default function ShopCart() {
         {/* <MobileApp /> */}
       </section>
       <Footer />
-      <Switcher />
+      {/* <Switcher /> */}
       <ScrollToTop />
     </>
   );

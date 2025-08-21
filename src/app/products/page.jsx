@@ -28,14 +28,14 @@ export default function ShopGrid() {
 
           <div className="relative mt-3">
             <ul className="tracking-[0.5px] mb-0 inline-block">
-              <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-orange-500">
-                <Link href="/">Cartzio</Link>
+              <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-gray-800">
+                <Link href="/">MA Mark</Link>
               </li>
               <li className="inline-block text-base text-slate-950 dark:text-white mx-0.5 ltr:rotate-0 rtl:rotate-180">
                 <i className="mdi mdi-chevron-right"></i>
               </li>
               <li
-                className="inline-block uppercase text-[13px] font-bold text-orange-500"
+                className="inline-block uppercase text-[13px] font-bold text-red-600"
                 aria-current="page"
               >
                 Shop Grid
@@ -118,7 +118,7 @@ export default function ShopGrid() {
                         <li>
                           <Link
                             href="#"
-                            className="bg-orange-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5"
+                            className="bg-gray-800 text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5"
                           >
                             {item.tag}
                           </Link>
@@ -150,7 +150,7 @@ export default function ShopGrid() {
                   <div className="mt-4">
                     <Link
                       href={`/product-detail-one/${item.id}`}
-                      className="hover:text-orange-500 text-lg font-medium"
+                      className="hover:text-gray-800 text-lg font-medium"
                     >
                       {item.name}
                     </Link>
@@ -183,14 +183,14 @@ export default function ShopGrid() {
             })}
           </div>
 
-          <div className="grid md:grid-cols-12 grid-cols-1 mt-6">
+          {/* <div className="grid md:grid-cols-12 grid-cols-1 mt-6">
             <div className="md:col-span-12 text-center">
               <nav aria-label="Page navigation example">
                 <ul className="inline-flex items-center -space-x-px">
                   <li>
                     <Link
                       href="#"
-                      className="size-[40px] inline-flex justify-center items-center text-slate-400 bg-white dark:bg-slate-900 rounded-s-3xl hover:text-white border border-gray-100 dark:border-gray-800 hover:border-orange-500 dark:hover:border-orange-500 hover:bg-orange-500 dark:hover:bg-orange-500"
+                      className="size-[40px] inline-flex justify-center items-center text-slate-400 bg-white dark:bg-slate-900 rounded-s-3xl hover:text-white border border-gray-100 dark:border-gray-800 hover:border-gray-800 dark:hover:border-gray-800 hover:bg-gray-800 dark:hover:bg-gray-800"
                     >
                       <FiChevronLeft className="size-5 rtl:rotate-180 rtl:-mt-1"></FiChevronLeft>
                     </Link>
@@ -198,7 +198,7 @@ export default function ShopGrid() {
                   <li>
                     <Link
                       href="#"
-                      className="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-orange-500 dark:hover:border-orange-500 hover:bg-orange-500 dark:hover:bg-orange-500"
+                      className="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-gray-800 dark:hover:border-gray-800 hover:bg-gray-800 dark:hover:bg-gray-800"
                     >
                       1
                     </Link>
@@ -206,7 +206,7 @@ export default function ShopGrid() {
                   <li>
                     <Link
                       href="#"
-                      className="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-orange-500 dark:hover:border-orange-500 hover:bg-orange-500 dark:hover:bg-orange-500"
+                      className="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-gray-800 dark:hover:border-gray-800 hover:bg-gray-800 dark:hover:bg-gray-800"
                     >
                       2
                     </Link>
@@ -215,7 +215,7 @@ export default function ShopGrid() {
                     <Link
                       href="#"
                       aria-current="page"
-                      className="z-10 size-[40px] inline-flex justify-center items-center text-white bg-orange-500 border border-orange-500"
+                      className="z-10 size-[40px] inline-flex justify-center items-center text-white bg-gray-800 border border-gray-800"
                     >
                       3
                     </Link>
@@ -223,7 +223,7 @@ export default function ShopGrid() {
                   <li>
                     <Link
                       href="#"
-                      className="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-orange-500 dark:hover:border-orange-500 hover:bg-orange-500 dark:hover:bg-orange-500"
+                      className="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-gray-800 dark:hover:border-gray-800 hover:bg-gray-800 dark:hover:bg-gray-800"
                     >
                       4
                     </Link>
@@ -231,7 +231,7 @@ export default function ShopGrid() {
                   <li>
                     <Link
                       href="#"
-                      className="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-orange-500 dark:hover:border-orange-500 hover:bg-orange-500 dark:hover:bg-orange-500"
+                      className="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-gray-800 dark:hover:border-gray-800 hover:bg-gray-800 dark:hover:bg-gray-800"
                     >
                       5
                     </Link>
@@ -239,7 +239,7 @@ export default function ShopGrid() {
                   <li>
                     <Link
                       href="#"
-                      className="size-[40px] inline-flex justify-center items-center text-slate-400 bg-white dark:bg-slate-900 rounded-e-3xl hover:text-white border border-gray-100 dark:border-gray-800 hover:border-orange-500 dark:hover:border-orange-500 hover:bg-orange-500 dark:hover:bg-orange-500"
+                      className="size-[40px] inline-flex justify-center items-center text-slate-400 bg-white dark:bg-slate-900 rounded-e-3xl hover:text-white border border-gray-100 dark:border-gray-800 hover:border-gray-800 dark:hover:border-gray-800 hover:bg-gray-800 dark:hover:bg-gray-800"
                     >
                       <FiChevronRight className="size-5 rtl:rotate-180 rtl:-mt-1"></FiChevronRight>
                     </Link>
@@ -247,11 +247,12 @@ export default function ShopGrid() {
                 </ul>
               </nav>
             </div>
-          </div>
+          </div> */}
+
         </div>
       </section>
       <Footer />
-      <Switcher />
+      {/* <Switcher /> */}
       <ScrollToTop />
     </>
   );

@@ -25,12 +25,12 @@ export default function Sale(){
         </div>
         <Navbar navClass="defaultscroll is-sticky tagline-height" navlight={true}/>
 
-        <section className="relative table w-full items-center pt-36 pb-52 bg-orange-600 bg-[url('/images/hero/bg-shape.png')] bg-center bg-no-repeat bg-cover">
+        <section className="relative table w-full items-center pt-36 pb-52 bg-gray-800 bg-[url('/images/hero/bg-shape.png')] bg-center bg-no-repeat bg-cover">
             <div className="container relative">
                 <div className="grid grid-cols-1 text-center mt-10">
                     <h3 className="md:text-7xl text-5xl md:leading-normal leading-normal tracking-wide font-bold uppercase text-white">Sale Outlet <br/> Up to 75% Off</h3>
                     <div className="mt-6">
-                        <Link href="" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-center bg-white text-orange-500 rounded-md">Offer Grab Now</Link>
+                        <Link href="" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-center bg-white text-gray-800 rounded-md">Offer Grab Now</Link>
                     </div>
                 </div>
             </div>
@@ -44,8 +44,8 @@ export default function Sale(){
                             {salesData.map((item,index)=>{
                                 return(
                                     <div className="relative overflow-hidden rounded-md text-center shadow-md" key={index}>
-                                        <div className="p-6 bg-orange-500">
-                                            <span className="bg-white text-orange-500 font-bold px-2.5 py-0.5 rounded-full h-5">{item.tag}</span>
+                                        <div className="p-6 bg-gray-800">
+                                            <span className="bg-white text-gray-800 font-bold px-2.5 py-0.5 rounded-full h-5">{item.tag}</span>
 
                                             <h5 className="text-white font-medium mt-2">{item.title}</h5>
 
@@ -90,7 +90,7 @@ export default function Sale(){
                                     <ul className="list-none absolute top-[10px] start-4">
                                         {item.offer === true && (
 
-                                            <li><Link href="#" className="bg-orange-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5">{item.tag}</Link></li>
+                                            <li><Link href="#" className="bg-gray-800 text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5">{item.tag}</Link></li>
                                         )}
                                         {item.tag === 'New' && (
                                             <li><Link href="#" className="bg-red-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5">{item.tag}</Link></li>
@@ -102,7 +102,7 @@ export default function Sale(){
                                 </div>
 
                                 <div className="mt-4">
-                                    <Link href={`/product-detail-one/${item.id}`} className="hover:text-orange-500 text-lg font-medium">{item.name}</Link>
+                                    <Link href={`/product-detail-one/${item.id}`} className="hover:text-gray-800 text-lg font-medium">{item.name}</Link>
                                     <div className="flex justify-between items-center mt-1">
                                         <p>{item.desRate} <del className="text-slate-400">{item.amount}</del></p>
                                         <ul className="font-medium text-amber-400 list-none">
@@ -120,10 +120,10 @@ export default function Sale(){
                 </div>
             </div>
 
-            <MobileApp/>
+          
         </section>
         <Footer/>
-        <Switcher/>
+        {/* <Switcher/> */}
         <ScrollToTop/>
         </>
     )

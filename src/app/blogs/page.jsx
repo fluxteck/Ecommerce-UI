@@ -25,7 +25,7 @@ export default function Blogs(){
             
             <div className="absolute text-center z-10 bottom-5 start-0 end-0 mx-3">
                 <ul className="tracking-[0.5px] mb-0 inline-block">
-                    <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white"><Link href="/">Cartzio</Link></li>
+                    <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white"><Link href="/">MA Mark</Link></li>
                     <li className="inline-block text-base text-white/50 mx-0.5 ltr:rotate-0 rtl:rotate-180"><i className="mdi mdi-chevron-right"></i></li>
                     <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white" aria-current="page">Blogs</li>
                 </ul>
@@ -48,11 +48,11 @@ export default function Blogs(){
                                         <span className="flex items-center text-slate-400 text-sm ms-3"><FiClock className="size-4 text-slate-900 dark:text-white me-1.5"></FiClock>5 min read</span>
                                     </div>
 
-                                    <Link href={`/blog-detail/${item.id}`} className="title text-lg font-semibold hover:text-orange-500 duration-500 ease-in-out">{item.title}</Link>
+                                    <Link href={`/blog-detail/${item.id}`} className="title text-lg font-semibold hover:text-gray-800 duration-500 ease-in-out">{item.title}</Link>
                                     <p className="text-slate-400 mt-2">{item.desc}</p>
 
                                     <div className="mt-3">
-                                        <span className="text-slate-400">by <Link href="/" className="text-slate-900 dark:text-white hover:text-orange-500 dark:hover:text-orange-500 font-medium">Cartzio</Link></span>
+                                        <span className="text-slate-400">by <Link href="/" className="text-slate-900 dark:text-white hover:text-gray-800 dark:hover:text-gray-800 font-medium">MA Mark</Link></span>
                                     </div>
                                 </div>
                             </div>
@@ -60,43 +60,44 @@ export default function Blogs(){
                     })}
                 </div>
 
-                <div className="grid md:grid-cols-12 grid-cols-1 mt-6">
+                {/* <div className="grid md:grid-cols-12 grid-cols-1 mt-6">
                     <div className="md:col-span-12 text-center">
                         <nav aria-label="Page navigation example">
                             <ul className="inline-flex items-center -space-x-px">
                                 <li>
-                                    <Link href="#" className="size-[40px] inline-flex justify-center items-center text-slate-400 bg-white dark:bg-slate-900 rounded-s-3xl hover:text-white border border-gray-100 dark:border-gray-800 hover:border-orange-500 dark:hover:border-orange-500 hover:bg-orange-500 dark:hover:bg-orange-500">
+                                    <Link href="#" className="size-[40px] inline-flex justify-center items-center text-slate-400 bg-white dark:bg-slate-900 rounded-s-3xl hover:text-white border border-gray-100 dark:border-gray-800 hover:border-gray-800 dark:hover:border-gray-800 hover:bg-gray-800 dark:hover:bg-gray-800">
                                         <FiChevronLeft className="size-5 rtl:rotate-180 rtl:-mt-1"></FiChevronLeft>
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-orange-500 dark:hover:border-orange-500 hover:bg-orange-500 dark:hover:bg-orange-500">1</Link>
+                                    <Link href="#" className="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-gray-800 dark:hover:border-gray-800 hover:bg-gray-800 dark:hover:bg-gray-800">1</Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-orange-500 dark:hover:border-orange-500 hover:bg-orange-500 dark:hover:bg-orange-500">2</Link>
+                                    <Link href="#" className="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-gray-800 dark:hover:border-gray-800 hover:bg-gray-800 dark:hover:bg-gray-800">2</Link>
                                 </li>
                                 <li>
-                                    <Link href="#" aria-current="page" className="z-10 size-[40px] inline-flex justify-center items-center text-white bg-orange-500 border border-orange-500">3</Link>
+                                    <Link href="#" aria-current="page" className="z-10 size-[40px] inline-flex justify-center items-center text-white bg-gray-800 border border-gray-800">3</Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-orange-500 dark:hover:border-orange-500 hover:bg-orange-500 dark:hover:bg-orange-500">4</Link>
+                                    <Link href="#" className="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-gray-800 dark:hover:border-gray-800 hover:bg-gray-800 dark:hover:bg-gray-800">4</Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-orange-500 dark:hover:border-orange-500 hover:bg-orange-500 dark:hover:bg-orange-500">5</Link>
+                                    <Link href="#" className="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-gray-800 dark:hover:border-gray-800 hover:bg-gray-800 dark:hover:bg-gray-800">5</Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className="size-[40px] inline-flex justify-center items-center text-slate-400 bg-white dark:bg-slate-900 rounded-e-3xl hover:text-white border border-gray-100 dark:border-gray-800 hover:border-orange-500 dark:hover:border-orange-500 hover:bg-orange-500 dark:hover:bg-orange-500">
+                                    <Link href="#" className="size-[40px] inline-flex justify-center items-center text-slate-400 bg-white dark:bg-slate-900 rounded-e-3xl hover:text-white border border-gray-100 dark:border-gray-800 hover:border-gray-800 dark:hover:border-gray-800 hover:bg-gray-800 dark:hover:bg-gray-800">
                                         <FiChevronRight className="size-5 rtl:rotate-180 rtl:-mt-1"></FiChevronRight>
                                     </Link>
                                 </li>
                             </ul>
                         </nav>
                     </div>
-                </div>
+                </div> */}
+
             </div>
         </section>
         <Footer/>
-        <Switcher/>
+        {/* <Switcher/> */}
         <ScrollToTop/>
         </>
     )

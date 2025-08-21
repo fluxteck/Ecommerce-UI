@@ -117,16 +117,16 @@ export const footerSocial = [
 
     {
         icon: FiInstagram,
-        link: 'https://www.instagram.com/shreethemes'
+        link: 'https://www.instagram.com/mamark.shop/'
     },
     {
         icon: FiFacebook,
-        link: 'https://www.facebook.com/shreethemes'
+        link: 'https://www.facebook.com/mamark.shop'
     },
 
     {
         icon: FiMail,
-        link: 'mailto:support@shreethemes.in'
+        link: 'mailto:official.mamark@gmail.com'
     },
 ]
 
@@ -134,17 +134,17 @@ export const footerShopping1 = [
     'Men Jackets', 'Women Jackets', 'Shoes', 'Bags'
 ]
 export const footerShopping2 = [
-  { name: 'About Us', url: '/about-us' },
-  { name: 'Contact Us', url: '/contact-us' },
-//   { name: 'Blogs', url: '/blogs' },
-//   { name: "FAQ's", url: '/faqs' },
+    { name: 'About Us', url: '/aboutus' },
+    { name: 'Contact Us', url: '/contact' },
+    //   { name: 'Blogs', url: '/blogs' },
+    //   { name: "FAQ's", url: '/faqs' },
 ]
 
 export const footerShopping3 = [
-  { name: 'Terms & Conditions', url: '/terms-condition' },
-  { name: 'Return & Replacement', url: '/return-replacement' },
-  { name: 'Shipping Policy', url: '/shipping-policy' },
-  { name: 'Privacy Policy', url: '/privacy-policy' },
+    { name: 'Terms & Conditions', url: '/terms-condition' },
+    { name: 'Return & Replacement', url: '/return-replacement' },
+    { name: 'Shipping Policy', url: '/shipping-policy' },
+    { name: 'Privacy Policy', url: '/privacy-policy' },
 ];
 
 
@@ -238,7 +238,7 @@ export const categories = [
 ]
 
 export const colorFilter = [
-    'bg-red-600', 'bg-indigo-600', 'bg-emerald-600', 'bg-slate-900', 'bg-gray-400', 'bg-orange-600', 'bg-violet-600'
+    'bg-red-600', 'bg-indigo-600', 'bg-emerald-600', 'bg-slate-900', 'bg-gray-400', 'bg-gray-800', 'bg-violet-600'
 ]
 
 export const brandFilter = [

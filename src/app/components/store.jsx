@@ -15,9 +15,9 @@ export default function Store(){
                     <div>
                         <Image src='/images/ab1.jpg' width={0} height={0} sizes="100vw" style={{width:'100%', height:'auto'}} className="rounded-md shadow-md dark:shadow-gray-800" alt=""/>
 
-                        <h5 className="font-semibold text-xl leading-normal my-4">Cartzio, U.S.A.</h5>
+                        <h5 className="font-semibold text-xl leading-normal my-4">MA Mark, India</h5>
 
-                        <p className="text-slate-400">268 St, South New York/NY 98944, <br/> United States</p>
+                        <p className="text-slate-400">268 St, South New York/NY 98944, <br/> New Delhi</p>
 
                         <div className="flex items-center mt-4">
                             <FiPhone className="w-6 h-6 me-4"></FiPhone>
@@ -39,7 +39,7 @@ export default function Store(){
                     <div>
                         <Image src='/images/ab3.jpg' width={0} height={0} sizes="100vw" style={{width:'100%', height:'auto'}} className="rounded-md shadow-md dark:shadow-gray-800" alt=""/>
 
-                        <h5 className="font-semibold text-xl leading-normal my-4">Cartzio, U.S.A.</h5>
+                        <h5 className="font-semibold text-xl leading-normal my-4">MA Mark, U.S.A.</h5>
 
                         <p className="text-slate-400">268 St, South New York/NY 98944, <br/> United States</p>
 
@@ -63,7 +63,7 @@ export default function Store(){
                     <div>
                         <Image src='/images/ab4.jpg' width={0} height={0} sizes="100vw" style={{width:'100%', height:'auto'}} className="rounded-md shadow-md dark:shadow-gray-800" alt=""/>
 
-                        <h5 className="font-semibold text-xl leading-normal my-4">Cartzio, U.S.A.</h5>
+                        <h5 className="font-semibold text-xl leading-normal my-4">MA Mark, U.S.A.</h5>
 
                         <p className="text-slate-400">268 St, South New York/NY 98944, <br/> United States</p>
 

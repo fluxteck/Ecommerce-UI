@@ -8,7 +8,7 @@ import Switcher from '../components/switcher';
 export default function ForgotPassword(){
     return(
         <>
-        <section className="md:h-screen py-36 flex items-center bg-orange-500/10 dark:bg-orange-500/20 bg-[url('/images/hero/bg-shape.png')] bg-center bg-no-repeat bg-cover">
+        <section className="md:h-screen py-36 flex items-center bg-gray-800/10 dark:bg-gray-800/20 bg-[url('/images/hero/bg-shape.png')] bg-center bg-no-repeat bg-cover">
             <div className="container relative">
                 <div className="grid grid-cols-1">
                     <div className="relative overflow-hidden rounded-md shadow dark:shadow-gray-700 bg-white dark:bg-slate-900">
@@ -20,8 +20,8 @@ export default function ForgotPassword(){
                             <div className="p-8 lg:px-20">
                                 <div className="text-center">
                                     <Link href="/">
-                                        <Image src='/images/logo-dark.png' width={114} height={22} className="mx-auto block dark:hidden" alt=""/>
-                                        <Image src='/images/logo-light.png' width={114} height={22} className="mx-auto hidden dark:block" alt=""/>
+                                        <Image src='/images/logo-main.webp' width={114} height={22} className="mx-auto block dark:hidden" alt=""/>
+                                        <Image src='/images/logo-main.webp' width={114} height={22} className="mx-auto hidden dark:block" alt=""/>
                                     </Link>
                                 </div>
 
@@ -34,7 +34,7 @@ export default function ForgotPassword(){
                                         </div>
 
                                         <div className="mb-4">
-                                            <input type="submit" className="py-2 px-5 inline-block tracking-wide align-middle duration-500 text-base text-center bg-orange-500 text-white rounded-md w-full" value="Send"/>
+                                            <input type="submit" className="py-2 px-5 inline-block tracking-wide align-middle duration-500 text-base text-center bg-gray-800 text-white rounded-md w-full" value="Send"/>
                                         </div>
 
                                         <div className="text-center">
@@ -44,7 +44,7 @@ export default function ForgotPassword(){
                                 </form>
 
                                 <div className="text-center">
-                                    <p className="mb-0 text-slate-400">© {new Date().getFullYear()} Cartzio.  Design & Develop  with <i className="mdi mdi-heart text-red-600"></i> by <Link href="https://shreethemes.in/" target="_blank" className="text-reset">Shreethemes</Link>.</p>
+                                    <p className="mb-0 text-slate-400">© {new Date().getFullYear()} MA Mark.  Design & Develop  with <i className="mdi mdi-heart text-red-600"></i> by <Link href="https://fluxteck.com/" target="_blank" className="text-reset">Fluxteck</Link>.</p>
                                 </div>
                             </div>
                         </div>
@@ -53,7 +53,7 @@ export default function ForgotPassword(){
             </div>
         </section>
         <BackToHome/>
-        <Switcher/>
+        {/* <Switcher/> */}
         </>
     )
 }

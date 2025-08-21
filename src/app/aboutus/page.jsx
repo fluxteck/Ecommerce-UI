@@ -21,37 +21,32 @@ export default function AboutUs() {
   return (
     <>
       <Navbar navClass="defaultscroll is-sticky" navlight={true} />
-      <section className="relative table w-full items-center py-36 bg-[url('/images/hero/pages.jpg')] bg-top bg-no-repeat bg-cover">
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/80 to-slate-900"></div>
-        <div className="container relative">
-          <div className="grid grid-cols-1 pb-8 text-center mt-10">
-            <h3 className="mb-3 text-4xl leading-normal tracking-wider font-semibold text-white">
-              About Us
-            </h3>
 
-            <p className="text-slate-400 text-lg max-w-xl mx-auto">
-              Believe in Craftsmanship and Luxurious Design.
-            </p>
+      <section className="relative text-center table w-full pt-15 pb-2 lg:pt-15 md:pt-13 bg-gray-50 dark:bg-slate-800">
+        <div className="container relative">
+          <div className="grid grid-cols-1 mt-14">
+            <h3 className="text-3xl leading-normal font-semibold">About Us</h3>
+          </div>
+
+          <div className="relative mt-3">
+            <ul className="tracking-[0.5px] mb-0 inline-block">
+              <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-gray-800">
+                <Link href="/">MA Mark</Link>
+              </li>
+              <li className="inline-block text-base text-slate-950 dark:text-white mx-0.5 ltr:rotate-0 rtl:rotate-180">
+                <i className="mdi mdi-chevron-right"></i>
+              </li>
+              <li
+                className="inline-block uppercase text-[13px] font-bold text-red-600"
+                aria-current="page"
+              >
+                Shop Grid
+              </li>
+            </ul>
           </div>
         </div>
-
-        <div className="absolute text-center z-10 bottom-5 start-0 end-0 mx-3">
-          <ul className="tracking-[0.5px] mb-0 inline-block">
-            <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white">
-              <Link href="/">MA Mark</Link>
-            </li>
-            <li className="inline-block text-base text-white/50 mx-0.5 ltr:rotate-0 rtl:rotate-180">
-              <i className="mdi mdi-chevron-right"></i>
-            </li>
-            <li
-              className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white"
-              aria-current="page"
-            >
-              About
-            </li>
-          </ul>
-        </div>
       </section>
+
       <section className="relative md:py-24 py-16">
         <About />
 
@@ -59,7 +54,7 @@ export default function AboutUs() {
           <div className="grid md:grid-cols-12 grid-cols-1 items-center gap-6">
             <div className="lg:col-span-5 md:col-span-6 md:order-2 order-1">
               <Image
-                src="/images/ab2.jpg"
+                src="/images/product1.jpg"
                 width={0}
                 height={0}
                 sizes="100vw"
@@ -70,7 +65,7 @@ export default function AboutUs() {
             </div>
 
             <div className="lg:col-span-7 md:col-span-6 md:order-1 order-2">
-              <h6 className="text-orange-500 font-semibold uppercase text-lg">
+              <h6 className="text-gray-800 font-semibold uppercase text-lg">
                 Founder
               </h6>
               <h5 className="font-semibold text-3xl leading-normal my-4">
@@ -79,35 +74,12 @@ export default function AboutUs() {
               <p className="text-slate-400 max-w-xl"></p>
 
               <ul className="list-none mt-6 space-x-3">
+
                 <li className="inline">
                   <Link
-                    href="https://dribbble.com/shreethemes"
+                    href="https://www.facebook.com/mamark.shop"
                     target="_blank"
-                    className="inline-flex hover:text-orange-500 dark:hover:text-orange-500"
-                  >
-                    {/* <FiDribbble
-                      className="size-5 align-middle"
-                      title="dribbble"
-                    ></FiDribbble> */}
-                  </Link>
-                </li>
-                <li className="inline">
-                  <Link
-                    href="http://linkedin.com/company/shreethemes"
-                    target="_blank"
-                    className="inline-flex hover:text-orange-500 dark:hover:text-orange-500"
-                  >
-                    <FiLinkedin
-                      className="size-5 align-middle"
-                      title="Linkedin"
-                    ></FiLinkedin>
-                  </Link>
-                </li>
-                <li className="inline">
-                  <Link
-                    href="https://www.facebook.com/shreethemes"
-                    target="_blank"
-                    className="inline-flex hover:text-orange-500 dark:hover:text-orange-500"
+                    className="inline-flex hover:text-gray-800 dark:hover:text-gray-800"
                   >
                     <FiFacebook
                       className="size-5 align-middle"
@@ -117,9 +89,9 @@ export default function AboutUs() {
                 </li>
                 <li className="inline">
                   <Link
-                    href="https://www.instagram.com/shreethemes/"
+                    href="https://www.instagram.com/mamark.shop/"
                     target="_blank"
-                    className="inline-flex hover:text-orange-500 dark:hover:text-orange-500"
+                    className="inline-flex hover:text-gray-800 dark:hover:text-gray-800"
                   >
                     <FiInstagram
                       className="size-5 align-middle"
@@ -127,18 +99,7 @@ export default function AboutUs() {
                     ></FiInstagram>
                   </Link>
                 </li>
-                <li className="inline">
-                  <Link
-                    href="https://twitter.com/shreethemes"
-                    target="_blank"
-                    className="inline-flex hover:text-orange-500 dark:hover:text-orange-500"
-                  >
-                    {/* <FiTwitter
-                      className="size-5 align-middle"
-                      title="twitter"
-                    ></FiTwitter> */}
-                  </Link>
-                </li>
+             
               </ul>
             </div>
           </div>
@@ -163,7 +124,7 @@ export default function AboutUs() {
                   <div className="content mt-6">
                     <Link
                       href=""
-                      className="title h5 text-xl font-medium hover:text-orange-500"
+                      className="title h5 text-xl font-medium hover:text-gray-800"
                     >
                       {item.title}
                     </Link>
@@ -212,7 +173,7 @@ export default function AboutUs() {
                         <li className="inline">
                           <Link
                             href=""
-                            className="size-8 inline-flex items-center justify-center align-middle rounded-full bg-orange-500 text-white"
+                            className="size-8 inline-flex items-center justify-center align-middle rounded-full bg-gray-800 text-white"
                           >
                             <FiFacebook className="h-4 w-4"></FiFacebook>
                           </Link>
@@ -220,7 +181,7 @@ export default function AboutUs() {
                         <li className="inline">
                           <Link
                             href=""
-                            className="size-8 inline-flex items-center justify-center align-middle rounded-full bg-orange-500 text-white"
+                            className="size-8 inline-flex items-center justify-center align-middle rounded-full bg-gray-800 text-white"
                           >
                             <FiInstagram className="h-4 w-4"></FiInstagram>
                           </Link>
@@ -228,7 +189,7 @@ export default function AboutUs() {
                         <li className="inline">
                           <Link
                             href=""
-                            className="size-8 inline-flex items-center justify-center align-middle rounded-full bg-orange-500 text-white"
+                            className="size-8 inline-flex items-center justify-center align-middle rounded-full bg-gray-800 text-white"
                           >
                             <FiLinkedin className="h-4 w-4"></FiLinkedin>
                           </Link>
@@ -239,7 +200,7 @@ export default function AboutUs() {
                     <div className="content mt-3">
                       <Link
                         href=""
-                        className="text-lg font-semibold hover:text-orange-500 duration-500"
+                        className="text-lg font-semibold hover:text-gray-800 duration-500"
                       >
                         {item.name}
                       </Link>
@@ -253,7 +214,7 @@ export default function AboutUs() {
         </div> */}
       </section>
       <Footer />
-      <Switcher />
+      {/* <Switcher /> */}
       <ScrollToTop />
     </>
   );

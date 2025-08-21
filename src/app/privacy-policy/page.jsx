@@ -10,157 +10,179 @@ export default function Shipping() {
   return (
     <>
       <Navbar />
-      <section className="relative table w-full py-15 lg:py-20 bg-gray-50 dark:bg-slate-800">
+
+      <section className="relative text-center table w-full pt-15 pb-2 lg:pt-15 md:pt-13 bg-gray-50 dark:bg-slate-800">
         <div className="container relative">
-          <div className="grid grid-cols-1 text-center mt-10">
-            <h1 className="text-3xl leading-normal font-semibold">
-            Shipping Policy
-            </h1>
+          <div className="grid grid-cols-1 mt-14">
+            <h3 className="text-3xl leading-normal font-semibold">
+              Privacy Policy
+            </h3>
+          </div>
+
+          <div className="relative mt-3">
+            <ul className="tracking-[0.5px] mb-0 inline-block">
+              <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-gray-800">
+                <Link href="/">MA Mark</Link>
+              </li>
+              <li className="inline-block text-base text-slate-950 dark:text-white mx-0.5 ltr:rotate-0 rtl:rotate-180">
+                <i className="mdi mdi-chevron-right"></i>
+              </li>
+              <li
+                className="inline-block uppercase text-[13px] font-bold text-red-600"
+                aria-current="page"
+              >
+                Privacy Policy
+              </li>
+            </ul>
           </div>
         </div>
-
-        <div className="absolute text-center z-10 bottom-5 start-0 end-0 mx-3">
-          <ul className="tracking-[0.5px] mb-0 inline-block">
-            <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-orange-500">
-              <Link href="/">Cartzio</Link>
-            </li>
-            <li className="inline-block text-base text-slate-950 dark:text-white mx-0.5 ltr:rotate-0 rtl:rotate-180">
-              <i className="mdi mdi-chevron-right"></i>
-            </li>
-            <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-orange-500">
-              <Link href="">Utility</Link>
-            </li>
-            <li className="inline-block text-base text-slate-950 dark:text-white mx-0.5 ltr:rotate-0 rtl:rotate-180">
-              <i className="mdi mdi-chevron-right"></i>
-            </li>
-            <li
-              className="inline-block uppercase text-[13px] font-bold text-orange-500"
-              aria-current="page"
-            >
-              Shipping Policy
-            </li>
-          </ul>
-        </div>
       </section>
+
       <section className="relative md:py-10 py-10">
         <div className="container relative">
           <div className="md:flex justify-center">
             <div className="md:w-3/4">
               <div className="p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md">
-                {/* <h5 className="text-xl font-semibold mb-4">Overview :</h5> */}
-
-                <h2>1. INTRODUCTION</h2>
+                <p className="my-2">
+                  This Privacy Policy explains how we collect, use, and disclose
+                  information about you when you visit our website mamark.shop
+                  and purchase our leather goods.
+                </p>
                 <br />
+
+                <h3 className="text-xl font-semibold">
+                  Information We Collect:
+                </h3>
+                <p>
+                  We collect several types of information when you interact with
+                  our website and services:
+                </p>
+                <br />
+
+                <ul className="list-disc pl-5">
+                  <li>
+                    <strong>Personal Information:</strong> This includes
+                    information that can be used to identify you, such as your
+                    name, billing and shipping address, email address, and phone
+                    number. You provide this information when you create an
+                    account, place an order, or contact us.
+                  </li>
+                  <li>
+                    <strong>Payment Information:</strong> We use a secure
+                    third-party payment processor to handle your payment
+                    information. We do not store your full credit card details
+                    on our servers.
+                  </li>
+                  <li>
+                    <strong>Usage Data:</strong> We collect information about
+                    your activity on our website, such as the pages you visit,
+                    the products you browse, and the searches you perform. This
+                    information is collected through cookies and other tracking
+                    technologies.
+                  </li>
+                </ul>
+                <br />
+
+                <h3 className="text-xl font-semibold">
+                  How We Use Your Information:
+                </h3>
+                <p>We use the information we collect for several purposes:</p>
+                <br />
+
+                <ul className="list-disc pl-5">
+                  <li>To fulfil your orders and provide customer service.</li>
+                  <li>To personalise your experience on our website.</li>
+                  <li>
+                    To send you marketing communications, such as newsletters
+                    and promotional offers (with your consent).
+                  </li>
+                  <li>To improve our website and services.</li>
+                  <li>To comply with legal and regulatory requirements.</li>
+                </ul>
+                <br />
+
+                <h3 className="text-xl font-semibold">
+                  Sharing Your Information:
+                </h3>
 
                 <p>
-                  Welcome to our Privacy Policy. We are a leading leather goods
-                  and fashion brand based in India. We are committed to
-                  protecting the privacy and security of our customers and site
-                  visitors. The purpose of this Privacy Policy is to explain how
-                  we collect, use, share, and protect your personal information
-                  when you interact with us. This policy is in compliance with
-                  the Indian Information Technology Act, 2000, and the
-                  Information Technology (Reasonable Security Practices and
-                  Procedures and Sensitive Personal Data or Information) Rules,
-                  2011.
+                  We may share your information with third-party service
+                  providers who help us operate our business and website. These
+                  service providers are contractually obligated to keep your
+                  information confidential and secure.
                 </p>
-
-                <br />
-                <h3>2. INFORMATION WE COLLECT</h3>
-                <br />
-
                 <p>
-                  We collect personal information that you provide to us such as
-                  name, address, contact information, passwords and security
-                  data, payment information, and social media data. We collect
-                  this information for purposes such as facilitating orders,
-                  providing customer service, managing your account, conducting
-                  research and analysis, and communicating about our products,
-                  services, and promotions.
+                  We will not share your information with any third-party for
+                  marketing purposes without your consent.
                 </p>
-
                 <br />
-                <h3>3. USE, STORAGE, AND SHARING OF INFORMATION</h3>
-                <br />
-
+                <h3 className="text-xl font-semibold">Data Retention:</h3>
                 <p>
-                  We use your personal information to operate, manage, and
-                  maintain our business, to provide our products and services,
-                  and to accomplish our business purposes and objectives. We
-                  store your personal information in a secure manner and
-                  implement appropriate technical and organizational measures to
-                  protect it. We may share your personal information with
-                  third-party service providers to perform services on our
-                  behalf.
+                  We will retain your information for as long as necessary to
+                  fulfill the purposes outlined in this Privacy Policy, unless a
+                  longer retention period is required or permitted by law.
                 </p>
-
-                <br />
-                <h3>4. THIRD-PARTY SERVICE PROVIDERS</h3>
                 <br />
 
+                <h3 className="text-xl font-semibold">Your Choices:</h3>
+                <p>You have several choices regarding your information:</p>
+
+                <ul className="list-disc pl-5">
+                  <li>
+                    You can access and update your personal information in your
+                    account settings.
+                  </li>
+                  <li>
+                    You can access and update your personal information in your
+                    account settings.
+                  </li>
+                  <li>
+                    You can unsubscribe from marketing communications by
+                    following the unsubscribe instructions in the emails we send
+                    you. You can opt out of cookies by adjusting your browser
+                    settings.
+                  </li>
+                </ul>
+                <br />
+
+                <h3 className="text-xl font-semibold">Security:</h3>
                 <p>
-                  MA Mark may engage third-party service providers to assist us
-                  in operating our website, conducting our business, and
-                  providing you with the services you request. These service
-                  providers may have access to your personal information and may
-                  use it on our behalf to provide services to us. We require
-                  these third-party service providers to adhere to strict
-                  confidentiality obligations and to comply with applicable data
-                  protection laws Payment processors: To process your payments
-                  for purchases made on our website. Shipping carriers: To
-                  deliver your orders. Marketing and analytics providers: To
-                  help us analyze website traffic, improve our marketing
-                  efforts, and personalize your experience. Customer support
-                  providers: To assist you with any questions or issues you may
-                  have. Cloud service providers: To store and process your data.
+                  We take reasonable steps to protect your information from
+                  unauthorized access, disclosure, alteration, or destruction.
+                  However, no website or internet transmission is completely
+                  secure.
                 </p>
-
                 <br />
-                <h3>5. OPT-OUT OR DATA SUBJECT RIGHTS</h3>
-                <br />
-
+                <h3 className="text-xl font-semibold">Children's Privacy:</h3>
                 <p>
-                  You have the right to access, correct, update, or request
-                  deletion of your personal information at any time. You also
-                  have the right to opt-out of marketing communications we send
-                  you at any time.
+                  Our website is not directed to children under the age of 13.
+                  We do not knowingly collect personal information from children
+                  under 13.
                 </p>
-
                 <br />
-                <h3>6. DATA RETENTION AND SECURITY MEASURES</h3>
-                <br />
-
+                <h3 className="text-xl font-semibold">
+                  Changes to this Privacy Policy:
+                </h3>
                 <p>
-                  We retain your personal information for as long as necessary
-                  to fulfill the purposes for which we collected it. We have
-                  implemented appropriate technical and organizational security
-                  measures designed to protect the security of any personal
-                  information we process.
+                  We may update this Privacy Policy from time to time. We will
+                  post any changes on this page.
                 </p>
-
-                <br />
-                <h3>7. APPLICABLE LAWS AND REGULATIONS</h3>
                 <br />
 
+                <h3 className="text-xl font-semibold">Contact Us:</h3>
                 <p>
-                  This Privacy Policy is in compliance with the Indian
-                  Information Technology Act, 2000, and the Information
-                  Technology (Reasonable Security Practices and Procedures and
-                  Sensitive Personal Data or Information) Rules, 2011. By using
-                  our website, you consent to the terms of this Privacy Policy.
-                  We may change our Privacy Policy from time to time. We will
-                  post any privacy policy changes on this page and, if the
-                  changes are significant, we will provide a more prominent
-                  notice. If you have any questions about this Privacy Policy,
-                  please reach out to us.
+                  If you have any questions about this Privacy Policy, please
+                  contact us at care.amamrk@gmail.com or on our customer support
+                  contact no. +91 98737 94849.
                 </p>
+                <br />
               </div>
             </div>
           </div>
         </div>
       </section>
       <Footer />
-      <Switcher />
+      {/* <Switcher /> */}
       <ScrollToTop />
     </>
   );

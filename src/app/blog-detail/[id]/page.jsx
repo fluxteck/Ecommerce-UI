@@ -23,7 +23,7 @@ export default function BlogDetail({params}){
                     <h3 className="text-4xl leading-normal tracking-wider font-semibold text-white">{data?.title}</h3>
 
                     <ul className="list-none mt-6">
-                        <li className="inline-block text-white/50 mx-5"> <span className="text-white block">Author :</span> <span className="block">Cartzio</span></li>
+                        <li className="inline-block text-white/50 mx-5"> <span className="text-white block">Author :</span> <span className="block">MA Mark</span></li>
                         <li className="inline-block text-white/50 mx-5"> <span className="text-white block">Date :</span> <span className="block">{data?.date}</span></li>
                         <li className="inline-block text-white/50 mx-5"> <span className="text-white block">Time :</span> <span className="block">8 Min Read</span></li>
                     </ul>
@@ -32,7 +32,7 @@ export default function BlogDetail({params}){
             
             <div className="absolute text-center z-10 bottom-5 start-0 end-0 mx-3">
                 <ul className="tracking-[0.5px] mb-0 inline-block">
-                    <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white"><Link href="/">Cartzio</Link></li>
+                    <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white"><Link href="/">MA Mark</Link></li>
                     <li className="inline-block text-base text-white/50 mx-0.5 ltr:rotate-0 rtl:rotate-180"><i className="mdi mdi-chevron-right"></i></li>
                     <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white" aria-current="page">Blog Detail</li>
                 </ul>
@@ -49,7 +49,7 @@ export default function BlogDetail({params}){
 
                             <div className="p-6">
                                 <p className="text-slate-400">The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated in the 16th century. Lorem Ipsum is composed in a pseudo-Latin language which more or less corresponds to 'proper' Latin. It contains a series of real Latin words. This ancient dummy text is also incomprehensible, but it imitates the rhythm of most European languages in Latin script.</p>
-                                <p className="text-slate-400 italic border-x-4 border-orange-500 rounded-ss-xl rounded-ee-xl mt-3 p-3">" There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. "</p>
+                                <p className="text-slate-400 italic border-x-4 border-gray-800 rounded-ss-xl rounded-ee-xl mt-3 p-3">" There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. "</p>
                                 <p className="text-slate-400 mt-3">The advantage of its Latin origin and the relative meaninglessness of Lorum Ipsum is that the text does not attract attention to itself or distract the viewer's attention from the layout.</p>
                             </div>
                         </div>
@@ -82,7 +82,7 @@ export default function BlogDetail({params}){
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" id="submit" name="send" className="py-2 px-5 inline-block tracking-wide align-middle duration-500 text-base text-center bg-orange-500 text-white rounded-md w-full">Send Message</button>
+                                <button type="submit" id="submit" name="send" className="py-2 px-5 inline-block tracking-wide align-middle duration-500 text-base text-center bg-gray-800 text-white rounded-md w-full">Send Message</button>
                             </form>
                         </div>
                     </div>
@@ -93,7 +93,7 @@ export default function BlogDetail({params}){
                             <div className="text-center mt-8">
                                 <Image src='/images/client/05.jpg' width={80} height={80} className="h-20 w-20 mx-auto rounded-full shadow mb-4" alt=""/>
 
-                                <Link href="" className="text-lg font-medium hover:text-orange-500 transition-all duration-500 ease-in-out h5">Cristina Romsey</Link>
+                                <Link href="" className="text-lg font-medium hover:text-gray-800 transition-all duration-500 ease-in-out h5">Cristina Romsey</Link>
                                 <p className="text-slate-400">Content Writer</p>
                             </div>
 
@@ -102,7 +102,7 @@ export default function BlogDetail({params}){
                                 {social.map((item,index)=>{
                                     let Icon = item
                                     return(
-                                        <li className="inline" key={index}><Link href="" className="size-8 inline-flex items-center justify-center tracking-wide align-middle text-base border border-gray-100 dark:border-gray-800 rounded-md text-slate-400 hover:border-orange-500 hover:text-white hover:bg-orange-500"><Icon className="h-4 w-4"></Icon></Link></li>
+                                        <li className="inline" key={index}><Link href="" className="size-8 inline-flex items-center justify-center tracking-wide align-middle text-base border border-gray-100 dark:border-gray-800 rounded-md text-slate-400 hover:border-gray-800 hover:text-white hover:bg-gray-800"><Icon className="h-4 w-4"></Icon></Link></li>
                                     )
                                 })}
                             </ul>
@@ -130,11 +130,11 @@ export default function BlogDetail({params}){
                                         <span className="flex items-center text-slate-400 text-sm ms-3"><FiClock className="size-4 text-slate-900 dark:text-white me-1.5"></FiClock>5 min read</span>
                                     </div>
 
-                                    <Link href="/blog-detail" className="title text-lg font-semibold hover:text-orange-500 duration-500 ease-in-out">{item.title}</Link>
+                                    <Link href="/blog-detail" className="title text-lg font-semibold hover:text-gray-800 duration-500 ease-in-out">{item.title}</Link>
                                     <p className="text-slate-400 mt-2">{item.desc}</p>
 
                                     <div className="mt-3">
-                                        <span className="text-slate-400">by <Link href="" className="text-slate-900 dark:text-white hover:text-orange-500 dark:hover:text-orange-500 font-medium">Cartzio</Link></span>
+                                        <span className="text-slate-400">by <Link href="" className="text-slate-900 dark:text-white hover:text-gray-800 dark:hover:text-gray-800 font-medium">MA Mark</Link></span>
                                     </div>
                                 </div>
                             </div>
@@ -144,7 +144,7 @@ export default function BlogDetail({params}){
             </div>
         </section>
         <Footer/>
-        <Switcher/>
+        {/* <Switcher/> */}
         <ScrollToTop/>
         </>
     )

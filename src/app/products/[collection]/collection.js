@@ -1,23 +1,40 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
-import Switcher from "../../components/switcher";
+// import Switcher from "../../components/switcher";
+import { useCartActions } from "ecom-user-sdk/cart";
 
-import {
-  FiHeart,
-  FiEye,
-  FiBookmark,
-  FiChevronLeft,
-  FiChevronRight,
-} from "../../assets/icons/vander";
+// import {
+//   FiHeart,
+//   FiEye,
+//   FiBookmark,
+//   FiChevronLeft,
+//   FiChevronRight,
+// } from "../../assets/icons/vander";
 // import { newProduct } from "../../data/data";
 import ScrollToTop from "../../components/scroll-to-top";
 
 export default function Colections({ products }) {
   // console.log(products);
+  const { addToCart } = useCartActions();
+  async function handleAddToCart(productId) {
+    // console.log(activeVariations);
+    // console.log(count);
+
+    const { data, error } = await addToCart({
+      userId: "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+      productId: productId,
+      qty: 1,
+    });
+
+    // console.log(data);
+    // console.log(error);
+  }
 
   return (
     <>
@@ -25,19 +42,21 @@ export default function Colections({ products }) {
       <section className="relative table w-full pt-15 pb-2 lg:pt-15 md:pt-13 bg-gray-50 dark:bg-slate-800">
         <div className="container relative">
           <div className="grid grid-cols-1 mt-14">
-            <h3 className="text-3xl leading-normal font-semibold">Leather Jackets</h3>
+            <h3 className="text-3xl leading-normal font-semibold">
+              Leather Jackets
+            </h3>
           </div>
 
           <div className="relative mt-3">
             <ul className="tracking-[0.5px] mb-0 inline-block">
-              <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-orange-500">
-                <Link href="/">Cartzio</Link>
+              <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-gray-800">
+                <Link href="/">MA Mark</Link>
               </li>
               <li className="inline-block text-base text-slate-950 dark:text-white mx-0.5 ltr:rotate-0 rtl:rotate-180">
                 <i className="mdi mdi-chevron-right"></i>
               </li>
               <li
-                className="inline-block uppercase text-[13px] font-bold text-orange-500"
+                className="inline-block uppercase text-[13px] font-bold text-red-600"
                 aria-current="page"
               >
                 Shop Grid
@@ -64,7 +83,7 @@ export default function Colections({ products }) {
               </select>
             </div>
           </div>
-          <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
+          <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-2 gap-6">
             {products.map((item, index) => {
               return (
                 <div className="group" key={index}>
@@ -84,15 +103,17 @@ export default function Colections({ products }) {
                     />
 
                     <div className="absolute -bottom-20 group-hover:bottom-3 start-3 end-3 duration-500">
-                      <Link
-                        href="/shop-cart"
+                      <button
+                        type="button"
+                        onClick={() => handleAddToCart(item.id)}
                         className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-slate-900 text-white w-full rounded-md"
                       >
                         Add to Cart
-                      </Link>
+                      </button>
                     </div>
 
-                    <ul className="list-none absolute top-[10px] end-4 opacity-0 group-hover:opacity-100 duration-500 space-y-1">
+                    {/* Product Hover Actions -  Wishlist, Quick View, Save  */}
+                    {/* <ul className="list-none absolute top-[10px] end-4 opacity-0 group-hover:opacity-100 duration-500 space-y-1">
                       <li>
                         <Link
                           href="#"
@@ -117,14 +138,14 @@ export default function Colections({ products }) {
                           <FiBookmark className="size-4"></FiBookmark>
                         </Link>
                       </li>
-                    </ul>
+                    </ul> */}
 
                     <ul className="list-none absolute top-[10px] start-4">
                       {item.offer === true && (
                         <li>
                           <Link
                             href="#"
-                            className="bg-orange-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5"
+                            className="bg-gray-800 text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5"
                           >
                             {item.tag}
                           </Link>
@@ -156,7 +177,7 @@ export default function Colections({ products }) {
                   <div className="mt-4">
                     <Link
                       href={`/product/${item.id}`}
-                      className="hover:text-orange-500 text-lg font-medium"
+                      className="hover:text-gray-800 text-lg font-medium"
                     >
                       {item.product_name}
                     </Link>
@@ -183,7 +204,8 @@ export default function Colections({ products }) {
                           </>
                         )}
                       </p>
-                      <ul className="font-medium text-amber-400 list-none">
+
+                      {/* <ul className="font-medium text-amber-400 list-none">
                         <li className="inline">
                           <i className="mdi mdi-star"></i>
                         </li>
@@ -199,7 +221,7 @@ export default function Colections({ products }) {
                         <li className="inline">
                           <i className="mdi mdi-star"></i>
                         </li>
-                      </ul>
+                      </ul> */}
                     </div>
                   </div>
                 </div>
@@ -207,14 +229,14 @@ export default function Colections({ products }) {
             })}
           </div>
 
-          <div className="grid md:grid-cols-12 grid-cols-1 mt-6">
+          {/* <div className="grid md:grid-cols-12 grid-cols-1 mt-6">
             <div className="md:col-span-12 text-center">
               <nav aria-label="Page navigation example">
                 <ul className="inline-flex items-center -space-x-px">
                   <li>
                     <Link
                       href="#"
-                      className="size-[40px] inline-flex justify-center items-center text-slate-400 bg-white dark:bg-slate-900 rounded-s-3xl hover:text-white border border-gray-100 dark:border-gray-800 hover:border-orange-500 dark:hover:border-orange-500 hover:bg-orange-500 dark:hover:bg-orange-500"
+                      className="size-[40px] inline-flex justify-center items-center text-slate-400 bg-white dark:bg-slate-900 rounded-s-3xl hover:text-white border border-gray-100 dark:border-gray-800 hover:border-gray-800 dark:hover:border-gray-800 hover:bg-gray-800 dark:hover:bg-gray-800"
                     >
                       <FiChevronLeft className="size-5 rtl:rotate-180 rtl:-mt-1"></FiChevronLeft>
                     </Link>
@@ -222,7 +244,7 @@ export default function Colections({ products }) {
                   <li>
                     <Link
                       href="#"
-                      className="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-orange-500 dark:hover:border-orange-500 hover:bg-orange-500 dark:hover:bg-orange-500"
+                      className="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-gray-800 dark:hover:border-gray-800 hover:bg-gray-800 dark:hover:bg-gray-800"
                     >
                       1
                     </Link>
@@ -230,7 +252,7 @@ export default function Colections({ products }) {
                   <li>
                     <Link
                       href="#"
-                      className="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-orange-500 dark:hover:border-orange-500 hover:bg-orange-500 dark:hover:bg-orange-500"
+                      className="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-gray-800 dark:hover:border-gray-800 hover:bg-gray-800 dark:hover:bg-gray-800"
                     >
                       2
                     </Link>
@@ -239,7 +261,7 @@ export default function Colections({ products }) {
                     <Link
                       href="#"
                       aria-current="page"
-                      className="z-10 size-[40px] inline-flex justify-center items-center text-white bg-orange-500 border border-orange-500"
+                      className="z-10 size-[40px] inline-flex justify-center items-center text-white bg-gray-800 border border-gray-800"
                     >
                       3
                     </Link>
@@ -247,7 +269,7 @@ export default function Colections({ products }) {
                   <li>
                     <Link
                       href="#"
-                      className="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-orange-500 dark:hover:border-orange-500 hover:bg-orange-500 dark:hover:bg-orange-500"
+                      className="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-gray-800 dark:hover:border-gray-800 hover:bg-gray-800 dark:hover:bg-gray-800"
                     >
                       4
                     </Link>
@@ -255,7 +277,7 @@ export default function Colections({ products }) {
                   <li>
                     <Link
                       href="#"
-                      className="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-orange-500 dark:hover:border-orange-500 hover:bg-orange-500 dark:hover:bg-orange-500"
+                      className="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-gray-800 dark:hover:border-gray-800 hover:bg-gray-800 dark:hover:bg-gray-800"
                     >
                       5
                     </Link>
@@ -263,7 +285,7 @@ export default function Colections({ products }) {
                   <li>
                     <Link
                       href="#"
-                      className="size-[40px] inline-flex justify-center items-center text-slate-400 bg-white dark:bg-slate-900 rounded-e-3xl hover:text-white border border-gray-100 dark:border-gray-800 hover:border-orange-500 dark:hover:border-orange-500 hover:bg-orange-500 dark:hover:bg-orange-500"
+                      className="size-[40px] inline-flex justify-center items-center text-slate-400 bg-white dark:bg-slate-900 rounded-e-3xl hover:text-white border border-gray-100 dark:border-gray-800 hover:border-gray-800 dark:hover:border-gray-800 hover:bg-gray-800 dark:hover:bg-gray-800"
                     >
                       <FiChevronRight className="size-5 rtl:rotate-180 rtl:-mt-1"></FiChevronRight>
                     </Link>
@@ -271,11 +293,11 @@ export default function Colections({ products }) {
                 </ul>
               </nav>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
       <Footer />
-      <Switcher />
+      {/* <Switcher /> */}
       <ScrollToTop />
     </>
   );

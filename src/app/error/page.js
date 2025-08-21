@@ -8,14 +8,14 @@ import BackToHome from "../components/back-to-home";
 export default function Error(){
     return(
         <>
-        <section className="relative bg-orange-500/5">
+        <section className="relative bg-gray-800/5">
             <div className="container-fluid relative">
                 <div className="grid grid-cols-1">
                     <div className="flex flex-col min-h-screen justify-center md:px-10 py-10 px-4">
                         <div className="text-center">
                             <Link href="/">
-                                <Image src='/images/logo-dark.png' width={114} height={22} className="mx-auto block dark:hidden" alt=""/>
-                                <Image src='/images/logo-light.png' width={114} height={22} className="mx-auto hidden dark:block" alt=""/>
+                                <Image src='/images/logo-main.webp' width={114} height={22} className="mx-auto block dark:hidden" alt=""/>
+                                <Image src='/images/logo-main.webp' width={114} height={22} className="mx-auto hidden dark:block" alt=""/>
                             </Link>
                         </div>
                         <div className="title-heading text-center my-auto">
@@ -24,17 +24,17 @@ export default function Error(){
                             <p className="text-slate-400">Whoops, this is embarassing. <br/> Looks like the page you were looking for wasn't found.</p>
                             
                             <div className="mt-4">
-                                <Link href="/" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-orange-500 hover:bg-orange-600 border-orange-500 hover:border-orange-600 text-white rounded-md">Back to Home</Link>
+                                <Link href="/" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-gray-800 hover:bg-gray-800 border-gray-800 hover:border-gray-800 text-white rounded-md">Back to Home</Link>
                             </div>
                         </div>
                         <div className="text-center">
-                            <p className="mb-0 text-slate-400">© {new Date().getFullYear()} Cartzio. Design & Develop with <i className="mdi mdi-heart text-red-600"></i> by <Link href="https://shreethemes.in/" target="_blank" className="text-reset">Shreethemes</Link>.</p>
+                            <p className="mb-0 text-slate-400">© {new Date().getFullYear()} MA Mark. Design & Develop with <i className="mdi mdi-heart text-red-600"></i> by <Link href="https://fluxteck.com/" target="_blank" className="text-reset">Fluxteck</Link>.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <Switcher/>
+        {/* <Switcher/> */}
         <BackToHome/>
         </>
     )

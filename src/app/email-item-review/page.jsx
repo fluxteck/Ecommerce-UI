@@ -10,7 +10,7 @@ export default function EmailItemReview(){
 
                 <thead style={{padding: '16px', display: 'block'}}>
                     <tr style={{display: 'block', border: 'none', textAlign: 'center', fontSize: '24px',letterSpacing: '1px'}}>
-                        <th scope="col" style={{margin: 'auto', display: 'block'}}><Link href="/" style={{display:'flex', justifyContent:'center'}}><Image src='/images/logo-icon-64.png' width={64} height={64} alt=""/></Link></th>
+                        <th scope="col" style={{margin: 'auto', display: 'block'}}><Link href="/" style={{display:'flex', justifyContent:'center'}}><Image src='/images/logo-main.webp' width={64} height={64} alt=""/></Link></th>
                     </tr>
                 </thead>
     
@@ -73,7 +73,7 @@ export default function EmailItemReview(){
 
                                     <tr>
                                         <td style={{textAlign: 'center'}}>
-                                            <p style={{margin: '4px 0 10px'}}>© {new Date().getFullYear()} Cartzio. Designed by <Link href="https://shreethemes.in/" target="_blank" style={{textDecoration: 'none', color: '#fff'}}>Shreethemes</Link>.</p>
+                                            <p style={{margin: '4px 0 10px'}}>© {new Date().getFullYear()} MA Mark. Designed by <Link href="https://fluxteck.com/" target="_blank" style={{textDecoration: 'none', color: '#fff'}}>Fluxteck</Link>.</p>
                                         </td>
                                     </tr>
 

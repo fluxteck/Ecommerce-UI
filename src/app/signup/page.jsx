@@ -8,7 +8,7 @@ import Switcher from "../components/switcher";
 export default function Signup(){
     return(
         <>
-       <section className="md:h-screen py-36 flex items-center bg-orange-500/10 dark:bg-orange-500/20 bg-[url('/images/hero/bg-shape.png')] bg-center bg-no-repeat bg-cover">
+       <section className="md:h-screen py-36 flex items-center bg-gray-800/10 dark:bg-gray-800/20 bg-[url('/images/hero/bg-shape.png')] bg-center bg-no-repeat bg-cover">
             <div className="container relative">
                 <div className="grid grid-cols-1">
                     <div className="relative overflow-hidden rounded-md shadow dark:shadow-gray-700 bg-white dark:bg-slate-900">
@@ -20,8 +20,8 @@ export default function Signup(){
                             <div className="p-8 lg:px-20">
                                 <div className="text-center">
                                     <Link href="/">
-                                        <Image src='/images/logo-dark.png' width={114} height={22} className="mx-auto block dark:hidden" alt=""/>
-                                        <Image src='/images/logo-light.png' width={114} height={22} className="mx-auto hidden dark:block" alt=""/>
+                                        <Image src='/images/logo-main.webp' width={114} height={22} className="mx-auto block dark:hidden" alt=""/>
+                                        <Image src='/images/logo-main.webp' width={114} height={22} className="mx-auto hidden dark:block" alt=""/>
                                     </Link>
                                 </div>
 
@@ -44,13 +44,13 @@ export default function Signup(){
         
                                         <div className="mb-4">
                                             <div className="flex items-center w-full mb-0">
-                                                <input className="form-checkbox rounded border-gray-100 dark:border-gray-800 text-orange-500 focus:border-orange-300 focus:ring focus:ring-offset-0 focus:ring-orange-200 focus:ring-opacity-50 me-2" type="checkbox" value="" id="AcceptT&C"/>
-                                                <label className="form-check-label text-slate-400" htmlFor="AcceptT&C">I Accept <Link href="" className="text-orange-500">Terms And Condition</Link></label>
+                                                <input className="form-checkbox rounded border-gray-100 dark:border-gray-800 text-gray-800 focus:border-gray-800 focus:ring focus:ring-offset-0 focus:ring-gray-800 focus:ring-opacity-50 me-2" type="checkbox" value="" id="AcceptT&C"/>
+                                                <label className="form-check-label text-slate-400" htmlFor="AcceptT&C">I Accept <Link href="" className="text-gray-800">Terms And Condition</Link></label>
                                             </div>
                                         </div>
         
                                         <div className="mb-4">
-                                            <button type="submit" className="py-2 px-5 inline-block tracking-wide align-middle duration-500 text-base text-center bg-orange-500 text-white rounded-md w-full"><Link href="/signup-success">Register</Link></button>
+                                            <button type="submit" className="py-2 px-5 inline-block tracking-wide align-middle duration-500 text-base text-center bg-gray-800 text-white rounded-md w-full"><Link href="/signup-success">Register</Link></button>
                                         </div>
         
                                         <div className="text-center">
@@ -60,7 +60,7 @@ export default function Signup(){
                                 </form>
 
                                 <div className="text-center">
-                                    <p className="mb-0 text-slate-400">© {new Date().getFullYear()} Cartzio. Develop  with <i className="mdi mdi-heart text-red-600"></i> by <Link href="https://shreethemes.in/" target="_blank" className="text-reset">Shreethemes</Link>.</p>
+                                    <p className="mb-0 text-slate-400">© {new Date().getFullYear()} MA Mark. Develop  with <i className="mdi mdi-heart text-red-600"></i> by <Link href="https://fluxteck.com/" target="_blank" className="text-reset">Fluxteck</Link>.</p>
                                 </div>
                             </div>
                         </div>
@@ -69,7 +69,7 @@ export default function Signup(){
             </div>
         </section>
         <BackToHome/>
-        <Switcher/>
+        {/* <Switcher/> */}
         </>
     )
 }

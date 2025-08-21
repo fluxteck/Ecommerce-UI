@@ -68,7 +68,7 @@ export default function UserSetting(){
                                     </div>
                                 </div>
 
-                                <input type="submit" id="submit" name="send" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-orange-500 text-white rounded-md mt-5" value="Save Changes"/>
+                                <input type="submit" id="submit" name="send" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-gray-800 text-white rounded-md mt-5" value="Save Changes"/>
                             </form>
                         </div>
 
@@ -96,7 +96,7 @@ export default function UserSetting(){
                                             </div>
                                         </div>
 
-                                        <button className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-orange-500 text-white rounded-md mt-5">Add</button>
+                                        <button className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-gray-800 text-white rounded-md mt-5">Add</button>
                                     </form>
                                 </div>
                                 
@@ -129,7 +129,7 @@ export default function UserSetting(){
                                             </div>
                                         </div>
 
-                                        <button className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-orange-500 text-white rounded-md mt-5">Save password</button>
+                                        <button className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-gray-800 text-white rounded-md mt-5">Save password</button>
                                     </form>
                                 </div>
 
@@ -148,7 +148,7 @@ export default function UserSetting(){
             </div>
         </section>
         <Footer/>
-        <Switcher/>
+        {/* <Switcher/> */}
         <ScrollToTop/>
         </>
     )
