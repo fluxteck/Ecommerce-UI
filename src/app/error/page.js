@@ -8,16 +8,17 @@ import BackToHome from "../components/back-to-home";
 export default function Error(){
     return(
         <>
+        <Navbar />
         <section className="relative bg-gray-800/5">
             <div className="container-fluid relative">
                 <div className="grid grid-cols-1">
                     <div className="flex flex-col min-h-screen justify-center md:px-10 py-10 px-4">
-                        <div className="text-center">
+                        {/* <div className="text-center">
                             <Link href="/">
                                 <Image src='/images/logo-main-blk.png' width={120} height={65} className="mx-auto block dark:hidden" alt=""/>
                                 <Image src='/images/logo-main-blk.png' width={120} height={65} className="mx-auto hidden dark:block" alt=""/>
                             </Link>
-                        </div>
+                        </div> */}
                         <div className="title-heading text-center my-auto">
                             <Image src='/images/error.svg' width={220} height={190} className="mx-auto w-72" alt=""/>
                             <h1 className="mt-8 mb-6 md:text-5xl text-3xl font-bold">Page Not Found?</h1>
