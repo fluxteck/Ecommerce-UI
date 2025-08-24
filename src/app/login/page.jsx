@@ -8,6 +8,7 @@ import BackToHome from "../components/back-to-home";
 import { useAuth } from "ecom-user-sdk/auth/supabase";
 import { useForm } from "react-hook-form";
 import { useUserActions } from "ecom-user-sdk/user";
+import { useSearchParams } from "next/navigation";
 
 export default function Login() {
   const {
@@ -17,6 +18,8 @@ export default function Login() {
   } = useForm();
   const { login } = useAuth();
   const { getUserByEmail } = useUserActions();
+  const searchParams = useSearchParams();
+
   //   const { user } = useUserContext();
   //   console.log(user);
 
@@ -33,7 +36,11 @@ export default function Login() {
 
     console.log("Login error:", error);
     if (da?.user) {
-      getUserByEmail({ email: email });
+      //   await getUserByEmail({ email: email });
+      const nextUrl = searchParams.get("next") || "/";
+      //   console.log(nextUrl);
+
+      window.location.href = nextUrl;
       //   console.log("signup successful");
     } else {
       return console.log("login failed");

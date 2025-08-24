@@ -1,15 +1,17 @@
 "use client";
 import React, { useState } from "react";
-import Link from "next/link";
+// import Link from "next/link";
 import VariationsGrid from "../product/variations";
 import { RenderSafeHTML } from "./renderPurifyHtml";
 import { useCartActions } from "ecom-user-sdk/cart";
 import { useRouter } from "next/navigation";
+import { useUserContext } from "ecom-user-sdk/context";
 
 export default function ProductDetail({ product }) {
   // console.log(product);
   const router = useRouter();
   const [activeVariations, setActiveVariations] = useState([]);
+  const { user, loading: loadingUser } = useUserContext();
   const { addToCart } = useCartActions();
   let [count, setCount] = useState(1);
   const increments = () => {
@@ -21,11 +23,15 @@ export default function ProductDetail({ product }) {
     }
   };
   async function handleAddToCart() {
+    if (!user) {
+      router.push("/login");
+      return;
+    }
     // console.log(activeVariations);
     // console.log(count);
 
     const { data, error } = await addToCart({
-      userId: "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+      userId: user.id,
       productId: product.id,
       qty: count,
       variationIds: activeVariations,
@@ -35,8 +41,12 @@ export default function ProductDetail({ product }) {
     // console.log(error);
   }
   async function handleCheckout() {
+    if (!user) {
+      router.push("/login");
+      return;
+    }
     await addToCart({
-      userId: "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+      userId: user.id,
       productId: product.id,
       qty: count,
       variationIds: activeVariations,

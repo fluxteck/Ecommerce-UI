@@ -7,7 +7,7 @@ import Image from "next/image";
 import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
 // import Switcher from "../../components/switcher";
-import { useCartActions } from "ecom-user-sdk/cart";
+// import { useCartActions } from "ecom-user-sdk/cart";
 
 // import {
 //   FiHeart,
@@ -21,20 +21,20 @@ import ScrollToTop from "../../components/scroll-to-top";
 
 export default function Collections({ products }) {
   // console.log(products);
-  const { addToCart } = useCartActions();
-  async function handleAddToCart(productId) {
-    // console.log(activeVariations);
-    // console.log(count);
+  // const { addToCart } = useCartActions();
+  // async function handleAddToCart(productId) {
+  //   // console.log(activeVariations);
+  //   // console.log(count);
 
-    const { data, error } = await addToCart({
-      userId: "f47ac10b-58cc-4372-a567-0e02b2c3d479",
-      productId: productId,
-      qty: 1,
-    });
+  //   const { data, error } = await addToCart({
+  //     userId: "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  //     productId: productId,
+  //     qty: 1,
+  //   });
 
-    // console.log(data);
-    // console.log(error);
-  }
+  //   // console.log(data);
+  //   // console.log(error);
+  // }
 
   return (
     <>

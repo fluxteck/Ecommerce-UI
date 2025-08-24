@@ -7,7 +7,11 @@ import MobileApp from "../components/mobile-app";
 import Footer from "../components/footer";
 import Switcher from "../components/switcher";
 import ScrollToTop from "../components/scroll-to-top";
-import { useCartContext, useAddressContext } from "ecom-user-sdk/context";
+import {
+  useCartContext,
+  useAddressContext,
+  useUserContext,
+} from "ecom-user-sdk/context";
 import {
   calculateCartTotals,
   calculatePrice,
@@ -27,6 +31,7 @@ export default function ShopCheckout() {
   } = useCartContext();
   const { address: addressData } = useAddressContext();
   const { addAddress, fetchAddress } = useAddressActions();
+  const { user, loading: loadingUser } = useUserContext();
   const {
     register,
     handleSubmit,
@@ -35,7 +40,7 @@ export default function ShopCheckout() {
     formState: { errors },
   } = addAddress();
   const { emptyCart } = useCartActions();
-  const userId = "f47ac10b-58cc-4372-a567-0e02b2c3d479";
+  // const userId = "f47ac10b-58cc-4372-a567-0e02b2c3d479";
   const [cart, setCart] = useState(cartData);
   const [cartTotals, setCartTotals] = useState(null);
   const [saveShippingAddress, setSaveShippingAddress] = useState(false);
@@ -54,10 +59,11 @@ export default function ShopCheckout() {
   //   }
 
   useEffect(() => {
-    if (cartData && cartData.length === 0) fetchCart({ userId });
+    if (!user) return;
+    if (cartData && cartData.length === 0) fetchCart({ userId: user.id });
     if (addressData && addressData.length === 0)
-      fetchAddress({ user_id: userId });
-  }, [userId]);
+      fetchAddress({ user_id: user.id });
+  }, [user]);
 
   useEffect(() => {
     reset(addressData[0] || {});
@@ -70,6 +76,11 @@ export default function ShopCheckout() {
   //   console.log(cartData);
 
   async function handleCheckout({ data: address, extra }) {
+    if (!user) {
+      console.log("User not logged in");
+      return;
+    }
+
     // console.log(address);
     // console.log(extra);
     // await emptyCart({ user_id: userId });
@@ -87,7 +98,7 @@ export default function ShopCheckout() {
       name: name,
       email: address.email,
       phone: address.mobile_no,
-      user_id: userId,
+      user_id: user.id,
     };
     // console.log(user);
 
@@ -98,7 +109,7 @@ export default function ShopCheckout() {
       key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
       shipping_address: address, //shipping address
       onSuccess: async (res) => {
-        if (res?.success) await emptyCart({ user_id: userId });
+        if (res?.success) await emptyCart({ user_id: user.id });
         console.log("✅ Payment Success:", res);
       },
       onFailure: (err) => console.error("❌ Payment Failed:", err),
@@ -146,7 +157,7 @@ export default function ShopCheckout() {
                   onSubmit={handleSubmit((data) =>
                     handleCheckout({
                       data: data,
-                      extra: { userId: userId, type: "billing" },
+                      extra: { userId: user?.id, type: "billing" },
                     })
                   )}
                 >

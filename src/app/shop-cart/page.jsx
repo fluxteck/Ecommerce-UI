@@ -18,6 +18,8 @@ import {
   calculateCartTotals,
   calculatePrice,
 } from "../components/functions/priceFunctions";
+import { useUserContext } from "ecom-user-sdk/context";
+
 export default function ShopCart() {
   const {
     cart: cartData,
@@ -26,10 +28,13 @@ export default function ShopCart() {
     // deleteProductInCartContext,
   } = useCartContext();
   const { removeFromCart, fetchCart } = useCartActions();
+  const { user, loading: loadingUser } = useUserContext();
 
   const [cart, setCart] = useState(cartData);
+  // console.log(error);
+
   const [cartTotals, setCartTotals] = useState(null);
-  const userId = "f47ac10b-58cc-4372-a567-0e02b2c3d479"; // from user context or auth
+  // const userId = "f47ac10b-58cc-4372-a567-0e02b2c3d479"; // from user context or auth
   //   console.log(loading);
   //   console.log(error);
   useEffect(() => {
@@ -37,8 +42,11 @@ export default function ShopCart() {
     setCartTotals(calculateCartTotals(cartData));
   }, [cartData]);
   useEffect(() => {
-    if (cart.length === 0) fetchCart({ userId });
-  }, [userId]);
+    if (!loadingUser && !user) {
+      console.log("Not authenticated user");
+    }
+    if (user && cart.length === 0) fetchCart({ userId: user.id });
+  }, [user, loadingUser]);
 
   // const calculatePrice = (product) => {
   //   if (product.discount_type === "no-discount") {
@@ -80,7 +88,7 @@ export default function ShopCart() {
     return <div>Loading...</div>;
   }
   if (error) {
-    return <div>Error: {error?.message}</div>;
+    return <div>Error: {error && error.message ? error.message : error}</div>;
   }
   if (cart.length === 0) {
     return <div> Cart is empty </div>;

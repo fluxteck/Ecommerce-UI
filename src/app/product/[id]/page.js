@@ -53,7 +53,7 @@ export const revalidate = 60;
 const Page = async ({ params }) => {
   const { id } = await params;
   const product = await getProduct(id);
-  console.log(product);
+  // console.log(product);
   if (!product) {
     return <NotFound />;
   }
