@@ -36,7 +36,7 @@ async function getProduct(id) {
   }
   return res;
 }
-
+export const revalidate = 60;
 const Page = async ({ params }) => {
   const { id } = await params;
   const product = await getProduct(id);

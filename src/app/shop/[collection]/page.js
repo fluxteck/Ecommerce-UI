@@ -1,7 +1,7 @@
 // app/products/[id]/page.jsx (or .tsx)
 import React from "react";
 import { getProducts } from "ecom-user-sdk/server";
-import Colections from "./collection";
+import Collections from "./collection";
 
 // export async function generateStaticParams() {
 //   const page = 1; // or whatever default you want
@@ -36,7 +36,7 @@ async function getProduct(page, limit, filter) {
   }
   return res;
 }
-
+export const revalidate = 60;
 const Page = async ({ params, searchParams }) => {
   const { collection } = await params;
   const { page: unparsedPage } = await searchParams;
@@ -57,7 +57,7 @@ const Page = async ({ params, searchParams }) => {
   }
   return (
     <div>
-      <Colections products={product} />
+      <Collections products={product} />
     </div>
   );
 };

@@ -23,10 +23,9 @@ export default function ShopCart() {
     cart: cartData,
     loading,
     error,
-    fetchCart,
     // deleteProductInCartContext,
   } = useCartContext();
-  const { removeFromCart } = useCartActions();
+  const { removeFromCart, fetchCart } = useCartActions();
 
   const [cart, setCart] = useState(cartData);
   const [cartTotals, setCartTotals] = useState(null);

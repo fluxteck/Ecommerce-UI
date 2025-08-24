@@ -10,13 +10,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.56.0",
     "@tailwindcss/forms": "^0.5.9",
-    "ecom-user-sdk": "^1.0.4",
+    "antd": "^5.27.1",
+    "ecom-user-sdk": "file:../../../../Desktop/ecommerce/ecommerse-user-sdk",
     "isomorphic-dompurify": "^2.26.0",
     "next": "15.0.3",
     "react": "^18.3.1",
     "react-countup": "^6.5.3",
     "react-dom": "^18.3.1",
+    "react-hook-form": "^7.62.0",
     "react-icons": "^5.3.0",
     "react-responsive-carousel": "^3.2.23",
     "react-scroll": "^1.9.0",

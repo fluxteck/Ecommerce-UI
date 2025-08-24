@@ -19,7 +19,7 @@ import { useCartActions } from "ecom-user-sdk/cart";
 // import { newProduct } from "../../data/data";
 import ScrollToTop from "../../components/scroll-to-top";
 
-export default function Colections({ products }) {
+export default function Collections({ products }) {
   // console.log(products);
   const { addToCart } = useCartActions();
   async function handleAddToCart(productId) {

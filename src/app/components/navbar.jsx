@@ -13,6 +13,7 @@ import {
   FiSettings,
   FiLogOut,
 } from "../assets/icons/vander";
+import { useUserContext, useAuthContext } from "ecom-user-sdk/context";
 
 export default function Navbar({ navClass, navlight }) {
   let [scrolling, setScrolling] = useState(false);
@@ -25,7 +26,15 @@ export default function Navbar({ navClass, navlight }) {
   let dropdownRef = useRef(null);
   let cartRef = useRef(null);
   let userRef = useRef(null);
+  const { user, loading, removeUser } = useUserContext();
+  const { logout } = useAuthContext();
 
+  // console.log(user);
+
+  const logoutUser = async () => {
+    await Promise.all([logout(), removeUser()]);
+    window.location.reload();
+  };
   useEffect(() => {
     const handleScroll = () => {
       const isScrolling = window.scrollY > 50;
@@ -293,42 +302,63 @@ export default function Navbar({ navClass, navlight }) {
                 />
               </span>
             </button>
-            {userManu && (
-              <div className="dropdown-menu absolute end-0 m-0 mt-4 z-10 w-48 rounded-md overflow-hidden bg-white dark:bg-slate-900 shadow dark:shadow-gray-700">
-                <ul className="py-2 text-start">
-                  <li className="ms-0">
-                    <p className="text-slate-400 pt-2 px-4">Welcome User</p>
-                  </li>
-                  {/* <li className='ms-0'>
-                                        <p className="flex items-center font-medium py-2 px-4"><FiDollarSign className="h-4 w-4 me-2"></FiDollarSign> Balance: <span className="text-red-600 ms-2">$ 245.10</span></p>
-                                    </li> */}
-                  <li className="ms-0">
-                    <Link
-                      // href="/user-account"
-                      href="#"
-                      className="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-600 dark:hover:text-white"
-                    >
-                      <FiUser className="h-4 w-4 me-2"></FiUser>Account
-                    </Link>
-                  </li>
-                  {/* <li className='ms-0'>
-                                        <Link href="/helpcenter" className="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-600 dark:hover:text-white"><FiHelpCircle className="h-4 w-4 me-2"></FiHelpCircle>Helpcenter</Link>
-                                    </li> */}
-                  {/* <li className='ms-0'>
-                                        <Link href="/user-setting" className="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-600 dark:hover:text-white"><FiSettings className="h-4 w-4 me-2"></FiSettings>Settings</Link>
-                                    </li> */}
-                  <li className="border-t border-gray-100 dark:border-gray-800 my-2"></li>
-                  <li className="ms-0">
-                    <Link
-                      href="/login"
-                      className="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-600 dark:hover:text-white"
-                    >
-                      <FiLogOut className="h-4 w-4 me-2"></FiLogOut>Logout
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            )}
+            {userManu &&
+              (user ? (
+                <div className="dropdown-menu absolute end-0 m-0 mt-4 z-10 w-48 rounded-md overflow-hidden bg-white dark:bg-slate-900 shadow dark:shadow-gray-700">
+                  <ul className="py-2 text-start">
+                    <li className="ms-0">
+                      <p className="text-slate-400 pt-2 px-4">Welcome User</p>
+                    </li>
+
+                    <li className="ms-0">
+                      <Link
+                        href="/user-account"
+                        // href="#"
+                        className="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-600 dark:hover:text-white"
+                      >
+                        <FiUser className="h-4 w-4 me-2"></FiUser>Account
+                      </Link>
+                    </li>
+                    <li className="border-t border-gray-100 dark:border-gray-800 my-2"></li>
+                    <li className="ms-0">
+                      <button
+                        onClick={logoutUser}
+                        // href="/"
+                        className="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-600 dark:hover:text-white"
+                      >
+                        <FiLogOut className="h-4 w-4 me-2"></FiLogOut>Logout
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                <div className="dropdown-menu absolute end-0 m-0 mt-4 z-10 w-48 rounded-md overflow-hidden bg-white dark:bg-slate-900 shadow dark:shadow-gray-700">
+                  <ul className="py-2 text-start">
+                    {/* <li className="ms-0">
+                  <p className="text-slate-400 pt-2 px-4">Welcome User</p>
+                </li> */}
+
+                    <li className="ms-0">
+                      <Link
+                        // href="/user-account"
+                        href="/signup"
+                        className="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-600 dark:hover:text-white"
+                      >
+                        <FiUser className="h-4 w-4 me-2"></FiUser>SignUp
+                      </Link>
+                    </li>
+                    <li className="border-t border-gray-100 dark:border-gray-800 my-2"></li>
+                    <li className="ms-0">
+                      <Link
+                        href="/login"
+                        className="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-600 dark:hover:text-white"
+                      >
+                        <FiUser className="h-4 w-4 me-2"></FiUser>SignIn
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              ))}
           </li>
         </ul>
 
