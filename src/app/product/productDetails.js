@@ -57,12 +57,12 @@ export default function ProductDetailTwo({ product }) {
               <li className="inline-block text-base text-slate-950 dark:text-white mx-0.5 ltr:rotate-0 rtl:rotate-180">
                 <i className="mdi mdi-chevron-right"></i>
               </li>
-              <li
+              {/* <li
                 className="inline-block uppercase text-[13px] font-bold text-red-600"
                 aria-current="page"
               >
                 Mens Brown Jecket
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
