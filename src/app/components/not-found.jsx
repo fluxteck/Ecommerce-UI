@@ -1,16 +1,12 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
 
-import Switcher from "../components/switcher";
-import BackToHome from "../components/back-to-home";
-import Navbar from "../components/navbar";
-
-export default function Error(){
-    return(
-        <>
-        <Navbar/>
-        <section className="relative bg-gray-800/5">
+export default function NotFound() {
+  return (
+    <>
+    <Navbar />
+    <section className="relative bg-gray-800/5">
             <div className="container-fluid relative">
                 <div className="grid grid-cols-1">
                     <div className="flex flex-col min-h-screen justify-center md:px-10 py-10 px-4">
@@ -36,8 +32,6 @@ export default function Error(){
                 </div>
             </div>
         </section>
-        {/* <Switcher/> */}
-        <BackToHome/>
-        </>
-    )
+        </> 
+  )
 }

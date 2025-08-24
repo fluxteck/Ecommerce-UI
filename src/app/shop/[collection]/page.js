@@ -36,7 +36,7 @@ async function getProduct(page, limit, filter) {
   }
   return res;
 }
-
+export const revalidate = 60;
 const Page = async ({ params, searchParams }) => {
   const { collection } = await params;
   const { page: unparsedPage } = await searchParams;
