@@ -4,11 +4,12 @@ import Image from "next/image";
 
 import Switcher from "../components/switcher";
 import BackToHome from "../components/back-to-home";
+import Navbar from "../components/navbar";
 
 export default function Error(){
     return(
         <>
-        <Navbar />
+        <Navbar/>
         <section className="relative bg-gray-800/5">
             <div className="container-fluid relative">
                 <div className="grid grid-cols-1">
