@@ -37,11 +37,11 @@ export default function ProductDetailTwo({ product }) {
       <Navbar navClass="defaultscroll is-sticky tagline-height" />
       <section className="relative table w-full pt-20 pb-2 lg:pt-15 md:pt-13 bg-gray-50 dark:bg-slate-800">
         <div className="container relative">
-          <div className="grid grid-cols-1 mt-14">
+          {/* <div className="grid grid-cols-1 mt-14">
             <h3 className="text-3xl leading-normal font-semibold">
               Mens Brown Jecket
             </h3>
-          </div>
+          </div> */}
 
           <div className="relative mt-3">
             <ul className="tracking-[0.5px] mb-0 inline-block">
@@ -52,17 +52,17 @@ export default function ProductDetailTwo({ product }) {
                 <i className="mdi mdi-chevron-right"></i>
               </li>
               <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out hover:text-red-600">
-                <Link href="/shop-grid">Store</Link>
+                <Link href="/shop-grid">Shop</Link>
               </li>
               <li className="inline-block text-base text-slate-950 dark:text-white mx-0.5 ltr:rotate-0 rtl:rotate-180">
                 <i className="mdi mdi-chevron-right"></i>
               </li>
-              <li
+              {/* <li
                 className="inline-block uppercase text-[13px] font-bold text-red-600"
                 aria-current="page"
               >
                 Mens Brown Jecket
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
@@ -78,7 +78,7 @@ export default function ProductDetailTwo({ product }) {
             <ProductDetail product={product} />
           </div>
 
-          <ProductAboutTab product={product} />
+          {/* <ProductAboutTab product={product} /> */}
         </div>
 
         <ArrivalItem />

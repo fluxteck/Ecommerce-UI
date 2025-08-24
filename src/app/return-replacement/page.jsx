@@ -11,10 +11,12 @@ export default function ReturnReplacement() {
     <>
       <Navbar />
 
-     <section className="relative text-center table w-full pt-15 pb-2 lg:pt-15 md:pt-13 bg-gray-50 dark:bg-slate-800">
+      <section className="relative text-center table w-full pt-15 pb-2 lg:pt-15 md:pt-13 bg-gray-50 dark:bg-slate-800">
         <div className="container relative">
           <div className="grid grid-cols-1 mt-14">
-            <h3 className="text-3xl leading-normal font-semibold">Return, Replacement & Refund Policy</h3>
+            <h3 className="text-3xl leading-normal font-semibold">
+              Return, Replacement & Refund Policy
+            </h3>
           </div>
 
           <div className="relative mt-3">

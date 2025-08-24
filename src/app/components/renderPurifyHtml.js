@@ -10,14 +10,15 @@
 //   );
 // };
 
-import DOMPurify from "isomorphic-dompurify";
+// import DOMPurify from "isomorphic-dompurify";
 
 export const RenderSafeHTML = ({ html }) => {
-  const cleanHTML = DOMPurify.sanitize(html || "");
+  // const cleanHTML = DOMPurify.sanitize(html || "");
   return (
-    <p
-      className="text-slate-400 mt-2"
-      dangerouslySetInnerHTML={{ __html: cleanHTML }}
-    />
+    // <p
+    //   className="text-slate-400 mt-2"
+    //   dangerouslySetInnerHTML={{ __html: cleanHTML }}
+    // />
+    <p>{html}</p>
   );
 };

@@ -29,7 +29,7 @@ export default function Footer() {
                       alt=""
                     />
                   </Link>
-                  <p className="mt-2 text-gray-300">The Kind of Leather</p>
+                  <p className="mt-2 text-gray-300">The King of Leather</p>
                   <ul className="list-none mt-6 space-x-1">
                     {footerSocial.map((item, index) => {
                       let Icon = item.icon;
@@ -102,9 +102,9 @@ export default function Footer() {
                   <h5 className="tracking-[1px] text-gray-100 font-semibold">
                     Newsletter
                   </h5>
-                  <p className="mt-6">
+                  {/* <p className="mt-6">
                     Sign up and receive the latest tips & deals.
-                  </p>
+                  </p> */}
                   <form>
                     <div className="grid grid-cols-1">
                       <div className="my-3">
@@ -128,7 +128,7 @@ export default function Footer() {
                         type="submit"
                         id="submitsubscribe"
                         name="send"
-                        className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-white text-red-600 rounded-md"
+                        className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-white text-black-600 rounded-md"
                       >
                         Subscribe
                       </button>

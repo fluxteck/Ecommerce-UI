@@ -7,13 +7,13 @@ import MobileApp from "../components/mobile-app";
 import Footer from "../components/footer";
 import Switcher from "../components/switcher";
 import ScrollToTop from "../components/scroll-to-top";
-import { useCartContext } from "ecom-user-sdk/context";
+import { useCartContext, useAddressContext } from "ecom-user-sdk/context";
 import {
   calculateCartTotals,
   calculatePrice,
 } from "../components/functions/priceFunctions";
 import { truncateString } from "../components/functions/sliceString";
-import { addAddress } from "ecom-user-sdk/user";
+import { useAddressActions } from "ecom-user-sdk/user";
 import { processOrderPayment } from "ecom-user-sdk/payment/razorpay";
 import { useCartActions } from "ecom-user-sdk/cart";
 
@@ -25,10 +25,13 @@ export default function ShopCheckout() {
     fetchCart,
     // deleteProductInCartContext,
   } = useCartContext();
+  const { address: addressData } = useAddressContext();
+  const { addAddress, fetchAddress } = useAddressActions();
   const {
     register,
     handleSubmit,
     onSubmit,
+    reset,
     formState: { errors },
   } = addAddress();
   const { emptyCart } = useCartActions();
@@ -37,9 +40,28 @@ export default function ShopCheckout() {
   const [cartTotals, setCartTotals] = useState(null);
   const [saveShippingAddress, setSaveShippingAddress] = useState(false);
   const [isAddressSame, setIsAddressSame] = useState(true);
+  //   console.log(addressData);
+
+  //   async function fetchAddress(userId) {
+  //     const { data, error } = await getAddress(userId);
+  //     if (data.length) {
+  //       reset(data[0]);
+  //     }
+  //     if (error) {
+  //       console.error("Error fetching address:", error);
+  //       return null;
+  //     }
+  //   }
+
   useEffect(() => {
     if (cartData && cartData.length === 0) fetchCart({ userId });
+    if (addressData && addressData.length === 0)
+      fetchAddress({ user_id: userId });
   }, [userId]);
+
+  useEffect(() => {
+    reset(addressData[0] || {});
+  }, [addressData]);
   useEffect(() => {
     setCart(cartData);
     setCartTotals(calculateCartTotals(cartData));
@@ -526,7 +548,7 @@ export default function ShopCheckout() {
                           </div>
 
                           <p className="text-slate-400 font-semibold">
-                            $
+                            Rs.
                             {product.tax_inclusive
                               ? price * cart.quantity
                               : ((price + taxedPrice) * cart.quantity).toFixed(
@@ -558,7 +580,7 @@ export default function ShopCheckout() {
                     </div>
 
                     <p className="text-slate-400 font-semibold">
-                      ${cartTotals?.subtotal.toFixed(2)}
+                      Rs.{cartTotals?.subtotal.toFixed(2)}
                     </p>
                   </div>
                   <div className="p-3 flex justify-between items-center">
@@ -573,7 +595,7 @@ export default function ShopCheckout() {
                     </div>
 
                     <p className="text-slate-400 font-semibold">
-                      ${cartTotals?.totalGST.toFixed(2)}
+                      Rs.{cartTotals?.totalGST.toFixed(2)}
                     </p>
                   </div>
                   <div className="p-3 flex justify-between items-center border border-gray-100 dark:border-gray-800">
@@ -582,7 +604,7 @@ export default function ShopCheckout() {
                     </div>
 
                     <p className="font-semibold">
-                      ${cartTotals?.grandTotal.toFixed(2)}
+                      Rs.{cartTotals?.grandTotal.toFixed(2)}
                     </p>
                   </div>
                 </div>

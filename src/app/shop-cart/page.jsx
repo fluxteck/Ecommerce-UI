@@ -135,7 +135,7 @@ export default function ShopCart() {
                       Qty
                     </th>
                     <th scope="col" className="p-4 w-24 min-w-[100px]">
-                      Total($)
+                      Total(Rs.)
                     </th>
                   </tr>
                 </thead>
@@ -173,7 +173,7 @@ export default function ShopCart() {
                             </span>
                           </span>
                         </td>
-                        <td className="p-4 text-center">$ {price}</td>
+                        <td className="p-4 text-center">Rs {price}</td>
                         <td className="p-4 text-center">
                           {product.gst_amount}%
                         </td>
@@ -193,7 +193,7 @@ export default function ShopCart() {
                           />
                         </td>
                         <td className="p-4  text-end">
-                          $
+                          Rs.
                           {product.tax_inclusive
                             ? price * item.quantity
                             : ((price + taxedPrice) * item.quantity).toFixed(2)}
@@ -228,13 +228,13 @@ export default function ShopCart() {
                   <li className="flex justify-between p-4">
                     <span className="font-semibold text-lg">Subtotal :</span>
                     <span className="text-slate-400">
-                      ${cartTotals?.subtotal.toFixed(2)}
+                      Rs.{cartTotals?.subtotal.toFixed(2)}
                     </span>
                   </li>
                   <li className="flex justify-between p-4 border-t border-gray-100 dark:border-gray-800">
                     <span className="font-semibold text-lg">Taxes :</span>
                     <span className="text-slate-400">
-                      ${cartTotals?.totalGST.toFixed(2)}
+                      Rs.{cartTotals?.totalGST.toFixed(2)}
                     </span>
                   </li>
                   <li className="flex justify-between p-4 border-t border-gray-100 dark:border-gray-800">
@@ -244,7 +244,7 @@ export default function ShopCart() {
                   <li className="flex justify-between font-semibold p-4 border-t border-gray-200 dark:border-gray-600">
                     <span className="font-semibold text-lg">Total :</span>
                     <span className="font-semibold">
-                      ${cartTotals?.grandTotal.toFixed(2)}
+                      Rs.{cartTotals?.grandTotal.toFixed(2)}
                     </span>
                   </li>
                 </ul>

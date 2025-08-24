@@ -73,7 +73,7 @@ export default function AboutUs() {
               </h5>
               <p className="text-slate-400 max-w-xl"></p>
 
-              <ul className="list-none mt-6 space-x-3">
+              {/* <ul className="list-none mt-6 space-x-3">
 
                 <li className="inline">
                   <Link
@@ -100,7 +100,7 @@ export default function AboutUs() {
                   </Link>
                 </li>
              
-              </ul>
+              </ul> */}
             </div>
           </div>
         </div>

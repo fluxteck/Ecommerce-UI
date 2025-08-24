@@ -4,9 +4,11 @@ import Link from "next/link";
 import VariationsGrid from "../product/variations";
 import { RenderSafeHTML } from "./renderPurifyHtml";
 import { useCartActions } from "ecom-user-sdk/cart";
+import { useRouter } from "next/navigation";
 
 export default function ProductDetail({ product }) {
   // console.log(product);
+  const router = useRouter();
   const [activeVariations, setActiveVariations] = useState([]);
   const { addToCart } = useCartActions();
   let [count, setCount] = useState(1);
@@ -28,14 +30,25 @@ export default function ProductDetail({ product }) {
       qty: count,
       variationIds: activeVariations,
     });
+
     // console.log(data);
     // console.log(error);
+  }
+  async function handleCheckout() {
+    await addToCart({
+      userId: "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+      productId: product.id,
+      qty: count,
+      variationIds: activeVariations,
+    });
+    router.push("/shop-checkout");
   }
   return (
     <div className="sticky top-20">
       <h5 className="text-2xl font-semibold">{product.product_name}</h5>
       <div className="mt-2">
-        <span className="text-slate-400 font-semibold me-1">
+        <span className="text-black-400 font-semibold text-xl me-1">
+          Rs.{" "}
           {product.discount_type === "no-discount" ? (
             product.base_price.toFixed(2)
           ) : product.discount_type === "percentage" ? (
@@ -57,19 +70,9 @@ export default function ProductDetail({ product }) {
             </>
           )}
         </span>
+        <span className="text-slate-400 me-1"> Incluisve off all taxes</span>
       </div>
-      <div className="mt-4">
-        <h5 className="text-lg font-semibold">Overview :</h5>
-        <div className="text-slate-400 mt-2">
-          <RenderSafeHTML
-            html={
-              product.description.length > 100
-                ? product.description.slice(0, 100) + "..."
-                : product.description
-            }
-          />
-        </div>
-      </div>
+
       <VariationsGrid
         variations={product.variations}
         activeVariations={activeVariations}
@@ -101,18 +104,37 @@ export default function ProductDetail({ product }) {
         </div>
       </div>
       <div className="mt-4 space-x-1 flex flex-col-reverse">
-        <Link
-          href=""
-          className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center bg-slate-900 hover:bg-slate-800 text-white rounded-md mt-2"
+        <div
+          onClick={handleCheckout}
+          className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center bg-slate-900 hover:bg-slate-800 text-white rounded-md mt-2 mt-2 cursor-pointer"
         >
           Shop Now
-        </Link>
+        </div>
         <div
           //   href=""
           onClick={handleAddToCart}
           className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center rounded-md bg-red-600/5 hover:bg-slate-800 text-slate-900 hover:text-white mt-2 cursor-pointer"
         >
           Add to Cart
+        </div>
+      </div>
+      <div className="mt-5 pb-2">
+        {/* <h5 className="text-lg font-semibold">Overview :</h5> */}
+        <div className="text-slate-400 mt-2">
+          {/* <RenderSafeHTML
+            html={
+              product.description.length > 100
+                ? product.description.slice(0, 100) + "..."
+                : product.description
+            }
+          /> */}
+          <ul className="list-disc list-inside text-slate-600 mt-2 space-y-1 text-lg">
+            <li>100% Genuine Leather</li>
+            <li>Handcrafted Excellence</li>
+            <li>Free Pan India Shipping</li>
+            <li>Custom Tailoring Available</li>
+            <li>Made to Order (1–2 weeks)</li>
+          </ul>
         </div>
       </div>
     </div>

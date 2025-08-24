@@ -31,7 +31,7 @@ export default function Shipping() {
                 className="inline-block uppercase text-[13px] font-bold text-red-600"
                 aria-current="page"
               >
-               Shipping Policy
+                Shipping Policy
               </li>
             </ul>
           </div>

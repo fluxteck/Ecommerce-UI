@@ -1,23 +1,40 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
-import Switcher from "../../components/switcher";
+// import Switcher from "../../components/switcher";
+import { useCartActions } from "ecom-user-sdk/cart";
 
-import {
-  FiHeart,
-  FiEye,
-  FiBookmark,
-  FiChevronLeft,
-  FiChevronRight,
-} from "../../assets/icons/vander";
+// import {
+//   FiHeart,
+//   FiEye,
+//   FiBookmark,
+//   FiChevronLeft,
+//   FiChevronRight,
+// } from "../../assets/icons/vander";
 // import { newProduct } from "../../data/data";
 import ScrollToTop from "../../components/scroll-to-top";
 
 export default function Colections({ products }) {
   // console.log(products);
+  const { addToCart } = useCartActions();
+  async function handleAddToCart(productId) {
+    // console.log(activeVariations);
+    // console.log(count);
+
+    const { data, error } = await addToCart({
+      userId: "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+      productId: productId,
+      qty: 1,
+    });
+
+    // console.log(data);
+    // console.log(error);
+  }
 
   return (
     <>
@@ -25,7 +42,9 @@ export default function Colections({ products }) {
       <section className="relative table w-full pt-15 pb-2 lg:pt-15 md:pt-13 bg-gray-50 dark:bg-slate-800">
         <div className="container relative">
           <div className="grid grid-cols-1 mt-14">
-            <h3 className="text-3xl leading-normal font-semibold">Leather Jackets</h3>
+            <h3 className="text-3xl leading-normal font-semibold">
+              Leather Jackets
+            </h3>
           </div>
 
           <div className="relative mt-3">
@@ -49,8 +68,8 @@ export default function Colections({ products }) {
 
       <section className="relative md:pb-24 pb-16">
         <div className="container relative">
-          <div className="md:flex justify-between items-center mb-6">
-            {/* <span className="font-semibold">Showing 1-16 of 40 items</span> */}
+          {/* <div className="md:flex justify-between items-center mb-6">
+
 
             <div className="md:flex items-center">
               <label className="font-semibold md:me-2">Sort by:</label>
@@ -63,63 +82,37 @@ export default function Colections({ products }) {
                 <option defaultValue="">Price High-Low</option>
               </select>
             </div>
-          </div>
+          </div> */}
           <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-2 gap-6">
             {products.map((item, index) => {
               return (
                 <div className="group" key={index}>
                   <div className="relative overflow-hidden shadow dark:shadow-gray-800 group-hover:shadow-lg group-hover:dark:shadow-gray-800 rounded-md duration-500">
-                    <Image
-                      src={
-                        item.image_url
-                          ? item.image_url
-                          : "/images/product1.webp"
-                      }
-                      width={0}
-                      height={0}
-                      sizes="100vw"
-                      style={{ width: "100%", height: "auto" }}
-                      className="group-hover:scale-110 duration-500"
-                      alt=""
-                    />
+                    <Link href={`/product/${item.id}`}>
+                      <Image
+                        src={
+                          item.image_url
+                            ? item.image_url
+                            : "/images/product1.webp"
+                        }
+                        width={0}
+                        height={0}
+                        sizes="100vw"
+                        style={{ width: "100%", height: "auto" }}
+                        className=""
+                        alt=""
+                      />
+                    </Link>
 
-                    <div className="absolute -bottom-20 group-hover:bottom-3 start-3 end-3 duration-500">
-                      <Link
-                        href="/shop-cart"
+                    {/* <div className="absolute -bottom-20 group-hover:bottom-3 start-3 end-3 duration-500">
+                      <button
+                        type="button"
+                        onClick={() => handleAddToCart(item.id)}
                         className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-slate-900 text-white w-full rounded-md"
                       >
                         Add to Cart
-                      </Link>
-                    </div>
-
-{/* Product Hover Actions -  Wishlist, Quick View, Save  */}
-                    {/* <ul className="list-none absolute top-[10px] end-4 opacity-0 group-hover:opacity-100 duration-500 space-y-1">
-                      <li>
-                        <Link
-                          href="#"
-                          className="size-10 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-center rounded-full bg-white text-slate-900 hover:bg-slate-900 hover:text-white shadow"
-                        >
-                          <FiHeart className="size-4"></FiHeart>
-                        </Link>
-                      </li>
-                      <li className="mt-1 ms-0">
-                        <Link
-                          href="/shop-item-detail"
-                          className="size-10 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-center rounded-full bg-white text-slate-900 hover:bg-slate-900 hover:text-white shadow"
-                        >
-                          <FiEye className="size-4"></FiEye>
-                        </Link>
-                      </li>
-                      <li className="mt-1 ms-0">
-                        <Link
-                          href="#"
-                          className="size-10 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-center rounded-full bg-white text-slate-900 hover:bg-slate-900 hover:text-white shadow"
-                        >
-                          <FiBookmark className="size-4"></FiBookmark>
-                        </Link>
-                      </li>
-                    </ul> */}
-
+                      </button>
+                    </div> */}
                     <ul className="list-none absolute top-[10px] start-4">
                       {item.offer === true && (
                         <li>
@@ -163,6 +156,7 @@ export default function Colections({ products }) {
                     </Link>
                     <div className="flex justify-between items-center mt-1">
                       <p>
+                        Rs.{" "}
                         {item.discount_type === "no-discount" ? (
                           item.base_price.toFixed(2)
                         ) : item.discount_type === "percentage" ? (
@@ -202,7 +196,6 @@ export default function Colections({ products }) {
                           <i className="mdi mdi-star"></i>
                         </li>
                       </ul> */}
-
                     </div>
                   </div>
                 </div>
@@ -275,7 +268,6 @@ export default function Colections({ products }) {
               </nav>
             </div>
           </div> */}
-
         </div>
       </section>
       <Footer />
