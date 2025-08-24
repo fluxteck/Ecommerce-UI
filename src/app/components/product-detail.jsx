@@ -70,7 +70,7 @@ export default function ProductDetail({ product }) {
             </>
           )}
         </span>
-        <span className="text-slate-400 me-1"> Incluisve off all taxes</span>
+        <p className="text-slate-400 me-1"> Incluisve off all taxes</p>
       </div>
 
       <VariationsGrid
