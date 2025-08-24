@@ -98,13 +98,11 @@ export default function Footer() {
                   </div>
                 </div>
 
-                <div className="lg:col-span-3 md:col-span-4">
+                {/* <div className="lg:col-span-3 md:col-span-4">
                   <h5 className="tracking-[1px] text-gray-100 font-semibold">
                     Newsletter
                   </h5>
-                  {/* <p className="mt-6">
-                    Sign up and receive the latest tips & deals.
-                  </p> */}
+                =
                   <form>
                     <div className="grid grid-cols-1">
                       <div className="my-3">
@@ -134,7 +132,7 @@ export default function Footer() {
                       </button>
                     </div>
                   </form>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

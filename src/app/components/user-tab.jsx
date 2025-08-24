@@ -127,7 +127,7 @@ export default function Usertab() {
                 }`}
               >
                 <Link
-                  href="/user-notification"
+                  href="/user-address"
                   className="navbar-link text-slate-400 flex items-center py-2 rounded"
                 >
                   <span className="me-2 mb-0">

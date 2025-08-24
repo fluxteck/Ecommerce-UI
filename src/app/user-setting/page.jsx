@@ -34,14 +34,12 @@ export default function UserSetting() {
 
             <div className="lg:w-3/4 md:w-2/3 md:px-3 mt-6 md:mt-0">
               <div className="p-6 rounded-md shadow dark:shadow-gray-800 bg-white dark:bg-slate-900">
-                <h5 className="text-lg font-semibold mb-4">
-                  Personal Detail :
-                </h5>
+                <h5 className="text-lg font-semibold mb-4">Personal Detail</h5>
                 <form>
                   <div className="grid lg:grid-cols-2 grid-cols-1 gap-5">
                     <div>
                       <label className="form-label font-medium">
-                        First Name : <span className="text-red-600">*</span>
+                        First Name <span className="text-red-600">*</span>
                       </label>
                       <div className="form-icon relative mt-2">
                         <FiUser className="w-4 h-4 absolute top-3 start-4"></FiUser>
@@ -57,7 +55,7 @@ export default function UserSetting() {
                     </div>
                     <div>
                       <label className="form-label font-medium">
-                        Last Name : <span className="text-red-600">*</span>
+                        Last Name <span className="text-red-600">*</span>
                       </label>
                       <div className="form-icon relative mt-2">
                         <FiUserCheck className="w-4 h-4 absolute top-3 start-4"></FiUserCheck>
@@ -73,7 +71,7 @@ export default function UserSetting() {
                     </div>
                     <div>
                       <label className="form-label font-medium">
-                        Your Email : <span className="text-red-600">*</span>
+                        Your Email<span className="text-red-600">*</span>
                       </label>
                       <div className="form-icon relative mt-2">
                         <FiMail className="w-4 h-4 absolute top-3 start-4"></FiMail>
@@ -89,7 +87,7 @@ export default function UserSetting() {
 
                     <div>
                       <label className="form-label font-medium">
-                        Phone No. :
+                        Phone No.
                       </label>
                       <div className="form-icon relative mt-2">
                         <FiPhone className="w-4 h-4 absolute top-3 start-4"></FiPhone>
@@ -250,7 +248,7 @@ export default function UserSetting() {
 
               <div className="p-6 rounded-md shadow dark:shadow-gray-800 bg-white dark:bg-slate-900 mt-6">
                 <h5 className="text-lg font-semibold mb-5 text-red-600">
-                  Delete Account :
+                  Delete Account
                 </h5>
 
                 <p className="text-slate-400 mb-4">

@@ -42,7 +42,7 @@ export default function Home() {
 
               <div className="mt-6">
                 <Link
-                  href="/products/clothing"
+                  href="/shop"
                   className="py-1 px-3 text-xs md:py-2 md:px-5 md:text-base inline-block font-semibold tracking-wide align-middle text-center bg-slate-900 text-white rounded-md"
                 >
                   Shop Now <i className="mdi mdi-arrow-right"></i>
@@ -97,7 +97,7 @@ export default function Home() {
                         alt=""
                       />
 
-                 
+
                     </div>
                   </Link>
 
