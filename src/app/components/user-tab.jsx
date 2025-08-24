@@ -77,12 +77,12 @@ export default function Usertab(){
                                 </Link>
                             </li> */}
 
-                            {/* <li className={`navbar-item account-menu ms-0 ${current === '/user-notification' ? 'active' : '' }`}>
+                            <li className={`navbar-item account-menu ms-0 ${current === '/user-address' ? 'active' : '' }`}>
                                 <Link href="/user-notification" className="navbar-link text-slate-400 flex items-center py-2 rounded">
                                     <span className="me-2 mb-0"><FiBell className="size-4"></FiBell></span>
-                                    <h6 className="mb-0 font-medium">Notifications</h6>
+                                    <h6 className="mb-0 font-medium">Address</h6>
                                 </Link>
-                            </li> */}
+                            </li>
 
                             <li className={`navbar-item account-menu ms-0 ${current === '/user-setting' ? 'active' : '' }`}>
                                 <Link href="/user-setting" className="navbar-link text-slate-400 flex items-center py-2 rounded">
