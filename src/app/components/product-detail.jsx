@@ -70,20 +70,9 @@ export default function ProductDetail({ product }) {
             </>
           )}
         </span>
-        <span class="text-slate-400 me-1"> Incluisve off all taxes</span>
+        <span className="text-slate-400 me-1"> Incluisve off all taxes</span>
       </div>
-      <div className="mt-4">
-        <h5 className="text-lg font-semibold">Overview :</h5>
-        <div className="text-slate-400 mt-2">
-          <RenderSafeHTML
-            html={
-              product.description.length > 100
-                ? product.description.slice(0, 100) + "..."
-                : product.description
-            }
-          />
-        </div>
-      </div>
+
       <VariationsGrid
         variations={product.variations}
         activeVariations={activeVariations}
@@ -127,6 +116,25 @@ export default function ProductDetail({ product }) {
           className="py-2 px-5 inline-block font-semibold tracking-wide align-middle text-base text-center rounded-md bg-red-600/5 hover:bg-slate-800 text-slate-900 hover:text-white mt-2 cursor-pointer"
         >
           Add to Cart
+        </div>
+      </div>
+      <div className="mt-5 pb-2">
+        {/* <h5 className="text-lg font-semibold">Overview :</h5> */}
+        <div className="text-slate-400 mt-2">
+          {/* <RenderSafeHTML
+            html={
+              product.description.length > 100
+                ? product.description.slice(0, 100) + "..."
+                : product.description
+            }
+          /> */}
+          <ul className="list-disc list-inside text-slate-600 mt-2 space-y-1 text-lg">
+            <li>100% Genuine Leather</li>
+            <li>Handcrafted Excellence</li>
+            <li>Free Pan India Shipping</li>
+            <li>Custom Tailoring Available</li>
+            <li>Made to Order (1–2 weeks)</li>
+          </ul>
         </div>
       </div>
     </div>

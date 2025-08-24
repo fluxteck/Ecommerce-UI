@@ -370,7 +370,7 @@ export default function Navbar({ navClass, navlight }) {
                         </li> */}
 
             <li className={`${manu === "/products/clothing" ? "active" : ""}`}>
-              <Link href="/products/clothing" className="sub-menu-item">
+              <Link href="/shop" className="sub-menu-item">
                 Shop
               </Link>
             </li>
