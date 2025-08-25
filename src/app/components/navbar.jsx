@@ -408,7 +408,7 @@ export default function Navbar({ navClass, navlight }) {
             {/* <li className={`${manu === '/contact' ? 'active' : ''}`}><Link href="/contact" className="sub-menu-item">Business</Link></li> */}
             <li className={`${manu === "/aboutus" ? "active" : ""}`}>
               <Link href="/aboutus" className="sub-menu-item">
-                About Us
+                About
               </Link>
             </li>
             <li className={`${manu === "/contact" ? "active" : ""}`}>

@@ -1,4 +1,5 @@
 "use client";
+"use client";
 import React, { useState, useEffect } from "react";
 
 import Link from "next/link";
@@ -14,7 +15,20 @@ import {
   FiSettings,
   FiLogOut,
 } from "../assets/icons/vander";
+import {
+  FiAirplay,
+  FiEdit,
+  FiCreditCard,
+  FiFileText,
+  FiShare2,
+  FiBell,
+  FiSettings,
+  FiLogOut,
+} from "../assets/icons/vander";
 
+export default function Usertab() {
+  const [file, setFile] = useState("/images/client/16.jpg");
+  const [current, setCurrent] = useState("");
 export default function Usertab() {
   const [file, setFile] = useState("/images/client/16.jpg");
   const [current, setCurrent] = useState("");
@@ -24,7 +38,15 @@ export default function Usertab() {
       setCurrent(window.location.pathname);
     }
   }, []);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setCurrent(window.location.pathname);
+    }
+  }, []);
 
+  function handleChange(e) {
+    setFile(URL.createObjectURL(e.target.files[0]));
+  }
   function handleChange(e) {
     setFile(URL.createObjectURL(e.target.files[0]));
   }
@@ -58,9 +80,38 @@ export default function Usertab() {
                   htmlFor="pro-img"
                 ></label>
               </div>
+  return (
+    <div className="lg:w-1/4 md:w-1/3 md:px-3">
+      <div className="relative md:-mt-48 -mt-32">
+        <div className="p-6 rounded-md shadow dark:shadow-gray-800 bg-white dark:bg-slate-900">
+          <div className="profile-pic text-center mb-5">
+            <input
+              id="pro-img"
+              name="profile-image"
+              type="file"
+              className="hidden"
+              onChange={(e) => handleChange(e)}
+            />
+            <div>
+              <div className="relative h-28 w-28 mx-auto">
+                <Image
+                  src={file}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  style={{ width: "100%", height: "auto" }}
+                  className="rounded-full shadow dark:shadow-gray-800 ring-4 ring-slate-50 dark:ring-slate-800"
+                  id="profile-image"
+                  alt=""
+                />
+                <label
+                  className="absolute inset-0 cursor-pointer"
+                  htmlFor="pro-img"
+                ></label>
+              </div>
 
               <div className="mt-4">
-                <h5 className="text-lg font-semibold">Jesus Zamora</h5>
+                <h5 className="text-lg font-semibold">User Name</h5>
                 <p className="text-slate-400">jesus@hotmail.com</p>
               </div>
             </div>
@@ -80,7 +131,7 @@ export default function Usertab() {
                   <span className="me-2 mb-0">
                     <FiAirplay className="size-4"></FiAirplay>
                   </span>
-                  <h6 className="mb-0 font-medium">Account</h6>
+                  <h6 className="mb-0 font-medium">Orders</h6>
                 </Link>
               </li>
 
@@ -98,7 +149,7 @@ export default function Usertab() {
                                 </Link>
                             </li> */}
 
-              <li
+              {/* <li
                 className={`navbar-item account-menu ms-0 ${
                   current === "/user-invoice" ? "active" : ""
                 }`}
@@ -112,7 +163,7 @@ export default function Usertab() {
                   </span>
                   <h6 className="mb-0 font-medium">Invoice</h6>
                 </Link>
-              </li>
+              </li> */}
 
               {/* <li className={`navbar-item account-menu ms-0 ${current === '/user-social' ? 'active' : '' }`}>
                                 <Link href="/user-social" className="navbar-link text-slate-400 flex items-center py-2 rounded">
@@ -131,7 +182,8 @@ export default function Usertab() {
                   className="navbar-link text-slate-400 flex items-center py-2 rounded"
                 >
                   <span className="me-2 mb-0">
-                    <FiBell className="size-4"></FiBell>
+                    <FiFileText className="size-4"></FiFileText>
+                    {/* <FiBell className="size-4"></FiBell> */}
                   </span>
                   <h6 className="mb-0 font-medium">Address</h6>
                 </Link>

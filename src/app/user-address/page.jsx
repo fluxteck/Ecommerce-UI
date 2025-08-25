@@ -33,10 +33,33 @@ export default function UserAddress() {
             <Usertab />
 
             <div className="lg:w-3/4 md:w-2/3 md:px-3 mt-6 md:mt-0">
-              <div className="p-6 rounded-md shadow dark:shadow-gray-800 bg-white dark:bg-slate-900">
-                <h5 className="text-lg font-semibold mb-4">
-                  Personal Detail :
+              <div className="p-6 rounded-md shadow dark:shadow-gray-800 bg-white dark:bg-slate-900 mt-6">
+                <h5 className="text-lg font-semibold mb-5 text-black-600">
+                  Saved Address
                 </h5>
+
+                <p className="text-slate-400 mb-4">Use Name</p>
+                <p className="text-slate-400 mb-4">
+                  B Block, Nobel Enclave (address line 1)
+                  <br />
+                  City, State, Pincode
+                  <br />
+                </p>
+                <Link
+                  href=""
+                  className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-white-600 text-black rounded-md border border-black me-2"
+                >
+                  Edit
+                </Link>
+                <Link
+                  href=""
+                  className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-red-600 text-white rounded-md"
+                >
+                  Delete
+                </Link>
+              </div>
+              <div className="p-6 rounded-md shadow dark:shadow-gray-800 bg-white dark:bg-slate-900">
+                <h5 className="text-lg font-semibold mb-4">Add New Address</h5>
                 <form>
                   <div className="grid lg:grid-cols-2 grid-cols-1 gap-5">
                     <div>
@@ -205,27 +228,6 @@ export default function UserAddress() {
                     value="Save"
                   />
                 </form>
-              </div>
-
-              <div className="p-6 rounded-md shadow dark:shadow-gray-800 bg-white dark:bg-slate-900 mt-6">
-                <h5 className="text-lg font-semibold mb-5 text-black-600">
-                  Saved Address
-                </h5>
-
-                <p className="text-slate-400 mb-4">Show Preview Address Here</p>
-
-                <Link
-                  href=""
-                  className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-white-600 text-black rounded-md border border-black me-2"
-                >
-                  Edit
-                </Link>
-                <Link
-                  href=""
-                  className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-red-600 text-white rounded-md"
-                >
-                  Delete
-                </Link>
               </div>
             </div>
           </div>
