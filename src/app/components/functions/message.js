@@ -1,4 +1,4 @@
-const openMessage = (messageApi, content) => {
+const open = (messageApi, content) => {
   messageApi.open({
     key: "updatable",
     type: "loading",
@@ -6,7 +6,7 @@ const openMessage = (messageApi, content) => {
     content: content,
   });
 };
-function closeMessage(messageApi, msg, type, duration = 3) {
+function close(messageApi, msg, type, duration = 3) {
   messageApi.open({
     key: "updatable",
     type: type,
@@ -15,4 +15,4 @@ function closeMessage(messageApi, msg, type, duration = 3) {
   });
 }
 
-export { openMessage, closeMessage };
+export { open, close };

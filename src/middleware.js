@@ -43,5 +43,11 @@ export async function middleware(request) {
 }
 
 export const config = {
-  matcher: ["/shop-checkout", "/shop-cart"], // Apply only to these paths
+  matcher: [
+    "/shop-checkout",
+    "/shop-cart",
+    "/user-address",
+    "/user-account",
+    "/user-setting",
+  ], // Apply only to these paths
 };

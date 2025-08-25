@@ -20,6 +20,7 @@ import { truncateString } from "../components/functions/sliceString";
 import { useAddressActions } from "ecom-user-sdk/user";
 import { processOrderPayment } from "ecom-user-sdk/payment/razorpay";
 import { useCartActions } from "ecom-user-sdk/cart";
+import AddressForm from "../components/addressForm";
 
 export default function ShopCheckout() {
   const {
@@ -94,7 +95,7 @@ export default function ShopCheckout() {
     const name = address?.first_name + " " + address?.last_name;
     const amount = cartTotals.grandTotal.toFixed(2) * 100;
 
-    const user = {
+    const userDetail = {
       name: name,
       email: address.email,
       phone: address.mobile_no,
@@ -104,7 +105,7 @@ export default function ShopCheckout() {
 
     await processOrderPayment({
       amount: amount,
-      user,
+      user: userDetail,
       billing_address: address,
       key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
       shipping_address: address, //shipping address
@@ -161,8 +162,9 @@ export default function ShopCheckout() {
                     })
                   )}
                 >
-                  <div className="grid lg:grid-cols-12 grid-cols-1 mt-6 gap-5">
-                    {/* First Name */}
+                  <AddressForm register={register} errors={errors} />
+                  {/* <div className="grid lg:grid-cols-12 grid-cols-1 mt-6 gap-5">
+
                     <div className="lg:col-span-6">
                       <label className="form-label font-semibold">
                         First Name: <span className="text-red-600">*</span>
@@ -182,7 +184,7 @@ export default function ShopCheckout() {
                       )}
                     </div>
 
-                    {/* Last Name */}
+                   
                     <div className="lg:col-span-6">
                       <label className="form-label font-semibold">
                         Last Name: <span className="text-red-600">*</span>
@@ -202,7 +204,7 @@ export default function ShopCheckout() {
                       )}
                     </div>
 
-                    {/* Email */}
+
                     <div className="lg:col-span-6">
                       <label className="form-label font-semibold">
                         Your Email: <span className="text-red-600">*</span>
@@ -222,7 +224,7 @@ export default function ShopCheckout() {
                       )}
                     </div>
 
-                    {/* Mobile Number */}
+
                     <div className="lg:col-span-6">
                       <label className="form-label font-semibold">
                         Mobile Number: <span className="text-red-600">*</span>
@@ -242,7 +244,7 @@ export default function ShopCheckout() {
                       )}
                     </div>
 
-                    {/* Address Line 1 */}
+
                     <div className="lg:col-span-12">
                       <label className="form-label font-semibold">
                         Address: <span className="text-red-600">*</span>
@@ -262,7 +264,7 @@ export default function ShopCheckout() {
                       )}
                     </div>
 
-                    {/* Address Line 2 */}
+
                     <div className="lg:col-span-12">
                       <label className="form-label font-semibold">
                         Address 2:
@@ -275,7 +277,7 @@ export default function ShopCheckout() {
                       />
                     </div>
 
-                    {/* Country */}
+
                     <div className="lg:col-span-4">
                       <label className="font-semibold">
                         Country: <span className="text-red-600">*</span>
@@ -299,7 +301,7 @@ export default function ShopCheckout() {
                       )}
                     </div>
 
-                    {/* State */}
+
                     <div className="lg:col-span-4">
                       <label className="font-semibold">
                         State: <span className="text-red-600">*</span>
@@ -325,7 +327,7 @@ export default function ShopCheckout() {
                       )}
                     </div>
 
-                    {/* Zip Code */}
+
                     <div className="lg:col-span-4">
                       <label className="form-label font-semibold">
                         Zip Code: <span className="text-red-600">*</span>
@@ -345,7 +347,7 @@ export default function ShopCheckout() {
                       )}
                     </div>
 
-                    {/* Checkboxes */}
+
                     <div className="lg:col-span-12">
                       <div className="flex items-center mb-2">
                         <input
@@ -353,7 +355,7 @@ export default function ShopCheckout() {
                           id="sameaddress"
                           checked={isAddressSame}
                           onChange={() => setIsAddressSame(!isAddressSame)}
-                          //   {...register("same_as_billing")}
+
                           className="form-checkbox me-2"
                         />
                         <label htmlFor="sameaddress" className="text-slate-400">
@@ -369,7 +371,7 @@ export default function ShopCheckout() {
                           onChange={() =>
                             setSaveShippingAddress(!saveShippingAddress)
                           }
-                          //   {...register("save_for_next_time")}
+
                           className="form-checkbox me-2"
                         />
                         <label
@@ -379,6 +381,37 @@ export default function ShopCheckout() {
                           Save this information for next time
                         </label>
                       </div>
+                    </div>
+                  </div> */}
+                  <div className="lg:col-span-12 mt-4">
+                    <div className="flex items-center mb-2">
+                      <input
+                        type="checkbox"
+                        id="sameaddress"
+                        checked={isAddressSame}
+                        onChange={() => setIsAddressSame(!isAddressSame)}
+                        //   {...register("same_as_billing")}
+                        className="form-checkbox me-2"
+                      />
+                      <label htmlFor="sameaddress" className="text-slate-400">
+                        Shipping address is the same as my billing address
+                      </label>
+                    </div>
+
+                    <div className="flex items-center">
+                      <input
+                        type="checkbox"
+                        id="savenexttime"
+                        checked={saveShippingAddress}
+                        onChange={() =>
+                          setSaveShippingAddress(!saveShippingAddress)
+                        }
+                        //   {...register("save_for_next_time")}
+                        className="form-checkbox me-2"
+                      />
+                      <label htmlFor="savenexttime" className="text-slate-400">
+                        Save this information for next time
+                      </label>
                     </div>
                   </div>
 

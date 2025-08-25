@@ -1,17 +1,36 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 
 import Navbar from "../components/navbar";
 import Usertab from "../components/user-tab";
-import Switcher from "../components/switcher";
+// import Switcher from "../components/switcher";
 import Footer from "../components/footer";
 import ScrollToTop from "../components/scroll-to-top";
 
-import { userFvtItem, userOrder } from "../data/data";
-import { FiTrash2 } from "../assets/icons/vander";
+// import { userFvtItem, userOrder } from "../data/data";
+// import { FiTrash2 } from "../assets/icons/vander";
+import { useOrderActions } from "ecom-user-sdk/order";
+import { useUserContext, useOrderContext } from "ecom-user-sdk/context";
+import formatDate from "../components/functions/formatDate";
 
 export default function UserAccount() {
+  const { user, loading: loadingUser } = useUserContext();
+  const { orders, loading, pagination } = useOrderContext();
+  const { getOrder } = useOrderActions();
+  // console.log(pagination);
+
+  // console.log(orders);
+  const getOrders = async (userId) => {
+    const { data, error } = await getOrder({ userId });
+    // console.log(data);
+    // console.log(error);
+  };
+  useEffect(() => {
+    if (user) getOrders(user.id);
+  }, [user]);
+
   return (
     <>
       <Navbar navClass="defaultscroll is-sticky" />
@@ -36,7 +55,7 @@ export default function UserAccount() {
                         className="px-2 py-3 text-start"
                         style={{ minWidth: "104px" }}
                       >
-                        Order no.
+                        Order Id
                       </th>
                       <th
                         scope="col"
@@ -62,6 +81,13 @@ export default function UserAccount() {
                       <th
                         scope="col"
                         className="px-2 py-3 text-start"
+                        style={{ minWidth: "140px" }}
+                      >
+                        Payment Status
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-2 py-3 text-start"
                         style={{ minWidth: "100px" }}
                       >
                         Action
@@ -69,44 +95,64 @@ export default function UserAccount() {
                     </tr>
                   </thead>
                   <tbody>
-                    {userOrder.map((item, index) => {
-                      return (
-                        <tr
-                          className="bg-white dark:bg-slate-900 text-start"
-                          key={index}
-                        >
-                          <th className="px-2 py-3 text-start" scope="row">
-                            {item.no}
-                          </th>
-                          <td className="px-2 py-3 text-start">{item.date}</td>
-                          {item.status === "Delivered" && (
-                            <td className="px-2 py-3 text-start text-green-600">
-                              Delivered
+                    {orders &&
+                      orders.length > 0 &&
+                      orders.map((item, index) => {
+                        return (
+                          <tr
+                            className="bg-white dark:bg-slate-900 text-start"
+                            key={index}
+                          >
+                            <th className="px-2 py-3 text-start" scope="row">
+                              {item.razorpay_order_id}
+                            </th>
+                            <td className="px-2 py-3 text-start">
+                              {formatDate(item.created_at)}
                             </td>
-                          )}
-                          {item.status === "Processing" && (
-                            <td className="px-2 py-3 text-start text-slate-400">
-                              Processing
+                            {item.status === "delivered" && (
+                              <td className="px-2 py-3 text-start text-green-600">
+                                Delivered
+                              </td>
+                            )}
+                            {(item.status === "pending" ||
+                              item.status === "processing") && (
+                              <td className="px-2 py-3 text-start text-slate-400">
+                                Processing
+                              </td>
+                            )}
+                            {item.status === "canceled" && (
+                              <td className="px-2 py-3 text-start text-red-600">
+                                Canceled
+                              </td>
+                            )}
+                            <td className="px-2 py-3 text-start">
+                              Rs {item.amount / 100}
+                              {/* <span className="text-slate-400">{item.item}</span> */}
                             </td>
-                          )}
-                          {item.status === "Canceled" && (
-                            <td className="px-2 py-3 text-start text-red-600">
-                              Canceled
+                            <td className="px-2 py-3 text-start">
+                              <span
+                                className={`font-semibold ${
+                                  item.payment_status === "paid"
+                                    ? "text-green-600"
+                                    : item.payment_status === "pending"
+                                    ? "text-yellow-600"
+                                    : item.payment_status === "failed"
+                                    ? "text-red-600"
+                                    : "text-gray-500"
+                                }`}
+                              >
+                                {item.payment_status.toUpperCase()}
+                              </span>
                             </td>
-                          )}
-                          <td className="px-2 py-3 text-start">
-                            {item.total}
-                            <span className="text-slate-400">{item.item}</span>
-                          </td>
-                          <td className="px-2 py-3 text-start">
-                            <Link href="#" className="text-gray-800">
-                              View Invoice
-                              <i className="mdi mdi-chevron-right"></i>
-                            </Link>
-                          </td>
-                        </tr>
-                      );
-                    })}
+                            <td className="px-2 py-3 text-start">
+                              <Link href="#" className="text-gray-800">
+                                View Invoice
+                                <i className="mdi mdi-chevron-right"></i>
+                              </Link>
+                            </td>
+                          </tr>
+                        );
+                      })}
                   </tbody>
                 </table>
               </div>

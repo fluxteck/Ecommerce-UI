@@ -1,5 +1,4 @@
 "use client";
-"use client";
 import React, { useState, useEffect } from "react";
 
 import Link from "next/link";
@@ -15,29 +14,14 @@ import {
   FiSettings,
   FiLogOut,
 } from "../assets/icons/vander";
-import {
-  FiAirplay,
-  FiEdit,
-  FiCreditCard,
-  FiFileText,
-  FiShare2,
-  FiBell,
-  FiSettings,
-  FiLogOut,
-} from "../assets/icons/vander";
+import { useUserContext, useAuthContext } from "ecom-user-sdk/context";
 
 export default function Usertab() {
-  const [file, setFile] = useState("/images/client/16.jpg");
-  const [current, setCurrent] = useState("");
-export default function Usertab() {
+  const { user, loading, removeUser } = useUserContext();
+  const { logout } = useAuthContext();
   const [file, setFile] = useState("/images/client/16.jpg");
   const [current, setCurrent] = useState("");
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setCurrent(window.location.pathname);
-    }
-  }, []);
   useEffect(() => {
     if (typeof window !== "undefined") {
       setCurrent(window.location.pathname);
@@ -47,39 +31,11 @@ export default function Usertab() {
   function handleChange(e) {
     setFile(URL.createObjectURL(e.target.files[0]));
   }
-  function handleChange(e) {
-    setFile(URL.createObjectURL(e.target.files[0]));
-  }
 
-  return (
-    <div className="lg:w-1/4 md:w-1/3 md:px-3">
-      <div className="relative md:-mt-48 -mt-32">
-        <div className="p-6 rounded-md shadow dark:shadow-gray-800 bg-white dark:bg-slate-900">
-          <div className="profile-pic text-center mb-5">
-            <input
-              id="pro-img"
-              name="profile-image"
-              type="file"
-              className="hidden"
-              onChange={(e) => handleChange(e)}
-            />
-            <div>
-              <div className="relative h-28 w-28 mx-auto">
-                <Image
-                  src={file}
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  style={{ width: "100%", height: "auto" }}
-                  className="rounded-full shadow dark:shadow-gray-800 ring-4 ring-slate-50 dark:ring-slate-800"
-                  id="profile-image"
-                  alt=""
-                />
-                <label
-                  className="absolute inset-0 cursor-pointer"
-                  htmlFor="pro-img"
-                ></label>
-              </div>
+  const logoutUser = async () => {
+    await Promise.all([logout(), removeUser()]);
+    window.location.href = "/";
+  };
   return (
     <div className="lg:w-1/4 md:w-1/3 md:px-3">
       <div className="relative md:-mt-48 -mt-32">
@@ -111,8 +67,8 @@ export default function Usertab() {
               </div>
 
               <div className="mt-4">
-                <h5 className="text-lg font-semibold">User Name</h5>
-                <p className="text-slate-400">jesus@hotmail.com</p>
+                <h5 className="text-lg font-semibold">{user && user.name}</h5>
+                <p className="text-slate-400">{user && user.email}</p>
               </div>
             </div>
           </div>
@@ -210,15 +166,17 @@ export default function Usertab() {
                   current === "/lock-screen" ? "active" : ""
                 }`}
               >
-                <Link
-                  href="/lock-screen"
+                <button
+                  // href="/lock-screen"
+
+                  onClick={logoutUser}
                   className="navbar-link text-slate-400 flex items-center py-2 rounded"
                 >
                   <span className="me-2 mb-0">
                     <FiLogOut className="size-4"></FiLogOut>
                   </span>
                   <h6 className="mb-0 font-medium">Sign Out</h6>
-                </Link>
+                </button>
               </li>
             </ul>
           </div>

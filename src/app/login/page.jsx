@@ -130,7 +130,7 @@ export default function Login() {
                       </div>
 
                       <div className="flex justify-between mb-4">
-                        <div className="flex items-center mb-0">
+                        {/* <div className="flex items-center mb-0">
                           <input
                             className="form-checkbox rounded border-gray-100 dark:border-gray-800 text-gray-800 focus:border-gray-800 focus:ring focus:ring-offset-0 focus:ring-gray-800 focus:ring-opacity-50 me-2"
                             type="checkbox"
@@ -143,7 +143,7 @@ export default function Login() {
                           >
                             Remember me
                           </label>
-                        </div>
+                        </div> */}
                         <p className="text-slate-400 mb-0">
                           <Link
                             href="/forgot-password"
@@ -155,11 +155,13 @@ export default function Login() {
                       </div>
 
                       <div className="mb-4">
-                        <input
+                        <button
                           type="submit"
                           className="py-2 px-5 inline-block tracking-wide align-middle duration-500 text-base text-center bg-gray-800 text-white rounded-md w-full"
-                          value="Login / Sign in"
-                        />
+                          //   value="Login / Sign in"
+                        >
+                          Login / Sign in
+                        </button>
                       </div>
 
                       <div className="text-center">
