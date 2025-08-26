@@ -9,6 +9,7 @@ import { useAuth } from "ecom-user-sdk/auth/supabase";
 import { useForm } from "react-hook-form";
 import { useUserActions } from "ecom-user-sdk/user";
 import { useSearchParams } from "next/navigation";
+import useMessage from "../hook/messageHook";
 
 export default function Login() {
   const {
@@ -19,6 +20,8 @@ export default function Login() {
   const { login } = useAuth();
   const { getUserByEmail } = useUserActions();
   const searchParams = useSearchParams();
+
+  const { closeMessage, openMessage } = useMessage();
 
   //   const { user } = useUserContext();
   //   console.log(user);
@@ -45,6 +48,7 @@ export default function Login() {
     } else {
       return console.log("login failed");
     }
+    openMessage("Login successful", "success");
   };
   return (
     <>
