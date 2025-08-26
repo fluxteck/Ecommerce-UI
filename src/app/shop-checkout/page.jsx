@@ -452,7 +452,7 @@ export default function ShopCheckout() {
                       type="submit"
                       className="py-2 px-5 w-full bg-gray-800 text-white rounded-md"
                     >
-                      Continue to checkout
+                      {isCOD ? "Place Order" : "Continue to checkout"}
                     </button>
                   </div>
                 </form>
