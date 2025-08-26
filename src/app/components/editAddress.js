@@ -63,11 +63,19 @@ export default function EditAddress({
           )}
         >
           <AddressForm register={register} errors={errors} />
-          <DialogActions>
-            <Button onClick={handleClose} color="secondary">
+          <DialogActions className="mt-4 flex justify-center gap-1">
+            <Button
+              onClick={handleClose}
+              className="py-2 px-5 font-semibold text-base text-center rounded-md bg-red-600/5 hover:bg-slate-800 text-slate-900 hover:text-white cursor-pointer"
+            >
               Close
             </Button>
-            <Button type="submit" variant="contained" color="primary">
+
+            <Button
+              type="submit"
+              variant="contained"
+              className="py-1 px-3 text-xs md:py-2 md:px-5 md:text-base inline-block font-semibold text-center bg-slate-900 text-white rounded-md"
+            >
               Edit
             </Button>
           </DialogActions>

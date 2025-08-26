@@ -45,10 +45,10 @@ export default function Login() {
 
       window.location.href = nextUrl;
       //   console.log("signup successful");
+      closeMessage("Login successful", "success");
     } else {
       return console.log("login failed");
     }
-    openMessage("Login successful", "success");
   };
   return (
     <>
@@ -73,14 +73,14 @@ export default function Login() {
                   <div className="text-center">
                     <Link href="/">
                       <Image
-                        src="/images/logo-main.webp"
+                        src="/images/logo-main-blk.png"
                         width={114}
                         height={22}
                         className="mx-auto block dark:hidden"
                         alt=""
                       />
                       <Image
-                        src="/images/logo-main.webp"
+                        src="/images/logo-main-blk.png"
                         width={114}
                         height={22}
                         className="mx-auto hidden dark:block"
