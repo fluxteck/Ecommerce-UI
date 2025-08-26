@@ -38,7 +38,7 @@ export default function Signup() {
 
     // console.log("Signup result:", result);
     if (result.data?.user) {
-      addUser({ user: { email: email } });
+      addUser({ user: { email: email, name: name } });
       //   console.log("signup successful");
       closeMessage("Signup successful", "success");
     } else {
