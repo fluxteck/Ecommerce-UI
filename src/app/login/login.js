@@ -9,6 +9,7 @@ import { useAuth } from "ecom-user-sdk/auth/supabase";
 import { useForm } from "react-hook-form";
 import { useUserActions } from "ecom-user-sdk/user";
 import { useSearchParams } from "next/navigation";
+import useMessage from "../hook/messageHook";
 
 export default function Login() {
   const {
@@ -19,6 +20,8 @@ export default function Login() {
   const { login } = useAuth();
   const { getUserByEmail } = useUserActions();
   const searchParams = useSearchParams();
+
+  const { closeMessage, openMessage } = useMessage();
 
   //   const { user } = useUserContext();
   //   console.log(user);
@@ -42,6 +45,7 @@ export default function Login() {
 
       window.location.href = nextUrl;
       //   console.log("signup successful");
+      closeMessage("Login successful", "success");
     } else {
       return console.log("login failed");
     }
@@ -69,14 +73,14 @@ export default function Login() {
                   <div className="text-center">
                     <Link href="/">
                       <Image
-                        src="/images/logo-main.webp"
+                        src="/images/logo-main-blk.png"
                         width={114}
                         height={22}
                         className="mx-auto block dark:hidden"
                         alt=""
                       />
                       <Image
-                        src="/images/logo-main.webp"
+                        src="/images/logo-main-blk.png"
                         width={114}
                         height={22}
                         className="mx-auto hidden dark:block"

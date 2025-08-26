@@ -19,6 +19,7 @@ import {
   calculatePrice,
 } from "../components/functions/priceFunctions";
 import { useUserContext } from "ecom-user-sdk/context";
+import useMessage from "../hook/messageHook";
 
 export default function ShopCart() {
   const {
@@ -32,6 +33,8 @@ export default function ShopCart() {
 
   const [cart, setCart] = useState(cartData);
   // console.log(error);
+
+  const { closeMessage, openMessage } = useMessage();
 
   const [cartTotals, setCartTotals] = useState(null);
   // const userId = "f47ac10b-58cc-4372-a567-0e02b2c3d479"; // from user context or auth
@@ -76,6 +79,7 @@ export default function ShopCart() {
     const { success, error } = await removeFromCart({
       cart_id,
     });
+    closeMessage("Product removed successfully", "success");
     // if (success) await deleteProductInCartContext(cart_id);
     // console.log(success);
     // console.log(error);

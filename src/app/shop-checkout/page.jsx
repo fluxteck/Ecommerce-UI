@@ -21,6 +21,7 @@ import { useAddressActions } from "ecom-user-sdk/user";
 import { processOrderPayment } from "ecom-user-sdk/payment/razorpay";
 import { useCartActions } from "ecom-user-sdk/cart";
 import AddressForm from "../components/addressForm";
+import useMessage from "../hook/messageHook";
 
 export default function ShopCheckout() {
   const {
@@ -46,6 +47,7 @@ export default function ShopCheckout() {
   const [cartTotals, setCartTotals] = useState(null);
   const [saveShippingAddress, setSaveShippingAddress] = useState(false);
   const [isAddressSame, setIsAddressSame] = useState(true);
+  const { closeMessage, openMessage } = useMessage();
   //   console.log(addressData);
 
   //   async function fetchAddress(userId) {
@@ -110,6 +112,7 @@ export default function ShopCheckout() {
       key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
       shipping_address: address, //shipping address
       onSuccess: async (res) => {
+        closeMessage("Order placed successfully", "success");
         if (res?.success) await emptyCart({ user_id: user.id });
         console.log("✅ Payment Success:", res);
       },
