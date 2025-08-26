@@ -141,7 +141,8 @@ export default function UserAccount() {
                                     : "text-gray-500"
                                 }`}
                               >
-                                {item.payment_status &&
+                                {item &&
+                                  item.payment_status &&
                                   item.payment_status.toUpperCase()}
                               </span>
                             </td>
