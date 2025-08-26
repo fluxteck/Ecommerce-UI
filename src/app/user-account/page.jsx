@@ -141,7 +141,8 @@ export default function UserAccount() {
                                     : "text-gray-500"
                                 }`}
                               >
-                                {item.payment_status.toUpperCase()}
+                                {item.payment_status &&
+                                  item.payment_status.toUpperCase()}
                               </span>
                             </td>
                             <td className="px-2 py-3 text-start">
