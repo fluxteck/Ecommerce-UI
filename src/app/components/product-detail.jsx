@@ -15,10 +15,9 @@ export default function ProductDetail({ product }) {
   const { user, loading: loadingUser } = useUserContext();
   const { addToCart } = useCartActions();
 
-  // Showing the Toast message 
+  // Showing the Toast message
 
   const { closeMessage, openMessage } = useMessage();
-
 
   let [count, setCount] = useState(1);
   const increments = () => {
@@ -156,6 +155,7 @@ export default function ProductDetail({ product }) {
             <li>100% Genuine Leather</li>
             <li>Handcrafted Excellence</li>
             <li>Free Pan India Shipping</li>
+            <li>Cash on Delivery Available</li>
             <li>Custom Tailoring Available</li>
             <li>Made to Order (1–2 weeks)</li>
           </ul>
