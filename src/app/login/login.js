@@ -45,7 +45,7 @@ export default function Login() {
 
       window.location.href = nextUrl;
       //   console.log("signup successful");
-      closeMessage("Login successful", "success");
+      closeMessage("Successfully signed in!", "success");
     } else {
       return console.log("login failed");
     }

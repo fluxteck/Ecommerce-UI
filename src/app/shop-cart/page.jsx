@@ -20,6 +20,7 @@ import {
 } from "../components/functions/priceFunctions";
 import { useUserContext } from "ecom-user-sdk/context";
 import useMessage from "../hook/messageHook";
+import EmptyCart from "../empty-cart/page";
 
 export default function ShopCart() {
   const {
@@ -95,7 +96,7 @@ export default function ShopCart() {
     return <div>Error: {error && error.message ? error.message : error}</div>;
   }
   if (cart.length === 0) {
-    return <div> Cart is empty </div>;
+    return <EmptyCart />;
   }
   return (
     <>
