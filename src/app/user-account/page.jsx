@@ -55,7 +55,7 @@ export default function UserAccount() {
                         className="px-2 py-3 text-start"
                         style={{ minWidth: "104px" }}
                       >
-                        Order Id
+                        Order No.
                       </th>
                       <th
                         scope="col"
@@ -104,7 +104,7 @@ export default function UserAccount() {
                             key={index}
                           >
                             <th className="px-2 py-3 text-start" scope="row">
-                              {item.razorpay_order_id}
+                              {item.order_no}
                             </th>
                             <td className="px-2 py-3 text-start">
                               {formatDate(item.created_at)}

@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
 import Navbar from "../components/navbar";
@@ -6,7 +7,6 @@ import Usertab from "../components/user-tab";
 import Footer from "../components/footer";
 import Switcher from "../components/switcher";
 import ScrollToTop from "../components/scroll-to-top";
-
 import {
   FiUser,
   FiUserCheck,
@@ -17,8 +17,32 @@ import {
   FiGlobe,
   FiKey,
 } from "../assets/icons/vander";
+import { useUserContext } from "ecom-user-sdk/context";
+import { useUserActions } from "ecom-user-sdk/user";
 
 export default function UserSetting() {
+  const { user, loading: loadingUser } = useUserContext();
+  const { editUser } = useUserActions();
+  const [name, setName] = useState(user?.name || "");
+  const [edit, setEdit] = useState(false);
+  const [email, setEmail] = useState(user?.email || "");
+  useEffect(() => {
+    setName(user?.name || "");
+    setEmail(user?.email || "");
+  }, [user]);
+
+  async function editUserHandler(e) {
+    e.preventDefault();
+    const { data, error } = await editUser({
+      userId: user?.id,
+      updated_user: { name: name },
+    });
+
+    if (data?.id) console.log("updated successfully");
+    // console.log(data);
+    // console.log(error);
+  }
+
   return (
     <>
       <Navbar navClass="defaultscroll is-sticky" />
@@ -35,25 +59,28 @@ export default function UserSetting() {
             <div className="lg:w-3/4 md:w-2/3 md:px-3 mt-6 md:mt-0">
               <div className="p-6 rounded-md shadow dark:shadow-gray-800 bg-white dark:bg-slate-900">
                 <h5 className="text-lg font-semibold mb-4">Personal Detail</h5>
-                <form>
+                <form onSubmit={editUserHandler}>
                   <div className="grid lg:grid-cols-2 grid-cols-1 gap-5">
                     <div>
                       <label className="form-label font-medium">
-                        First Name <span className="text-red-600">*</span>
+                        Name <span className="text-red-600">*</span>
                       </label>
                       <div className="form-icon relative mt-2">
                         <FiUser className="w-4 h-4 absolute top-3 start-4"></FiUser>
                         <input
                           type="text"
+                          value={name}
+                          disabled={!edit}
+                          onChange={(e) => setName(e.target.value)}
                           className="ps-12 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0"
                           placeholder="First Name:"
                           id="firstname"
                           name="name"
-                          required=""
+                          required
                         />
                       </div>
                     </div>
-                    <div>
+                    {/* <div>
                       <label className="form-label font-medium">
                         Last Name <span className="text-red-600">*</span>
                       </label>
@@ -68,7 +95,7 @@ export default function UserSetting() {
                           required=""
                         />
                       </div>
-                    </div>
+                    </div> */}
                     <div>
                       <label className="form-label font-medium">
                         Your Email<span className="text-red-600">*</span>
@@ -77,6 +104,10 @@ export default function UserSetting() {
                         <FiMail className="w-4 h-4 absolute top-3 start-4"></FiMail>
                         <input
                           type="email"
+                          disabled
+                          readOnly
+                          value={email}
+                          // onChange={(e) => setEmail(e.target.value)}
                           className="ps-12 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0"
                           placeholder="Email"
                           name="email"
@@ -85,7 +116,7 @@ export default function UserSetting() {
                       </div>
                     </div>
 
-                    <div>
+                    {/* <div>
                       <label className="form-label font-medium">
                         Phone No.
                       </label>
@@ -99,7 +130,7 @@ export default function UserSetting() {
                           placeholder="Phone :"
                         />
                       </div>
-                    </div>
+                    </div> */}
 
                     {/* <div>
                       <label className="form-label font-medium">
@@ -126,15 +157,32 @@ export default function UserSetting() {
                                             <textarea name="comments" id="comments" className="ps-11 w-full py-2 px-3 h-28 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0" placeholder="Message :"></textarea>
                                         </div>
                                     </div>
-                                </div> */}
-
-                  <input
-                    type="submit"
-                    id="submit"
-                    name="send"
-                    className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-gray-800 text-white rounded-md mt-5"
-                    value="Edit"
-                  />
+                   
+                   </div> */}
+                  <div className="flex ">
+                    {edit && (
+                      <button
+                        type="submit"
+                        id="submit"
+                        // name="send"
+                        className="py-2 me-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-gray-800 text-white rounded-md mt-5"
+                        // value="Edit"
+                      >
+                        Save
+                      </button>
+                    )}
+                    <button
+                      type="button"
+                      // id="submit"
+                      value={edit}
+                      onClick={() => setEdit(!edit)}
+                      name="send"
+                      className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-gray-800 text-white rounded-md mt-5"
+                      // value="Edit"
+                    >
+                      {edit ? "Cancel" : "Edit"}
+                    </button>
+                  </div>
                 </form>
               </div>
 
@@ -246,7 +294,7 @@ export default function UserSetting() {
                 </div>
               </div> */}
 
-              <div className="p-6 rounded-md shadow dark:shadow-gray-800 bg-white dark:bg-slate-900 mt-6">
+              {/* <div className="p-6 rounded-md shadow dark:shadow-gray-800 bg-white dark:bg-slate-900 mt-6">
                 <h5 className="text-lg font-semibold mb-5 text-red-600">
                   Delete Account
                 </h5>
@@ -262,7 +310,7 @@ export default function UserSetting() {
                 >
                   Delete
                 </Link>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

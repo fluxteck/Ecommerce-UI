@@ -7,7 +7,7 @@ import Image from "next/image";
 import BackToHome from "../components/back-to-home";
 import { useAuth } from "ecom-user-sdk/auth/supabase";
 import { useForm } from "react-hook-form";
-import { useUserActions } from "ecom-user-sdk/user";
+// import { useUserActions } from "ecom-user-sdk/user";
 import { useSearchParams } from "next/navigation";
 import useMessage from "../hook/messageHook";
 
@@ -18,7 +18,7 @@ export default function Login() {
     formState: { errors },
   } = useForm();
   const { login } = useAuth();
-  const { getUserByEmail } = useUserActions();
+  //   const { getUserByEmail } = useUserActions();
   const searchParams = useSearchParams();
 
   const { closeMessage, openMessage } = useMessage();

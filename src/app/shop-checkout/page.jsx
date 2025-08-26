@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
 import Navbar from "../components/navbar";
-import MobileApp from "../components/mobile-app";
+// import MobileApp from "../components/mobile-app";
 import Footer from "../components/footer";
-import Switcher from "../components/switcher";
+// import Switcher from "../components/switcher";
 import ScrollToTop from "../components/scroll-to-top";
 import {
   useCartContext,
@@ -19,6 +19,7 @@ import {
 import { truncateString } from "../components/functions/sliceString";
 import { useAddressActions } from "ecom-user-sdk/user";
 import { processOrderPayment } from "ecom-user-sdk/payment/razorpay";
+import { createOrder } from "ecom-user-sdk/payment/cod";
 import { useCartActions } from "ecom-user-sdk/cart";
 import AddressForm from "../components/addressForm";
 import useMessage from "../hook/messageHook";
@@ -34,6 +35,7 @@ export default function ShopCheckout() {
   const { address: addressData } = useAddressContext();
   const { addAddress, fetchAddress } = useAddressActions();
   const { user, loading: loadingUser } = useUserContext();
+  const [isCOD, setIsCOD] = useState(false);
   const {
     register,
     handleSubmit,
@@ -103,8 +105,21 @@ export default function ShopCheckout() {
       phone: address.mobile_no,
       user_id: user.id,
     };
-    // console.log(user);
+    if (isCOD) {
+      // console.log(user);
+      const { data, error } = await createOrder({
+        amount,
+        currency: "INR",
+        user_id: user.id,
+        billing_address: address,
+        shipping_address: address,
+      });
+      if (data && data.dbOrder && data.dbOrder.id)
+        await emptyCart({ user_id: user.id });
+      console.log(data, error);
 
+      return;
+    }
     await processOrderPayment({
       amount: amount,
       user: userDetail,
@@ -401,7 +416,7 @@ export default function ShopCheckout() {
                       </label>
                     </div>
 
-                    <div className="flex items-center">
+                    <div className="flex items-center mb-2">
                       <input
                         type="checkbox"
                         id="savenexttime"
@@ -414,6 +429,19 @@ export default function ShopCheckout() {
                       />
                       <label htmlFor="savenexttime" className="text-slate-400">
                         Save this information for next time
+                      </label>
+                    </div>
+                    <div className="flex items-center">
+                      <input
+                        type="checkbox"
+                        id="cod"
+                        checked={isCOD}
+                        onChange={() => setIsCOD(!isCOD)}
+                        //   {...register("save_for_next_time")}
+                        className="form-checkbox me-2"
+                      />
+                      <label htmlFor="cod" className="text-slate-400">
+                        Cash on Delivery
                       </label>
                     </div>
                   </div>
@@ -656,7 +684,7 @@ export default function ShopCheckout() {
                   </div>
                 </div>
 
-                <div className="subcribe-form mt-6">
+                {/* <div className="subcribe-form mt-6">
                   <div className="relative max-w-xl">
                     <input
                       type="email"
@@ -672,7 +700,7 @@ export default function ShopCheckout() {
                       Redeem
                     </button>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

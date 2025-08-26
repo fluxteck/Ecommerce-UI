@@ -15,6 +15,7 @@ import {
 } from "../assets/icons/vander";
 import { useUserContext, useAuthContext } from "ecom-user-sdk/context";
 import useMessage from "../hook/messageHook";
+import { getInitials } from "./functions/initials";
 
 export default function Navbar({ navClass, navlight }) {
   let [scrolling, setScrolling] = useState(false);
@@ -30,7 +31,7 @@ export default function Navbar({ navClass, navlight }) {
   const { user, loading, removeUser } = useUserContext();
   const { logout } = useAuthContext();
 
-const { closeMessage, openMessage } = useMessage();
+  const { closeMessage, openMessage } = useMessage();
 
   // console.log(user);
 
@@ -296,14 +297,13 @@ const { closeMessage, openMessage } = useMessage();
               type="button"
               onClick={() => setUserManu(!userManu)}
             >
-              <span className="size-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full border border-red-600 bg-red-600 text-white">
-                <Image
-                  src="/images/client/16.jpg"
-                  width={34}
-                  height={34}
-                  className="rounded-full"
-                  alt=""
-                />
+              <span className="size-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full font-semibold text-sm md:text-base dark:shadow-gray-800  bg-indigo-500 text-white">
+                {/* {getInitials(user?.name || " ")} */}
+                {user?.name?.trim() ? (
+                  getInitials(user.name)
+                ) : (
+                  <FiUser className="w-4 h-4" />
+                )}
               </span>
             </button>
             {userManu &&

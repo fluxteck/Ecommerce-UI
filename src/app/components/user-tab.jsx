@@ -6,16 +6,14 @@ import Image from "next/image";
 
 import {
   FiAirplay,
-  FiEdit,
-  FiCreditCard,
+  FiUser,
   FiFileText,
-  FiShare2,
-  FiBell,
   FiSettings,
   FiLogOut,
 } from "../assets/icons/vander";
 import { useUserContext, useAuthContext } from "ecom-user-sdk/context";
 import useMessage from "../hook/messageHook";
+import { getInitials } from "./functions/initials";
 
 export default function Usertab() {
   const { user, loading, removeUser } = useUserContext();
@@ -44,15 +42,23 @@ export default function Usertab() {
       <div className="relative md:-mt-48 -mt-32">
         <div className="p-6 rounded-md shadow dark:shadow-gray-800 bg-white dark:bg-slate-900">
           <div className="profile-pic text-center mb-5">
-            <input
+            {/* <input
               id="pro-img"
               name="profile-image"
               type="file"
               className="hidden"
               onChange={(e) => handleChange(e)}
-            />
+            /> */}
             <div>
-              <div className="relative h-28 w-28 mx-auto">
+              <div className="relative h-28 w-28 mx-auto flex items-center justify-center rounded-full shadow dark:shadow-gray-800 ring-4 ring-slate-50 dark:ring-slate-800 bg-indigo-500 text-white text-3xl font-semibold">
+                {/* {getInitials(user?.name || "")} */}
+                {user?.name?.trim() ? (
+                  getInitials(user.name)
+                ) : (
+                  <FiUser className="w-8 h-8" />
+                )}
+              </div>
+              {/* <div className="relative h-28 w-28 mx-auto">
                 <Image
                   src={file}
                   width={0}
@@ -67,7 +73,7 @@ export default function Usertab() {
                   className="absolute inset-0 cursor-pointer"
                   htmlFor="pro-img"
                 ></label>
-              </div>
+              </div> */}
 
               <div className="mt-4">
                 <h5 className="text-lg font-semibold">{user && user.name}</h5>
