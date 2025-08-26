@@ -6,6 +6,7 @@ import { RenderSafeHTML } from "./renderPurifyHtml";
 import { useCartActions } from "ecom-user-sdk/cart";
 import { useRouter } from "next/navigation";
 import { useUserContext } from "ecom-user-sdk/context";
+import useMessage from "../hook/messageHook";
 
 export default function ProductDetail({ product }) {
   // console.log(product);
@@ -13,6 +14,12 @@ export default function ProductDetail({ product }) {
   const [activeVariations, setActiveVariations] = useState([]);
   const { user, loading: loadingUser } = useUserContext();
   const { addToCart } = useCartActions();
+
+  // Showing the Toast message 
+
+  const { closeMessage, openMessage } = useMessage();
+
+
   let [count, setCount] = useState(1);
   const increments = () => {
     setCount(count + 1);
@@ -27,6 +34,8 @@ export default function ProductDetail({ product }) {
       router.push("/login");
       return;
     }
+    openMessage("Adding to cart...");
+
     // console.log(activeVariations);
     // console.log(count);
 
@@ -36,9 +45,14 @@ export default function ProductDetail({ product }) {
       qty: count,
       variationIds: activeVariations,
     });
+    if (error) {
+      closeMessage("Failed to add to cart", "error");
+      return;
+    }
+    closeMessage("Added to cart", "success");
 
-    // console.log(data);
-    // console.log(error);
+    console.log(data);
+    console.log(error);
   }
   async function handleCheckout() {
     if (!user) {

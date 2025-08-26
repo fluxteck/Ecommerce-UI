@@ -6,11 +6,11 @@ import Navbar from "./components/navbar";
 import Tagline from "./components/tagline";
 import CtaOne from "./components/cta-one";
 import Footer from "./components/footer";
-import Switcher from "./components/switcher";
+// import Switcher from "./components/switcher"; 
 
 import ScrollToTop from "./components/scroll-to-top";
 import { collections, newProduct } from "./data/data";
-import { FiHeart, FiEye, FiBookmark } from "./assets/icons/vander";
+// import { FiHeart, FiEye, FiBookmark } from "./assets/icons/vander"; 
 
 export default function Home() {
   return (

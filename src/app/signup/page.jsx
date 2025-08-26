@@ -8,6 +8,7 @@ import BackToHome from "../components/back-to-home";
 import { useAuth } from "ecom-user-sdk/auth/supabase";
 import { useForm } from "react-hook-form";
 import { useUserActions } from "ecom-user-sdk/user";
+import useMessage from "../hook/messageHook";
 // import { useUserContext } from "ecom-user-sdk/context";
 
 export default function Signup() {
@@ -21,9 +22,13 @@ export default function Signup() {
   //   const { user } = useUserContext();
   //   console.log(user);
 
+  const { closeMessage, openMessage } = useMessage();
+
   const onSubmit = async (data) => {
     const { email, password, name } = data;
     // console.log(email);
+
+    openMessage("Signing up...");
 
     const result = await signup({
       email,
@@ -35,6 +40,7 @@ export default function Signup() {
     if (result.data?.user) {
       addUser({ user: { email: email, name: name } });
       //   console.log("signup successful");
+      closeMessage("Signup successful", "success");
     } else {
       return console.log("signup failed");
     }
@@ -58,20 +64,20 @@ export default function Signup() {
                   />
                 </div>
 
-                <div className="p-8 lg:px-20">
+                <div className="p-8 mt-5 lg:px-20">
                   <div className="text-center">
                     <Link href="/">
                       <Image
-                        src="/images/logo-main.webp"
-                        width={114}
-                        height={22}
+                        src="/images/logo-main-blk.png"
+                        width={120}
+                        height={65}
                         className="mx-auto block dark:hidden"
                         alt=""
                       />
                       <Image
-                        src="/images/logo-main.webp"
-                        width={114}
-                        height={22}
+                        src="/images/logo-main-blk.png"
+                        width={120}
+                        height={65}
                         className="mx-auto hidden dark:block"
                         alt=""
                       />

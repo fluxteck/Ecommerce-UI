@@ -22,11 +22,13 @@ import AddressForm from "../components/addressForm";
 import { useAddressActions } from "ecom-user-sdk/user";
 import { useUserContext, useAddressContext } from "ecom-user-sdk/context";
 import EditAddress from "../components/editAddress";
+import useMessage from "../hook/messageHook";
 
 export default function UserAddress() {
   const { addAddress, fetchAddress, deleteAddress } = useAddressActions();
   const { address, loading: loadingAddress } = useAddressContext();
   const [open, setOpen] = useState(false);
+  const { closeMessage, openMessage } = useMessage();
   const {
     register,
     handleSubmit,
@@ -44,6 +46,7 @@ export default function UserAddress() {
     if (result.success) {
       console.log("Address added successfully");
       reset();
+      closeMessage("Address added successfully", "success");
     } else {
       console.log("Failed to add address");
     }
@@ -60,6 +63,7 @@ export default function UserAddress() {
     if (data?.success) {
       console.log("Address deleted successfully");
     }
+    closeMessage("Address deleted successfully", "success");
   };
 
   useEffect(() => {
