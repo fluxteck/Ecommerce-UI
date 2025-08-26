@@ -15,12 +15,14 @@ import {
   FiLogOut,
 } from "../assets/icons/vander";
 import { useUserContext, useAuthContext } from "ecom-user-sdk/context";
+import useMessage from "../hook/messageHook";
 
 export default function Usertab() {
   const { user, loading, removeUser } = useUserContext();
   const { logout } = useAuthContext();
   const [file, setFile] = useState("/images/client/16.jpg");
   const [current, setCurrent] = useState("");
+  const { closeMessage, openMessage } = useMessage();
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -33,6 +35,7 @@ export default function Usertab() {
   }
 
   const logoutUser = async () => {
+    closeMessage("Logout successful", "success");
     await Promise.all([logout(), removeUser()]);
     window.location.href = "/";
   };

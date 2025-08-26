@@ -14,6 +14,7 @@ import {
   FiLogOut,
 } from "../assets/icons/vander";
 import { useUserContext, useAuthContext } from "ecom-user-sdk/context";
+import useMessage from "../hook/messageHook";
 
 export default function Navbar({ navClass, navlight }) {
   let [scrolling, setScrolling] = useState(false);
@@ -29,9 +30,12 @@ export default function Navbar({ navClass, navlight }) {
   const { user, loading, removeUser } = useUserContext();
   const { logout } = useAuthContext();
 
+const { closeMessage, openMessage } = useMessage();
+
   // console.log(user);
 
   const logoutUser = async () => {
+    closeMessage("Logout successful", "success");
     await Promise.all([logout(), removeUser()]);
     window.location.reload();
   };
@@ -307,7 +311,7 @@ export default function Navbar({ navClass, navlight }) {
                 <div className="dropdown-menu absolute end-0 m-0 mt-4 z-10 w-48 rounded-md overflow-hidden bg-white dark:bg-slate-900 shadow dark:shadow-gray-700">
                   <ul className="py-2 text-start">
                     <li className="ms-0">
-                      <p className="text-slate-400 pt-2 px-4">Welcome User</p>
+                      {/* <p className="text-slate-400 pt-2 px-4">Welcome User</p> */}
                     </li>
 
                     <li className="ms-0">
