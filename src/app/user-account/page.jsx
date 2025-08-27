@@ -14,6 +14,7 @@ import ScrollToTop from "../components/scroll-to-top";
 import { useOrderActions } from "ecom-user-sdk/order";
 import { useUserContext, useOrderContext } from "ecom-user-sdk/context";
 import formatDate from "../components/functions/formatDate";
+import OrdersTableSkeleton from "../components/skeleton/order-table";
 
 export default function UserAccount() {
   const { user, loading: loadingUser } = useUserContext();
@@ -46,6 +47,9 @@ export default function UserAccount() {
 
             <div className="lg:w-3/4 md:w-2/3 md:px-3 mt-6 md:mt-0">
               <h5 className="text-lg font-semibold mb-6">My Orders</h5>
+              {loading ? 
+              <OrdersTableSkeleton/> : 
+              
               <div className="relative overflow-x-auto shadow dark:shadow-gray-800 rounded-md">
                 <table className="w-full text-start text-slate-500 dark:text-slate-400">
                   <thead className="text-sm uppercase bg-slate-50 dark:bg-slate-800">
@@ -158,6 +162,7 @@ export default function UserAccount() {
                   </tbody>
                 </table>
               </div>
+              }
 
               {/* <h5 className="text-lg font-semibold my-6">My favourite Items</h5> */}
 

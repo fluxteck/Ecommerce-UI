@@ -42,7 +42,7 @@ export default function AboutUs() {
                 className="inline-block uppercase text-[13px] font-bold text-red-600"
                 aria-current="page"
               >
-                Shop Grid
+                About Us
               </li>
             </ul>
           </div>

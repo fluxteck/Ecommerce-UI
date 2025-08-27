@@ -35,7 +35,7 @@ export default function Usertab() {
   const logoutUser = async () => {
     closeMessage("Logout successful", "success");
     await Promise.all([logout(), removeUser()]);
-    window.location.href = "/";
+    window.location.reload();
   };
   return (
     <div className="lg:w-1/4 md:w-1/3 md:px-3">
@@ -50,7 +50,7 @@ export default function Usertab() {
               onChange={(e) => handleChange(e)}
             /> */}
             <div>
-              <div className="relative h-28 w-28 mx-auto flex items-center justify-center rounded-full shadow dark:shadow-gray-800 ring-4 ring-slate-50 dark:ring-slate-800 bg-indigo-500 text-white text-3xl font-semibold">
+              <div className="relative h-28 w-28 mx-auto flex items-center justify-center rounded-full shadow dark:shadow-gray-800 ring-4 ring-slate-50 dark:ring-slate-800 bg-red-600 text-white text-3xl font-semibold">
                 {/* {getInitials(user?.name || "")} */}
                 {user?.name?.trim() ? (
                   getInitials(user.name)

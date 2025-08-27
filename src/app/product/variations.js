@@ -60,6 +60,12 @@ const VariationSection = ({
   return (
     <div className="flex items-center mb-4">
       <h5 className="text-lg font-semibold me-2">{type}:</h5>
+      {
+        type === "Size" &&<>
+         <p className="text-sm text-slate-400">(Inches)</p>
+        <br/>
+        </>
+      }
       <div className="space-x-1">
         {values.map(({ id, value }) => (
           <button
