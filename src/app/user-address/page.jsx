@@ -39,16 +39,19 @@ export default function UserAddress() {
   const { user, loading: loadingUser } = useUserContext();
   const [editAddressDetail, setEditAddressDetail] = useState(null);
   const handleAddress = async ({ data: address, extra }) => {
+    openMessage("Adding address...", "loading");
     const { result, error } = await onSubmit({
       data: address,
       extra: extra,
     });
     if (result.success) {
       console.log("Address added successfully");
+      closeMessage("Address added successfully!", "success");
       reset();
-      closeMessage("Address added successfully", "success");
+      
     } else {
       console.log("Failed to add address");
+      closeMessage(error?.message || "Failed to add address", "error");
     }
     // console.log(result);
   };
@@ -58,12 +61,18 @@ export default function UserAddress() {
     setOpen(true);
   };
   const handleDeleteAddress = async (id) => {
+    openMessage("Deleting address...", "loading");
+
     const { data } = await deleteAddress({ addressId: id });
     // console.log(data);
     if (data?.success) {
       console.log("Address deleted successfully");
+      closeMessage("Address deleted successfully!", "success");
     }
-    closeMessage("Address deleted successfully", "success");
+    else {
+      console.log("Failed to delete address");
+      closeMessage("Failed to delete address", "error");
+    }
   };
 
   useEffect(() => {

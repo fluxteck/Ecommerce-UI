@@ -77,6 +77,7 @@ export default function ShopCart() {
   // const grandTotal = subtotal + totalGST;
 
   async function removeItem(cart_id) {
+    openMessage("Removing from cart...", "loading");
     const { success, error } = await removeFromCart({
       cart_id,
     });

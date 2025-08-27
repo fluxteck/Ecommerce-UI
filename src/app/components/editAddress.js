@@ -47,6 +47,7 @@ export default function EditAddress({
       //   reset();
     } else {
       console.log("Failed to add address");
+      closeMessage("Failed to update address", "error");
     }
     // console.log(result);
   };
