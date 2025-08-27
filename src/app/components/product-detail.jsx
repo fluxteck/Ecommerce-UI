@@ -33,7 +33,7 @@ export default function ProductDetail({ product }) {
       router.push("/login");
       return;
     }
-    openMessage("Adding to cart...");
+    openMessage("Adding to cart...", "loading");
 
     // console.log(activeVariations);
     // console.log(count);
@@ -45,11 +45,11 @@ export default function ProductDetail({ product }) {
       variationIds: activeVariations,
     });
     if (error) {
-      closeMessage("Failed to add to cart", "error");
+      closeMessage(error?.message || "Failed to add to cart", "error");
+      
       return;
     }
-    closeMessage("Added to cart", "success");
-
+    closeMessage("Product added to cart!", "success");
     console.log(data);
     console.log(error);
   }

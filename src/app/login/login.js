@@ -27,6 +27,7 @@ export default function Login() {
   //   console.log(user);
 
   const onSubmit = async (data) => {
+    openMessage("Logging you in...", "loading");
     const { email, password } = data;
     // console.log(email);
 
@@ -39,15 +40,16 @@ export default function Login() {
 
     console.log("Login error:", error);
     if (da?.user) {
+      closeMessage("Login successful", "success");
       //   await getUserByEmail({ email: email });
       const nextUrl = searchParams.get("next") || "/";
       //   console.log(nextUrl);
 
       window.location.href = nextUrl;
       //   console.log("signup successful");
-      closeMessage("Successfully signed in!", "success");
     } else {
-      return console.log("login failed");
+      closeMessage(error?.message || "Login failed", "error");
+      // return console.log("login failed");
     }
   };
   return (
@@ -164,7 +166,7 @@ export default function Login() {
                           className="py-2 px-5 inline-block tracking-wide align-middle duration-500 text-base text-center bg-gray-800 text-white rounded-md w-full"
                           //   value="Login / Sign in"
                         >
-                          Login / Sign in
+                          Login
                         </button>
                       </div>
 
