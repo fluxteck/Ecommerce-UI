@@ -68,6 +68,7 @@ export default function ProductViewTwo({ product }) {
                   width={120}
                   height={120}
                   sizes="120px"
+                  unoptimized
                   style={{
                     width: "100%",
                     height: "auto",
