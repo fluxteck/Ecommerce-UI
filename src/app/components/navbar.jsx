@@ -16,6 +16,8 @@ import {
 import { useUserContext, useAuthContext } from "ecom-user-sdk/context";
 import useMessage from "../hook/messageHook";
 import { getInitials } from "./functions/initials";
+import { useCartContext } from "ecom-user-sdk/context";
+import { useCartActions } from "ecom-user-sdk/cart";
 
 export default function Navbar({ navClass, navlight }) {
   let [scrolling, setScrolling] = useState(false);
@@ -33,6 +35,11 @@ export default function Navbar({ navClass, navlight }) {
 
   const { closeMessage, openMessage } = useMessage();
 
+  const {
+    cart: cartData,
+    // deleteProductInCartContext,
+  } = useCartContext();
+  const { fetchCart } = useCartActions();
   // console.log(user);
 
   const logoutUser = async () => {
@@ -82,6 +89,13 @@ export default function Navbar({ navClass, navlight }) {
     setToggle(!isToggle);
   };
 
+  useEffect(() => {
+    if (!loading && !user) {
+      console.log("Not authenticated user");
+      return;
+    }
+    if (user && cartData.length === 0) fetchCart({ userId: user.id });
+  }, [user, loading]);
   return (
     <nav id="topnav" className={`${navClass} ${scrolling ? "nav-sticky" : ""}`}>
       <div className="container relative">
@@ -183,8 +197,28 @@ export default function Navbar({ navClass, navlight }) {
               </div>
             )}
           </li> */}
-
           <li
+            className="dropdown inline-block relative ps-0.5 mx-1"
+            ref={cartRef}
+          >
+            <Link
+              href={"/shop-cart"}
+              data-dropdown-toggle="dropdown"
+              className="dropdown-toggle size-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-red-600 border border-red-600 text-white relative"
+              type="button"
+              onClick={() => setCartManu(!cartManu)}
+            >
+              <FiShoppingCart className="h-4 w-4" />
+
+              {/* Cart count badge */}
+              {cartData?.length > 0 && (
+                <span className="absolute -top-1 -right-1 bg-white text-red-600 text-xs font-bold rounded-full px-1.5 py-0.5 shadow">
+                  {cartData.length}
+                </span>
+              )}
+            </Link>
+          </li>
+          {/* <li
             className="dropdown inline-block relative ps-0.5 mx-1"
             ref={cartRef}
           >
@@ -197,83 +231,7 @@ export default function Navbar({ navClass, navlight }) {
             >
               <FiShoppingCart className="h-4 w-4"></FiShoppingCart>
             </Link>
-
-            {/* {cartManu && (
-                            <div className="dropdown-menu absolute end-0 m-0 mt-4 z-10 w-64 rounded-md bg-white dark:bg-slate-900 shadow dark:shadow-gray-800">
-                                <ul className="py-3 text-start" aria-labelledby="dropdownDefault">
-                                    <li className='ms-0'>
-                                        <Link href="#" className="flex items-center justify-between py-1.5 px-4">
-                                            <span className="flex items-center">
-                                                <Image src='/images/shop/trendy-shirt.jpg' width={36} height={46} className="rounded shadow dark:shadow-gray-800 w-9" alt=""/>
-                                                <span className="ms-3">
-                                                    <span className="block font-semibold">T-shirt (M)</span>
-                                                    <span className="block text-sm text-slate-400">$320 X 2</span>
-                                                </span>
-                                            </span>
-
-                                            <span className="font-semibold">$640</span>
-                                        </Link>
-                                    </li>
-
-                                    <li className='ms-0'>
-                                        <Link href="#" className="flex items-center justify-between py-1.5 px-4">
-                                            <span className="flex items-center">
-                                                <Image src='/images/shop/luxurious-bag2.jpg' width={36} height={46} className="rounded shadow dark:shadow-gray-800 w-9" alt=""/>
-                                                <span className="ms-3">
-                                                    <span className="block font-semibold">Bag</span>
-                                                    <span className="block text-sm text-slate-400">$50 X 5</span>
-                                                </span>
-                                            </span>
-
-                      <span className="font-semibold">$250</span>
-                    </Link>
-                  </li>
-
-                  <li className="ms-0">
-                    <Link
-                      href="#"
-                      className="flex items-center justify-between py-1.5 px-4"
-                    >
-                      <span className="flex items-center">
-                        <Image
-                          src="/images/shop/apple-smart-watch.jpg"
-                          width={36}
-                          height={46}
-                          className="rounded shadow dark:shadow-gray-800 w-9"
-                          alt=""
-                        />
-                        <span className="ms-3">
-                          <span className="block font-semibold">
-                            Watch (Men)
-                          </span>
-                          <span className="block text-sm text-slate-400">
-                            $800 X 1
-                          </span>
-                        </span>
-                      </span>
-
-                      <span className="font-semibold">$800</span>
-                    </Link>
-                  </li>
-
-                  <li className="border-t border-gray-100 dark:border-gray-800 my-2 ms-0"></li>
-
-                  <li className="flex items-center justify-between py-1.5 px-4 ms-0">
-                    <h6 className="font-semibold mb-0">Total($):</h6>
-                    <h6 className="font-semibold mb-0">$1690</h6>
-                  </li>
-
-                                    <li className="py-1.5 px-4 ms-0">
-                                        <span className="text-center block">
-                                            <Link href="#" className="py-[5px] px-4 inline-block font-semibold tracking-wide align-middle duration-500 text-sm text-center rounded-md bg-red-600 border border-red-600 text-white me-1">View Cart</Link>
-                                            <Link href="#" className="py-[5px] px-4 inline-block font-semibold tracking-wide align-middle duration-500 text-sm text-center rounded-md bg-red-600 border border-red-600 text-white">Checkout</Link>
-                                        </span>
-                                        <p className="text-sm text-slate-400 mt-1">*T&C Apply</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        )} */}
-          </li>
+          </li> */}
 
           {/* WishList  */}
 
@@ -352,7 +310,6 @@ export default function Navbar({ navClass, navlight }) {
                     </li>
                     <li className="border-t border-gray-100 dark:border-gray-800 my-2"></li>
                     <li className="ms-0">
-                      
                       <Link
                         // href="/user-account"
                         href="/signup"

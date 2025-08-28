@@ -18,6 +18,7 @@ import Footer from "../../components/footer";
 // } from "../../assets/icons/vander";
 // import { newProduct } from "../../data/data";
 import ScrollToTop from "../../components/scroll-to-top";
+import { formatPriceINR } from "@/app/components/functions/formatPrice";
 
 export default function Collections({ products }) {
   // console.log(products);
@@ -158,22 +159,26 @@ export default function Collections({ products }) {
                       <p>
                         Rs.{" "}
                         {item.discount_type === "no-discount" ? (
-                          item.base_price.toFixed(2)
+                          formatPriceINR(item.base_price.toFixed(2))
                         ) : item.discount_type === "percentage" ? (
                           <>
-                            {(
-                              item.base_price -
-                              (item.discount * item.base_price) / 100
-                            ).toFixed(2)}
+                            {formatPriceINR(
+                              (
+                                item.base_price -
+                                (item.discount * item.base_price) / 100
+                              ).toFixed(2)
+                            )}
                             <del className="text-red-600 ms-2">
-                              {item.base_price.toFixed(2)}
+                              {formatPriceINR(item.base_price.toFixed(2))}
                             </del>
                           </>
                         ) : (
                           <>
-                            {(item.base_price - item.discount).toFixed(2)}
+                            {formatPriceINR(
+                              (item.base_price - item.discount).toFixed(2)
+                            )}
                             <del className="text-red-600 ms-2">
-                              {item.base_price.toFixed(2)}
+                              {formatPriceINR(item.base_price.toFixed(2))}
                             </del>
                           </>
                         )}

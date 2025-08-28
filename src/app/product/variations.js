@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import ImagePopup from "./size-chart";
 
 const groupByType = (arr) =>
   arr.reduce((acc, item) => {
@@ -12,6 +13,8 @@ const VariationSection = ({
   values,
   activeVariations,
   setActiveVariations,
+  // openImage,
+  setOpenImage,
 }) => {
   const isActive = (id) => activeVariations.includes(id);
 
@@ -56,16 +59,43 @@ const VariationSection = ({
     );
   }
 
+  if (type === "Size" || type === "size") {
+    return (
+      <div>
+        <div className="flex items-center mb-4">
+          <h5 className="text-lg font-semibold me-2">{type}:</h5>
+
+          <button
+            onClick={() => setOpenImage(true)}
+            className="text-sm text-slate-400"
+          >
+            Size Chart
+          </button>
+        </div>
+        <div className="space-x-1">
+          {values.map(({ id, value }) => (
+            <button
+              key={id}
+              onClick={() => handleSelect(id, type)}
+              className={`px-3 py-1 rounded-md text-sm font-medium border transition-all duration-200 ${
+                isActive(id)
+                  ? "bg-black text-white border-black"
+                  : "bg-red-600/5 text-black hover:bg-black hover:text-white border-transparent"
+              }`}
+            >
+              {value.toUpperCase()}
+            </button>
+          ))}
+        </div>
+        {/* </div> */}
+      </div>
+    );
+  }
+
   // Default (Size, Material, etc.)
   return (
     <div className="flex items-center mb-4">
       <h5 className="text-lg font-semibold me-2">{type}:</h5>
-      {
-        type === "Size" &&<>
-         <p className="text-sm text-slate-400">(Inches)</p>
-        <br/>
-        </>
-      }
       <div className="space-x-1">
         {values.map(({ id, value }) => (
           <button
@@ -91,7 +121,7 @@ const VariationsGrid = ({
   setActiveVariations,
 }) => {
   const groupedVariations = groupByType(variations);
-
+  const [openImage, setOpenImage] = useState(false);
   // Set default selected variation for each type
   useEffect(() => {
     const defaults = Object.values(groupedVariations).map(
@@ -107,10 +137,14 @@ const VariationsGrid = ({
           key={type}
           type={type}
           values={values}
+          openImage={openImage}
+          setOpenImage={setOpenImage}
           activeVariations={activeVariations}
           setActiveVariations={setActiveVariations}
         />
       ))}
+
+      <ImagePopup open={openImage} setOpen={setOpenImage} />
     </div>
   );
 };

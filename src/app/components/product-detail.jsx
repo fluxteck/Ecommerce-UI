@@ -7,6 +7,7 @@ import { useCartActions } from "ecom-user-sdk/cart";
 import { useRouter } from "next/navigation";
 import { useUserContext } from "ecom-user-sdk/context";
 import useMessage from "../hook/messageHook";
+import { formatPriceINR } from "./functions/formatPrice";
 
 export default function ProductDetail({ product }) {
   // console.log(product);
@@ -46,7 +47,7 @@ export default function ProductDetail({ product }) {
     });
     if (error) {
       closeMessage(error?.message || "Failed to add to cart", "error");
-      
+
       return;
     }
     closeMessage("Product added to cart!", "success");
@@ -73,27 +74,29 @@ export default function ProductDetail({ product }) {
         <span className="text-black-400 font-semibold text-xl me-1">
           Rs.{" "}
           {product.discount_type === "no-discount" ? (
-            product.base_price.toFixed(2)
+            formatPriceINR(product.base_price.toFixed(2))
           ) : product.discount_type === "percentage" ? (
             <>
-              {(
-                product.base_price -
-                (product.discount * product.base_price) / 100
-              ).toFixed(2)}
+              {formatPriceINR(
+                (
+                  product.base_price -
+                  (product.discount * product.base_price) / 100
+                ).toFixed(2)
+              )}
               <del className="text-red-600 ms-2">
-                {product.base_price.toFixed(2)}
+                {formatPriceINR(product.base_price.toFixed(2))}
               </del>
             </>
           ) : (
             <>
               {(product.base_price - product.discount).toFixed(2)}
               <del className="text-red-600 ms-2">
-                {product.base_price.toFixed(2)}
+                {formatPriceINR(product.base_price.toFixed(2))}
               </del>
             </>
           )}
         </span>
-        <p className="text-slate-400 me-1"> Incluisve off all taxes</p>
+        <p className="text-slate-400 me-1"> Inclusive of all taxes</p>
       </div>
 
       <VariationsGrid
