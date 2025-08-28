@@ -7,75 +7,78 @@ export default function ProductViewTwo({ product }) {
 
   // Default active image is the first one (index 0)
   const [activeIndex, setActiveIndex] = useState(0);
+  console.log(product);
+
+  console.log(images);
 
   const handleImageClick = (index) => {
     setActiveIndex(index);
   };
 
-return (
-  <div className="product-imgs flex flex-col w-full">
-    {/* Main active image (large, full-width, responsive) */}
-    <div className="img-display w-full shadow dark:shadow-gray-800">
-      <div className="img-showcase w-full flex justify-center items-center bg-white">
-        {images.length > 0 && (
-          <Image
-            src={images[activeIndex].url}
-            alt={`Main product image ${activeIndex + 1}`}
-            width={0}
-            height={0}
-            sizes="100vw"
-            style={{
-              width: "100%",
-              height: "auto",
-              maxHeight: "80vh",
-              objectFit: "contain",
-            }}
-            className="block"
-          />
-        )}
+  return (
+    <div className="product-imgs flex flex-col w-full">
+      {/* Main active image (large, full-width, responsive) */}
+      <div className="img-display w-full shadow dark:shadow-gray-800">
+        <div className="img-showcase w-full flex justify-center items-center bg-white">
+          {images.length > 0 && (
+            <Image
+              src={images[activeIndex].url}
+              alt={`Main product image ${activeIndex + 1}`}
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{
+                width: "100%",
+                height: "auto",
+                maxHeight: "80vh",
+                objectFit: "contain",
+              }}
+              className="block"
+            />
+          )}
+        </div>
       </div>
-    </div>
 
-    {/* Thumbnails grid (responsive, no horizontal scroll) */}
-    <div className="mt-4">
-      <ul className="
+      {/* Thumbnails grid (responsive, no horizontal scroll) */}
+      <div className="mt-4">
+        <ul
+          className="
         img-select 
         grid gap-3 list-none 
         grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8
-      ">
-        {images.map((item, index) => (
-          <li key={item.id || index}>
-            <button
-              type="button"
-              onClick={() => handleImageClick(index)}
-              aria-label={`Show image ${index + 1}`}
-              aria-pressed={index === activeIndex}
-              className={`block rounded-md p-px w-full focus:outline-none ${
-                index === activeIndex ? "ring-2 ring-primary" : ""
-              }`}
-            >
-              <Image
-                src={item.url}
-                alt={`Product thumbnail ${index + 1}`}
-                width={120}
-                height={120}
-                sizes="120px"
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  objectFit: "cover",
-                }}
-                className="rounded-sm"
-              />
-            </button>
-          </li>
-        ))}
-      </ul>
+      "
+        >
+          {images.map((item, index) => (
+            <li key={item.id || index}>
+              <button
+                type="button"
+                onClick={() => handleImageClick(index)}
+                aria-label={`Show image ${index + 1}`}
+                aria-pressed={index === activeIndex}
+                className={`block rounded-md p-px w-full focus:outline-none ${
+                  index === activeIndex ? "ring-2 ring-primary" : ""
+                }`}
+              >
+                <Image
+                  src={item.url}
+                  alt={`Product thumbnail ${index + 1}`}
+                  width={120}
+                  height={120}
+                  sizes="120px"
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    objectFit: "cover",
+                  }}
+                  className="rounded-sm"
+                />
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
-  </div>
-);
-
-
+  );
 }
 
 // 'use client'
