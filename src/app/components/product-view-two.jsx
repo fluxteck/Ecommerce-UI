@@ -1,15 +1,18 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 export default function ProductViewTwo({ product }) {
-  const images = product?.product_images || [];
+  // const images = product?.product_images || [];
 
   // Default active image is the first one (index 0)
   const [activeIndex, setActiveIndex] = useState(0);
-  console.log(product);
-
-  console.log(images);
+  const [images, setImages] = useState(product?.product_images || []);
+  // console.log(product);
+  useEffect(() => {
+    if (product) setImages(product?.product_images || []);
+  }, [product]);
+  // console.log(images);
 
   const handleImageClick = (index) => {
     setActiveIndex(index);
