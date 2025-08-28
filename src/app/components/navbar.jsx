@@ -297,7 +297,7 @@ export default function Navbar({ navClass, navlight }) {
               type="button"
               onClick={() => setUserManu(!userManu)}
             >
-              <span className="size-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full font-semibold text-sm md:text-base dark:shadow-gray-800  bg-indigo-500 text-white">
+              <span className="size-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full font-semibold text-sm md:text-base dark:shadow-gray-800  bg-red-600 text-white">
                 {/* {getInitials(user?.name || " ")} */}
                 {user?.name?.trim() ? (
                   getInitials(user.name)
@@ -344,20 +344,21 @@ export default function Navbar({ navClass, navlight }) {
 
                     <li className="ms-0">
                       <Link
+                        href="/login"
+                        className="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-600 dark:hover:text-white"
+                      >
+                        <FiUser className="h-4 w-4 me-2"></FiUser>Login
+                      </Link>
+                    </li>
+                    <li className="border-t border-gray-100 dark:border-gray-800 my-2"></li>
+                    <li className="ms-0">
+                      
+                      <Link
                         // href="/user-account"
                         href="/signup"
                         className="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-600 dark:hover:text-white"
                       >
                         <FiUser className="h-4 w-4 me-2"></FiUser>SignUp
-                      </Link>
-                    </li>
-                    <li className="border-t border-gray-100 dark:border-gray-800 my-2"></li>
-                    <li className="ms-0">
-                      <Link
-                        href="/login"
-                        className="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-600 dark:hover:text-white"
-                      >
-                        <FiUser className="h-4 w-4 me-2"></FiUser>SignIn
                       </Link>
                     </li>
                   </ul>

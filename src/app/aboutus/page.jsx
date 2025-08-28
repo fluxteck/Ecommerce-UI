@@ -20,7 +20,9 @@ import Image from "next/image";
 export default function AboutUs() {
   return (
     <>
-      <Navbar navClass="defaultscroll is-sticky" navlight={true} />
+      <Navbar navClass="defaultscroll is-sticky" 
+      // navlight={true} 
+       />
 
       <section className="relative text-center table w-full pt-15 pb-2 lg:pt-15 md:pt-13 bg-gray-50 dark:bg-slate-800">
         <div className="container relative">
@@ -40,7 +42,7 @@ export default function AboutUs() {
                 className="inline-block uppercase text-[13px] font-bold text-red-600"
                 aria-current="page"
               >
-                Shop Grid
+                About Us
               </li>
             </ul>
           </div>

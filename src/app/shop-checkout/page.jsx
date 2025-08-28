@@ -23,6 +23,7 @@ import { createOrder } from "ecom-user-sdk/payment/cod";
 import { useCartActions } from "ecom-user-sdk/cart";
 import AddressForm from "../components/addressForm";
 import useMessage from "../hook/messageHook";
+import { useRouter } from "next/navigation";
 
 export default function ShopCheckout() {
   const {
@@ -36,6 +37,7 @@ export default function ShopCheckout() {
   const { addAddress, fetchAddress } = useAddressActions();
   const { user, loading: loadingUser } = useUserContext();
   const [isCOD, setIsCOD] = useState(false);
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -85,6 +87,7 @@ export default function ShopCheckout() {
       console.log("User not logged in");
       return;
     }
+    openMessage("Processing your order...");
 
     // console.log(address);
     // console.log(extra);
@@ -114,8 +117,16 @@ export default function ShopCheckout() {
         billing_address: address,
         shipping_address: address,
       });
-      if (data && data.dbOrder && data.dbOrder.id)
+      if (data && data.dbOrder && data.dbOrder.id){
+
         await emptyCart({ user_id: user.id });
+         closeMessage("Order placed successfully", "success");
+        // router.push("/order-success/" );
+      }
+      if (error) {
+        closeMessage(error?.message || "Failed to place order", "error");
+      }
+
       console.log(data, error);
 
       return;
@@ -127,11 +138,17 @@ export default function ShopCheckout() {
       key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
       shipping_address: address, //shipping address
       onSuccess: async (res) => {
-        closeMessage("Order placed successfully", "success");
-        if (res?.success) await emptyCart({ user_id: user.id });
-        console.log("✅ Payment Success:", res);
+       
+        if (res?.success) {
+
+           await emptyCart({ user_id: user.id });
+            closeMessage("Order placed successfully", "success");
+          //  router.push("/order-success/" );
+          }
+
+        // console.log("✅ Payment Success:", res);
       },
-      onFailure: (err) => console.error("❌ Payment Failed:", err),
+      onFailure: (err) => closeMessage("Payment Failed", "error"),
     });
   }
   return (

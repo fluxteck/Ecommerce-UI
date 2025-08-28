@@ -26,6 +26,7 @@ export default function Signup() {
 
   const onSubmit = async (data) => {
     const { email, password, name } = data;
+    openMessage("Creating your account...", "loading");
     // console.log(email);
     const result = await signup({
       email,
@@ -35,10 +36,9 @@ export default function Signup() {
 
     // console.log("Signup result:", result);
     if (result.data?.user) {
-      openMessage("Signing up...", "info");
+      closeMessage("Signup successful!", "success");
       addUser({ user: { email: email, name: name } });
       //   console.log("signup successful");
-      closeMessage("Signup successful", "success");
     } else {
       return console.log("signup failed");
     }

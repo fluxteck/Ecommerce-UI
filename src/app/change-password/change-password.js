@@ -5,53 +5,8 @@ import Image from "next/image";
 
 // import Switcher from "../components/switcher"
 import BackToHome from "../components/back-to-home";
-import { useAuth } from "ecom-user-sdk/auth/supabase";
-import { useForm } from "react-hook-form";
-// import { useUserActions } from "ecom-user-sdk/user";
-import { useSearchParams } from "next/navigation";
-import useMessage from "../hook/messageHook";
 
-export default function Login() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  const { login } = useAuth();
-  //   const { getUserByEmail } = useUserActions();
-  const searchParams = useSearchParams();
-
-  const { closeMessage, openMessage } = useMessage();
-
-  //   const { user } = useUserContext();
-  //   console.log(user);
-
-  const onSubmit = async (data) => {
-    openMessage("Logging you in...", "loading");
-    const { email, password } = data;
-    // console.log(email);
-
-    const { data: da, error } = await login({
-      email,
-      password,
-    });
-
-    console.log("login result:", da);
-
-    console.log("Login error:", error);
-    if (da?.user) {
-      closeMessage("Login successful", "success");
-      //   await getUserByEmail({ email: email });
-      const nextUrl = searchParams.get("next") || "/";
-      //   console.log(nextUrl);
-
-      window.location.href = nextUrl;
-      //   console.log("signup successful");
-    } else {
-      closeMessage(error?.message || "Login failed", "error");
-      // return console.log("login failed");
-    }
-  };
+export default function ChangePassword() {
   return (
     <>
       <section className="md:h-screen py-36 flex items-center bg-gray-800/10 dark:bg-gray-800/20 bg-[url('/images/hero/bg-shape.png')] bg-center bg-no-repeat bg-cover">
@@ -92,27 +47,11 @@ export default function Login() {
                   </div>
 
                   <form
-                    onSubmit={handleSubmit(onSubmit)}
+                    // onSubmit={handleSubmit(onSubmit)}
                     className="text-start lg:py-20 py-8"
                   >
                     <div className="grid grid-cols-1">
-                      <div className="mb-4">
-                        <label className="font-semibold" htmlFor="LoginEmail">
-                          Email Address:
-                        </label>
-                        <input
-                          id="LoginEmail"
-                          type="email"
-                          {...register("email", { required: true })}
-                          className="mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0"
-                          placeholder="name@example.com"
-                        />
-                        {errors.name && (
-                          <span className="text-red-500 text-sm">
-                            Email is required
-                          </span>
-                        )}
-                      </div>
+                     
 
                       <div className="mb-4">
                         <label
@@ -124,41 +63,40 @@ export default function Login() {
                         <input
                           id="LoginPassword"
                           type="password"
-                          {...register("password", { required: true })}
+                          // {...register("password", { required: true })}
                           className="mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0"
                           placeholder="Password:"
                         />
-                        {errors.name && (
+                        {/* {errors.name && (
                           <span className="text-red-500 text-sm">
                             Password is required
                           </span>
-                        )}
+                        )} */}
                       </div>
-
-                      <div className="flex justify-between mb-4">
-                        {/* <div className="flex items-center mb-0">
-                          <input
-                            className="form-checkbox rounded border-gray-100 dark:border-gray-800 text-gray-800 focus:border-gray-800 focus:ring focus:ring-offset-0 focus:ring-gray-800 focus:ring-opacity-50 me-2"
-                            type="checkbox"
-                            value=""
-                            id="RememberMe"
-                          />
-                          <label
-                            className="form-checkbox-label text-slate-400"
-                            htmlFor="RememberMe"
-                          >
-                            Remember me
-                          </label>
-                        </div> */}
-                        <p className="text-slate-400 mb-0">
-                          <Link
-                            href="/forgot-password"
-                            className="text-slate-400"
-                          >
-                            Forgot password ?
-                          </Link>
-                        </p>
+                    
+                    {/* Adding Confirm Password Field  */}
+                          
+<div className="mb-4">
+                        <label
+                          className="font-semibold"
+                          htmlFor="LoginPassword"
+                        >
+                          Confirm Password:
+                        </label>
+                        <input
+                          id="LoginPassword"
+                          type="password"
+                          // {...register("password", { required: true })}
+                          className="mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0"
+                          placeholder="Password:"
+                        />
+                        {/* {errors.name && (
+                          <span className="text-red-500 text-sm">
+                            Password is required
+                          </span>
+                        )} */}
                       </div>
+                   
 
                       <div className="mb-4">
                         <button
@@ -166,21 +104,11 @@ export default function Login() {
                           className="py-2 px-5 inline-block tracking-wide align-middle duration-500 text-base text-center bg-gray-800 text-white rounded-md w-full"
                           //   value="Login / Sign in"
                         >
-                          Login
+                          Change Password
                         </button>
                       </div>
 
-                      <div className="text-center">
-                        <span className="text-slate-400 me-2">
-                          Don't have an account ?
-                        </span>{" "}
-                        <Link
-                          href="/signup"
-                          className="text-black dark:text-white font-bold inline-block"
-                        >
-                          Sign Up
-                        </Link>
-                      </div>
+                    
                     </div>
                   </form>
 
