@@ -17,7 +17,7 @@
     "@supabase/supabase-js": "^2.56.0",
     "@tailwindcss/forms": "^0.5.9",
     "antd": "^5.27.1",
-    "ecom-user-sdk": "file:../../../../Desktop/ecommerce/ecommerse-user-sdk",
+    "ecom-user-sdk": "^1.0.6",
     "isomorphic-dompurify": "^2.26.0",
     "next": "15.0.3",
     "react": "^18.3.1",
