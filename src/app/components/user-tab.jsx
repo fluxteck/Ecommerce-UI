@@ -18,7 +18,7 @@ import { getInitials } from "./functions/initials";
 export default function Usertab() {
   const { user, loading, removeUser } = useUserContext();
   const { logout } = useAuthContext();
-  const [file, setFile] = useState("/images/client/16.jpg");
+  // const [file, setFile] = useState("/images/client/16.jpg");
   const [current, setCurrent] = useState("");
   const { closeMessage, openMessage } = useMessage();
 
@@ -28,14 +28,15 @@ export default function Usertab() {
     }
   }, []);
 
-  function handleChange(e) {
-    setFile(URL.createObjectURL(e.target.files[0]));
-  }
+  // function handleChange(e) {
+  //   setFile(URL.createObjectURL(e.target.files[0]));
+  // }
 
   const logoutUser = async () => {
     closeMessage("Logout successful", "success");
     await Promise.all([logout(), removeUser()]);
-    window.location.href = "/";
+    window.location.reload();
+    // window.location.href = "/";
   };
   return (
     <div className="lg:w-1/4 md:w-1/3 md:px-3">
