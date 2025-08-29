@@ -21,6 +21,7 @@ import {
 import { useUserContext } from "ecom-user-sdk/context";
 import useMessage from "../hook/messageHook";
 import EmptyCart from "../empty-cart/page";
+import { formatPriceINR } from "../components/functions/formatPrice";
 
 export default function ShopCart() {
   const {
@@ -203,7 +204,9 @@ export default function ShopCart() {
                             </span>
                           </span>
                         </td>
-                        <td className="p-4 text-center">Rs {price}</td>
+                        <td className="p-4 text-center">
+                          Rs {formatPriceINR(price)}
+                        </td>
                         <td className="p-4 text-center">
                           {product.gst_amount}%
                         </td>
@@ -225,8 +228,12 @@ export default function ShopCart() {
                         <td className="p-4  text-end">
                           Rs.
                           {product.tax_inclusive
-                            ? price * item.quantity
-                            : ((price + taxedPrice) * item.quantity).toFixed(2)}
+                            ? formatPriceINR(price * item.quantity)
+                            : formatPriceINR(
+                                ((price + taxedPrice) * item.quantity).toFixed(
+                                  2
+                                )
+                              )}
                         </td>
                       </tr>
                     );
@@ -258,13 +265,13 @@ export default function ShopCart() {
                   <li className="flex justify-between p-4">
                     <span className="font-semibold text-lg">Subtotal :</span>
                     <span className="text-slate-400">
-                      Rs.{cartTotals?.subtotal.toFixed(2)}
+                      Rs.{formatPriceINR(cartTotals?.subtotal.toFixed(2))}
                     </span>
                   </li>
                   <li className="flex justify-between p-4 border-t border-gray-100 dark:border-gray-800">
                     <span className="font-semibold text-lg">Taxes :</span>
                     <span className="text-slate-400">
-                      Rs.{cartTotals?.totalGST.toFixed(2)}
+                      Rs.{formatPriceINR(cartTotals?.totalGST.toFixed(2))}
                     </span>
                   </li>
                   <li className="flex justify-between p-4 border-t border-gray-100 dark:border-gray-800">
@@ -274,7 +281,7 @@ export default function ShopCart() {
                   <li className="flex justify-between font-semibold p-4 border-t border-gray-200 dark:border-gray-600">
                     <span className="font-semibold text-lg">Total :</span>
                     <span className="font-semibold">
-                      Rs.{cartTotals?.grandTotal.toFixed(2)}
+                      Rs.{formatPriceINR(cartTotals?.grandTotal.toFixed(2))}
                     </span>
                   </li>
                 </ul>

@@ -15,6 +15,7 @@ import { useOrderActions } from "ecom-user-sdk/order";
 import { useUserContext, useOrderContext } from "ecom-user-sdk/context";
 import formatDate from "../components/functions/formatDate";
 import OrdersTableSkeleton from "../components/skeleton/order-table";
+import { formatPriceINR } from "../components/functions/formatPrice";
 
 export default function UserAccount() {
   const { user, loading: loadingUser } = useUserContext();
@@ -47,122 +48,122 @@ export default function UserAccount() {
 
             <div className="lg:w-3/4 md:w-2/3 md:px-3 mt-6 md:mt-0">
               <h5 className="text-lg font-semibold mb-6">My Orders</h5>
-              {loading ? 
-              <OrdersTableSkeleton/> : 
-              
-              <div className="relative overflow-x-auto shadow dark:shadow-gray-800 rounded-md">
-                <table className="w-full text-start text-slate-500 dark:text-slate-400">
-                  <thead className="text-sm uppercase bg-slate-50 dark:bg-slate-800">
-                    <tr className="text-start">
-                      <th
-                        scope="col"
-                        className="px-2 py-3 text-start"
-                        style={{ minWidth: "104px" }}
-                      >
-                        Order No.
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-2 py-3 text-start"
-                        style={{ minWidth: "140px" }}
-                      >
-                        Date
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-2 py-3 text-start"
-                        style={{ minWidth: "120px" }}
-                      >
-                        Status
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-2 py-3 text-start"
-                        style={{ minWidth: "140px" }}
-                      >
-                        Total
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-2 py-3 text-start"
-                        style={{ minWidth: "140px" }}
-                      >
-                        Payment Status
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-2 py-3 text-start"
-                        style={{ minWidth: "100px" }}
-                      >
-                        Action
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {orders &&
-                      orders.length > 0 &&
-                      orders.map((item, index) => {
-                        return (
-                          <tr
-                            className="bg-white dark:bg-slate-900 text-start"
-                            key={index}
-                          >
-                            <th className="px-2 py-3 text-start" scope="row">
-                              {item.order_no}
-                            </th>
-                            <td className="px-2 py-3 text-start">
-                              {formatDate(item.created_at)}
-                            </td>
-                            {item.status === "delivered" && (
-                              <td className="px-2 py-3 text-start text-green-600">
-                                Delivered
+              {loading ? (
+                <OrdersTableSkeleton />
+              ) : (
+                <div className="relative overflow-x-auto shadow dark:shadow-gray-800 rounded-md">
+                  <table className="w-full text-start text-slate-500 dark:text-slate-400">
+                    <thead className="text-sm uppercase bg-slate-50 dark:bg-slate-800">
+                      <tr className="text-start">
+                        <th
+                          scope="col"
+                          className="px-2 py-3 text-start"
+                          style={{ minWidth: "104px" }}
+                        >
+                          Order No.
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-2 py-3 text-start"
+                          style={{ minWidth: "140px" }}
+                        >
+                          Date
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-2 py-3 text-start"
+                          style={{ minWidth: "120px" }}
+                        >
+                          Status
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-2 py-3 text-start"
+                          style={{ minWidth: "140px" }}
+                        >
+                          Total
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-2 py-3 text-start"
+                          style={{ minWidth: "140px" }}
+                        >
+                          Payment Status
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-2 py-3 text-start"
+                          style={{ minWidth: "100px" }}
+                        >
+                          Action
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {orders &&
+                        orders.length > 0 &&
+                        orders.map((item, index) => {
+                          return (
+                            <tr
+                              className="bg-white dark:bg-slate-900 text-start"
+                              key={index}
+                            >
+                              <th className="px-2 py-3 text-start" scope="row">
+                                {item.order_no}
+                              </th>
+                              <td className="px-2 py-3 text-start">
+                                {formatDate(item.created_at)}
                               </td>
-                            )}
-                            {(item.status === "pending" ||
-                              item.status === "processing") && (
-                              <td className="px-2 py-3 text-start text-slate-400">
-                                Processing
+                              {item.status === "delivered" && (
+                                <td className="px-2 py-3 text-start text-green-600">
+                                  Delivered
+                                </td>
+                              )}
+                              {(item.status === "pending" ||
+                                item.status === "processing") && (
+                                <td className="px-2 py-3 text-start text-slate-400">
+                                  Processing
+                                </td>
+                              )}
+                              {item.status === "canceled" && (
+                                <td className="px-2 py-3 text-start text-red-600">
+                                  Canceled
+                                </td>
+                              )}
+                              <td className="px-2 py-3 text-start">
+                                Rs {formatPriceINR(item.amount / 100)}
+                                {/* <span className="text-slate-400">{item.item}</span> */}
                               </td>
-                            )}
-                            {item.status === "canceled" && (
-                              <td className="px-2 py-3 text-start text-red-600">
-                                Canceled
+                              <td className="px-2 py-3 text-start">
+                                <span
+                                  className={`font-semibold ${
+                                    item.payment_status === "paid"
+                                      ? "text-green-600"
+                                      : item.payment_status === "pending"
+                                      ? "text-yellow-600"
+                                      : item.payment_status === "failed"
+                                      ? "text-red-600"
+                                      : "text-gray-500"
+                                  }`}
+                                >
+                                  {item &&
+                                    item.payment_status &&
+                                    item.payment_status.toUpperCase()}
+                                </span>
                               </td>
-                            )}
-                            <td className="px-2 py-3 text-start">
-                              Rs {item.amount / 100}
-                              {/* <span className="text-slate-400">{item.item}</span> */}
-                            </td>
-                            <td className="px-2 py-3 text-start">
-                              <span
-                                className={`font-semibold ${
-                                  item.payment_status === "paid"
-                                    ? "text-green-600"
-                                    : item.payment_status === "pending"
-                                    ? "text-yellow-600"
-                                    : item.payment_status === "failed"
-                                    ? "text-red-600"
-                                    : "text-gray-500"
-                                }`}
-                              >
-                                {item &&
-                                  item.payment_status &&
-                                  item.payment_status.toUpperCase()}
-                              </span>
-                            </td>
-                            <td className="px-2 py-3 text-start">
-                              <Link href="#" className="text-gray-800">
-                                View Invoice
-                                <i className="mdi mdi-chevron-right"></i>
-                              </Link>
-                            </td>
-                          </tr>
-                        );
-                      })}
-                  </tbody>
-                </table>
-              </div>
-              }
+                              <td className="px-2 py-3 text-start">
+                                <Link href="#" className="text-gray-800">
+                                  View Invoice
+                                  <i className="mdi mdi-chevron-right"></i>
+                                </Link>
+                              </td>
+                            </tr>
+                          );
+                        })}
+                    </tbody>
+                  </table>
+                </div>
+              )}
 
               {/* <h5 className="text-lg font-semibold my-6">My favourite Items</h5> */}
 

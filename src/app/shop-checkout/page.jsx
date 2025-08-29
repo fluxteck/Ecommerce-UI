@@ -24,6 +24,7 @@ import { useCartActions } from "ecom-user-sdk/cart";
 import AddressForm from "../components/addressForm";
 import useMessage from "../hook/messageHook";
 import { useRouter } from "next/navigation";
+import { formatPriceINR } from "../components/functions/formatPrice";
 
 export default function ShopCheckout() {
   const {
@@ -100,7 +101,7 @@ export default function ShopCheckout() {
     }
     // e.preventDefault();
     const name = address?.first_name + " " + address?.last_name;
-    const amount = cartTotals.grandTotal.toFixed(2) * 100;
+    const amount = formatPriceINR(cartTotals.grandTotal.toFixed(2) * 100);
 
     const userDetail = {
       name: name,
@@ -117,10 +118,9 @@ export default function ShopCheckout() {
         billing_address: address,
         shipping_address: address,
       });
-      if (data && data.dbOrder && data.dbOrder.id){
-
+      if (data && data.dbOrder && data.dbOrder.id) {
         await emptyCart({ user_id: user.id });
-         closeMessage("Order placed successfully", "success");
+        closeMessage("Order placed successfully", "success");
         // router.push("/order-success/" );
       }
       if (error) {
@@ -138,13 +138,11 @@ export default function ShopCheckout() {
       key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
       shipping_address: address, //shipping address
       onSuccess: async (res) => {
-       
         if (res?.success) {
-
-           await emptyCart({ user_id: user.id });
-            closeMessage("Order placed successfully", "success");
+          await emptyCart({ user_id: user.id });
+          closeMessage("Order placed successfully", "success");
           //  router.push("/order-success/" );
-          }
+        }
 
         // console.log("✅ Payment Success:", res);
       },
@@ -642,9 +640,12 @@ export default function ShopCheckout() {
                           <p className="text-slate-400 font-semibold">
                             Rs.
                             {product.tax_inclusive
-                              ? price * cart.quantity
-                              : ((price + taxedPrice) * cart.quantity).toFixed(
-                                  2
+                              ? formatPriceINR(price * cart.quantity)
+                              : formatPriceINR(
+                                  (
+                                    (price + taxedPrice) *
+                                    cart.quantity
+                                  ).toFixed(2)
                                 )}
                           </p>
                         </div>
@@ -672,7 +673,7 @@ export default function ShopCheckout() {
                     </div>
 
                     <p className="text-slate-400 font-semibold">
-                      Rs.{cartTotals?.subtotal.toFixed(2)}
+                      Rs.{formatPriceINR(cartTotals?.subtotal.toFixed(2))}
                     </p>
                   </div>
                   <div className="p-3 flex justify-between items-center">
@@ -687,7 +688,7 @@ export default function ShopCheckout() {
                     </div>
 
                     <p className="text-slate-400 font-semibold">
-                      Rs.{cartTotals?.totalGST.toFixed(2)}
+                      Rs.{formatPriceINR(cartTotals?.totalGST.toFixed(2))}
                     </p>
                   </div>
                   <div className="p-3 flex justify-between items-center border border-gray-100 dark:border-gray-800">
@@ -696,7 +697,7 @@ export default function ShopCheckout() {
                     </div>
 
                     <p className="font-semibold">
-                      Rs.{cartTotals?.grandTotal.toFixed(2)}
+                      Rs.{formatPriceINR(cartTotals?.grandTotal.toFixed(2))}
                     </p>
                   </div>
                 </div>
