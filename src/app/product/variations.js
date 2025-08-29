@@ -72,7 +72,7 @@ const VariationSection = ({
             Size Chart
           </button>
         </div>
-        <div className="space-x-1">
+        <div className="space-x-1 max-[640px]:leading-[35px]">
           {values.map(({ id, value }) => (
             <button
               key={id}
@@ -96,7 +96,7 @@ const VariationSection = ({
   return (
     <div className="flex items-center mb-4">
       <h5 className="text-lg font-semibold me-2">{type}:</h5>
-      <div className="space-x-1">
+      <div className="space-x-1 max-[640px]:leading-[35px]">
         {values.map(({ id, value }) => (
           <button
             key={id}

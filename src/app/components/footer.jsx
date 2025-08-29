@@ -158,7 +158,7 @@ export default function Footer() {
         <div className="container relative text-center">
           <div className="grid md:grid-cols-2 items-center">
             <div className="md:text-start text-center">
-              <p className="mb-0">
+              <p className="mb-0 text-sm">
                 © {new Date().getFullYear()} MA Mark Design & Develop with{" "}
                 <i className="mdi mdi-heart text-red-600"></i> by{" "}
                 <Link
