@@ -1,6 +1,17 @@
 "use client";
 
-import { Modal, Box, IconButton } from "@mui/material";
+import {
+  Modal,
+  Box,
+  IconButton,
+  TableContainer,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+  Paper,
+} from "@mui/material";
 import Image from "next/image";
 
 export default function ImagePopup({ open, setOpen }) {
@@ -17,13 +28,11 @@ export default function ImagePopup({ open, setOpen }) {
           bgcolor: "background.paper",
           boxShadow: 24,
           borderRadius: 2,
-          p: 2,
+          p: 3,
           outline: "none",
           maxWidth: "90vw",
           maxHeight: "90vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          overflow: "auto", // important for big tables
         }}
       >
         {/* Circular red close button with plain X */}
@@ -33,22 +42,21 @@ export default function ImagePopup({ open, setOpen }) {
             position: "absolute",
             top: 8,
             right: 8,
-            backgroundColor: "red",
-            color: "white",
-            "&:hover": { backgroundColor: "#cc0000" },
-            width: 30,
-            height: 30,
+            backgroundColor: "white",
+            color: "black",
+            "&:hover": { backgroundColor: "black", color: "white" },
+            width: 25,
+            height: 25,
             fontSize: "15px",
-            // padding: "20px",
+            border: "1px solid black",
             borderRadius: "50%",
-            // fontWeight: "bold",
           }}
         >
           X
         </IconButton>
 
         {/* Responsive Optimized Image */}
-        <Image
+        {/* <Image
           src="https://yxdyohefwpubwydtctbs.supabase.co/storage/v1/object/public/products/products/1ddb00a9-a9a7-40d4-9df6-178b409cb1ac-1754762790581-j9mee0.blob"
           alt="Popup"
           width={1200}
@@ -62,7 +70,41 @@ export default function ImagePopup({ open, setOpen }) {
             borderRadius: "8px",
           }}
           priority
-        />
+        /> */}
+
+        {/* Table instead of Image */}
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Size</TableCell>
+                <TableCell align="center">Chest (in)</TableCell>
+                <TableCell align="center">Length (in)</TableCell>
+                <TableCell align="center">Sleeve (in)</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {[
+                { size: "S", chest: 42, length: 25.5, sleeve: 24.5 },
+                { size: "M", chest: 44, length: 26.5, sleeve: 25 },
+                { size: "L", chest: 46, length: 27, sleeve: 25.5 },
+                { size: "XL", chest: 48, length: 27.5, sleeve: 26 },
+                { size: "XXL", chest: 50, length: 28, sleeve: 26 },
+                { size: "3XL", chest: 52, length: 28.5, sleeve: 26.5 },
+                { size: "4XL", chest: 54, length: 29, sleeve: 26.5 },
+                { size: "5XL", chest: 56, length: 29.5, sleeve: 27 },
+
+              ].map((row) => (
+                <TableRow key={row.size}>
+                  <TableCell>{row.size}</TableCell>
+                  <TableCell align="center">{row.chest}</TableCell>
+                  <TableCell align="center">{row.length}</TableCell>
+                  <TableCell align="center">{row.sleeve}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </Box>
     </Modal>
   );
