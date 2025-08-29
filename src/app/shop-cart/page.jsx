@@ -30,7 +30,9 @@ export default function ShopCart() {
     // deleteProductInCartContext,
   } = useCartContext();
   const { removeFromCart, fetchCart } = useCartActions();
-  const { user, loading: loadingUser } = useUserContext();
+  // const { user, loading: loadingUser } = useUserContext();
+  // console.log(cartData);
+  // console.log(loading);
 
   const [cart, setCart] = useState(cartData);
   // console.log(error);
@@ -45,12 +47,12 @@ export default function ShopCart() {
     setCart(cartData);
     setCartTotals(calculateCartTotals(cartData));
   }, [cartData]);
-  useEffect(() => {
-    if (!loadingUser && !user) {
-      console.log("Not authenticated user");
-    }
-    if (user && cart.length === 0) fetchCart({ userId: user.id });
-  }, [user, loadingUser]);
+  // useEffect(() => {
+  //   if (!loadingUser && !user) {
+  //     console.log("Not authenticated user");
+  //   }
+  //   if (user && cart.length === 0) fetchCart({ userId: user.id });
+  // }, [user, loadingUser]);
 
   // const calculatePrice = (product) => {
   //   if (product.discount_type === "no-discount") {
@@ -91,13 +93,28 @@ export default function ShopCart() {
   //   userId: "f47ac10b-58cc-4372-a567-0e02b2c3d479",
   // });
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <>
+        <Navbar navClass="defaultscroll is-sticky" />
+        <div>Loading...</div>
+      </>
+    );
   }
   if (error) {
-    return <div>Error: {error && error.message ? error.message : error}</div>;
+    return (
+      <>
+        <Navbar navClass="defaultscroll is-sticky" />
+        <div>Error: {error && error.message ? error.message : error}</div>
+      </>
+    );
   }
   if (cart.length === 0) {
-    return <EmptyCart />;
+    return (
+      <>
+        <Navbar navClass="defaultscroll is-sticky" />
+        <EmptyCart />
+      </>
+    );
   }
   return (
     <>

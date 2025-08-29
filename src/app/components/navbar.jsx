@@ -26,6 +26,7 @@ export default function Navbar({ navClass, navlight }) {
   let [subManu, setSubManu] = useState("");
   let [isOpen, setIsOpen] = useState(false);
   let [cartManu, setCartManu] = useState(false);
+  const [cart, setCart] = useState(null);
   let [userManu, setUserManu] = useState(false);
   let dropdownRef = useRef(null);
   let cartRef = useRef(null);
@@ -42,6 +43,9 @@ export default function Navbar({ navClass, navlight }) {
   const { fetchCart } = useCartActions();
   // console.log(user);
 
+  useEffect(() => {
+    setCart(cartData);
+  }, [cartData]);
   const logoutUser = async () => {
     closeMessage("Logout successful", "success");
     await Promise.all([logout(), removeUser()]);
@@ -92,9 +96,12 @@ export default function Navbar({ navClass, navlight }) {
   useEffect(() => {
     if (!loading && !user) {
       console.log("Not authenticated user");
-      return;
     }
-    if (user && cartData.length === 0) fetchCart({ userId: user.id });
+    if (user && cart && cart.length === 0) {
+      // console.log("in");
+
+      fetchCart({ userId: user.id });
+    }
   }, [user, loading]);
   return (
     <nav id="topnav" className={`${navClass} ${scrolling ? "nav-sticky" : ""}`}>
