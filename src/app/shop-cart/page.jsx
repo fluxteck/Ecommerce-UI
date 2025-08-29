@@ -194,6 +194,7 @@ export default function ShopCart() {
                               src={item.image}
                               width={48}
                               height={62}
+                              unoptimized
                               className="rounded shadow dark:shadow-gray-800 w-12"
                               alt=""
                             />
