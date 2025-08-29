@@ -211,7 +211,7 @@ export default function Navbar({ navClass, navlight }) {
             <Link
               href={"/shop-cart"}
               data-dropdown-toggle="dropdown"
-              className="dropdown-toggle size-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-red-600 border border-red-600 text-white relative"
+              className="dropdown-toggle size-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-white border border-black relative"
               type="button"
               onClick={() => setCartManu(!cartManu)}
             >
@@ -219,7 +219,7 @@ export default function Navbar({ navClass, navlight }) {
 
               {/* Cart count badge */}
               {cartData?.length > 0 && (
-                <span className="absolute -top-1 -right-1 bg-white text-red-600 text-xs font-bold rounded-full px-1.5 py-0.5 shadow">
+                <span className="absolute -top-1 -right-1 bg-black text-white text-xs font-bold rounded-full px-1.5 py-0.5 shadow">
                   {cartData.length}
                 </span>
               )}
@@ -262,7 +262,7 @@ export default function Navbar({ navClass, navlight }) {
               type="button"
               onClick={() => setUserManu(!userManu)}
             >
-              <span className="size-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full font-semibold text-sm md:text-base dark:shadow-gray-800  bg-red-600 text-white">
+              <span className="size-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full font-semibold text-sm md:text-base dark:shadow-gray-800  bg-white border border-black relative">
                 {/* {getInitials(user?.name || " ")} */}
                 {user?.name?.trim() ? (
                   getInitials(user.name)

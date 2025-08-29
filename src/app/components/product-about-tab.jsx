@@ -61,7 +61,7 @@ export default function ProductAboutTab({ product }) {
         >
           {activeTab === 1 && (
             <div>
-              <div className="text-slate-400">
+              <div className="text-slate-600">
                 {<RenderSafeHTML html={product.description} />}
               </div>
             </div>
