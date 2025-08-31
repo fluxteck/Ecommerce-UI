@@ -6,11 +6,11 @@ import Navbar from "./components/navbar";
 import Tagline from "./components/tagline";
 import CtaOne from "./components/cta-one";
 import Footer from "./components/footer";
-// import Switcher from "./components/switcher"; 
+// import Switcher from "./components/switcher";
 
 import ScrollToTop from "./components/scroll-to-top";
 import { collections, newProduct } from "./data/data";
-// import { FiHeart, FiEye, FiBookmark } from "./assets/icons/vander"; 
+// import { FiHeart, FiEye, FiBookmark } from "./assets/icons/vander";
 
 export default function Home() {
   return (
@@ -92,12 +92,11 @@ export default function Home() {
                         width={0}
                         height={0}
                         sizes="100vw"
+                        unoptimized
                         style={{ width: "100%", height: "auto" }}
                         className=""
                         alt=""
                       />
-
-
                     </div>
                   </Link>
 
@@ -129,7 +128,6 @@ export default function Home() {
             })}
           </div>
         </div>
-
 
         {/* <div className="grid grid-cols-1">
                     <div className="py-[30px] px-0 border-t border-slate-800">

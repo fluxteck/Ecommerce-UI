@@ -25,6 +25,8 @@ import AddressForm from "../components/addressForm";
 import useMessage from "../hook/messageHook";
 import { useRouter } from "next/navigation";
 import { formatPriceINR } from "../components/functions/formatPrice";
+import { addOrderItems } from "ecom-user-sdk/order";
+import { mapCartToOrderItems } from "../components/functions/mapCartItemsToOrder";
 
 export default function ShopCheckout() {
   const {
@@ -54,6 +56,7 @@ export default function ShopCheckout() {
   const [isAddressSame, setIsAddressSame] = useState(true);
   const { closeMessage, openMessage } = useMessage();
   //   console.log(addressData);
+  console.log(cart);
 
   //   async function fetchAddress(userId) {
   //     const { data, error } = await getAddress(userId);
@@ -101,8 +104,10 @@ export default function ShopCheckout() {
     }
     // e.preventDefault();
     const name = address?.first_name + " " + address?.last_name;
-    const amount = formatPriceINR(cartTotals.grandTotal.toFixed(2) * 100);
+    const amount = Math.round(cartTotals.grandTotal.toFixed(2) * 100);
 
+    // console.log(amount);
+    const orderItems = mapCartToOrderItems(cart);
     const userDetail = {
       name: name,
       email: address.email,
@@ -118,7 +123,15 @@ export default function ShopCheckout() {
         billing_address: address,
         shipping_address: address,
       });
+
+      console.log(data);
+
       if (data && data.dbOrder && data.dbOrder.id) {
+        // console.log(orderItems);
+        await addOrderItems({
+          order_id: data.dbOrder.order_id,
+          order_items: orderItems,
+        });
         await emptyCart({ user_id: user.id });
         closeMessage("Order placed successfully", "success");
         // router.push("/order-success/" );
@@ -137,14 +150,18 @@ export default function ShopCheckout() {
       billing_address: address,
       key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
       shipping_address: address, //shipping address
+      order_items: orderItems,
       onSuccess: async (res) => {
         if (res?.success) {
+          // await addOrderItems({ order_id: data.dbOrder.id });
           await emptyCart({ user_id: user.id });
           closeMessage("Order placed successfully", "success");
           //  router.push("/order-success/" );
+          return;
         }
+        // closeMessage("Payment Failed", "error");
 
-        // console.log("✅ Payment Success:", res);
+        console.log("✅ Payment Success:", res);
       },
       onFailure: (err) => closeMessage("Payment Failed", "error"),
     });

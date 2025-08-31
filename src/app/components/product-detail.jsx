@@ -15,6 +15,7 @@ export default function ProductDetail({ product }) {
   const [activeVariations, setActiveVariations] = useState([]);
   const { user, loading: loadingUser } = useUserContext();
   const { addToCart } = useCartActions();
+  console.log(product);
 
   // Showing the Toast message
 
@@ -65,7 +66,7 @@ export default function ProductDetail({ product }) {
       qty: count,
       variationIds: activeVariations,
     });
-    router.push("/shop-checkout");
+    // router.push(`/shop-checkout?id=${product.id},`);
   }
   return (
     <div className="sticky top-20">

@@ -20,9 +20,10 @@ import Image from "next/image";
 export default function AboutUs() {
   return (
     <>
-      <Navbar navClass="defaultscroll is-sticky" 
-      // navlight={true} 
-       />
+      <Navbar
+        navClass="defaultscroll is-sticky"
+        // navlight={true}
+      />
 
       <section className="relative text-center table w-full pt-15 pb-2 lg:pt-15 md:pt-13 bg-gray-50 dark:bg-slate-800">
         <div className="container relative">
@@ -60,6 +61,7 @@ export default function AboutUs() {
                 width={0}
                 height={0}
                 sizes="100vw"
+                unoptimized
                 style={{ width: "100%", height: "auto" }}
                 className="rounded-b-full shadow-md dark:shadow-gray-800"
                 alt=""
