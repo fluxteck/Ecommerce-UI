@@ -73,38 +73,45 @@ export default function ImagePopup({ open, setOpen }) {
         /> */}
 
         {/* Table instead of Image */}
-        <TableContainer component={Paper}>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell>Size</TableCell>
-                <TableCell align="center">Chest (in)</TableCell>
-                <TableCell align="center">Length (in)</TableCell>
-                <TableCell align="center">Sleeve (in)</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {[
-                { size: "S", chest: 42, length: 25.5, sleeve: 24.5 },
-                { size: "M", chest: 44, length: 26.5, sleeve: 25 },
-                { size: "L", chest: 46, length: 27, sleeve: 25.5 },
-                { size: "XL", chest: 48, length: 27.5, sleeve: 26 },
-                { size: "XXL", chest: 50, length: 28, sleeve: 26 },
-                { size: "3XL", chest: 52, length: 28.5, sleeve: 26.5 },
-                { size: "4XL", chest: 54, length: 29, sleeve: 26.5 },
-                { size: "5XL", chest: 56, length: 29.5, sleeve: 27 },
 
-              ].map((row) => (
-                <TableRow key={row.size}>
-                  <TableCell>{row.size}</TableCell>
-                  <TableCell align="center">{row.chest}</TableCell>
-                  <TableCell align="center">{row.length}</TableCell>
-                  <TableCell align="center">{row.sleeve}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+<TableContainer component={Paper}>
+  <Table>
+    <TableHead>
+      <TableRow>
+        <TableCell>Size</TableCell>
+        <TableCell align="center">Brand Size (in)</TableCell>
+        <TableCell align="center">Chest (in)</TableCell>
+        <TableCell align="center">Length (in)</TableCell>
+        <TableCell align="center">Sleeve (in)</TableCell>
+      </TableRow>
+    </TableHead>
+    <TableBody>
+      {[
+        { size: "XS", Brand: "34-35", chest: 40, length: 25, sleeve: 24 },
+        { size: "S", Brand: "36-37", chest: 42, length: 25.5, sleeve: 24.5 },
+        { size: "M", Brand: "38-39", chest: 44, length: 26.5, sleeve: 25 },
+        { size: "L", Brand: "40-41", chest: 46, length: 27, sleeve: 25.5 },
+        { size: "XL", Brand: "42-43", chest: 48, length: 27.5, sleeve: 26 },
+        { size: "XXL", Brand: "44-45", chest: 50, length: 28, sleeve: 26 },
+        { size: "3XL", Brand: "46-47", chest: 52, length: 28.5, sleeve: 26.5 },
+        { size: "4XL", Brand: "48-49", chest: 54, length: 29, sleeve: 26.5 },
+        { size: "5XL", Brand: "50-51", chest: 56, length: 29.5, sleeve: 27 },
+        { size: "6XL", Brand: "52-53", chest: 58, length: 30, sleeve: 27.5 },
+      ].map((row) => (
+        <TableRow key={row.size}>
+          <TableCell>{row.size}</TableCell>
+          <TableCell align="center">{row.Brand}</TableCell>
+          <TableCell align="center">{row.chest}</TableCell>
+          <TableCell align="center">{row.length}</TableCell>
+          <TableCell align="center">{row.sleeve}</TableCell>
+        </TableRow>
+      ))}
+    </TableBody>
+  </Table>
+</TableContainer>
+
+
+
       </Box>
     </Modal>
   );
