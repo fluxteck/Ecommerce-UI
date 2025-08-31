@@ -2,7 +2,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { useCartActions } from "ecom-user-sdk/cart";
 
-export default function Counter({ qtn, cartId, onQuantityChange }) {
+export default function Counter({ qtn, cartId, min = 0, onQuantityChange }) {
   const [count, setCount] = useState(qtn);
   const { updateQuantity } = useCartActions();
   // Debounced update function
@@ -29,7 +29,7 @@ export default function Counter({ qtn, cartId, onQuantityChange }) {
 
   const increment = () => changeQuantity(count + 1);
   const decrement = () => {
-    if (count > 0) changeQuantity(count - 1);
+    if (count > min) changeQuantity(count - 1);
   };
 
   return (

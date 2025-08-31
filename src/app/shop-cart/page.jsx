@@ -214,6 +214,7 @@ export default function ShopCart() {
                         <td className="p-4 text-center">
                           <Counter
                             qtn={item.quantity}
+                            min={1}
                             cartId={item.id} // this is your cart_item_id
                             onQuantityChange={(newQty) => {
                               setCart((prevCart) =>

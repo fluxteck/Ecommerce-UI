@@ -1,4 +1,5 @@
 import React from "react";
+import { states } from "./functions/states";
 
 const AddressForm = ({ register, errors }) => {
   return (
@@ -149,9 +150,15 @@ const AddressForm = ({ register, errors }) => {
           <option value="" disabled>
             Select a state
           </option>
-
-          <option value="Maharashtra">Maharashtra</option>
-          <option value="Delhi">Delhi</option>
+          {states.map((state) => {
+            return (
+              <option key={state} value={state}>
+                {state}
+              </option>
+            );
+          })}
+          {/* <option value="Maharashtra">Maharashtra</option>
+          <option value="Delhi">Delhi</option> */}
         </select>
         {errors.state && (
           <p className="text-red-500 text-sm mt-1">{errors.state.message}</p>
