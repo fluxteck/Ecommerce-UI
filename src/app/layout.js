@@ -15,8 +15,8 @@ const dm_sans = DM_Sans({
 
 export const metadata = {
   title:
-    "MA Mark - Leather",
-  description: "Next Js Fashion Store eCommerce Tailwind CSS Landing Template",
+    "Buy Premium Leather Jackets by Ma Mark",
+  description: "Explore Ma Mark’s handcrafted leather jackets – premium quality, stylish designs, and lasting comfort. Shop exclusive collections for a bold, timeless look.",
 };
 
 export default function RootLayout({ children }) {
