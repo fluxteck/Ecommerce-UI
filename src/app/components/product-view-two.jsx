@@ -34,7 +34,7 @@ export default function ProductViewTwo({ product }) {
               style={{
                 width: "100%",
                 height: "auto",
-                maxHeight: "80vh",
+                // maxHeight: "80vh",
                 objectFit: "contain",
               }}
               className="block"
@@ -49,7 +49,7 @@ export default function ProductViewTwo({ product }) {
           className="
         img-select 
         grid gap-3 list-none 
-        grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8
+        grid-cols-4 
       "
         >
           {images.map((item, index) => (

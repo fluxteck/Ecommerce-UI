@@ -35,7 +35,6 @@ export default function ProductAboutTab({ product }) {
                             <button className={`px-4 py-2 text-start text-base font-semibold rounded-md w-full  duration-500 ${activeTab === 2 ? 'text-white bg-black hover:text-white' :'hover:text-black'}`} onClick={()=>setActiveTab(2)}>Additional Information</button>
                         </li> */}
 
-
             {/* <li className="ms-0">
               <button
                 className={`px-4 py-2 text-start text-base font-semibold rounded-md w-full  duration-500 ${
@@ -48,8 +47,6 @@ export default function ProductAboutTab({ product }) {
                 Review
               </button>
             </li> */}
-
-
           </ul>
         </div>
       </div>
@@ -61,9 +58,7 @@ export default function ProductAboutTab({ product }) {
         >
           {activeTab === 1 && (
             <div>
-              <div className="text-slate-600">
-                {<RenderSafeHTML html={product.description} />}
-              </div>
+              <div>{<RenderSafeHTML html={product.description} />}</div>
             </div>
           )}
           {/* {activeTab === 2 && (

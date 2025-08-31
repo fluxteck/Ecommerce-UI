@@ -15,7 +15,7 @@ export default function ProductDetail({ product }) {
   const [activeVariations, setActiveVariations] = useState([]);
   const { user, loading: loadingUser } = useUserContext();
   const { addToCart } = useCartActions();
-  console.log(product);
+  // console.log(product);
 
   // Showing the Toast message
 

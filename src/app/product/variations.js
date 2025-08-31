@@ -77,7 +77,7 @@ const VariationSection = ({
             <button
               key={id}
               onClick={() => handleSelect(id, type)}
-              className={`px-3 py-1 rounded-md text-sm font-medium border transition-all duration-200 ${
+              className={`px-3 my-1 py-1 rounded-md text-sm font-medium border transition-all duration-200 ${
                 isActive(id)
                   ? "bg-black text-white border-black"
                   : "bg-red-600/5 text-black hover:bg-black hover:text-white border-transparent"
