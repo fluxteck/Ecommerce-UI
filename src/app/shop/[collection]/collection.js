@@ -97,6 +97,7 @@ export default function Collections({ products }) {
                             : "/images/product1.webp"
                         }
                         width={0}
+                        unoptimized
                         height={0}
                         sizes="100vw"
                         style={{ width: "100%", height: "auto" }}
