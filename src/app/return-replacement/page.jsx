@@ -165,7 +165,7 @@ export default function ReturnReplacement() {
       </section>
       <Footer />
       {/* <Switcher /> */}
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
     </>
   );
 }

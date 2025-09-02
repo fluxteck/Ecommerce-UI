@@ -86,7 +86,7 @@ export default function ProductDetailTwo({ product }) {
 
       <Footer />
       {/* <Switcher /> */}
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
     </>
   );
 }

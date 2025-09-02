@@ -7,6 +7,7 @@ import { EcomProvider } from "ecom-user-sdk/context";
 import SupabaseProvider from "./providers/supabase";
 import UserProvider from "./providers/userProvider";
 import { MessageProvider } from "./providers/messageContext";
+import WhatsAppChatButton from "./components/whatsapp";
 
 const dm_sans = DM_Sans({
   subsets: ["latin"],
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
             <SupabaseProvider>{children}</SupabaseProvider>
           </EcomProvider>
         </MessageProvider>
+        <WhatsAppChatButton />
       </body>
     </html>
   );
