@@ -317,7 +317,7 @@ export default function UserSetting() {
       </section>
       <Footer />
       {/* <Switcher/> */}
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
     </>
   );
 }

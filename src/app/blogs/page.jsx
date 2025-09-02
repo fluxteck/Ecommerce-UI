@@ -141,7 +141,7 @@ export default function Blogs() {
       </section>
       <Footer />
       {/* <Switcher/> */}
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
     </>
   );
 }

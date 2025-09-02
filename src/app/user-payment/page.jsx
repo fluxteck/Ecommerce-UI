@@ -104,7 +104,7 @@ export default function UserPayment() {
       </section>
       <Footer />
       {/* <Switcher/> */}
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
     </>
   );
 }

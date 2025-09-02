@@ -16,6 +16,7 @@ import {
 import { promiseData, teamData } from "../data/data";
 import About from "../components/about";
 import Image from "next/image";
+import WhatsAppChatButton from "../components/whatsapp";
 
 export default function AboutUs() {
   return (
@@ -219,7 +220,7 @@ export default function AboutUs() {
       </section>
       <Footer />
       {/* <Switcher /> */}
-      <ScrollToTop />
+      {/* <ScrollToTop />  */}
     </>
   );
 }

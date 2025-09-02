@@ -87,21 +87,21 @@ export default function ImagePopup({ open, setOpen }) {
     </TableHead>
     <TableBody>
       {[
-        { size: "XS", Brand: "34-35", chest: 40, length: 25, sleeve: 24 },
-        { size: "S", Brand: "36-37", chest: 42, length: 25.5, sleeve: 24.5 },
-        { size: "M", Brand: "38-39", chest: 44, length: 26.5, sleeve: 25 },
-        { size: "L", Brand: "40-41", chest: 46, length: 27, sleeve: 25.5 },
-        { size: "XL", Brand: "42-43", chest: 48, length: 27.5, sleeve: 26 },
-        { size: "XXL", Brand: "44-45", chest: 50, length: 28, sleeve: 26 },
-        { size: "3XL", Brand: "46-47", chest: 52, length: 28.5, sleeve: 26.5 },
-        { size: "4XL", Brand: "48-49", chest: 54, length: 29, sleeve: 26.5 },
-        { size: "5XL", Brand: "50-51", chest: 56, length: 29.5, sleeve: 27 },
-        { size: "6XL", Brand: "52-53", chest: 58, length: 30, sleeve: 27.5 },
+        { size: "XS", chest: 40, Brand: "34-35", length: 25, sleeve: 24 },
+        { size: "S", chest: 42, Brand: "36-37", length: 25.5, sleeve: 24.5 },
+        { size: "M", chest: 44, Brand: "38-39", length: 26.5, sleeve: 25 },
+        { size: "L", chest: 46, Brand: "40-41", length: 27, sleeve: 25.5 },
+        { size: "XL", chest: 48, Brand: "42-43", length: 27.5, sleeve: 26 },
+        { size: "XXL", chest: 50, Brand: "44-45", length: 28, sleeve: 26 },
+        { size: "3XL", chest: 52, Brand: "46-47", length: 28.5, sleeve: 26.5 },
+        { size: "4XL", chest: 54, Brand: "48-49", length: 29, sleeve: 26.5 },
+        { size: "5XL", chest: 56, Brand: "50-51", length: 29.5, sleeve: 27 },
+        { size: "6XL", chest: 58, Brand: "52-53", length: 30, sleeve: 27.5 },
       ].map((row) => (
         <TableRow key={row.size}>
           <TableCell>{row.size}</TableCell>
-          <TableCell align="center">{row.Brand}</TableCell>
           <TableCell align="center">{row.chest}</TableCell>
+          <TableCell align="center">{row.Brand}</TableCell>
           <TableCell align="center">{row.length}</TableCell>
           <TableCell align="center">{row.sleeve}</TableCell>
         </TableRow>

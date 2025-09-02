@@ -167,7 +167,7 @@ export default function UserAddress() {
       </section>
       <Footer />
       {/* <Switcher/> */}
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
       <EditAddress
         open={open}
         setOpen={setOpen}
