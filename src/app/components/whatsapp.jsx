@@ -14,7 +14,7 @@ export default function WhatsAppChatButton() {
 
   return (
    <Link
-  href="https://wa.me/+918285022383?text=Hello%20Team%2C%20I%20need%20some%20help!"
+  href="https://wa.me/+919873794849?text=Hello%20Team%2C%20I%20need%20some%20help!"
   target="_blank"
   rel="noopener noreferrer"
   id="whatsapp-chat"

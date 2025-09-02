@@ -129,7 +129,7 @@ export default function Contact() {
                     href="tel:+152534-468-854"
                     className="text-black font-medium"
                   >
-                    +91 82850 22383
+                    +91 9873794849
                   </Link>
                 </div>
               </div>

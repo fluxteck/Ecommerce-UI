@@ -65,7 +65,6 @@ export default function OrderSuccessful() {
             <Link
               href="https://fluxteck.com/"
               target="_blank"
-              className="text-green-600 hover:underline"
             >
               Fluxteck
             </Link>
