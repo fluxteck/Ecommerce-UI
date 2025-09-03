@@ -32,6 +32,9 @@ export default function Navbar({ navClass, navlight }) {
   let cartRef = useRef(null);
   let userRef = useRef(null);
   const { user, loading, removeUser } = useUserContext();
+  // console.log(user);
+  // console.log(loading);
+
   const { logout } = useAuthContext();
 
   const { closeMessage, openMessage } = useMessage();

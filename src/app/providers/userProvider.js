@@ -27,6 +27,7 @@ export default function UserProvider() {
       await initSupabaseAuth(supabase);
       //   await signInEmailPassword("t@gmail.com", "1234567");
       const { data, error } = await getUser();
+
       if (error) {
         // console.log("Error fetching user:", error);
         return;

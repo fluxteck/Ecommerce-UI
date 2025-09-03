@@ -5,11 +5,13 @@ import Image from "next/image";
 
 import BackToHome from "../components/back-to-home";
 // import Switcher from "../components/switcher";
-import { useAuth } from "ecom-user-sdk/auth/supabase";
+// import { useAuth } from "ecom-user-sdk/auth/supabase";
 import { useForm } from "react-hook-form";
 import { useUserActions } from "ecom-user-sdk/user";
 import useMessage from "../hook/messageHook";
-// import { useUserContext } from "ecom-user-sdk/context";
+
+import { signUpWithOtp } from "ecom-user-sdk/auth/supabase";
+import { useRouter } from "next/navigation";
 
 export default function Signup() {
   const {
@@ -17,7 +19,8 @@ export default function Signup() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { signup } = useAuth();
+  //   const { signup } = useAuth();
+  const router = useRouter();
   const { addUser } = useUserActions();
   //   const { user } = useUserContext();
   //   console.log(user);
@@ -28,20 +31,32 @@ export default function Signup() {
     const { email, password, name } = data;
     openMessage("Creating your account...", "loading");
     // console.log(email);
-    const result = await signup({
+    const result = await signUpWithOtp({
       email,
-      password,
       metadata: { type: "user" },
     });
 
+    // console.log(result);
+
+    // const result = await signup({
+    //   email,
+    //   password,
+    //   metadata: { type: "user" },
+    // });
+
     // console.log("Signup result:", result);
-    if (result.data?.user) {
-      closeMessage("Signup successful!", "success");
-      addUser({ user: { email: email, name: name } });
-      //   console.log("signup successful");
-    } else {
+    if (result.data?.error) {
+      closeMessage("Something went wrong", "error");
       return console.log("signup failed");
+    } else {
+      await addUser({ user: { email: email, name: name } });
+      closeMessage("Signup successful!", "success");
+      router.push("/login");
+      //   console.log("signup successful");
     }
+    // else {
+    //   return console.log("signup failed");
+    // }
   };
   return (
     <>
@@ -123,7 +138,7 @@ export default function Signup() {
                         )}
                       </div>
 
-                      <div className="mb-4">
+                      {/* <div className="mb-4">
                         <label
                           className="font-semibold"
                           htmlFor="LoginPassword"
@@ -142,7 +157,7 @@ export default function Signup() {
                             Password is required
                           </span>
                         )}
-                      </div>
+                      </div> */}
 
                       <div className="mb-4">
                         <div className="flex items-center w-full mb-0">

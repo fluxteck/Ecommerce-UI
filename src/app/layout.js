@@ -14,8 +14,7 @@ const dm_sans = DM_Sans({
 });
 
 export const metadata = {
-  title:
-    "MA Mark - Leather",
+  title: "MA Mark - Leather",
   description: "Next Js Fashion Store eCommerce Tailwind CSS Landing Template",
 };
 

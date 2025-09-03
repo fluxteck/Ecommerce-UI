@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -7,9 +7,9 @@ import Image from "next/image";
 import BackToHome from "../components/back-to-home";
 import { useAuth } from "ecom-user-sdk/auth/supabase";
 import { useForm } from "react-hook-form";
-// import { useUserActions } from "ecom-user-sdk/user";
 import { useSearchParams } from "next/navigation";
 import useMessage from "../hook/messageHook";
+import { signInWithOtp } from "ecom-user-sdk/auth/supabase";
 
 export default function Login() {
   const {
@@ -17,28 +17,50 @@ export default function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { login } = useAuth();
+  const { login, verifyOtp } = useAuth();
   //   const { getUserByEmail } = useUserActions();
   const searchParams = useSearchParams();
 
   const { closeMessage, openMessage } = useMessage();
+  const [token, setToken] = useState("");
 
   //   const { user } = useUserContext();
   //   console.log(user);
+  //   const sendOtp = async () => {
+  //     // const { email, password, name } = data;
+  //     openMessage("sending otp...");
+  //     // console.log(email);
+  //     const result = await signInWithOtp({
+  //       email,
+  //     });
+  //     if (result.data?.error) {
+  //       closeMessage("Something went wrong", "error");
+  //       return console.log("otp failed");
+  //     } else {
+  //       await addUser({ user: { email: email, name: name } });
+  //       closeMessage("Otp sent successfully!", "success");
+  //       //   router.push("/login");
+  //       //   console.log("signup successful");
+  //     }
+  //   };
 
   const onSubmit = async (data) => {
     openMessage("Logging you in...", "loading");
     const { email, password } = data;
     // console.log(email);
 
-    const { data: da, error } = await login({
+    const { data: da, error } = await verifyOtp({
       email,
-      password,
+      otp: token,
     });
+    // const { data: da, error } = await login({
+    //   email,
+    //   password,
+    // });
 
-    console.log("login result:", da);
+    // console.log("login result:", da);
 
-    console.log("Login error:", error);
+    // console.log("Login error:", error);
     if (da?.user) {
       closeMessage("Login successful", "success");
       //   await getUserByEmail({ email: email });
@@ -114,7 +136,15 @@ export default function Login() {
                         )}
                       </div>
 
-                      <div className="mb-4">
+                      <input
+                        type="text"
+                        value={token}
+                        placeholder="Enter 6-digit code"
+                        className="border rounded p-2 w-full"
+                        onChange={(e) => setToken(e.target.value)}
+                      />
+
+                      {/* <div className="mb-4">
                         <label
                           className="font-semibold"
                           htmlFor="LoginPassword"
@@ -133,7 +163,7 @@ export default function Login() {
                             Password is required
                           </span>
                         )}
-                      </div>
+                      </div> */}
 
                       <div className="flex justify-between mb-4">
                         {/* <div className="flex items-center mb-0">

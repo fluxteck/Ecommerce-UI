@@ -56,7 +56,7 @@ export default function ShopCheckout() {
   const [isAddressSame, setIsAddressSame] = useState(true);
   const { closeMessage, openMessage } = useMessage();
   //   console.log(addressData);
-  console.log(cart);
+  // console.log(cart);
 
   //   async function fetchAddress(userId) {
   //     const { data, error } = await getAddress(userId);
@@ -123,8 +123,9 @@ export default function ShopCheckout() {
         billing_address: address,
         shipping_address: address,
       });
+      // console.log(error);
 
-      console.log(data);
+      // console.log(data);
 
       if (data && data.dbOrder && data.dbOrder.id) {
         // console.log(orderItems);
@@ -144,27 +145,35 @@ export default function ShopCheckout() {
 
       return;
     }
-    await processOrderPayment({
-      amount: amount,
-      user: userDetail,
-      billing_address: address,
-      key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
-      shipping_address: address, //shipping address
-      order_items: orderItems,
-      onSuccess: async (res) => {
-        if (res?.success) {
-          // await addOrderItems({ order_id: data.dbOrder.id });
-          await emptyCart({ user_id: user.id });
-          closeMessage("Order placed successfully", "success");
-          //  router.push("/order-success/" );
-          return;
-        }
-        // closeMessage("Payment Failed", "error");
+    try {
+      await processOrderPayment({
+        amount: amount,
+        user: userDetail,
+        billing_address: address,
+        key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+        shipping_address: address, //shipping address
+        order_items: orderItems,
+        onSuccess: async (res) => {
+          if (res?.success) {
+            // await addOrderItems({ order_id: data.dbOrder.id });
+            await emptyCart({ user_id: user.id });
+            closeMessage("Order placed successfully", "success");
+            //  router.push("/order-success/" );
+            return;
+          }
+          // closeMessage("Payment Failed", "error");
 
-        console.log("✅ Payment Success:", res);
-      },
-      onFailure: (err) => closeMessage("Payment Failed", "error"),
-    });
+          console.log("✅ Payment Success:", res);
+        },
+        onFailure: (err) => {
+          console.log(err);
+
+          closeMessage("Payment Failed", "error");
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <>
