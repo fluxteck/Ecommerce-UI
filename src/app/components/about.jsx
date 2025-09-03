@@ -53,10 +53,10 @@ export default function About() {
                 <div className="">
                   <h5 className="title font-bold mb-0">Phone</h5>
                   <Link
-                    href="tel:+152534-468-854"
+                    href="tel:+919873794849"
                     className="tracking-wide text-black"
                   >
-                    +91 82850 22383
+                    +91 9873794849
                   </Link>
                 </div>
               </div>

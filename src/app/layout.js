@@ -7,6 +7,7 @@ import { EcomProvider } from "ecom-user-sdk/context";
 import SupabaseProvider from "./providers/supabase";
 import UserProvider from "./providers/userProvider";
 import { MessageProvider } from "./providers/messageContext";
+import WhatsAppChatButton from "./components/whatsapp";
 
 const dm_sans = DM_Sans({
   subsets: ["latin"],
@@ -14,8 +15,9 @@ const dm_sans = DM_Sans({
 });
 
 export const metadata = {
-  title: "MA Mark - Leather",
-  description: "Next Js Fashion Store eCommerce Tailwind CSS Landing Template",
+  title: "Buy Premium Leather Jackets by Ma Mark",
+  description:
+    "Explore Ma Mark’s handcrafted leather jackets – premium quality, stylish designs, and lasting comfort. Shop exclusive collections for a bold, timeless look.",
 };
 
 export default function RootLayout({ children }) {
@@ -29,6 +31,7 @@ export default function RootLayout({ children }) {
             <SupabaseProvider>{children}</SupabaseProvider>
           </EcomProvider>
         </MessageProvider>
+        <WhatsAppChatButton />
       </body>
     </html>
   );

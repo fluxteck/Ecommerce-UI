@@ -126,10 +126,10 @@ export default function Contact() {
 
                 <div className="mt-5">
                   <Link
-                    href="tel:+152534-468-854"
+                    href="tel:+919873794849"
                     className="text-black font-medium"
                   >
-                    +91 82850 22383
+                    +91 9873794849
                   </Link>
                 </div>
               </div>
@@ -178,7 +178,7 @@ export default function Contact() {
       </section>
       <Footer />
       {/* <Switcher /> */}
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
     </>
   );
 }

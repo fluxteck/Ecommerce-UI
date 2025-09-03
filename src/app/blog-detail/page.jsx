@@ -274,7 +274,7 @@ export default function BlogDetail() {
       </section>
       <Footer />
       {/* <Switcher/> */}
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
     </>
   );
 }

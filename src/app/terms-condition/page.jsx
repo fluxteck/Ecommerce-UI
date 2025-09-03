@@ -218,7 +218,7 @@ export default function Terms() {
       </section>
       <Footer />
       {/* <Switcher /> */}
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
     </>
   );
 }

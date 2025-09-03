@@ -29,6 +29,7 @@ import { addOrderItems } from "ecom-user-sdk/order";
 import { mapCartToOrderItems } from "../components/functions/mapCartItemsToOrder";
 
 export default function ShopCheckout() {
+  
   const {
     cart: cartData,
     loading,
@@ -135,7 +136,8 @@ export default function ShopCheckout() {
         });
         await emptyCart({ user_id: user.id });
         closeMessage("Order placed successfully", "success");
-        // router.push("/order-success/" );
+        router.push("/order-successful" );
+
       }
       if (error) {
         closeMessage(error?.message || "Failed to place order", "error");
@@ -145,23 +147,22 @@ export default function ShopCheckout() {
 
       return;
     }
-    try {
-      await processOrderPayment({
-        amount: amount,
-        user: userDetail,
-        billing_address: address,
-        key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
-        shipping_address: address, //shipping address
-        order_items: orderItems,
-        onSuccess: async (res) => {
-          if (res?.success) {
-            // await addOrderItems({ order_id: data.dbOrder.id });
-            await emptyCart({ user_id: user.id });
-            closeMessage("Order placed successfully", "success");
-            //  router.push("/order-success/" );
-            return;
-          }
-          // closeMessage("Payment Failed", "error");
+    await processOrderPayment({
+      amount: amount,
+      user: userDetail,
+      billing_address: address,
+      key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+      shipping_address: address, //shipping address
+      order_items: orderItems,
+      onSuccess: async (res) => {
+        if (res?.success) {
+          // await addOrderItems({ order_id: data.dbOrder.id });
+          await emptyCart({ user_id: user.id });
+          closeMessage("Order placed successfully", "success");
+           router.push("/order-successful" );
+          return;
+        }
+        // closeMessage("Payment Failed", "error");
 
           console.log("✅ Payment Success:", res);
         },
@@ -178,7 +179,7 @@ export default function ShopCheckout() {
   return (
     <>
       <Navbar navClass="defaultscroll is-sticky" />
-      <section className="relative table w-full py-20 lg:py-24 md:pt-28 bg-gray-50 dark:bg-slate-800">
+      <section className="relative table w-full pt-15 pb-2 lg:pt-13 md:pt-13 bg-gray-50 dark:bg-slate-800">
         <div className="container relative">
           <div className="grid grid-cols-1 mt-14">
             <h3 className="text-3xl leading-normal font-semibold">Fashion</h3>
@@ -752,7 +753,7 @@ export default function ShopCheckout() {
       </section>
       <Footer />
       {/* <Switcher /> */}
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
     </>
   );
 }

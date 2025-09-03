@@ -183,7 +183,7 @@ export default function Shipping() {
       </section>
       <Footer />
       {/* <Switcher /> */}
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
     </>
   );
 }
