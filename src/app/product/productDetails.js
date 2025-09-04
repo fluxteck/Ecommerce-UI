@@ -12,7 +12,9 @@ import ProductViewTwo from "../components/product-view-two";
 import ScrollToTop from "../components/scroll-to-top";
 // import { useParams } from "next/navigation";
 
-export default function ProductDetailTwo({ product }) {
+export default function ProductDetailTwo({ product, recentProducts }) {
+  // console.log(recentProducts);
+
   // console.log(product);
 
   //   const { id } = useParams();
@@ -81,7 +83,7 @@ export default function ProductDetailTwo({ product }) {
           <ProductAboutTab product={product} />
         </div>
 
-        <ArrivalItem />
+        <ArrivalItem recentProducts={recentProducts} />
       </section>
 
       <Footer />

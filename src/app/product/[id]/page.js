@@ -7,7 +7,7 @@ import NotFound from "@/app/components/not-found";
 export async function generateStaticParams() {
   const page = 1; // or whatever default you want
   const limit = 100; // or a big number to get all products
-  const filters = {}; // if you have filters
+  const filters = { status: "Active" }; // if you have filters
 
   const res = await getProducts(page, limit, filters);
 
@@ -49,10 +49,26 @@ async function getProduct(id) {
   }
 }
 
+async function getRecentProducts() {
+  try {
+    const res = await getProducts(1, 4, { status: "Active" }); // page=1, limit=4, no filters
+    if (res.error) {
+      return [];
+    }
+    return res;
+  } catch (error) {
+    return [];
+  }
+}
 export const revalidate = 60;
 const Page = async ({ params }) => {
   const { id } = await params;
-  const product = await getProduct(id);
+  const [product, recentProducts] = await Promise.all([
+    getProduct(id),
+    getRecentProducts(),
+  ]);
+  // const product = await getProduct(id);
+  // const recentProducts = await getRecentProducts();
   // console.log(product);
   if (!product) {
     return <NotFound />;
@@ -60,7 +76,7 @@ const Page = async ({ params }) => {
 
   return (
     <div>
-      <ProductDetailTwo product={product} />
+      <ProductDetailTwo product={product} recentProducts={recentProducts} />
     </div>
   );
 };
