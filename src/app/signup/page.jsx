@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -22,12 +22,16 @@ export default function Signup() {
   //   const { signup } = useAuth();
   const router = useRouter();
   const { addUser } = useUserActions();
+
+  const [accepted, setAccepted] = useState(false);
   //   const { user } = useUserContext();
   //   console.log(user);
 
   const { closeMessage, openMessage } = useMessage();
 
   const onSubmit = async (data) => {
+    if (!accepted)
+      return closeMessage("Please accept the Terms and Condition.", "error");
     const { email, password, name } = data;
     openMessage("Creating your account...", "loading");
     // console.log(email);
@@ -164,7 +168,9 @@ export default function Signup() {
                           <input
                             className="form-checkbox rounded border-gray-100 dark:border-gray-800 text-gray-800 focus:border-gray-800 focus:ring focus:ring-offset-0 focus:ring-gray-800 focus:ring-opacity-50 me-2"
                             type="checkbox"
-                            value=""
+                            checked={accepted}
+                            onChange={(e) => setAccepted(e.target.checked)}
+                            // value=""
                             id="AcceptT&C"
                           />
                           <label

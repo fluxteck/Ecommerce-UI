@@ -29,7 +29,6 @@ import { addOrderItems } from "ecom-user-sdk/order";
 import { mapCartToOrderItems } from "../components/functions/mapCartItemsToOrder";
 
 export default function ShopCheckout() {
-  
   const {
     cart: cartData,
     loading,
@@ -136,8 +135,7 @@ export default function ShopCheckout() {
         });
         await emptyCart({ user_id: user.id });
         closeMessage("Order placed successfully", "success");
-        router.push("/order-successful" );
-
+        router.push("/order-successful");
       }
       if (error) {
         closeMessage(error?.message || "Failed to place order", "error");
@@ -147,22 +145,23 @@ export default function ShopCheckout() {
 
       return;
     }
-    await processOrderPayment({
-      amount: amount,
-      user: userDetail,
-      billing_address: address,
-      key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
-      shipping_address: address, //shipping address
-      order_items: orderItems,
-      onSuccess: async (res) => {
-        if (res?.success) {
-          // await addOrderItems({ order_id: data.dbOrder.id });
-          await emptyCart({ user_id: user.id });
-          closeMessage("Order placed successfully", "success");
-           router.push("/order-successful" );
-          return;
-        }
-        // closeMessage("Payment Failed", "error");
+    try {
+      await processOrderPayment({
+        amount: amount,
+        user: userDetail,
+        billing_address: address,
+        key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+        shipping_address: address, //shipping address
+        order_items: orderItems,
+        onSuccess: async (res) => {
+          if (res?.success) {
+            // await addOrderItems({ order_id: data.dbOrder.id });
+            await emptyCart({ user_id: user.id });
+            closeMessage("Order placed successfully", "success");
+            router.push("/order-successful");
+            return;
+          }
+          // closeMessage("Payment Failed", "error");
 
           console.log("✅ Payment Success:", res);
         },

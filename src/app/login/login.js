@@ -10,19 +10,25 @@ import { useForm } from "react-hook-form";
 import { useSearchParams } from "next/navigation";
 import useMessage from "../hook/messageHook";
 import { signInWithOtp } from "ecom-user-sdk/auth/supabase";
+import OtpInput from "./otp";
 
 export default function Login() {
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors },
   } = useForm();
   const { login, verifyOtp } = useAuth();
+
+  const [otp, setOtp] = useState("");
+  const [error, setError] = useState("");
+  // const [otpSent, setOtpSent] = useState(false);
   //   const { getUserByEmail } = useUserActions();
   const searchParams = useSearchParams();
 
   const { closeMessage, openMessage } = useMessage();
-  const [token, setToken] = useState("");
+  //   const [token, setToken] = useState("");
 
   //   const { user } = useUserContext();
   //   console.log(user);
@@ -43,24 +49,35 @@ export default function Login() {
   //       //   console.log("signup successful");
   //     }
   //   };
+  const sendOtp = async (data) => {
+    const { email } = data;
+    openMessage("sending Otp...");
 
-  const onSubmit = async (data) => {
-    openMessage("Logging you in...", "loading");
-    const { email, password } = data;
-    // console.log(email);
+    const result = await signInWithOtp({ email });
+    if (result.data?.error) {
+      closeMessage("Something went wrong", "error");
+      //   otpSent(false);
+      return console.log("login otp failed");
+    }
+    // setOtpSent(true)
+    closeMessage("OTP sent successfully!", "success");
+    // router.push("/login");
+    //   console.log("signup successful");
+  };
 
+  const loginHandle = async () => {
+    const email = getValues("email");
+    if (!email) return closeMessage("Email is required", "error");
+    if (otp.length !== 6) {
+      setError("OTP should be 6 digit");
+      return;
+    }
+    openMessage("Signing In...");
     const { data: da, error } = await verifyOtp({
       email,
-      otp: token,
+      otp: otp,
     });
-    // const { data: da, error } = await login({
-    //   email,
-    //   password,
-    // });
 
-    // console.log("login result:", da);
-
-    // console.log("Login error:", error);
     if (da?.user) {
       closeMessage("Login successful", "success");
       //   await getUserByEmail({ email: email });
@@ -68,12 +85,45 @@ export default function Login() {
       //   console.log(nextUrl);
 
       window.location.href = nextUrl;
+      setError("");
       //   console.log("signup successful");
     } else {
       closeMessage(error?.message || "Login failed", "error");
+      setError("");
       // return console.log("login failed");
     }
   };
+
+  //   const onSubmit = async (data) => {
+  //     openMessage("Logging you in...", "loading");
+  //     const { email, password } = data;
+  //     // console.log(email);
+
+  //     const { data: da, error } = await verifyOtp({
+  //       email,
+  //       otp: token,
+  //     });
+  //     // const { data: da, error } = await login({
+  //     //   email,
+  //     //   password,
+  //     // });
+
+  //     // console.log("login result:", da);
+
+  //     // console.log("Login error:", error);
+  //     if (da?.user) {
+  //       closeMessage("Login successful", "success");
+  //       //   await getUserByEmail({ email: email });
+  //       const nextUrl = searchParams.get("next") || "/";
+  //       //   console.log(nextUrl);
+
+  //       window.location.href = nextUrl;
+  //       //   console.log("signup successful");
+  //     } else {
+  //       closeMessage(error?.message || "Login failed", "error");
+  //       // return console.log("login failed");
+  //     }
+  //   };
   return (
     <>
       <section className="md:h-screen py-36 flex items-center bg-gray-800/10 dark:bg-gray-800/20 bg-[url('/images/hero/bg-shape.png')] bg-center bg-no-repeat bg-cover">
@@ -113,11 +163,104 @@ export default function Login() {
                     </Link>
                   </div>
 
-                  <form
-                    onSubmit={handleSubmit(onSubmit)}
+                  <div
+                    // onSubmit={handleSubmit(onSubmit)}
                     className="text-start lg:py-20 py-8"
                   >
                     <div className="grid grid-cols-1">
+                      <div className="max-w-md mx-auto p-6 bg-white dark:bg-slate-900 rounded-2xl shadow-md">
+                        {/* Email Input + Send OTP */}
+                        <form onSubmit={handleSubmit(sendOtp)}>
+                          <div className="mb-6">
+                            <label
+                              className="font-semibold block mb-2"
+                              htmlFor="LoginEmail"
+                            >
+                              Email Address
+                            </label>
+                            <div className="flex">
+                              <input
+                                id="LoginEmail"
+                                type="email"
+                                {...register("email", { required: true })}
+                                className="flex-1 py-2 px-3 h-12 bg-transparent dark:bg-slate-800 dark:text-slate-200 rounded-l-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-indigo-500 outline-none"
+                                placeholder="name@example.com"
+                              />
+                              <button
+                                type="submit"
+                                className="px-4 bg-indigo-600 text-white font-medium rounded-r-lg hover:bg-indigo-700 transition"
+                              >
+                                Send OTP
+                              </button>
+                            </div>
+                            {errors.email && (
+                              <span className="text-red-500 text-sm mt-2 block">
+                                Email is required
+                              </span>
+                            )}
+                          </div>
+                        </form>
+
+                        {/* OTP Input */}
+                        <div>
+                          <label
+                            className="font-semibold block mb-3"
+                            htmlFor="otp"
+                          >
+                            Enter OTP
+                          </label>
+                          <OtpInput length={6} onChange={setOtp} />
+                          {error && (
+                            <span className="text-red-500 text-sm mt-2 block">
+                              {error}
+                            </span>
+                          )}
+                          {/* <div className="flex justify-between gap-2">
+                            {[...Array(6)].map((_, index) => (
+                              <input
+                                key={index}
+                                type="text"
+                                maxLength="1"
+                                className="w-12 h-12 text-center text-lg font-semibold rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-slate-800 dark:text-slate-200 focus:ring-2 focus:ring-indigo-500 outline-none"
+                              />
+                            ))}
+                          </div> */}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* <div className="mb-4">
+                        <label
+                          className="font-semibold"
+                          htmlFor="LoginPassword"
+                        >
+                          Password:
+                        </label>
+                        <input
+                          id="LoginPassword"
+                          type="password"
+                          {...register("password", { required: true })}
+                          className="mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0"
+                          placeholder="Password:"
+                        />
+                        {errors.name && (
+                          <span className="text-red-500 text-sm">
+                            Password is required
+                          </span>
+                        )}
+                      </div> */}
+
+                    <div className="mb-4">
+                      <button
+                        type="button"
+                        onClick={loginHandle}
+                        className="py-2 px-5 inline-block tracking-wide align-middle duration-500 text-base text-center bg-gray-800 text-white rounded-md w-full"
+                        //   value="Login / Sign in"
+                      >
+                        Login
+                      </button>
+                    </div>
+                    {/* <div className="grid grid-cols-1">
                       <div className="mb-4">
                         <label className="font-semibold" htmlFor="LoginEmail">
                           Email Address:
@@ -140,46 +283,14 @@ export default function Login() {
                         type="text"
                         value={token}
                         placeholder="Enter 6-digit code"
-                        className="border rounded p-2 w-full"
+                        className="mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0"
                         onChange={(e) => setToken(e.target.value)}
                       />
 
-                      {/* <div className="mb-4">
-                        <label
-                          className="font-semibold"
-                          htmlFor="LoginPassword"
-                        >
-                          Password:
-                        </label>
-                        <input
-                          id="LoginPassword"
-                          type="password"
-                          {...register("password", { required: true })}
-                          className="mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0"
-                          placeholder="Password:"
-                        />
-                        {errors.name && (
-                          <span className="text-red-500 text-sm">
-                            Password is required
-                          </span>
-                        )}
-                      </div> */}
+
 
                       <div className="flex justify-between mb-4">
-                        {/* <div className="flex items-center mb-0">
-                          <input
-                            className="form-checkbox rounded border-gray-100 dark:border-gray-800 text-gray-800 focus:border-gray-800 focus:ring focus:ring-offset-0 focus:ring-gray-800 focus:ring-opacity-50 me-2"
-                            type="checkbox"
-                            value=""
-                            id="RememberMe"
-                          />
-                          <label
-                            className="form-checkbox-label text-slate-400"
-                            htmlFor="RememberMe"
-                          >
-                            Remember me
-                          </label>
-                        </div> */}
+
                         <p className="text-slate-400 mb-0">
                           <Link
                             href="/forgot-password"
@@ -211,8 +322,8 @@ export default function Login() {
                           Sign Up
                         </Link>
                       </div>
-                    </div>
-                  </form>
+                    </div> */}
+                  </div>
 
                   <div className="text-center">
                     <p className="mb-0 text-slate-400">
