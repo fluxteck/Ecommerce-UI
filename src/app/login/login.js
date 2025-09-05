@@ -11,6 +11,7 @@ import { useSearchParams } from "next/navigation";
 import useMessage from "../hook/messageHook";
 import { signInWithOtp } from "ecom-user-sdk/auth/supabase";
 import OtpInput from "./otp";
+import Navbar from "../components/navbar";
 
 export default function Login() {
   const {
@@ -126,19 +127,20 @@ export default function Login() {
   //   };
   return (
     <>
-      <section className="md:h-screen py-36 flex items-center bg-gray-800/10 dark:bg-gray-800/20 bg-[url('/images/hero/bg-shape.png')] bg-center bg-no-repeat bg-cover">
+      <Navbar />
+      <section className="mt-16 md:h-screen py-36 flex items-center bg-[url('/images/hero/bg-shape.png')] bg-center bg-no-repeat bg-cover">
         <div className="container relative">
           <div className="grid grid-cols-1">
             <div className="relative overflow-hidden rounded-md shadow dark:shadow-gray-700 bg-white dark:bg-slate-900">
               <div className="grid md:grid-cols-2 grid-cols-1 items-center">
                 <div className="relative md:shrink-0">
                   <Image
-                    src="/images/login.jpg"
+                    src="/images/login1.jpg"
                     width={0}
                     height={0}
                     sizes="100vw"
                     style={{ width: "100%", height: "auto" }}
-                    className="lg:h-full h-full w-full object-cover md:h-[34rem]"
+                    className="lg:h-full h-full w-full object-cover md:h-[30rem]"
                     alt=""
                   />
                 </div>
@@ -163,32 +165,31 @@ export default function Login() {
                     </Link>
                   </div>
 
-                  <div
-                    // onSubmit={handleSubmit(onSubmit)}
-                    className="text-start lg:py-20 py-8"
-                  >
-                    <div className="grid grid-cols-1">
-                      <div className="max-w-md mx-auto p-6 bg-white dark:bg-slate-900 rounded-2xl shadow-md">
+                  {/* Form Start */}
+
+                  <div className="text-start lg:py-20 py-10">
+                    <div className="grid grid-cols-1 ml-[-25px] sm:ml-0">
+                      <div className="max-w-md mx-auto p-6 bg-white dark:bg-slate-900 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800">
                         {/* Email Input + Send OTP */}
                         <form onSubmit={handleSubmit(sendOtp)}>
-                          <div className="mb-6">
+                          <div className="mb-8">
                             <label
-                              className="font-semibold block mb-2"
+                              className="font-semibold block mb-2 text-gray-800 dark:text-gray-200"
                               htmlFor="LoginEmail"
                             >
                               Email Address
                             </label>
-                            <div className="flex">
+                            <div className="flex flex-col sm:flex-row">
                               <input
                                 id="LoginEmail"
                                 type="email"
                                 {...register("email", { required: true })}
-                                className="flex-1 py-2 px-3 h-12 bg-transparent dark:bg-slate-800 dark:text-slate-200 rounded-l-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-indigo-500 outline-none"
+                                className="flex-1 py-3 px-4 h-12 bg-transparent dark:bg-slate-800 dark:text-slate-200 rounded-lg sm:rounded-r-none border border-gray-300 dark:border-gray-700 focus:ring-2 focus:black outline-none"
                                 placeholder="name@example.com"
                               />
                               <button
                                 type="submit"
-                                className="px-4 bg-indigo-600 text-white font-medium rounded-r-lg hover:bg-indigo-700 transition"
+                                className="mt-3 sm:mt-0 sm:ml-0 sm:rounded-l-none px-5 h-12 bg-slate-800 text-white font-medium rounded-lg hover:bg-slate-900 transition"
                               >
                                 Send OTP
                               </button>
@@ -202,9 +203,9 @@ export default function Login() {
                         </form>
 
                         {/* OTP Input */}
-                        <div>
+                        <div className="mb-10">
                           <label
-                            className="font-semibold block mb-3"
+                            className="font-semibold block mb-3 text-gray-800 dark:text-gray-200"
                             htmlFor="otp"
                           >
                             Enter OTP
@@ -215,52 +216,25 @@ export default function Login() {
                               {error}
                             </span>
                           )}
-                          {/* <div className="flex justify-between gap-2">
-                            {[...Array(6)].map((_, index) => (
-                              <input
-                                key={index}
-                                type="text"
-                                maxLength="1"
-                                className="w-12 h-12 text-center text-lg font-semibold rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-slate-800 dark:text-slate-200 focus:ring-2 focus:ring-indigo-500 outline-none"
-                              />
-                            ))}
-                          </div> */}
                         </div>
                       </div>
                     </div>
 
-                    {/* <div className="mb-4">
-                        <label
-                          className="font-semibold"
-                          htmlFor="LoginPassword"
-                        >
-                          Password:
-                        </label>
-                        <input
-                          id="LoginPassword"
-                          type="password"
-                          {...register("password", { required: true })}
-                          className="mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0"
-                          placeholder="Password:"
-                        />
-                        {errors.name && (
-                          <span className="text-red-500 text-sm">
-                            Password is required
-                          </span>
-                        )}
-                      </div> */}
-
-                    <div className="mb-4">
+                    {/* Login Button */}
+                    <div className="mt-6">
                       <button
                         type="button"
                         onClick={loginHandle}
-                        className="py-2 px-5 inline-block tracking-wide align-middle duration-500 text-base text-center bg-gray-800 text-white rounded-md w-full"
-                        //   value="Login / Sign in"
+                        className="py-3 px-5 w-full text-base font-medium tracking-wide bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition"
                       >
                         Login
                       </button>
                     </div>
-                    {/* <div className="grid grid-cols-1">
+                  </div>
+
+                  {/* Form End */}
+
+                  {/* <div className="grid grid-cols-1">
                       <div className="mb-4">
                         <label className="font-semibold" htmlFor="LoginEmail">
                           Email Address:
@@ -323,7 +297,7 @@ export default function Login() {
                         </Link>
                       </div>
                     </div> */}
-                  </div>
+                  {/* </div>  */}
 
                   <div className="text-center">
                     <p className="mb-0 text-slate-400">
@@ -346,7 +320,7 @@ export default function Login() {
         </div>
       </section>
       {/* <Switcher/> */}
-      <BackToHome />
+      {/* <BackToHome /> */}
     </>
   );
 }
