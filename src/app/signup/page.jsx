@@ -12,6 +12,7 @@ import useMessage from "../hook/messageHook";
 
 import { signUpWithOtp } from "ecom-user-sdk/auth/supabase";
 import { useRouter } from "next/navigation";
+import Navbar from "../components/navbar";
 
 export default function Signup() {
   const {
@@ -64,14 +65,15 @@ export default function Signup() {
   };
   return (
     <>
-      <section className="md:h-screen py-36 flex items-center bg-gray-800/10 dark:bg-gray-800/20 bg-[url('/images/hero/bg-shape.png')] bg-center bg-no-repeat bg-cover">
+    <Navbar />
+      <section className="mt-16 md:h-screen py-36 flex items-center bg-[url('/images/hero/bg-shape.png')] bg-center bg-no-repeat bg-cover">
         <div className="container relative">
           <div className="grid grid-cols-1">
             <div className="relative overflow-hidden rounded-md shadow dark:shadow-gray-700 bg-white dark:bg-slate-900">
               <div className="grid md:grid-cols-2 grid-cols-1 items-center">
                 <div className="relative md:shrink-0">
                   <Image
-                    src="/images/signup.jpg"
+                    src="/images/signup1.jpg"
                     width={0}
                     height={0}
                     sizes="100vw"
@@ -228,7 +230,7 @@ export default function Signup() {
           </div>
         </div>
       </section>
-      <BackToHome />
+      {/* <BackToHome /> */}
       {/* <Switcher/> */}
     </>
   );
