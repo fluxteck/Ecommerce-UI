@@ -542,6 +542,22 @@ export default function Checkout({ product }) {
                       >
                         {truncateString(product.product_name, 15)}
                       </Link>
+                      <p className="text-sm text-gray-500">
+                        Qty:{" "}
+                        <span className="font-medium text-gray-300">
+                          {checkoutData.qty}
+                        </span>
+                      </p>
+
+                      {/* Variants */}
+                      {checkoutData.variations &&
+                        Object.keys(checkoutData.variations).length > 0 && (
+                          <p className="text-sm text-gray-500">
+                            {Object.entries(checkoutData.variations)
+                              .map(([key, value]) => `${key}: ${value}`)
+                              .join(", ")}
+                          </p>
+                        )}
                     </div>
 
                     <p className="text-slate-400 font-semibold">
