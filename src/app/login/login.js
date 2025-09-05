@@ -129,14 +129,14 @@ export default function Login() {
     <>
       <Navbar />
 
-    <section className="mt-16 md:h-screen py-36 flex items-center bg-[url('/images/hero/bg-shape.png')] bg-center bg-no-repeat bg-cover">
+<section className="mt-16 md:h-screen py-36 flex items-center bg-[url('/images/hero/bg-shape.png')] bg-center bg-no-repeat bg-cover">
   <div className="container relative">
     <div className="grid grid-cols-1">
       <div className="relative overflow-hidden rounded-md shadow dark:shadow-gray-700 bg-white dark:bg-slate-900">
         <div className="grid md:grid-cols-2 grid-cols-1 items-center">
           <div className="relative md:shrink-0">
             <Image
-              src="/images/login1.jpg"
+              src="/images/login1.webp"
               width={0}
               height={0}
               sizes="100vw"
@@ -210,13 +210,13 @@ export default function Login() {
                     >
                       Enter OTP
                     </label>
-                    <div className="flex justify-between gap-2 sm:gap-3">
+                    <div className="flex justify-center gap-2">
                       {[...Array(6)].map((_, index) => (
                         <input
                           key={index}
                           type="text"
                           maxLength="1"
-                          className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 text-center text-lg font-semibold rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-slate-800 dark:text-slate-200 focus:ring-2 focus:ring-indigo-500 outline-none"
+                          className="w-10 h-10 sm:w-12 sm:h-12 text-center text-lg font-semibold rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-slate-800 dark:text-slate-200 focus:ring-2 focus:ring-indigo-500 outline-none"
                         />
                       ))}
                     </div>
@@ -262,6 +262,7 @@ export default function Login() {
     </div>
   </div>
 </section>
+
 
 
       {/* <Switcher/> */}
