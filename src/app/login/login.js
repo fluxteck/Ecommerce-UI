@@ -129,141 +129,140 @@ export default function Login() {
     <>
       <Navbar />
 
-<section className="mt-16 md:h-screen py-36 flex items-center bg-[url('/images/hero/bg-shape.png')] bg-center bg-no-repeat bg-cover">
-  <div className="container relative">
-    <div className="grid grid-cols-1">
-      <div className="relative overflow-hidden rounded-md shadow dark:shadow-gray-700 bg-white dark:bg-slate-900">
-        <div className="grid md:grid-cols-2 grid-cols-1 items-center">
-          <div className="relative md:shrink-0">
-            <Image
-              src="/images/login1.webp"
-              width={0}
-              height={0}
-              sizes="100vw"
-              style={{ width: "100%", height: "auto" }}
-              className="lg:h-full h-full w-full object-cover md:h-[30rem]"
-              alt=""
-            />
-          </div>
+      <section className="mt-16 md:h-screen py-36 flex items-center bg-[url('/images/hero/bg-shape.png')] bg-center bg-no-repeat bg-cover">
+        <div className="container relative">
+          <div className="grid grid-cols-1">
+            <div className="relative overflow-hidden rounded-md shadow dark:shadow-gray-700 bg-white dark:bg-slate-900">
+              <div className="grid md:grid-cols-2 grid-cols-1 items-center">
+                <div className="relative md:shrink-0">
+                  <Image
+                    src="/images/login1.webp"
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                    style={{ width: "100%", height: "auto" }}
+                    className="lg:h-full h-full w-full object-cover md:h-[30rem]"
+                    alt=""
+                  />
+                </div>
 
-          <div className="p-8 lg:px-20">
-            <div className="text-center">
-              <Link href="/">
-                <Image
-                  src="/images/logo-main-blk.png"
-                  width={114}
-                  height={22}
-                  className="mx-auto block dark:hidden"
-                  alt=""
-                />
-                <Image
-                  src="/images/logo-main-blk.png"
-                  width={114}
-                  height={22}
-                  className="mx-auto hidden dark:block"
-                  alt=""
-                />
-              </Link>
-            </div>
+                <div className="p-8 lg:px-20">
+                  <div className="text-center">
+                    <Link href="/">
+                      <Image
+                        src="/images/logo-main-blk.png"
+                        width={114}
+                        height={22}
+                        className="mx-auto block dark:hidden"
+                        alt=""
+                      />
+                      <Image
+                        src="/images/logo-main-blk.png"
+                        width={114}
+                        height={22}
+                        className="mx-auto hidden dark:block"
+                        alt=""
+                      />
+                    </Link>
+                  </div>
 
-            {/* Form Start */}
-            <div className="text-start py-10 flex justify-center">
-              <div className="grid grid-cols-1 w-full max-w-md">
-                <div className="mx-auto p-6 bg-white dark:bg-slate-900 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 w-full">
-                  {/* Email Input + Send OTP */}
-                  <form onSubmit={handleSubmit(sendOtp)}>
-                    <div className="mb-8">
-                      <label
-                        className="font-semibold block mb-2 text-gray-800 dark:text-gray-200"
-                        htmlFor="LoginEmail"
-                      >
-                        Email Address
-                      </label>
-                      <div className="flex flex-col sm:flex-row">
-                        <input
-                          id="LoginEmail"
-                          type="email"
-                          {...register("email", { required: true })}
-                          className="flex-1 py-3 px-4 h-12 bg-transparent dark:bg-slate-800 dark:text-slate-200 rounded-lg sm:rounded-r-none border border-gray-300 dark:border-gray-700 focus:ring-2 focus:black outline-none"
-                          placeholder="name@example.com"
-                        />
-                        <button
-                          type="submit"
-                          className="mt-3 sm:mt-0 sm:ml-0 sm:rounded-l-none px-5 h-12 bg-slate-800 text-white font-medium rounded-lg hover:bg-slate-900 transition"
-                        >
-                          Send OTP
-                        </button>
-                      </div>
-                      {errors.email && (
-                        <span className="text-red-500 text-sm mt-2 block">
-                          Email is required
-                        </span>
-                      )}
-                    </div>
-                  </form>
+                  {/* Form Start */}
+                  <div className="text-start py-10 flex justify-center">
+                    <div className="grid grid-cols-1 w-full max-w-md">
+                      <div className="mx-auto p-6 bg-white dark:bg-slate-900 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 w-full">
+                        {/* Email Input + Send OTP */}
+                        <form onSubmit={handleSubmit(sendOtp)}>
+                          <div className="mb-8">
+                            <label
+                              className="font-semibold block mb-2 text-gray-800 dark:text-gray-200"
+                              htmlFor="LoginEmail"
+                            >
+                              Email Address
+                            </label>
+                            <div className="flex flex-col sm:flex-row">
+                              <input
+                                id="LoginEmail"
+                                type="email"
+                                {...register("email", { required: true })}
+                                className="flex-1 py-3 px-4 h-12 bg-transparent dark:bg-slate-800 dark:text-slate-200 rounded-lg sm:rounded-r-none border border-gray-300 dark:border-gray-700 focus:ring-2 focus:black outline-none"
+                                placeholder="name@example.com"
+                              />
+                              <button
+                                type="submit"
+                                className="mt-3 sm:mt-0 sm:ml-0 sm:rounded-l-none px-5 h-12 bg-slate-800 text-white font-medium rounded-lg hover:bg-slate-900 transition"
+                              >
+                                Send OTP
+                              </button>
+                            </div>
+                            {errors.email && (
+                              <span className="text-red-500 text-sm mt-2 block">
+                                Email is required
+                              </span>
+                            )}
+                          </div>
+                        </form>
 
-                  {/* OTP Input */}
-                  <div className="mb-10">
-                    <label
-                      className="font-semibold block mb-3 text-gray-800 dark:text-gray-200"
-                      htmlFor="otp"
-                    >
-                      Enter OTP
-                    </label>
-                    <div className="flex justify-center gap-2">
-                      {[...Array(6)].map((_, index) => (
+                        {/* OTP Input */}
+                        <div className="mb-10">
+                          <label
+                            className="font-semibold block mb-3 text-gray-800 dark:text-gray-200"
+                            htmlFor="otp"
+                          >
+                            Enter OTP
+                          </label>
+                          <div className="flex justify-center gap-2">
+                            <OtpInput onChange={setOtp} />
+                            {/* {[...Array(6)].map((_, index) => (
                         <input
                           key={index}
                           type="text"
                           maxLength="1"
                           className="w-10 h-10 sm:w-12 sm:h-12 text-center text-lg font-semibold rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-slate-800 dark:text-slate-200 focus:ring-2 focus:ring-indigo-500 outline-none"
                         />
-                      ))}
+                      ))} */}
+                          </div>
+                          {error && (
+                            <span className="text-red-500 text-sm mt-2 block">
+                              {error}
+                            </span>
+                          )}
+                        </div>
+                      </div>
                     </div>
-                    {error && (
-                      <span className="text-red-500 text-sm mt-2 block">
-                        {error}
-                      </span>
-                    )}
+                  </div>
+
+                  {/* Login Button */}
+                  <div className="mt-6">
+                    <button
+                      type="button"
+                      onClick={loginHandle}
+                      className="py-3 px-5 w-full text-base font-medium tracking-wide bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition"
+                    >
+                      Login
+                    </button>
+                  </div>
+                  {/* Form End */}
+
+                  <div className="text-center mt-6">
+                    <p className="mb-0 text-slate-400">
+                      © {new Date().getFullYear()} MA Mark. Develop with{" "}
+                      <i className="mdi mdi-heart text-red-600"></i> by{" "}
+                      <Link
+                        href="https://fluxteck.com/"
+                        target="_blank"
+                        className="text-reset"
+                      >
+                        Fluxteck
+                      </Link>
+                      .
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
-
-            {/* Login Button */}
-            <div className="mt-6">
-              <button
-                type="button"
-                onClick={loginHandle}
-                className="py-3 px-5 w-full text-base font-medium tracking-wide bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition"
-              >
-                Login
-              </button>
-            </div>
-            {/* Form End */}
-
-            <div className="text-center mt-6">
-              <p className="mb-0 text-slate-400">
-                © {new Date().getFullYear()} MA Mark. Develop with{" "}
-                <i className="mdi mdi-heart text-red-600"></i> by{" "}
-                <Link
-                  href="https://fluxteck.com/"
-                  target="_blank"
-                  className="text-reset"
-                >
-                  Fluxteck
-                </Link>
-                .
-              </p>
-            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
+      </section>
 
       {/* <Switcher/> */}
       {/* <BackToHome /> */}

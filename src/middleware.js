@@ -49,5 +49,5 @@ export const config = {
     "/user-address",
     "/user-account",
     "/user-setting",
-  ], // Apply only to these paths
+  ],
 };

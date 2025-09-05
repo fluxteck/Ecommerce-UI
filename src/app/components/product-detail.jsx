@@ -16,7 +16,7 @@ export default function ProductDetail({ product }) {
   const { user, loading: loadingUser } = useUserContext();
   const { addToCart } = useCartActions();
   // console.log(product);
-
+  // console.log(activeVariations);
   // Showing the Toast message
 
   const { closeMessage, openMessage } = useMessage();
@@ -56,16 +56,34 @@ export default function ProductDetail({ product }) {
     console.log(error);
   }
   async function handleCheckout() {
-    if (!user) {
-      router.push("/login");
-      return;
-    }
-    await addToCart({
-      userId: user.id,
-      productId: product.id,
-      qty: count,
-      variationIds: activeVariations,
-    });
+    // if (!user) {
+    //   router.push("/login");
+    //   return;
+    // }
+    // await addToCart({
+    //   userId: user.id,
+    //   productId: product.id,
+    //   qty: count,
+    //   variationIds: activeVariations,
+    // });
+    const selectedVariations = product.variations.filter((v) =>
+      activeVariations.includes(v.id)
+    );
+
+    // Build query params
+    const variationParams = selectedVariations
+      .map(
+        (v) => `${encodeURIComponent(v.type)}=${encodeURIComponent(v.value)}`
+      )
+      .join("&");
+
+    // Final URL
+    const checkoutUrl = `/shop-checkout/${product.id}?qty=${count}${
+      variationParams ? `&${variationParams}` : ""
+    }`;
+    // console.log(checkoutUrl);
+
+    router.push(checkoutUrl);
     // router.push(`/shop-checkout?id=${product.id},`);
   }
   return (

@@ -1,42 +1,29 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-
-import Navbar from "../components/navbar";
-// import MobileApp from "../components/mobile-app";
-import Footer from "../components/footer";
-import { getProductById } from "ecom-user-sdk/server";
-// import Switcher from "../components/switcher";
-import ScrollToTop from "../components/scroll-to-top";
-import {
-  useCartContext,
-  useAddressContext,
-  useUserContext,
-} from "ecom-user-sdk/context";
-import {
-  calculateCartTotals,
-  calculatePrice,
-} from "../components/functions/priceFunctions";
-import { truncateString } from "../components/functions/sliceString";
-import { useAddressActions } from "ecom-user-sdk/user";
+import { useAddressContext, useUserContext } from "ecom-user-sdk/context";
+import { useAddressActions, addUser, getUserByEmail } from "ecom-user-sdk/user";
 import { processOrderPayment } from "ecom-user-sdk/payment/razorpay";
 import { createOrder } from "ecom-user-sdk/payment/cod";
-import { useCartActions } from "ecom-user-sdk/cart";
-import AddressForm from "../components/addressForm";
-import useMessage from "../hook/messageHook";
-import { useRouter } from "next/navigation";
-import { formatPriceINR } from "../components/functions/formatPrice";
+// import { useCartActions } from "ecom-user-sdk/cart";
+import { useRouter, useSearchParams } from "next/navigation";
+// import { formatPriceINR } from "../components/functions/formatPrice";
 import { addOrderItems } from "ecom-user-sdk/order";
-import { mapCartToOrderItems } from "../components/functions/mapCartItemsToOrder";
+import Navbar from "@/app/components/navbar";
+import Footer from "@/app/components/footer";
+import AddressForm from "@/app/components/addressForm";
+import useMessage from "@/app/hook/messageHook";
+import { mapProductToOrderItems } from "@/app/components/functions/mapCartItemsToOrder";
+import { formatPriceINR } from "@/app/components/functions/formatPrice";
+import { calculatePrice } from "@/app/components/functions/priceFunctions";
+import { truncateString } from "@/app/components/functions/sliceString";
 
-export default function ShopCheckout() {
-  const {
-    cart: cartData,
-    loading,
-    error,
-    fetchCart,
-    // deleteProductInCartContext,
-  } = useCartContext();
+export default function Checkout({ product }) {
+  //   console.log(product);
+  const price = calculatePrice(product);
+  const taxedPrice = (price * product.gst_amount) / 100;
+  //   console.log(price);
+
   const { address: addressData } = useAddressContext();
   const { addAddress, fetchAddress } = useAddressActions();
   const { user, loading: loadingUser } = useUserContext();
@@ -49,19 +36,44 @@ export default function ShopCheckout() {
     reset,
     formState: { errors },
   } = addAddress();
-  const { emptyCart } = useCartActions();
-  // const userId = "f47ac10b-58cc-4372-a567-0e02b2c3d479";
-  const [cart, setCart] = useState(cartData);
-  const [cartTotals, setCartTotals] = useState(null);
   const [saveShippingAddress, setSaveShippingAddress] = useState(false);
   const [isAddressSame, setIsAddressSame] = useState(true);
   const { closeMessage, openMessage } = useMessage();
-  // console.log(cartData);
+  const searchParams = useSearchParams();
+
+  // Store parsed values
+  const [checkoutData, setCheckoutData] = useState({
+    qty: 1,
+    variations: {},
+  });
+  //   console.log(checkoutData);
+
+  const fetchProduct = async () => {
+    const qty = Number(searchParams.get("qty")) || 1;
+    // Build object from query params
+    const data = {
+      qty: qty,
+      variations: {},
+    };
+
+    // Add variations dynamically
+    searchParams.forEach((value, key) => {
+      if (key !== "qty") {
+        data.variations[key] = value;
+      }
+    });
+    setCheckoutData({
+      ...data,
+    });
+  };
+
+  useEffect(() => {
+    if (!searchParams) return;
+    fetchProduct();
+  }, [searchParams]);
 
   useEffect(() => {
     if (!user) return;
-
-    if (cartData && cartData.length === 0) fetchCart({ userId: user.id });
     if (addressData && addressData.length === 0)
       fetchAddress({ user_id: user.id });
   }, [user]);
@@ -69,61 +81,79 @@ export default function ShopCheckout() {
   useEffect(() => {
     reset(addressData[0] || {});
   }, [addressData]);
-  useEffect(() => {
-    setCart(cartData);
-    setCartTotals(calculateCartTotals(cartData));
-  }, [cartData]);
-  //   console.log(cartData);
 
-  async function handleCartCheckout({ data: address, extra }) {
-    if (!user) {
-      console.log("User not logged in");
-      return;
+  async function handleCartCheckout({ data: address }) {
+    let userDetails = user;
+    const name = address?.first_name + " " + address?.last_name;
+    // console.log(userDetails);
+
+    if (!userDetails) {
+      openMessage("Creating User...");
+      const { data } = await getUserByEmail({
+        email: address.email,
+      });
+      if (data && data.id) {
+        userDetails = data;
+      } else {
+        const { user, error } = await addUser({
+          user: {
+            email: address.email,
+            name: name,
+          },
+        });
+
+        if (user?.id) userDetails = user;
+        else return closeMessage("Something went wrong.", "error");
+      }
     }
-    openMessage("Processing your order...");
 
-    // console.log(address);
-    // console.log(extra);
-    // await emptyCart({ user_id: userId });
+    // console.log(userDetails);
+
+    openMessage("Processing your order...");
+    let extra = { userId: userDetails?.id, type: "billing" };
+
     if (saveShippingAddress) {
       await onSubmit({
         data: address,
         extra: extra,
       });
     }
-    // e.preventDefault();
-    const name = address?.first_name + " " + address?.last_name;
-    const amount = Math.round(cartTotals.grandTotal.toFixed(2) * 100);
+    const amount = product.tax_inclusive
+      ? Math.round(price * checkoutData.qty) * 100
+      : Math.round(((price + taxedPrice) * checkoutData.qty).toFixed(2)) * 100;
 
-    // console.log(amount);
-    const orderItems = mapCartToOrderItems(cart);
+    console.log(amount);
+
+    // const amount = Math.round(cartTotals.grandTotal.toFixed(2) * 100);
+
+    const orderItems = mapProductToOrderItems(product, checkoutData);
     const userDetail = {
       name: name,
       email: address.email,
       phone: address.mobile_no,
-      user_id: user.id,
+      user_id: userDetails.id,
     };
-    // console.log(orderItems);
+    console.log(orderItems);
 
     if (isCOD) {
       const { data, error } = await createOrder({
         amount,
         currency: "INR",
-        user_id: user.id,
+        user_id: userDetails.id,
         billing_address: address,
         shipping_address: address,
       });
       // console.log(error);
 
-      // console.log(data);
+      console.log(data);
 
       if (data && data.dbOrder && data.dbOrder.id) {
         // console.log(orderItems);
         await addOrderItems({
           order_id: data.dbOrder.order_id,
-          order_items: orderItems,
+          order_items: [orderItems],
         });
-        await emptyCart({ user_id: user.id });
+        // await emptyCart({ user_id: user.id });
         closeMessage("Order placed successfully", "success");
         router.push("/order-successful");
       }
@@ -142,11 +172,11 @@ export default function ShopCheckout() {
         billing_address: address,
         key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
         shipping_address: address, //shipping address
-        order_items: orderItems,
+        order_items: [orderItems],
         onSuccess: async (res) => {
           if (res?.success) {
             // await addOrderItems({ order_id: data.dbOrder.id });
-            await emptyCart({ user_id: user.id });
+            // await emptyCart({ user_id: user.id });
             closeMessage("Order placed successfully", "success");
             router.push("/order-successful");
             return;
@@ -208,7 +238,6 @@ export default function ShopCheckout() {
                   onSubmit={handleSubmit((data) =>
                     handleCartCheckout({
                       data: data,
-                      extra: { userId: user?.id, type: "billing" },
                     })
                   )}
                 >
@@ -488,224 +517,63 @@ export default function ShopCheckout() {
                     </button>
                   </div>
                 </form>
-
-                {/* <h3 className="text-xl leading-normal font-semibold mt-6">
-                  Payment
-                </h3>
-
-                <form>
-                  <div>
-                    <div className="grid lg:grid-cols-12 grid-cols-1 mt-6 gap-5">
-                      <div className="lg:col-span-12">
-                        <div className="block">
-                          <div>
-                            <label className="inline-flex items-center">
-                              <input
-                                type="radio"
-                                className="form-radio border-gray-100 dark:border-gray-800 text-gray-800 focus:border-orange-300 focus:ring focus:ring-offset-0 focus:ring-orange-200 focus:ring-opacity-50 me-2"
-                                name="radio-colors"
-                                value="1"
-                                readOnly
-                                defaultChecked
-                              />
-                              <span className="text-slate-400">
-                                Credit card
-                              </span>
-                            </label>
-                          </div>
-                        </div>
-
-                        <div className="block mt-2">
-                          <div>
-                            <label className="inline-flex items-center">
-                              <input
-                                type="radio"
-                                className="form-radio border-gray-100 dark:border-gray-800 text-gray-800 focus:border-orange-300 focus:ring focus:ring-offset-0 focus:ring-orange-200 focus:ring-opacity-50 me-2"
-                                name="radio-colors"
-                                value="1"
-                                readOnly
-                              />
-                              <span className="text-slate-400">Debit Card</span>
-                            </label>
-                          </div>
-                        </div>
-
-                        <div className="block mt-2">
-                          <div>
-                            <label className="inline-flex items-center">
-                              <input
-                                type="radio"
-                                className="form-radio border-gray-100 dark:border-gray-800 text-gray-800 focus:border-orange-300 focus:ring focus:ring-offset-0 focus:ring-orange-200 focus:ring-opacity-50 me-2"
-                                name="radio-colors"
-                                value="1"
-                                readOnly
-                              />
-                              <span className="text-slate-400">PayPal</span>
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="lg:col-span-6">
-                        <label className="form-label font-semibold">
-                          Account Holder Name :{" "}
-                          <span className="text-red-600">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          className="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
-                          placeholder="Name:"
-                          id="accountname"
-                          name="name"
-                          required=""
-                        />
-                      </div>
-
-                      <div className="lg:col-span-6">
-                        <label className="form-label font-semibold">
-                          Credit card number :{" "}
-                          <span className="text-red-600">*</span>
-                        </label>
-                        <input
-                          type="number"
-                          className="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
-                          placeholder="**** **** **** ****"
-                          id="cardnumber"
-                          name="number"
-                          required=""
-                        />
-                      </div>
-
-                      <div className="lg:col-span-3">
-                        <label className="form-label font-semibold">
-                          Expiration : <span className="text-red-600">*</span>
-                        </label>
-                        <input
-                          type="number"
-                          className="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
-                          placeholder=""
-                          id="expiration"
-                          name="number"
-                          required=""
-                        />
-                      </div>
-
-                      <div className="lg:col-span-3">
-                        <label className="form-label font-semibold">
-                          CVV : <span className="text-red-600">*</span>
-                        </label>
-                        <input
-                          type="number"
-                          className="w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 mt-2"
-                          placeholder=""
-                          id="cvv"
-                          name="number"
-                          required=""
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </form>
-                <div className="mt-4">
-                  <input
-                    type="submit"
-                    className="py-2 px-5 inline-block tracking-wide align-middle duration-500 text-base text-center bg-gray-800 text-white rounded-md w-full"
-                    value="Continue to checkout"
-                  />
-                </div> */}
               </div>
             </div>
 
             <div className="lg:col-span-4">
               <div className="p-6 rounded-md shadow dark:shadow-gray-800">
                 <div className="flex justify-between items-center">
-                  <h5 className="text-lg font-semibold">Your Cart</h5>
+                  <h5 className="text-lg font-semibold">Order</h5>
 
-                  <Link
+                  {/* <Link
                     href="#"
                     className="bg-gray-800 flex justify-center items-center text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full h-5"
                   >
                     {cart && cart.length}
-                  </Link>
+                  </Link> */}
                 </div>
 
                 <div className="mt-4 rounded-md shadow dark:shadow-gray-800">
-                  {cart &&
-                    cart.length > 0 &&
-                    cart.map((cart, idx) => {
-                      const product = cart.products;
-                      const price = calculatePrice(product);
-                      const taxedPrice = (price * product.gst_amount) / 100;
-                      return (
-                        <div
-                          key={idx}
-                          className="p-3 flex justify-between items-center"
-                        >
-                          <div>
-                            <Link
-                              href={`/product/${cart.products.id}`}
-                              className="font-semibold"
-                            >
-                              {truncateString(cart.products.product_name, 15)}
-                              {/* {cart.products.product_name.slice(0, 14)} */}
-                            </Link>
-                            {/* <p className="text-sm text-slate-400">
-                         Brief description
-                       </p> */}
-                          </div>
-
-                          <p className="text-slate-400 font-semibold">
-                            Rs.
-                            {product.tax_inclusive
-                              ? formatPriceINR(price * cart.quantity)
-                              : formatPriceINR(
-                                  (
-                                    (price + taxedPrice) *
-                                    cart.quantity
-                                  ).toFixed(2)
-                                )}
-                          </p>
-                        </div>
-                      );
-                    })}
-
-                  {/* <div className="p-3 flex justify-between items-center border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-slate-800 text-green-600">
+                  <div className="p-3 flex justify-between items-center">
                     <div>
-                      <h5 className="font-semibold">Promo code</h5>
-                      <p className="text-sm text-green-600">EXAMPLECODE</p>
-                    </div>
-
-                    <p className="text-red-600 font-semibold">-$ 10</p>
-                  </div> */}
-
-                  <div className="mt-4 p-3 flex justify-between items-center border border-gray-100 dark:border-gray-800">
-                    <div>
-                      <h5 className="font-semibold">
-                        SubTotal
-                        {/* {cart.products.product_name.slice(0, 14)} */}
-                      </h5>
-                      {/* <p className="text-sm text-slate-400">
-                         Brief description
-                       </p> */}
+                      <Link
+                        href={`/product/${product.id}`}
+                        className="font-semibold"
+                      >
+                        {truncateString(product.product_name, 15)}
+                      </Link>
                     </div>
 
                     <p className="text-slate-400 font-semibold">
-                      Rs.{formatPriceINR(cartTotals?.subtotal.toFixed(2))}
+                      Rs.
+                      {product.tax_inclusive
+                        ? formatPriceINR(price)
+                        : formatPriceINR((price + taxedPrice).toFixed(2))}
+                    </p>
+                  </div>
+
+                  <div className="mt-4 p-3 flex justify-between items-center border border-gray-100 dark:border-gray-800">
+                    <div>
+                      <h5 className="font-semibold">SubTotal</h5>
+                    </div>
+
+                    <p className="text-slate-400 font-semibold">
+                      Rs.{" "}
+                      {product.tax_inclusive
+                        ? formatPriceINR(price * checkoutData.qty)
+                        : formatPriceINR(
+                            ((price + taxedPrice) * checkoutData.qty).toFixed(2)
+                          )}
                     </p>
                   </div>
                   <div className="p-3 flex justify-between items-center">
                     <div>
-                      <h5 className="font-semibold">
-                        Taxes
-                        {/* {cart.products.product_name.slice(0, 14)} */}
-                      </h5>
-                      {/* <p className="text-sm text-slate-400">
-                         Brief description
-                       </p> */}
+                      <h5 className="font-semibold">Taxes</h5>
                     </div>
 
                     <p className="text-slate-400 font-semibold">
-                      Rs.{formatPriceINR(cartTotals?.totalGST.toFixed(2))}
+                      Rs.
+                      {formatPriceINR(taxedPrice.toFixed(2) * checkoutData.qty)}
                     </p>
                   </div>
                   <div className="p-3 flex justify-between items-center border border-gray-100 dark:border-gray-800">
@@ -714,28 +582,15 @@ export default function ShopCheckout() {
                     </div>
 
                     <p className="font-semibold">
-                      Rs.{formatPriceINR(cartTotals?.grandTotal.toFixed(2))}
+                      Rs.
+                      {product.tax_inclusive
+                        ? formatPriceINR(price * checkoutData.qty)
+                        : formatPriceINR(
+                            ((price + taxedPrice) * checkoutData.qty).toFixed(2)
+                          )}
                     </p>
                   </div>
                 </div>
-
-                {/* <div className="subcribe-form mt-6">
-                  <div className="relative max-w-xl">
-                    <input
-                      type="email"
-                      id="subcribe"
-                      name="email"
-                      className="py-4 pe-40 ps-6 w-full h-[50px] outline-none text-black dark:text-white rounded-full bg-white dark:bg-slate-900 shadow dark:shadow-gray-800"
-                      placeholder="Promo code"
-                    />
-                    <button
-                      type="submit"
-                      className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center absolute top-[2px] end-[3px] h-[46px] bg-gray-800 text-white rounded-full"
-                    >
-                      Redeem
-                    </button>
-                  </div>
-                </div> */}
               </div>
             </div>
           </div>

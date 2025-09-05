@@ -16,3 +16,21 @@ export function mapCartToOrderItems(cartItems) {
     };
   });
 }
+
+export function mapProductToOrderItems(product, checkoutData) {
+  const price = product.base_price; // snapshot base price (apply discounts if needed)
+
+  return {
+    product_id: product.id,
+    product_name: product.product_name,
+    product_image: product.product_images[0]?.url || null, // make sure you grab the URL
+    price,
+    quantity: checkoutData.qty,
+    variations: Object.entries(checkoutData.variations || {}).map(
+      ([variation_type, variation_value]) => ({
+        variation_type,
+        variation_value,
+      })
+    ),
+  };
+}
